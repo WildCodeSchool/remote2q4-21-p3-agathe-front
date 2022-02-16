@@ -3,23 +3,19 @@ import axios from "axios";
 import "./Presentation.css";
 
 const Presentation = () => {
-  const [presentation, setPresentation] = useState([]);
+  const [presentation, setPresentation] = useState('');
 
   useEffect(() => {
-    const fetchDataResult = () => {
+    const fetchPresentation = () => {
       axios
       .get(
-        ``
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          setResultList(data);
-        });
+        `http://localhost:8000/api/presentation`
+      ).then((response)  => {setPresentation(response.data.presentation);});
     };
-    fetchDataResult();
-  }, [params.city]);
+    fetchPresentation();
+  }, []);
 
-  return <div>Presentation</div>;
+  return <div className="presentation">{presentation}</div>;
 };
 
 export default Presentation;
