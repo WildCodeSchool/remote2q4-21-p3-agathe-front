@@ -8,10 +8,11 @@ const Presentation = () => {
 
   useEffect(() => {
     const fetchPresentation = () => {
-      axios.get(`http://localhost:8000/api/presentation`).then((response) => {
-        setPresentation(response.data.presentation.replace("\n"));
-      });
-    };
+     axios
+      .get(
+        `http://localhost:8000/api/presentation`
+      ).then((response) => {setPresentation(response.data.presentation);});
+  };
     fetchPresentation();
   }, []);
 
