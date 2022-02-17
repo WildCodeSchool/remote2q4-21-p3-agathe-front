@@ -9,7 +9,7 @@ const Home = () => {
       <div className="picture">Picture</div>
       <Presentation />
       <div className="carousel">Carousel products</div>
-      <div className="">Footer</div>
+      <div className="footer">Footer</div>
     </div>
   );
 };
