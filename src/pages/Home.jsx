@@ -1,6 +1,7 @@
 import React from "react";
 import "./Home.css";
 import Presentation from "../components/Presentation";
+import ProductsList from "../components/ProductsList";
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
       <div className="navbar">Navbar</div>
       <div className="picture">Picture</div>
       <Presentation />
+      <ProductsList />
       <div className="carousel">Carousel products</div>
       <div className="">Footer</div>
     </div>

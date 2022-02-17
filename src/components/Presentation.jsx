@@ -10,12 +10,14 @@ const Presentation = () => {
       axios
       .get(
         `http://localhost:8000/api/presentation`
-      ).then((response)  => {setPresentation(response.data.presentation);});
+      ).then((response) => {setPresentation(response.data.presentation);});
     };
     fetchPresentation();
   }, []);
 
-  return <div className="presentation">{presentation}</div>;
+  return <div className="presentation">
+    {presentation.split('\n').map(line => <p>{line}</p>)}</div>;
+  
 };
 
 export default Presentation;
