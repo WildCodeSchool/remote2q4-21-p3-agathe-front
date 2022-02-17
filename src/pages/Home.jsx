@@ -11,7 +11,7 @@ const Home = () => {
       <Presentation />
       <ProductsList />
       <div className="carousel">Carousel products</div>
-      <div className="">Footer</div>
+      <div className="footer">Footer</div>
     </div>
   );
 };
