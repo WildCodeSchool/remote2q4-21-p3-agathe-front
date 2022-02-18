@@ -1,0 +1,28 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  background-color: var(--main-bg-color);
+  height: 100vh;
+}
+
+.navbar,
+.footer {
+  background-color: var(--greenblue);
+  height: 10em;
+}
+
+.picture {
+  background-color: var(--darkgreen);
+  height: 10em;
+}
+
+.presentation {
+  background-color: var(--greenblue);
+  /* height: 20em; */
+}
+
+.carousel {
+  height: 30em;
+  background-color: darkcyan;
+}
