@@ -19,12 +19,13 @@ function ProductsList() {
         <div>{products.map((product) => (
             <div key={product.ProductID}>
                 <div>{product.name}</div>
+                <div><img src={`/assets/img/${product.ProductID}.jpeg`} alt={product.name} /></div>
                 <div>{product.price}</div>
             </div>
         ))}
         </div>
     )
- }
+}
 
     export default ProductsList
 
