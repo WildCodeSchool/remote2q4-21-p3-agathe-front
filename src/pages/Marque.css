@@ -9,7 +9,7 @@
     width: 400px;
 } */
 
-*{
+* {
     margin: 0px;
     padding: 0px;
 }
@@ -26,13 +26,27 @@
     font-size: 1.5em;
     /* text-align: ; */
     line-height: 1.5em;
-   
+
 }
 
+h1 {
+    padding-top: 50px;
+    /* border: 1px solid #000; */
+    font-size: 3em;
+    /* text-align: ; */
+    line-height: 1.5em;
+}
 
+p {
+    padding-top: 50px;
+    /* border: 1px solid #000; */
+    font-size: 1.5em;
+    /* text-align: ; */
+    line-height: 1.5em;
+}
 
 .img {
-   object-fit: contain;
-   height: 600px;
-   width: 1200px;
+    object-fit: contain;
+    height: 600px;
+    width: 1200px;
 }
