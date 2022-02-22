@@ -5,7 +5,7 @@ function ProductCard(props) {
 
   return (
     <div className='ProductCard'>
-        <img className='ProductCardImage' src={props.image} alt={props.name} />
+        <img className='ProductCardImage' src={`/assets/img/${props.ProductID}.jpeg`} alt={props.name} />
         <h4 className="ProductCardTitle">{props.name}</h4>
         <p className="ProductCardPrice">{props.price}</p>
     </div>
