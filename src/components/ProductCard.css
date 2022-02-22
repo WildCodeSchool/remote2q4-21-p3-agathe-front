@@ -1,0 +1,18 @@
+.ProductCard {
+    margin: 30px 0;
+}
+
+.ProductCardImage {
+    width: 300px;
+    
+}
+
+.ProductCardTitle {
+    text-align: center;
+    margin: 5px 0;
+}
+
+.ProductCardPrice {
+    text-align: center;
+    margin: 5px 0;
+}
