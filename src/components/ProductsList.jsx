@@ -20,6 +20,7 @@ function ProductsList() {
             <div key={product.ProductID}>
                 <div>{product.name}</div>
                 <div>{product.price}</div>
+                <div>{product.price}</div>
             </div>
         ))}
         </div>
