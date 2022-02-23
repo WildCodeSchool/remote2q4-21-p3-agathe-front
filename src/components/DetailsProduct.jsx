@@ -8,6 +8,8 @@ function DetailsProduct(props) {
                 <img className='DetailsProductImage' src={`/assets/img/${props.ProductID}.jpeg`} alt={props.name} />
                 <h4 className="DetailsProductTitle">{props.name}</h4>
                 <p className="DetailsProductPrice">{props.price} €</p>
+                {/* <p className='DetailsProductCharacteristic'{props.characteristic}> </p> */}
+
             </div>
     )
 }

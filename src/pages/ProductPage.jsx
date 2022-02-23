@@ -5,7 +5,7 @@ import "./ProductPage.css";
 import { useParams } from "react-router-dom";
 
 function ProductPage() {
-    const [resultLists, setResultLists] = useState([]);
+    const [productData, setproductData] = useState([]);
     const id=useParams().id
 
     useEffect(() => {
@@ -14,16 +14,15 @@ function ProductPage() {
                 .get(
                     `http://localhost:8000/api/products/${id}`
                 )
-                .then((response) => { setResultLists(response.data); });
+                .then((response) => { setproductData(response.data); });
         };
         product();
     }, []);
 
 
     return (
-        <div className="ProductPage"><h3>Bienvenue</h3>{resultLists.map((resultList) =>
-            <DetailsProduct {...resultLists} key={resultList.ProductID} />
-        )}
+        <div className="ProductPage"><h3>Bienvenue</h3>
+            <DetailsProduct {...productData} key={productData.ProductID} />
         </div>
     )
 };

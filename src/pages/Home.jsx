@@ -2,7 +2,6 @@ import React from "react";
 import "./Home.css";
 import Presentation from "../components/Presentation";
 import ProductsList from "../components/ProductsList";
-import ProductPage from "./ProductPage";
 
 const Home = () => {
   return (
@@ -11,7 +10,6 @@ const Home = () => {
       <div className="picture">Picture</div>
       <Presentation />
       <ProductsList />
-      <ProductPage />
       <div className="carousel">Carousel products</div>
       <div className="footer">Footer</div>
     </div>
