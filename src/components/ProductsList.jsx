@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import ProductCard from "./ProductCard";
 import "./ProductsList.css";
 
 function ProductsList() {
@@ -14,16 +15,13 @@ function ProductsList() {
     productsList();
   }, []);
 
-  return (
-    <div>
-      {products.map((product) => (
-        <div key={product.ProductID}>
-          <div>{product.name}</div>
-          <div>{product.price}</div>
+    return (
+        <div className="ProductList">{products.map((product) => 
+            <ProductCard {...product} key={product.ProductID} />
+                )}
         </div>
-      ))}
-    </div>
-  );
+    )
 }
 
-export default ProductsList;
+export default ProductsList
+
