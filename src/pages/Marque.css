@@ -1,0 +1,36 @@
+/* /* .description_texte {
+    background-color: aqua;
+}
+
+
+.Description  {
+    display: flex;
+    height: 200px;
+    width: 400px;
+} */
+
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+.description_texte p {
+    
+    /* border: 1px solid #000; */
+    font-size: 1.5em;
+     text-align: center; 
+    line-height: 1.5em;
+}
+
+
+
+
+
+.img {
+    object-fit: contain;
+    height: 600px;
+    width: 1200px;
+} 
