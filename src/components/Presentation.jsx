@@ -18,7 +18,7 @@ const Presentation = () => {
 
   return (
     <div className="presentation">
-      <div>
+      <div className="presentation_text">
         {presentation.split("\n").map((line) => (
           <p>{line}</p>
         ))}
