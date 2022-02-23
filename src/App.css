@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Cardo&family=Cinzel&display=swap');
+
 :root {
     --main-bg-color: #FCF9F0;
     --greenblue: #CFE2DE;
     --darkgreen: #2C3331;
+    --font-title: 'Cardo', serif;
+    --font-text: 'Cinzel', serif;
 }
 
 * {
@@ -9,5 +13,7 @@
     padding: 0;
     font-size: 16px;
 }
+
+
 
 
