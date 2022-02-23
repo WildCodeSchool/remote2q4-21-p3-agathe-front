@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ProductCard from "./ProductCard";
+import { Link } from "react-router-dom";
 import "./ProductsList.css";
 
 function ProductsList() {
@@ -17,7 +18,9 @@ function ProductsList() {
 
     return (
         <div className="ProductList">{products.map((product) => 
+          <Link to={`/product_page/${product.ProductID}`}>
             <ProductCard {...product} key={product.ProductID} />
+            </Link>
                 )}
         </div>
     )

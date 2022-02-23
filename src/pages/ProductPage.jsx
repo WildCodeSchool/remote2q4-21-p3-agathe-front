@@ -21,7 +21,7 @@ function ProductPage() {
 
 
     return (
-        <div className="ProductPage"><h3>Bienvenue</h3>
+        <div className="ProductPage">
             <DetailsProduct {...productData} key={productData.ProductID} />
         </div>
     )
