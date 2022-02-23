@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import "./Marque.css"
 
 function Marque() {
@@ -19,6 +21,7 @@ function Marque() {
 
 
         <div className="Description">
+            <Navbar />
             <div>
                 <h1>Notre histoire</h1>
                 <p className="presentation"> Elfenn a été imaginée en Bretagne sud, à la croisée des elements naturesls.<br />
@@ -45,7 +48,7 @@ function Marque() {
             </div>
 
           
-           
+            <Footer />
         </div>
     );
 };
