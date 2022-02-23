@@ -21,9 +21,7 @@ function Marque() {
 
         <div className="Description">
             <Navbar />
-            <div className="descrition_img">
-                <img className="img" src="/assets/img/logo.png" alt="logo" />
-            </div>
+           
             <div className="description_texte">
                 {description.split("\n").map((line) => (
                     <p>{line}</p>
