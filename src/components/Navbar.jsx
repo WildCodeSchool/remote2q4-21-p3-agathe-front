@@ -18,7 +18,7 @@ const Navbar = () => {
             <Link to="/marque" className="link">La marque</Link>
           </li>
           <li>
-            <Link to="/products" className="link">Nos produits</Link>
+            <Link to="/catalogue" className="link">Nos produits</Link>
           </li>
           <li className="push-right">
             <Link to="/cart" className="link">Panier</Link>
