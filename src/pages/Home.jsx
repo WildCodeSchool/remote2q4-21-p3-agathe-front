@@ -6,6 +6,7 @@ import Presentation from "../components/Presentation";
 import ProductsList from "../components/ProductsList";
 import logo from "../assets/Logo Elfenn cosmétiques.png";
 
+
 const Home = () => {
   return (
     <div className="home">
