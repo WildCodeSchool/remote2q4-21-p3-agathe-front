@@ -4,9 +4,9 @@
     padding: 2.5em;
 }
 
-.presentation p {
-    /* border: 1px solid #000; */
-    font-size: 1.5em;
+.presentation_text {
+    border: 1px solid #000;
+    font-size: 1.2em;
     /* text-align: ; */
     line-height: 1.5em;
     padding: 1em;
@@ -14,11 +14,13 @@
 
 .presentation_img {
     border: 1px solid #000;
-    /* width: ; */
-    /* height: 50px; */
+    align-items: flex-start;
+    width: 30em;
+    height: 20em;
 }
 
 .presentation_img img {
     width: 100%;
     height: 100%;
+    float: right;
 }

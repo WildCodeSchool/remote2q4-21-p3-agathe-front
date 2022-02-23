@@ -1,0 +1,22 @@
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: var(--greenblue);
+    padding: 2em 0;
+}
+
+
+.social-icons {
+    border: 1px solid #000;
+    /* margin: 2.5em auto; */
+    width:9em;
+    word-spacing: 1em;
+}
+
+
+.social-icons .link svg {
+    fill: var(--greenblue);
+    width: 2em;
+    height: auto;
+}

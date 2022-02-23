@@ -1,0 +1,34 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import logo from "../assets/Logo Elfenn cosmétiques.png";
+import "./Navbar.css";
+
+const Navbar = () => {
+ 
+  return (
+    <div className="navbar">
+      <div className="logo">
+        <img src={logo} alt="logo" />
+      </div>
+      <div className="navlink">
+          <li className="push-right">
+            <Link to="/" className="link">Accueil</Link>
+          </li>
+          <li>
+            <Link to="/brand" className="link">La marque</Link>
+          </li>
+          <li>
+            <Link to="/products" className="link">Nos produits</Link>
+          </li>
+          <li className="push-right">
+            <Link to="/cart" className="link">Panier</Link>
+          </li>
+          <li>
+            <Link to="/login" className="link">Connexion</Link>
+          </li>
+      </div>
+    </div>
+  );
+};
+
+export default Navbar;
