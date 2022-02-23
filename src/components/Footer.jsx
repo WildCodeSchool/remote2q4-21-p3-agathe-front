@@ -1,16 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Footer.css";
 
 const Footer = () => {
   return (
     <div className="footer">
       <div className="contacts">
-        <div class="phone">
-          <span>Phone: +1-543-123-4567</span>
-        </div>
-        <div class="mail">
-          <span>example@example.com</span>
-        </div>
+      <Link to="/contact" className="link">Nous contacter</Link>
       </div>
       <div className="social-icons">
       <a class="link" href="#"

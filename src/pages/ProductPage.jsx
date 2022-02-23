@@ -19,11 +19,11 @@ function ProductPage() {
         product();
     }, []);
 
-
     return (
         <div className="ProductPage">
             <DetailsProduct {...productData} key={productData.ProductID} />
         </div>
     )
 };
+
 export default ProductPage;
