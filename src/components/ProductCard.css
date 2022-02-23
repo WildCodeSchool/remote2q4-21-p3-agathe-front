@@ -1,18 +1,18 @@
-.DetailsProduct {
+.ProductCard {
     margin: 30px 0;
 }
 
-.DetailsProductImage {
+.ProductCardImage {
     width: 300px;
     
 }
 
-.DetailsProductTitle {
+.ProductCardTitle {
     text-align: center;
     margin: 5px 0;
 }
 
-.DetailsProductPrice {
+.ProductCardPrice {
     text-align: center;
     margin: 5px 0;
 }
