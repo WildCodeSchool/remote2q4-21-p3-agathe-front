@@ -3,7 +3,6 @@ import axios from "axios";
 import DetailsProduct from "../components/DetailsProduct";
 import "./ProductPage.css";
 import { useParams } from "react-router-dom";
-// require('dotenv').config();
 
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
