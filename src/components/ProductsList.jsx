@@ -23,7 +23,7 @@ function ProductsList() {
         if (products.length) {
             for (let i = 0; randomProducts.length < 3; i++) {
                 const j = Math.floor(Math.random() * products.length);
-                if (!randomProducts.includes(products[j]) && products[j].id !== 4) {
+                if (!randomProducts.includes(products[j])) {
                     randomProducts.push(products[j])
                 };
             }
