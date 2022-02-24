@@ -4,7 +4,6 @@ import logo from "../assets/Logo Elfenn cosmétiques.png";
 import "./Navbar.css";
 
 const Navbar = () => {
- 
   return (
     <div className="navbar">
       <div className="logo">
@@ -12,7 +11,7 @@ const Navbar = () => {
       </div>
       <div className="navlink">
           <li className="push-right">
-            <Link to="/" className="link">Accueil</Link>
+            <Link to="/#home" className="link">Accueil</Link>
           </li>
           <li>
             <Link to="/marque" className="link">La marque</Link>
