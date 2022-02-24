@@ -5,12 +5,13 @@ import "./Presentation.css";
 
 const Presentation = () => {
   const [presentation, setPresentation] = useState("");
+  const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
   useEffect(() => {
     const fetchPresentation = () => {
     axios
       .get(
-        `http://localhost:8000/api/presentation`
+        `${BASE_URL}/api/presentation`
       ).then((response) => {setPresentation(response.data.presentation);});
   };
     fetchPresentation();

@@ -6,12 +6,13 @@ import "./Marque.css"
 
 function Marque() {
     const [description, setDescription] = useState("");
+    const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
     useEffect(() => {
         const Marque = () => {
             axios
                 .get(
-                    `http://localhost:8000/api/presentation`
+                    `${BASE_URL}/api/presentation`
                 ).then((response) => { setDescription(response.data.presentation); });
         };
         Marque();
