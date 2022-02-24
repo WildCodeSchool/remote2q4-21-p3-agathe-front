@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import DetailsProduct from "../components/DetailsProduct";
 import { useParams } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Navbar from "../components/home/Navbar";
+import Footer from "../components/home/Footer";
 import "./ProductPage.css";
 // require('dotenv').config();
 

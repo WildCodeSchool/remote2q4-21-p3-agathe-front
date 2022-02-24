@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Footer from "../components/home/Footer";
+import Navbar from "../components/home/Navbar";
 import "./Marque.css"
 
 function Marque() {
