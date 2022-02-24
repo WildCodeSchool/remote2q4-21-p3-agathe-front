@@ -10,8 +10,7 @@ const Presentation = () => {
   useEffect(() => {
     const fetchPresentation = () => {
     axios
-      .get(
-        `${BASE_URL}/api/presentation`
+      .get(`${BASE_URL}/api/presentation`
       ).then((response) => {setPresentation(response.data.presentation);});
   };
     fetchPresentation();
