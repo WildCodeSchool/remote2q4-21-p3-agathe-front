@@ -1,28 +1,17 @@
 import React from "react";
-import "./Home.css";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
+import Introduction from "../components/home/Introduction";
+import Footer from "../components/home/Footer";
+import Navbar from "../components/home/Navbar";
 import Presentation from "../components/Presentation";
 import ProductsList from "../components/ProductsList";
-import logo from "../assets/Logo Elfenn cosmétiques.png";
+import "./Home.css";
+
 
 const Home = () => {
+
   return (
     <div className="home">
-      <div className="page access">
-        <div className="brand">
-          <img src={logo} alt="logo" />
-          <p>Elfenn cosmétiques</p>
-        </div>
-        <div className="shop_btn">
-          <h1>Inspiré par les éléments</h1>
-          <button>Boutique</button>
-        </div>
-        <div className="homepage_btn">
-          <p>Accueil</p>
-          <a className="arrow" href="#homepage"></a>
-        </div>
-      </div>
+      <Introduction/>
       <div id="homepage" className="page home_page">
           <Navbar />
         {/* <div className="picture">Picture</div> */}
