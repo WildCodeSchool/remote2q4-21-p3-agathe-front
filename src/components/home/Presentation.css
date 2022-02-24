@@ -1,7 +1,9 @@
 .presentation {
     display: flex;
     /* flex-direction: row; */
+    align-items: center;
     padding: 2.5em;
+    width: 70%;
 }
 
 .presentation_text {

@@ -10,28 +10,9 @@
   min-height: 100vh;
 }
 
-
-/* .home_page {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-} */
-
 .footer {
   background-color: var(--darkgreen);
   /* height: 10em; */
 }
 
-/* .picture {
-  background-color: var(--greenblue);
-  height: 10em;
-} */
 
-.presentation {
-  background-color: var(--greenblue);
-  /* height: 20em; */
-}
-
-.carousel {
-  background-color: darkcyan;
-}
