@@ -21,7 +21,7 @@ function Marque() {
 
         <div className="Description">
             <Navbar />
-           
+
             <div className="description_texte">
                 {description.split("\n").map((line) => (
                     <p>{line}</p>
