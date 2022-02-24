@@ -29,7 +29,6 @@ const Home = () => {
         {/* <div className="picture">Picture</div> */}
         <Presentation />
         <div className="carousel">
-          {" "}
           <ProductsList />
         </div>
         <Footer/>
