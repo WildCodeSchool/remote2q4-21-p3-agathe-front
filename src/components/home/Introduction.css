@@ -1,0 +1,87 @@
+.access {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  url("../../../public/assets/img/IMG_7208.jpeg");
+  background-size: cover;
+  /* flex-grow: 1; */
+  color: white;
+}
+
+
+.brand {
+  border: 1px solid #000;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 1em;
+}
+
+.brand img {
+  object-fit: cover;
+  /* height: 100%;
+    width: 100%; */
+  height: 60px;
+  width: 60px;
+  padding-right: 1em;
+}
+
+.brand_text p {
+  font-size: 1.2em;
+}
+
+.shop_btn,
+.homepage_btn {
+  display: flex;
+  flex-direction: column;
+}
+
+.shop_btn {
+  border: 1px solid #000;
+  /* margin: auto; */
+  width: 300px;
+}
+
+.shop_btn h1 {
+  font-family: var(--font-title);
+  font-size: 3em;
+  line-height: 1.5em;
+  padding-bottom: 0.5em;
+  text-align: center;
+}
+
+.shop_btn button {
+  align-self: center;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 1em;
+  color: white;
+  padding: 0.5em 1em;
+  /* width: 10px; */
+  cursor: pointer;
+}
+
+.shop_btn button:hover {
+  background-color: white;
+  color: #000;
+}
+
+.homepage_btn {
+  border: 1px solid #000;
+  margin-bottom: 2em;
+  position: relative;
+}
+
+.homepage_btn p {
+  text-align: center;
+  padding-bottom: 1em;
+}
+
+.homepage_btn .arrow {
+  border: 2px solid white;
+  margin: auto;
+  width: 10px;
+  height: 10px;
+}
