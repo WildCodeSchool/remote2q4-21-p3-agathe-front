@@ -6,7 +6,7 @@ import "./ContactPage.css";
 function ContactPage() {
   return (
     <div>
-        <Navbar />
+      <Navbar />
         <div className='ContactPage'>
             <h1 className="contact">Nous contacter</h1>
             <a className="email" href="mailto: elfenncosmetiques@gmail.com" target="_blank">elfenncosmetiques@gmail.com</a>
