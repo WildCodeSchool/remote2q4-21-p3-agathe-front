@@ -14,7 +14,6 @@ const Home = () => {
         <Navbar />
         <Presentation />
         <div className="carousel">
-          {" "}
           <ProductsList />
         </div>
         <Footer />
