@@ -6,13 +6,13 @@ import "./Marque.css"
 
 function Marque() {
     const [description, setDescription] = useState("");
+    const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
     useEffect(() => {
         const Marque = () => {
             axios
-                .get(
-                    `http://localhost:8000/api/presentation`
-                ).then((response) => { setDescription(response.data.presentation); });
+                .get(`${BASE_URL}/api/presentation`)
+                .then((response) => { setDescription(response.data.presentation); });
         };
         Marque();
     }, []);
@@ -21,15 +21,18 @@ function Marque() {
 
         <div className="Description">
             <Navbar />
-
-            <div className="description_texte">
-                {description.split("\n").map((line) => (
-                    <p>{line}</p>
-                ))}
-            </div>
-            <div className="descrition_img">
-                <img className="img" src="/assets/img/IMG_7208.jpeg" alt="marque" />
-            </div>
+            <section className="Marquedesc">
+                <h1>Notre histoire </h1>
+                <hr />
+                <div className="description_texte">
+                    {description.split("\n").map((line) => (
+                        <p>{line}</p>
+                    ))}
+                </div>
+                <div className="descrition_img">
+                    <img className="img" src="/assets/img/IMG_7208.jpeg" alt="marque" />
+                </div>
+            </section>
             <Footer />
         </div>
     );
