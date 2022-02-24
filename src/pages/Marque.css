@@ -9,23 +9,12 @@
     width: 400px;
 } */
 
-
-* {
-    margin: 0px;
-    padding: 0px;
-}
-
-
 .titre {
     margin-top: 20px;
     background-color: #CFE2DE;
     font-size: 3em;
     letter-spacing: 2px;
     text-align: center;
-
-
-
-
 }
 
 hr {
@@ -35,8 +24,6 @@ hr {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 30px;
-
-
 }
 
 .Marquedesc {
@@ -52,9 +39,7 @@ hr {
 }
 
 .description_texte p {
-
-
-    /* border: 1px solid #000; */
+/* border: 1px solid #000; */
     font-size: 1.5em;
     text-align: center;
     line-height: 1.5em;
@@ -62,19 +47,11 @@ hr {
     height: 4vh;
     margin-left: 220px;
     background-color: #CFE2DE;
-
-    /* object-fit: cover; */
 }
 
-
-
-
-
-.imgMarque {
+.marqueimg  {
     margin-top: 100px;
     width: 100%;
-    height: 80vh;
+    height: 80%;
     object-fit: cover;
-
-
 }

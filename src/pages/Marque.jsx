@@ -29,8 +29,8 @@ function Marque() {
                         <p>{line}</p>
                     ))}
                 </div>
-                <div className="descrition_img">
-                    <img className="imgMarque" src="/assets/img/IMG_7208.jpeg" alt="marque" />
+                <div className="description_img">
+                    <img className="marqueimg" src="/assets/img/IMG_7208.jpeg" alt="marque" />
                 </div>
             </section>
             <Footer />
