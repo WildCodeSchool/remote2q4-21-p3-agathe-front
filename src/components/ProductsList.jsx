@@ -18,8 +18,22 @@ function ProductsList() {
     productsList();
   }, []);
 
+  const randomProducts = [];
+    function getRandomProducts() {
+        if (products.length) {
+            for (let i = 0; randomProducts.length < 3; i++) {
+                const j = Math.floor(Math.random() * products.length);
+                if (!randomProducts.includes(products[j]) && products[j].id !== 4) {
+                    randomProducts.push(products[j])
+                };
+            }
+        }
+    }
+
+    getRandomProducts();
+
     return (
-        <div className="ProductList">{products.map((product) => 
+        <div className="ProductList">{randomProducts.map((product) => 
           <Link className="ProductList-Link" to={`/page_produit/${product.ProductID}`}>
             <ProductCard {...product} key={product.ProductID} />
             </Link>
