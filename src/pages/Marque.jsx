@@ -11,8 +11,8 @@ function Marque() {
     useEffect(() => {
         const Marque = () => {
             axios
-                .get(`${BASE_URL}/api/presentation`
-                ).then((response) => { setDescription(response.data.presentation); });
+                .get(`${BASE_URL}/api/presentation`)
+                .then((response) => { setDescription(response.data.presentation); });
         };
         Marque();
     }, []);
