@@ -23,6 +23,7 @@ function Marque() {
             <Navbar />
             <section className="Marquedesc">
                 <h1>Notre histoire </h1>
+                <hr />
                 <div className="description_texte">
                     {description.split("\n").map((line) => (
                         <p>{line}</p>

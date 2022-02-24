@@ -17,15 +17,18 @@
 
 
 h1 {
+    margin-top: 20px;
     background-color: #CFE2DE;
     font-size: 3em;
     letter-spacing: 2px;
     text-align: center;
+    margin-bottom: 20px;
 
 
 }
 
 .Marquedesc {
+    background-color: #CFE2DE;
     margin-top: 80px;
     margin-bottom: 80px;
     text-align: justify;
@@ -44,7 +47,10 @@ h1 {
     text-align: center;
     line-height: 1.5em;
     width: 70%;
-    height: 3vh;
+    height: 4vh;
+    margin-left: 220px;
+    background-color: #CFE2DE;
+
     /* object-fit: cover; */
 }
 
