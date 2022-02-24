@@ -6,11 +6,10 @@ import Presentation from "../components/Presentation";
 import ProductsList from "../components/ProductsList";
 import logo from "../assets/Logo Elfenn cosmétiques.png";
 
-
 const Home = () => {
   return (
     <div className="home">
-      <div className="page access">
+      <div className="page access" id="home">
         <div className="brand">
           <img src={logo} alt="logo" />
           <p>Elfenn cosmétiques</p>
@@ -20,21 +19,21 @@ const Home = () => {
           <button>Boutique</button>
         </div>
         <div className="homepage_btn">
-          <p>Accueil</p>
-          <a className="arrow" href="#homepage"></a>
+            <p>Accueil</p>
         </div>
       </div>
+
       <div id="homepage" className="page home_page">
-          <Navbar />
+        <Navbar />
         {/* <div className="picture">Picture</div> */}
         <Presentation />
         <div className="carousel">
           {" "}
           <ProductsList />
         </div>
-        <Footer/>
+        <Footer />
       </div>
-    </div>
+    </div >
   );
 };
 
