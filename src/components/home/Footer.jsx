@@ -1,19 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Footer.css";
 
 const Footer = () => {
   return (
     <div className="footer">
       <div className="contacts">
-        <div class="phone">
-          <span>Phone: +1-543-123-4567</span>
-        </div>
-        <div class="mail">
-          <span>example@example.com</span>
-        </div>
+      <Link to="/contact" className="link">Nous contacter</Link>
       </div>
       <div className="social-icons">
-      <a class="link" href="#"
+      <a class="link" href="https://www.facebook.com/elfenncosmetiques/" target="_blank"
             ><svg
               class="facebook"
               version="1.1"
@@ -28,7 +24,7 @@ const Footer = () => {
                 d="M414.572 36.572c13.428 0 24.286 10.857 24.286 24.285v390.286c0 13.428-10.857 24.286-24.286 24.286h-111.714v-170h56.857l8.572-66.286h-65.428v-42.286c0-19.143 5.143-32 32.857-32l34.857-0.286v-59.143c-6-0.857-26.857-2.572-50.857-2.572-50.572 0-85.428 30.857-85.428 87.428v48.857h-57.143v66.285h57.143v170h-210c-13.428 0-24.285-10.857-24.285-24.286v-390.286c0-13.428 10.857-24.285 24.285-24.285h390.286z"
               /></svg
           ></a>
-          <a class="link" href="#"
+          <a class="link" href="https://www.instagram.com/elfenn_cosmetiques/" target="_blank"
             ><svg
               class="instagram"
               version="1.1"

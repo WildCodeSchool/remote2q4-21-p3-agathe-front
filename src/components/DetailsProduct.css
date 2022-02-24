@@ -1,0 +1,18 @@
+.DetailsProduct {
+    margin: 30px 0;
+}
+
+.DetailsProductImage {
+    width: 300px;
+    
+}
+
+.DetailsProductTitle {
+    text-align: center;
+    margin: 5px 0;
+}
+
+.DetailsProductPrice {
+    text-align: center;
+    margin: 5px 0;
+}

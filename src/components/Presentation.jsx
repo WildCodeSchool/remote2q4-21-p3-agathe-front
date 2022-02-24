@@ -8,7 +8,7 @@ const Presentation = () => {
 
   useEffect(() => {
     const fetchPresentation = () => {
-     axios
+    axios
       .get(
         `http://localhost:8000/api/presentation`
       ).then((response) => {setPresentation(response.data.presentation);});

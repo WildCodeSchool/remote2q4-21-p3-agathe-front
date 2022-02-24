@@ -1,0 +1,19 @@
+import React from 'react';
+import Navbar from '../components/home/Navbar';
+import Footer from '../components/home/Footer';
+import "./ContactPage.css";
+
+function ContactPage() {
+  return (
+    <div>
+        <Navbar />
+        <div>
+            <h1 className="contact">Nous contacter</h1>
+            <a className="email" href="mailto: elfenncosmetiques@gmail.com" target="_blank">elfenncosmetiques@gmail.com</a>
+        </div>
+        <Footer />
+    </div>
+  )
+}
+
+export default ContactPage
