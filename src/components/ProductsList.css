@@ -18,7 +18,15 @@
     /* border: 1px solid #000; */
 }
 
+.CatalogueList {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    background-color: blue;
+}
+
 .ProductList-Link {
     text-decoration: none;
     color: black;
-} 
+}
+

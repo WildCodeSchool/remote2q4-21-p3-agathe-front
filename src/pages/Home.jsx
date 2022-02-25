@@ -16,7 +16,7 @@ const Home = () => {
         <Presentation />
         <div className="home_products">
           <h2>Nos produits</h2>
-          <ProductsList />
+          <ProductsList randomize={true}/>
         </div>
         <Footer />
       </div>
