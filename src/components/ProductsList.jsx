@@ -6,7 +6,7 @@ import "./ProductsList.css";
 
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
-function ProductsList() {
+function ProductsList({ randomize }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ function ProductsList() {
     productsList();
   }, []);
 
-  const randomProducts = [];
+  let randomProducts = [];
     function getRandomProducts() {
         if (products.length) {
             for (let i = 0; randomProducts.length < 3; i++) {
@@ -30,7 +30,8 @@ function ProductsList() {
         }
     }
 
-    getRandomProducts();
+    if (randomize) getRandomProducts();
+    else randomProducts = [...products];
 
     return (
         <div className="ProductList">{randomProducts.map((product) => 
