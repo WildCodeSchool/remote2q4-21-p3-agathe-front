@@ -5,21 +5,17 @@ import { useParams } from "react-router-dom";
 import Navbar from "../components/home/Navbar";
 import Footer from "../components/home/Footer";
 import "./ProductPage.css";
-// require('dotenv').config();
 
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
 function ProductPage() {
-    const [productData, setproductData] = useState([]);
+    const [productData, setproductData] = useState({});
     const id = useParams().id
 
     useEffect(() => {
-        const product = () => {
-            axios
-                .get(`${BASE_URL}/api/products/${id}`)
-                .then((response) => { setproductData(response.data); });
-        };
-        product();
+        axios
+            .get(`${BASE_URL}/api/products/${id}`)
+            .then(response => setproductData(response.data));
     }, []);
 
     return (

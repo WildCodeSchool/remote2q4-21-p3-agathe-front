@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     background-color: #CFE2DE;
-
 }
 
 .titre {
@@ -36,10 +35,10 @@ hr {
     font-size: 1.5em;
     text-align: center;
     line-height: 1.5em;
-    text-align: center;
     background-color: #CFE2DE;
-    margin-left: 30%;
-    margin-right: 30%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 10px;
 }
 
 .marqueimg {
