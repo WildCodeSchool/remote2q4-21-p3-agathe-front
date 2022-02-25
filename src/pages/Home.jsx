@@ -9,11 +9,12 @@ import "./Home.css";
 const Home = () => {
   return (
     <div className="home">
+      <Introduction/>
       <div id="homepage" className="page home_page">
-        <Introduction/>
         <Navbar />
         <Presentation />
-        <div className="carousel">
+        <div className="home_products">
+          <h2>Nos produits</h2>
           <ProductsList />
         </div>
         <Footer />
