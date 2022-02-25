@@ -1,18 +1,47 @@
 .DetailsProduct {
-    margin: 30px 0;
+    background-color: beige;
+    margin: 0 auto;    
+    display: flex;
 }
-
-.DetailsProductImage {
-    width: 300px;
+.DetailsContainer-left{
+    width: 50%;
+    padding: 50px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    border-right: 10;
+}
+.DetailsContainer-right{
     
+    width: 50%;
+    padding: 50px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
 }
-
+.DetailsProductImage {
+    width: 500px;
+    align-items: center;
+}
 .DetailsProductTitle {
-    text-align: center;
-    margin: 5px 0;
+    font-size: 50px;
 }
-
 .DetailsProductPrice {
+    font-size: 50px;
+    margin: 0 auto;
+}
+.DetailsProductCharacteristic {
+    font-size: 50px;
     text-align: center;
-    margin: 5px 0;
+}
+.DetailsProductDescription {
+    font-size: 50px;
+    box-sizing: border-box;
+    margin: 0 auto;    
+    text-align: center;
+}
+.DetailsProductIngredient {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 50px;
 }
