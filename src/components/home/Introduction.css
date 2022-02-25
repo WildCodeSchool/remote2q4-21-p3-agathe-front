@@ -39,7 +39,7 @@
 }
 
 .shop_btn {
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   width: 300px;
 }
 
@@ -68,7 +68,7 @@
 }
 
 .homepage_btn {
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   margin-bottom: 2em;
   position: relative;
 }

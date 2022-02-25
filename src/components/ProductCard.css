@@ -34,14 +34,12 @@
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
   font-family: var(--font-text);
-  height: 100%;
   width: 20em;
 }
 
 .CatalogueCard {
-  flex-basis: 10%;
-  margin: 50px;
-
+  margin: 7em;
+  width: 25em;
 }
 
 .ProductCardImage {
