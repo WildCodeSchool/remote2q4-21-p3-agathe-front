@@ -39,7 +39,7 @@
 }
 
 .shop_btn {
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   width: 300px;
 }
 
@@ -51,14 +51,17 @@
   text-align: center;
 }
 
+.shop_btn .link {
+  display: flex;
+  margin: auto;
+}
+
 .shop_btn button {
-  align-self: center;
   background-color: transparent;
   border: 1px solid white;
   border-radius: 1em;
   color: white;
   padding: 0.5em 1em;
-  /* width: 10px; */
   cursor: pointer;
 }
 
@@ -68,7 +71,7 @@
 }
 
 .homepage_btn {
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   margin-bottom: 2em;
   position: relative;
 }
