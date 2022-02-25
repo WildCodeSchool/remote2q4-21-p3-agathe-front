@@ -6,7 +6,7 @@ import "./Catalogue.css";
 
 function Catalogue() {
   return (
-    <div>
+    <div className='Catalogue'>
         <Navbar />
         <ProductsList />
         <Footer />
