@@ -1,18 +1,75 @@
 .DetailsProduct {
-    margin: 30px 0;
+    background-color: beige;
+    margin: 0 auto;
+    display: flex;
+}
+
+.DetailsContainer-left {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 10;
+    padding: 50px;
+    width: 50%;
+}
+
+.DetailsContainer-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 50px;
+    width: 50%;
 }
 
 .DetailsProductImage {
-    width: 300px;
-    
+    width: 500px;
+}
+
+.DetailsProductDescription {
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+    width: 100%;
+}
+
+.DetailsProductDescription p {
+    margin-bottom: 10px;
 }
 
 .DetailsProductTitle {
-    text-align: center;
-    margin: 5px 0;
+    font-size: 50px;
+}
+
+.DetailsProductCharacteristic {
+    border: 1px solid black;
+    padding: 10px;
+    width: 100%;
+}
+
+.DetailsProductCharacteristic p {
+    margin-bottom: 10px;
+}
+
+.DetailsProductDescription {
+    box-sizing: border-box;
+    /* margin: 0 auto; */
+    /* text-align: center; */
+}
+
+.DetailsProductIngredient {
+    border: 1px solid black;
+    padding: 4px;
+    /* margin: 0 auto; */
+    /* text-align: center; */
+}
+
+.DetailsProductIngredient p {
+    font-size: 14pt;
+    margin-bottom: 10px;
 }
 
 .DetailsProductPrice {
-    text-align: center;
-    margin: 5px 0;
+    font-size: 50px;
+    margin: 0 auto;
 }

@@ -1,11 +1,33 @@
-.ProductList {
+/* .ProductList {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     width: 100%;
+    border: 1px solid #000;
+}
+
+.ProductList-Link {
+    text-decoration: none;
+    color: black;
+} */
+
+.ProductList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* border: 1px solid #000; */
+}
+
+.CatalogueList {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: auto;
 }
 
 .ProductList-Link {
     text-decoration: none;
     color: black;
 }
+
