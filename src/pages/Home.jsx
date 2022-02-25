@@ -8,6 +8,7 @@ import "./Home.css";
 
 const Home = () => {
   return (
+    
     <div className="home">
       <Introduction/>
       <div id="homepage" className="page home_page">

@@ -1,17 +1,19 @@
-import React from 'react';
+import React from "react";
 import Footer from "../components/home/Footer";
-import Navbar from '../components/home/Navbar';
-import ProductsList from '../components/ProductsList';
+import Navbar from "../components/home/Navbar";
+import ProductsList from "../components/ProductsList";
 import "./Catalogue.css";
 
 function Catalogue() {
   return (
-    <div>
-        <Navbar />
+    <div className="Catalogue">
+      <Navbar />
+      <div className="catalogue_product">
         <ProductsList />
-        <Footer />
+      </div>
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default Catalogue
+export default Catalogue;
