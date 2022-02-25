@@ -10,6 +10,7 @@ function DetailsProduct(props) {
     // </div>
 
     return (
+        
         <div className='DetailsProduct'>
             <div className='DetailsContainer-left'>
                 < img className='DetailsProductImage' src={`/assets/img/${props.ProductID}.jpeg`} alt={props.name} />
