@@ -24,12 +24,10 @@ function Marque() {
             <section className="Marquedesc">
                 <h1 className="titre">Notre histoire </h1>
                 <hr />
-                <div className="description_texte">
-                    {description.split("\n").map((line) => (
+                                    {description.split("\n").map((line) => (
                         <p>{line}</p>
                     ))}
-                </div>
-                <div className="description_img">
+                               <div className="description_img">
                     <img className="marqueimg" src="/assets/img/IMG_7208.jpeg" alt="marque" />
                 </div>
             </section>
