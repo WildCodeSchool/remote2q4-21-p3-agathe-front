@@ -6,7 +6,7 @@ import "./ProductsList.css";
 
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
-function ProductsList() {
+function ProductsList({ randomize }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -18,24 +18,25 @@ function ProductsList() {
     productsList();
   }, []);
 
-  const randomProducts = [];
+  let randomProducts = [];
     function getRandomProducts() {
         if (products.length) {
             for (let i = 0; randomProducts.length < 3; i++) {
                 const j = Math.floor(Math.random() * products.length);
-                if (!randomProducts.includes(products[j]) && products[j].id !== 4) {
+                if (!randomProducts.includes(products[j])) {
                     randomProducts.push(products[j])
                 };
             }
         }
     }
 
-    getRandomProducts();
+    if (randomize) getRandomProducts();
+    else randomProducts = [...products];
 
     return (
-        <div className="ProductList">{randomProducts.map((product) => 
+        <div className={randomize === true ? "ProductList" : "CatalogueList"} >{randomProducts.map((product) => 
           <Link className="ProductList-Link" to={`/page_produit/${product.ProductID}`}>
-            <ProductCard {...product} key={product.ProductID} />
+            <ProductCard className={randomize === true ? "ProductCard" : "CatalogueCard"} {...product} key={product.ProductID} />
             </Link>
                 )}
         </div>

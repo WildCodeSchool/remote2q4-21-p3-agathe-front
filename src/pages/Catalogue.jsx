@@ -8,9 +8,7 @@ function Catalogue() {
   return (
     <div className="Catalogue">
       <Navbar />
-      <div className="catalogue_product">
-        <ProductsList />
-      </div>
+      <ProductsList />
       <Footer />
     </div>
   );
