@@ -5,7 +5,7 @@ function DetailsProduct(props) {
     return (
         <div className='DetailsProduct'>
             <div className='DetailsContainer-left'>
-                < img className='DetailsProductImage' src={`/assets/img/${props.ProductID}.jpeg`} alt={props.name} />
+                <img className='DetailsProductImage' src={`/assets/img/${props.ProductID}.jpeg`} alt={props.name} />
                 <p className='DetailsProductDescription'>
                     {props.description && props.description.split("\n").map(line => <p>{line}</p>)}
                 </p>
