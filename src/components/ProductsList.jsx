@@ -34,9 +34,9 @@ function ProductsList({ randomize }) {
     else randomProducts = [...products];
 
     return (
-        <div className="ProductList">{randomProducts.map((product) => 
+        <div className={randomize === true ? "ProductList" : "CatalogueList"} >{randomProducts.map((product) => 
           <Link className="ProductList-Link" to={`/page_produit/${product.ProductID}`}>
-            <ProductCard {...product} key={product.ProductID} />
+            <ProductCard className={randomize === true ? "ProductCard" : "CatalogueCard"} {...product} key={product.ProductID} />
             </Link>
                 )}
         </div>
