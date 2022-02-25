@@ -9,13 +9,13 @@
     width: 400px;
 }
 
-/* h1 {
+.titre {
     margin-top: 20px;
     background-color: #CFE2DE;
     font-size: 3em;
     letter-spacing: 2px;
     text-align: center;
-} */
+}
 
 hr {
     height: 3px;
@@ -49,13 +49,9 @@ hr {
     background-color: #CFE2DE;
 }
 
-
-
-.img {
+.marqueimg  {
     margin-top: 100px;
     width: 100%;
-    height: 80vh;
+    height: 80%;
     object-fit: cover;
-   
-
 }
