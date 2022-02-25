@@ -1,24 +1,47 @@
 .DetailsProduct {
-    display:flex;
-    background-color: lightsalmon;
+    /* height: 100vh;
+    margin: 25px 0px;
+    margin-left: 10px;
+    margin-right: 10px; */
+}
+.DetailsContainer-top{
+    margin: 100px;
+    flex-direction: row;
+    border-right: 10;
+    display: flex;
+}
+.DetailsContainer-bottom{
+    margin: 20px;
+    display: flex;
 }
 .DetailsProductImage {
     width: 500px;
+    align-items: center;
 }
 .DetailsProductTitle {
-    background-color: lightgreen;
+    justify-content: end;
+    font-size: 30px;
+text-align: center;
+box-sizing: border-box;
 }
 .DetailsProductPrice {
+    margin: 100px;
     text-align: center;
-    margin: 5px 0;
-    background-color: lightgrey;
+    font-size: 25px;
 }
 .DetailsProductCharacteristic {
-    background-color: lightcoral;
+    margin-top: 30px;
+    font-size: 25px;
+    text-align: center;
 }
 .DetailsProductDescription {
-    background-color: lightskyblue;
+    margin: 100px;
+    margin-top: 30px;
+    font-size: 25px;
+    text-align: center;
 }
 .DetailsProductIngredient {
-    background-color: lightseagreen;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 25px;
 }
