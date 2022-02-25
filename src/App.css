@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Cardo&family=Cinzel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=BioRhyme:wght@200&family=Cinzel&family=Work+Sans:wght@300&display=swap');
 
 :root {
-    --main-bg-color: #FCF9F0;
+    --main-bg-color: #fbfbf9;
     --greenblue: #CFE2DE;
     --darkgreen: #2C3331;
-    --font-title: 'Cardo', serif;
-    --font-text: 'Cinzel', serif;
+    --font-title: 'BioRhyme', serif;
+    --font-home: 'Cinzel', serif;
+    --font-text: 'Work Sans', serif;
 }
 
 * {

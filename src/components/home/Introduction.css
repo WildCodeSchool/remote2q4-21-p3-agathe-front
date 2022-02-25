@@ -1,18 +1,19 @@
 .access {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  url("../../../public/assets/img/IMG_7208.jpeg");
+  background-size: cover;
+  color: white;
+}
+
+.access_container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-  url("../../../public/assets/img/IMG_7208.jpeg");
-  background-size: cover;
-  /* flex-grow: 1; */
-  color: white;
+  height: 100vh;
 }
 
-
 .brand {
-  border: 1px solid #000;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -21,15 +22,14 @@
 
 .brand img {
   object-fit: cover;
-  /* height: 100%;
-    width: 100%; */
   height: 60px;
   width: 60px;
-  padding-right: 1em;
 }
 
-.brand_text p {
+.brand p {
+  font-family: var(--font-home);
   font-size: 1.2em;
+  padding-left: 1em;
 }
 
 .shop_btn,
@@ -40,13 +40,12 @@
 
 .shop_btn {
   border: 1px solid #000;
-  /* margin: auto; */
   width: 300px;
 }
 
 .shop_btn h1 {
   font-family: var(--font-title);
-  font-size: 3em;
+  font-size: 2.5em;
   line-height: 1.5em;
   padding-bottom: 0.5em;
   text-align: center;
@@ -75,6 +74,7 @@
 }
 
 .homepage_btn p {
+  font-family: var(--font-home);
   text-align: center;
   padding-bottom: 1em;
 }
