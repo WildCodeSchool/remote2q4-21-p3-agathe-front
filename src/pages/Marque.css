@@ -25,7 +25,6 @@ hr {
     margin-right: auto;
     margin-bottom: 30px;
 }
- 
 
 .Marquedesc {
     background-color: #CFE2DE;
@@ -49,13 +48,9 @@ hr {
     background-color: #CFE2DE;
 }
 
-
-
 .img {
     margin-top: 100px;
     width: 100%;
     height: 80vh;
     object-fit: cover;
-   
-
 }
