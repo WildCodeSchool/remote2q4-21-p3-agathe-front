@@ -1,24 +1,37 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
-export default function App() {
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+const ContactForm = () => {
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const handleRegistration = (data) => console.log(data);
+  const handleError = (errors) => { };
 
-  console.log(watch("example")); // watch input value by passing the name of it
+  const registerOptions = {
+    email: { required: "Email is required" },
+    message: { required: "Message is required" }
+  };
 
   return (
-    /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
-    <form onSubmit={handleSubmit(onSubmit)}>
-      {/* register your input into the hook by invoking the "register" function */}
-      <input type="email" defaultValue="test" {...register("email")} />
-      
-      {/* include validation with required or other standard HTML validation rules */}
-      <input {...register("exampleRequired", { required: true })} />
-      {/* errors will return when field validation fails  */}
-      {errors.exampleRequired && <span>This field is required</span>}
-      
-      <input type="submit" />
-    </form>
+    <div className="ContactForm">
+      <form onSubmit={handleSubmit(handleRegistration, handleError)}>
+        <div>
+          <input type="email" name="email" placeholder="Votre email" required
+            {...register('email', registerOptions.email)}
+          />
+          <small className="text-danger">
+            {errors?.email && errors.email.message}
+          </small>
+        </div>
+        <div>
+          <textarea name="name" type="text" placeholder="Votre message" {...register('name', registerOptions.name)} />
+          <small className="text-danger">
+            {errors?.name && errors.name.message}
+          </small>
+        </div>
+        <button>Envoyer le message</button>
+      </form>
+    </div>
   );
-}
+};
+
+export default ContactForm;
