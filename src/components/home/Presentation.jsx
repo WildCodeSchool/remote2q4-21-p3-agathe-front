@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import imageTest from "../assets/IMG_7178.jpeg";
+import imageTest from "../../assets/IMG_7178.jpeg";
 import "./Presentation.css";
 
 const Presentation = () => {
