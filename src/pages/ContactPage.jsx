@@ -1,15 +1,17 @@
 import React from 'react';
-import Navbar from '../components/home/Navbar';
+import ContactForm from "../components/ContactForm";
 import Footer from '../components/home/Footer';
+import Navbar from '../components/home/Navbar';
 import "./ContactPage.css";
 
 function ContactPage() {
   return (
-    <div>
+    <div className="ContactPage">
       <Navbar />
-        <div className='ContactPage'>
+        <div className='FormContainer'>
             <h1 className="contact">Nous contacter</h1>
-            <a className="email" href="mailto: elfenncosmetiques@gmail.com" target="_blank">elfenncosmetiques@gmail.com</a>
+            <a className="email" href="mailto: elfenncosmetiques@gmail.com" target="_blank" rel="noreferrer">elfenncosmetiques@gmail.com</a>
+            <ContactForm  />
         </div>
         <Footer />
     </div>

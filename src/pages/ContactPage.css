@@ -1,0 +1,14 @@
+.ContactPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ContactPage .FormContainer {
+    width: 25%;
+}
+
+.ContactPage .FormContainer h1 {
+    font-size: 50px;
+    text-align: center;
+}
