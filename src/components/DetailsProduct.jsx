@@ -21,7 +21,8 @@ function DetailsProduct(props) {
                     {props.ingredient && props.ingredient.split("\n").map(line => <li>{line}</li>)}
                 </ul>
             </div>
-        </div></div>
+        </div>
+        </div>
     )
 }
 

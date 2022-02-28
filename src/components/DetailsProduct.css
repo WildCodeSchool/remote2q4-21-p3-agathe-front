@@ -10,12 +10,13 @@
 }
 
 .DetailsTitle {
-    font-size: 2rem;
+    font-size: 2.5em;
     text-align: right;
     margin-right: 6em;
     margin-top: 1em;
     margin-bottom: 1em;
     font-family: var(--font-title);
+    color: #566882;
 }
 
 .DetailsImageContainer {
@@ -25,8 +26,6 @@
 .DetailsImage {
     width: 100%;
     clip-path:ellipse( 33% 50%);
-    object-fit: cover;
-    object-position: 100% 0;
 }
 
 .DetailsText {
@@ -34,13 +33,12 @@
     flex-direction: column;
     text-align: left;
     justify-content: space-evenly;
-    margin-left: 2em;
+    margin-left: 1em;
     width: 50%;
-
 }
 
 .DetailsDescription {
-    font-size: 1.5rem;
+    font-size: 1.5em;
 }
 
 .DetailsCharacteristic {
@@ -48,6 +46,7 @@
 }
 
 .DetailsPrice {
-    font-size: 2rem;
+    font-size: 2.5em;
     margin: 1em 0;
+    color: #566882;
 }
