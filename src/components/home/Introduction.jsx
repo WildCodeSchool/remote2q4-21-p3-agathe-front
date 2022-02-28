@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { HashLink } from "react-router-hash-link";
 import logo from "../../assets/Logo Elfenn cosmétiques.png";
 import "./Introduction.css";
 
@@ -20,11 +18,9 @@ const Introduction = () => {
             <button>Boutique</button>{" "}
           </Link>
         </div>
-        <div className="homepage_btn">
+        <div className="access_homepage">
           <p>Accueil</p>
-          {/* <HashLink className="arrow" to="#homepage">
-            Coucou
-          </HashLink> */}
+          <span class="arrow arrow-bottom"></span>
         </div>
       </div>
     </div>
