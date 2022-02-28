@@ -26,12 +26,11 @@ function Marque() {
                     <img className="marqueimg" src="/assets/img/IMG_7208.jpeg" alt="marque" />
                 </div>
                 <div>
-                <h1 className="titre"> Notre histoire </h1>
-                <hr />
-                {description.split("\n").map((line) => (
-                    <p>{line}</p>
-                ))}
-                
+                    <h1 className="titre"> Notre histoire </h1>
+                    <hr />
+                    {description.split("\n").map((line) => (
+                        <p>{line}</p>
+                    ))}
                 </div>
             </section>
             <Footer />

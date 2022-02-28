@@ -5,12 +5,12 @@
     font-family: var(--font-text);
 }
 
-/* .marque_presentation {
+ /* .marque_presentation {
     background-image: url("../assets/Logo\ Elfenn\ cosmétiques\ modifier\ .png");
     background-repeat: no-repeat;
     margin-left: 20px;
 
-}  */
+}   */
 
 .titre {
     text-align: center;
@@ -57,8 +57,7 @@ hr {
 
 }
 
-.marqueimg img {
+
    
 
 
-}
