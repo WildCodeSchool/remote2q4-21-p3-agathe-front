@@ -1,75 +1,53 @@
+.ProductPage {
+    background-color: var(--main-bg-color);
+    font-family: var(--font-text);
+}
+
 .DetailsProduct {
-    background-color: beige;
-    margin: 0 auto;
     display: flex;
+    margin-bottom: 5em;
+    justify-content: center;
 }
 
-.DetailsContainer-left {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-between;
-    border-right: 10;
-    padding: 50px;
-    width: 50%;
+.DetailsTitle {
+    font-size: 2rem;
+    text-align: right;
+    margin-right: 6em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-family: var(--font-title);
 }
 
-.DetailsContainer-right {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 50px;
-    width: 50%;
+.DetailsImageContainer {
+    width: 45vw;
 }
 
-.DetailsProductImage {
-    width: 500px;
-}
-
-.DetailsProductDescription {
-    border: 1px solid black;
-    margin: 10px;
-    padding: 10px;
+.DetailsImage {
     width: 100%;
+    clip-path:ellipse( 33% 50%);
+    object-fit: cover;
+    object-position: 100% 0;
 }
 
-.DetailsProductDescription p {
-    margin-bottom: 10px;
+.DetailsText {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: space-evenly;
+    margin-left: 2em;
+    width: 50%;
+
 }
 
-.DetailsProductTitle {
-    font-size: 50px;
+.DetailsDescription {
+    font-size: 1.5rem;
 }
 
-.DetailsProductCharacteristic {
-    border: 1px solid black;
-    padding: 10px;
-    width: 100%;
+.DetailsCharacteristic {
+    margin-top: 1em;
 }
 
-.DetailsProductCharacteristic p {
-    margin-bottom: 10px;
-}
-
-.DetailsProductDescription {
-    box-sizing: border-box;
-    /* margin: 0 auto; */
-    /* text-align: center; */
-}
-
-.DetailsProductIngredient {
-    border: 1px solid black;
-    padding: 4px;
-    /* margin: 0 auto; */
-    /* text-align: center; */
-}
-
-.DetailsProductIngredient p {
-    font-size: 14pt;
-    margin-bottom: 10px;
-}
-
-.DetailsProductPrice {
-    font-size: 50px;
-    margin: 0 auto;
+.DetailsPrice {
+    font-size: 2rem;
+    margin: 1em 0;
 }
