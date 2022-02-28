@@ -1,5 +1,5 @@
 .DetailsProduct {
-    background-color: #eeeee6;
+    color : var (--main-bg-color);
     display: flex;
 }
 
