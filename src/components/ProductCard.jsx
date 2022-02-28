@@ -13,7 +13,7 @@ function ProductCard(props) {
       <h4 className="ProductCardTitle">{props.name}</h4>
       <p className="ProductCardPrice">{props.price} €</p>
       <div className="ProductCardBase_buttons">
-        <Link to="/page_produit/:id" className="link--hover">
+        <Link to={`/page_produit/${props.ProductID}`} className="link--hover">
           {" "}
           <button>Détail</button>{" "}
         </Link>

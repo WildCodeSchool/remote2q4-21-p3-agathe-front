@@ -14,9 +14,17 @@
 }
 
 .home_products {
-  border-top: 1px solid var(--darkgreen);
-  margin: 3em auto;
-  padding-top: 2em;
+  margin: 4em auto 3em;
   width: 90%;
+}
+
+.home_products h2 {
+  font-size: 2em;
+  padding-bottom: 0.5em;
+}
+
+.products {
+  border-top: 1px solid var(--darkgreen);
+  padding: 2em 0;
 }
 

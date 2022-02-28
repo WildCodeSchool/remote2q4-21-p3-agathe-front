@@ -28,7 +28,7 @@
   z-index: 2;
 }
 
-.ProductCardBase_buttons:hover:before {
+.ProductCardBase:hover:before {
   opacity: 1;
 }
 
@@ -47,12 +47,17 @@
   transition: all 0.2s;
 }
 
-/* .ProductCardImage:hover {
-  transform: scale(1.2);
-} */
-
 .ProductCardPrice {
   padding: 1em 0;
+}
+
+.ProductCardBase_buttons {
+  position: absolute;
+  top: 45%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
 }
 
 .link--hover button {
@@ -63,10 +68,20 @@
   height: 40px;
   line-height: 40px;
   max-width: 260px;
-  cursor: pointer;
   z-index: 3;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 0.5em;
+  color: white;
+  cursor: pointer;
 }
 
-.ProductCardBase:hover .link--hover button {
+.ProductCardBase:hover .link--hover button  {
   opacity: 1;
+}
+
+.link--hover button:hover {
+    background-color: rgb(255, 255, 255, 0.7);
+    border: none;
+    color: #000;
 }

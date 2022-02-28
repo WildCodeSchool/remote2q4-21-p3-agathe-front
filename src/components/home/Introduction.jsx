@@ -18,8 +18,9 @@ const Introduction = () => {
             <button>Boutique</button>{" "}
           </Link>
         </div>
-        <div className="homepage_btn">
+        <div className="access_homepage">
           <p>Accueil</p>
+          <span class="arrow arrow-bottom"></span>
         </div>
       </div>
     </div>
