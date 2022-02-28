@@ -37,16 +37,24 @@
     width: 50%;
 }
 
-.DetailsDescription {
-    font-size: 1.5em;
+.DetailsDescription p {
+    font-size: 1.3em;
 }
 
-.DetailsCharacteristic {
-    margin-top: 1em;
+.DetailsDescription {
+    margin-bottom: 1.5rem;
+}
+
+.DetailsCharacteristic li {
+    font-size: 1.1em;
 }
 
 .DetailsPrice {
     font-size: 2.5em;
     margin: 1em 0;
     color: #566882;
+}
+
+.DetailsIngredient li {
+    font-size: 1.1em;
 }
