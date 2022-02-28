@@ -22,13 +22,16 @@ function Marque() {
         <div className="Description">
             <Navbar />
             <section className="Marquedesc">
-                <h1 className="titre">Notre histoire </h1>
-                <hr />
-                                    {description.split("\n").map((line) => (
-                        <p>{line}</p>
-                    ))}
-                               <div className="description_img">
+                <div className="description_img">
                     <img className="marqueimg" src="/assets/img/IMG_7208.jpeg" alt="marque" />
+                </div>
+                <div>
+                <h1 className="titre"> Notre histoire </h1>
+                <hr />
+                {description.split("\n").map((line) => (
+                    <p>{line}</p>
+                ))}
+                
                 </div>
             </section>
             <Footer />
