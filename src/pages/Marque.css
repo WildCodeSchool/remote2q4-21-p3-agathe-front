@@ -1,12 +1,20 @@
 .Description {
     display: flex;
     flex-direction: column;
-    background-color: #CFE2DE;
+    background-color: var(--main-bg-color);
+    font-family: var(--font-text);
 }
 
+/* .marque_presentation {
+    background-image: url("../assets/Logo\ Elfenn\ cosmétiques\ modifier\ .png");
+    background-repeat: no-repeat;
+    margin-left: 20px;
+
+}  */
+
 .titre {
-    margin-top: 5%;
-    background-color: #CFE2DE;
+    text-align: center;
+    font-family: var(--font-text);
     font-size: 3em;
     letter-spacing: 2px;
     text-align: center;
@@ -15,34 +23,42 @@
 hr {
     height: 3px;
     background-color: rgb(10, 10, 10);
-    width: 25vw;
+    width: 27vw;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 5%;
 }
 
 .Marquedesc {
-    margin-top: 7%;
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 5px 5px 15px 0px #000000;
-    border: #020202 solid 1px;
+
+
+
     margin-bottom: 10%;
+
 }
 
 .Description p {
     font-size: 1.5em;
     text-align: center;
     line-height: 1.5em;
-    background-color: #CFE2DE;
+    font-family: var(--font-text);
     margin-left: 10%;
     margin-right: 10%;
     margin-bottom: 10px;
 }
 
-.marqueimg {
-    margin-top: 5%;
+.description_img img {
+    margin-bottom: 5%;
     width: 100%;
-    height: 80%;
+    overflow: hidden;
+    width: 100%;
+    height:600px;
+    object-fit: fill;
+
+}
+
+.marqueimg img {
+   
+
+
 }
