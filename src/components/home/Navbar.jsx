@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="logo">
-        <img src={logo} alt="logo" />
+      <Link to="/#homepage" className="link"><img src={logo} alt="logo" /></Link>
       </div>
       <div className="navlink">
           <li className="push-right">
