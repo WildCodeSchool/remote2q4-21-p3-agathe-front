@@ -13,9 +13,6 @@ const RegisterForm = () => {
   };
 
   const handleRegistration = async (data) => {
-    console.log('handleRegistration');
-    console.table(data);
-    console.log(data);
     try {
       axios
       .post(`${process.env.REACT_APP_URL_SERVER}/api/auth/login`, { email: data.email, password: data.password })
@@ -24,7 +21,7 @@ const RegisterForm = () => {
         console.table(res);
         console.log(`res.status: ${res.status}`);
         //console.log(`res.value.status: ${res.value.status}`);
-        if (res.status && res.status === 200) {
+        if (res.status === 200) {
           console.log('redirect')
           redirect("/#homepage");
         }

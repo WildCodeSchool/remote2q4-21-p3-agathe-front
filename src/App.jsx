@@ -5,10 +5,8 @@ import Brand from "./pages/Brand";
 import ProductPage from "./pages/ProductPage";
 import Catalogue from "./pages/Catalogue";
 import ContactPage from "./pages/ContactPage";
-import Home from "./pages/Home";
 import LoginPage from "./pages/LoginPage";
-import Marque from "./pages/Marque";
-import ProductPage from "./pages/ProductPage";
+
 import "./App.css";
 
 function App() {
