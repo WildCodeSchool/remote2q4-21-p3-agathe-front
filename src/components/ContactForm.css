@@ -1,17 +1,17 @@
 .ContactForm {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    border: 1px solid #000;
 }
 
 .ContactForm div {
-    width: 100%;
+    width: 50%;
 }
 
-.ContactForm input {
-    width: 100%;
+.Form input {
+    width: 20%;
 }
 
 .ContactForm textarea {
-    width: 100%;
+    /* width: 100%; */
 }

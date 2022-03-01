@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import "./ContactForm.css";
 
 const ContactForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -14,7 +15,7 @@ const ContactForm = () => {
   return (
     <div className="ContactForm">
       <form onSubmit={handleSubmit(handleRegistration, handleError)}>
-        <div>
+        <div className="Form">
           <input type="email" name="email" placeholder="Votre email" required
             {...register('email', registerOptions.email)}
           />

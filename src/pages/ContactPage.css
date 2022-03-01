@@ -1,14 +1,25 @@
 .ContactPage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    /* display: flex; */
+    /* flex-direction: column;
+    align-items: center; */
+    background-color : var(--main-bg-color);
 }
-
 .ContactPage .FormContainer {
-    width: 25%;
+    width: 100%;
+    font-size: 20px;
+    text-align: justify;
+    font-family: var(--font-text);
+    border: 1px solid #000;
 }
-
 .ContactPage .FormContainer h1 {
     font-size: 50px;
     text-align: center;
+    font-family: var(--font-home);
+    color: #2C3331;
+}
+.FormContainer .contact {
+font-size: 10px;
+}
+.FormContainer .email {
+    font-size: 30px;
 }

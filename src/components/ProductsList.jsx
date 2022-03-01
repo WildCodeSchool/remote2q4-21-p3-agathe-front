@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ProductCard from "./ProductCard";
-import { Link } from "react-router-dom";
 import "./ProductsList.css";
 
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
