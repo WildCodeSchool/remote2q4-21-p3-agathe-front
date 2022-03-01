@@ -3,20 +3,21 @@ import Introduction from "../components/home/Introduction";
 import Footer from "../components/home/Footer";
 import Navbar from "../components/home/Navbar";
 import Presentation from "../components/home/Presentation";
-import ProductsList from "../components/ProductsList";
+import ProductsList from "../components/products/ProductsList";
 import "./Home.css";
 
 const Home = () => {
   return (
-    
     <div className="home">
-      <Introduction/>
+      <Introduction />
       <div id="homepage" className="page home_page">
         <Navbar />
         <Presentation />
         <div className="home_products">
           <h2>Nos produits</h2>
-          <ProductsList randomize={true}/>
+          <div className="products">
+            <ProductsList randomize={true} />
+          </div>
         </div>
         <Footer />
       </div>
