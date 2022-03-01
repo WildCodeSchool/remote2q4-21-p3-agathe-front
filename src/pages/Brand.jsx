@@ -2,43 +2,45 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Footer from "../components/home/Footer";
 import Navbar from "../components/home/Navbar";
-import "./Marque.css"
+import "./Brand.css"
 
-function Marque() {
+function Brand() {
     const [description, setDescription] = useState("");
     const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
     useEffect(() => {
-        const Marque = () => {
+        const Brand = () => {
             axios
                 .get(`${BASE_URL}/api/presentation`)
                 .then((response) => { setDescription(response.data.presentation); });
         };
-        Marque();
+        Brand();
     }, []);
 
     return (
 
         <div className="Description">
             <Navbar />
-            <section className="Marquedesc">
+            <div className="description-Logo">
+            </div>
+            <section className="BrandDesc">
                 <div className="description_img">
-                    <img className="marqueimg" src="/assets/img/IMG_7208.jpeg" alt="marque" />
+                    <h1 className="title"> Notre histoire </h1>
+                    <hr />
+                    <img className="brandImg" src="/assets/img/IMG_7208.jpeg" alt="Brand" />
+
                 </div>
-                <div>
-                <h1 className="titre"> Notre histoire </h1>
-                <hr />
+
                 {description.split("\n").map((line) => (
                     <p>{line}</p>
                 ))}
-                
-                </div>
+
             </section>
             <Footer />
         </div>
     );
 };
 
-export default Marque
+export default Brand
 
 
