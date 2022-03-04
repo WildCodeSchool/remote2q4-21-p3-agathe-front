@@ -24,14 +24,15 @@
 
 .title {
     z-index: 1;
-    top: 13%;
+    top: 10%;
     position: absolute;
     text-align: center;
     font-family: var(--font-home);
-    font-size: 3.5em;
+    font-weight: 500;
+    font-size: 5.5em;
     letter-spacing: 2px;
     color: white;
-    left: 32%;
+    left: 27%;
 }
 
 /* hr {
