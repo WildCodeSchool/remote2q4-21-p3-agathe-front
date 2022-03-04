@@ -26,8 +26,8 @@ function DetailsProduct(props) {
       <div className="DetailsContainer-right">
         <p className="DetailsProductTitle"> {props.name}</p>
         <p className="DetailsProductIngredient">
-          {props.ingredient &&
-            props.ingredient.split("\n").map((line) => <p>{line}</p>)}
+          {props.ingredients &&
+            props.ingredients.map(ingredient => <p><span>{ingredient.name}</span>{" : "}{ingredient.description}</p>)}
         </p>
         <p className="DetailsProductCharacteristic">
           {props.characteristic &&
