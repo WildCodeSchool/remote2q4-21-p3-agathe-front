@@ -22,19 +22,18 @@ function Brand() {
         <div className="Description">
             <Navbar />
             <div className="description-Logo">
+            <img src="/assets/IMG_7178.jpeg" alt="" />
             </div>
             <section className="BrandDesc">
                 <div className="description_img">
                     <h1 className="title"> Notre histoire </h1>
                     <hr />
                     <img className="brandImg" src="/assets/img/IMG_7208.jpeg" alt="Brand" />
-
                 </div>
-
                 {description.split("\n").map((line) => (
                     <p>{line}</p>
                 ))}
-
+                
             </section>
             <Footer />
         </div>
@@ -42,5 +41,3 @@ function Brand() {
 };
 
 export default Brand
-
-
