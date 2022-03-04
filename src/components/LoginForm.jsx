@@ -15,20 +15,16 @@ const RegisterForm = () => {
   const handleRegistration = async (data) => {
     try {
       axios
-      .post(`${process.env.REACT_APP_URL_SERVER}/api/auth/login`, { email: data.email, password: data.password })
-      .then(res => {
-        console.log(`res: ${res}`);
-        console.table(res);
-        console.log(`res.status: ${res.status}`);
-        //console.log(`res.value.status: ${res.value.status}`);
-        if (res.status === 200) {
-          console.log('redirect')
-          redirect("/#homepage");
-        }
-      });
-    }catch(error){
+        .post(`${process.env.REACT_APP_URL_SERVER}/api/auth/login`, { email: data.email, password: data.password },
+         {withCredentials: true, mode: 'cors'})
+        .then(res => {
+          if (res.status === 200) {
+            redirect("/#homepage");
+          }
+        });
+    } catch (error) {
       console.log(error);
-    } 
+    }
   }
   const handleError = (errors) => { console.log('handleError'); console.log(errors) };
 
@@ -47,7 +43,7 @@ const RegisterForm = () => {
   return (
     <form onSubmit={handleSubmit(handleRegistration, handleError)} className="LoginForm">
       <div>
-        <input name="name" type="text" {...register('name', registerOptions.name)} required placeholder="Nom"/>
+        <input name="name" type="text" {...register('name', registerOptions.name)} required placeholder="Nom" />
         <small className="text-danger">
           {errors?.name && errors.name.message}
         </small>
