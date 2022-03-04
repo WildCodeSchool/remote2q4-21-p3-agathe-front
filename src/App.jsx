@@ -6,6 +6,7 @@ import ProductPage from "./pages/ProductPage";
 import Catalogue from "./pages/Catalogue";
 import ContactPage from "./pages/ContactPage";
 import LoginPage from "./pages/LoginPage";
+import TextAdmin from "./pages/TextAdmin";
 
 import "./App.css";
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/catalogue" element={<Catalogue />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/admin/presentation" element={<TextAdmin />} />
         </Routes>
       </BrowserRouter>
     </div>
