@@ -2,10 +2,13 @@ import React from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { useUser } from '../contexts/UserProvider';
 import "./LoginForm.css";
 
 const RegisterForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
+
+  const { setUser } = useUser();
 
   let navigate = useNavigate();
   const redirect = (url) => {
@@ -16,11 +19,12 @@ const RegisterForm = () => {
     try {
       axios
         .post(`${process.env.REACT_APP_URL_SERVER}/api/auth/login`, { email: data.email, password: data.password },
-         {withCredentials: true, mode: 'cors'})
-        .then(res => {
-          if (res.status === 200) {
-            redirect("/#homepage");
-          }
+          { withCredentials: true, mode: 'cors' })
+        .then(credentials => {
+          setUser({
+            token: credentials,
+          });
+          redirect("/#homepage");
         });
     } catch (error) {
       console.log(error);
