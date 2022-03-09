@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+// import { Link } from "react-router-dom";
+import { CartDispatchContext, addToCart } from "../../contexts/CartContext";
 import "./DetailsProduct.css";
 
 function DetailsProduct(props) {
@@ -9,6 +10,17 @@ function DetailsProduct(props) {
   if (counter <= 1) {
     decrementCounter = () => setCounter(1);
   }
+
+  const dispatch = useContext(CartDispatchContext);
+  
+  const handleAddToCart = () => {
+    const product = { ...props, quantity: counter };
+    addToCart(dispatch, product);
+    // setIsAdded(true);
+    // setTimeout(() => {
+      // setIsAdded(false);
+    // }, 3500);
+  };
 
   return (
     <div className="DetailsProduct">
@@ -47,9 +59,9 @@ function DetailsProduct(props) {
               </button>
             </div>
           </div>
-          <Link to="/cart" className="link">
-          <button>Ajouter au panier</button>
-          </Link>
+          {/* <Link to="/cart" className="link"> */}
+          <button onClick={handleAddToCart}>Ajouter au panier</button>
+          {/* </Link> */}
         </div>
       </div>
     </div>
