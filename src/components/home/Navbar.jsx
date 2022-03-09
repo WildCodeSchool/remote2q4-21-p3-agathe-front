@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/Logo Elfenn cosmétiques.png";
+import { useUser } from '../../contexts/UserProvider';
 import "./Navbar.css";
 
 const Navbar = () => {
+  const {user} = useUser();
+
   return (
     <div className="navbar">
       <div className="logo">
@@ -23,7 +26,8 @@ const Navbar = () => {
             <Link to="/cart" className="link">Panier</Link>
           </li>
           <li>
-            <Link to="/login" className="link">Connexion</Link>
+          { !user && (<Link to="/login" className="link">Connexion</Link>) }
+          { user && (<Link to="/logout" className="link">Déconnexion</Link>)}
           </li>
       </div>
     </div>
