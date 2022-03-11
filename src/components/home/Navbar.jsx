@@ -15,7 +15,6 @@ const Navbar = () => {
       setItems(` (${cartContext.items.length})`)
     }
   }, [cartContext.items]);
-  console.log(items);
 
   return (
     <div className="navbar">
