@@ -25,7 +25,7 @@ const RegisterForm = () => {
             token: credentials,
           });
           console.log(`referrer: ${document.referrer}`)
-          redirect("/#homepage");
+          redirect(-1); // go back ! "/#homepage");
         });
     } catch (error) {
       console.log(error);

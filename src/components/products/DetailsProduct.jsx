@@ -15,7 +15,6 @@ function DetailsProduct(props) {
   
   const handleAddToCart = () => {
     const product = { ...props, quantity: counter };
-    console.log(product);
     addToCart(dispatch, product);
     // setIsAdded(true);
     // setTimeout(() => {
