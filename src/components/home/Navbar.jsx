@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/Logo Elfenn cosmétiques.png";
 import { useUser } from '../../contexts/UserProvider';
+import { CartStateContext } from "../../contexts/CartContext";
 import "./Navbar.css";
 
 const Navbar = () => {
   const {user} = useUser();
+  const cartContext = useContext(CartStateContext);
+  const [items, setItems] = useState('');
+
+  useEffect(() => {
+    if (cartContext.items) {
+      setItems(` (${cartContext.items.length})`)
+    }
+  }, [cartContext.items]);
+  console.log(items);
 
   return (
     <div className="navbar">
@@ -23,7 +33,7 @@ const Navbar = () => {
             <Link to="/catalogue" className="link">Nos produits</Link>
           </li>
           <li className="push-right">
-            <Link to="/cart" className="link">Panier</Link>
+            <Link to="/cart" className="link">Panier{items}</Link>
           </li>
           <li>
           { !user && (<Link to="/login" className="link">Connexion</Link>) }

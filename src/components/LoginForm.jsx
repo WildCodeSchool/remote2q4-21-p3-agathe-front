@@ -24,6 +24,7 @@ const RegisterForm = () => {
           setUser({
             token: credentials,
           });
+          console.log(`referrer: ${document.referrer}`)
           redirect("/#homepage");
         });
     } catch (error) {
