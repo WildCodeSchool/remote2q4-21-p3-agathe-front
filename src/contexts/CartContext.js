@@ -101,12 +101,11 @@ const CartProvider = ({ children }) => {
         setPersistedCartItems(state.items);
     }, [JSON.stringify(state.items)]);
 
-    return ( <
-        CartDispatchContext.Provider value = { dispatch } >
-        <
-        CartStateContext.Provider value = { state } > { children } <
-        /CartStateContext.Provider> <
-        /CartDispatchContext.Provider>
+    return ( 
+        <CartDispatchContext.Provider value = { dispatch } >
+        <CartStateContext.Provider value = { state } > { children }
+         </CartStateContext.Provider> 
+        </CartDispatchContext.Provider>
     );
 };
 
