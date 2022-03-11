@@ -1,0 +1,43 @@
+.Cart table {
+    margin: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
+
+.Cart table tr {
+    height: 75px;
+    border-bottom: 2px solid black;
+}
+
+.Cart table th {
+    width: 85px;
+}
+
+.Cart th.name {
+    width: 300px;
+}
+
+.Cart td.price {
+    text-align: right;
+}
+
+.Cart td.qty {
+    padding-right: 15px;
+    text-align: right;
+}
+
+.Cart td.total {
+    padding-right: 15px;
+    text-align: right;
+}
+
+.Cart thead {
+    background-color: var(--darkgreen);
+    color: var(--greenblue);
+}
+
+
+/* .Cart tbody tr:nth-child(even) {
+    background-color: var(--main-bg-color);
+} */
