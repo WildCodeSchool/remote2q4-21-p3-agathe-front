@@ -11,7 +11,6 @@ import TextAdmin from "./pages/TextAdmin";
 import CartProvider from "./contexts/CartContext";
 import UserProvider from './contexts/UserProvider';
 import CartPage from "./pages/CartPage";
-
 import "./App.css";
 
 function App() {

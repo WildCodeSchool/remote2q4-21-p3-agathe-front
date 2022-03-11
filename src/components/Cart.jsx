@@ -1,10 +1,8 @@
-import React from 'react'
+import React from 'react';
 import { CartStateContext } from "../contexts/CartContext";
 
 function Cart() {
     const cartContext = React.useContext(CartStateContext);
-
-    console.table(cartContext);
 
     return (
         <div className='Cart'>
