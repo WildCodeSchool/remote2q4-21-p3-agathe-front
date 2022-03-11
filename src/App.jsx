@@ -3,9 +3,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Brand from "./pages/Brand";
 import ProductPage from "./pages/ProductPage";
+import CartPage from "./pages/CartPage";
 import Catalogue from "./pages/Catalogue";
 import ContactPage from "./pages/ContactPage";
 import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage"
 import Logout from "./components/Logout";
 import TextAdmin from "./pages/TextAdmin";
 import CartProvider from "./contexts/CartContext";
@@ -23,9 +25,11 @@ function App() {
               <Route exact path="/" element={<Home />} />
               <Route exact path="Brand" element={<Brand />} />
               <Route path="/page_produit/:id" element={<ProductPage />} />
+              <Route path="/cart" element={<CartPage />} />
               <Route path="/catalogue" element={<Catalogue />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/login" element={<LoginPage />} />
+              <Route path="/enregistrer" element={<RegisterPage />} />
               <Route path="/logout" element={<Logout />} />
               <Route path="/admin/presentation" element={<TextAdmin />} />
             </Routes>

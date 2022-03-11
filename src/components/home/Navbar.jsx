@@ -11,7 +11,7 @@ const Navbar = () => {
   const [items, setItems] = useState('');
 
   useEffect(() => {
-    if (cartContext.items) {
+    if (cartContext.items.length) {
       setItems(` (${cartContext.items.length})`)
     }
   }, [cartContext.items]);

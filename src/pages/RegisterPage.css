@@ -1,4 +1,4 @@
-.LoginPage {
+.RegisterPage {
     height: 100vh;
     width: 100%;
     display: flex;
@@ -7,6 +7,6 @@
     background-color: var(--main-bg-color);
 }
 
-.LoginContainer {
+.RegisterContainer {
     height: 100vh;
 }

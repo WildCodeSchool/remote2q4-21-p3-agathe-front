@@ -1,8 +1,8 @@
 import React from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import { useUser } from '../contexts/UserProvider';
+import { useNavigate, Link } from "react-router-dom";
+import { useUser } from '../../contexts/UserProvider';
 import "./LoginForm.css";
 
 const RegisterForm = () => {
@@ -24,8 +24,7 @@ const RegisterForm = () => {
           setUser({
             token: credentials,
           });
-          console.log(`referrer: ${document.referrer}`)
-          redirect(-1); // go back ! "/#homepage");
+          redirect(-1);
         });
     } catch (error) {
       console.log(error);
@@ -34,7 +33,6 @@ const RegisterForm = () => {
   const handleError = (errors) => { console.log('handleError'); console.log(errors) };
 
   const registerOptions = {
-    name: { required: "Name is required" },
     email: { required: "Email is required" },
     password: {
       required: "Password is required",
@@ -46,36 +44,33 @@ const RegisterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(handleRegistration, handleError)} className="LoginForm">
-      <div>
-        <input name="name" type="text" {...register('name', registerOptions.name)} required placeholder="Nom" />
-        <small className="text-danger">
-          {errors?.name && errors.name.message}
-        </small>
-      </div>
+    <div className="loginContainer"><h2>Bienvenu ! Identifiez-vous</h2>
+    <form onSubmit={handleSubmit(handleRegistration, handleError)} className="loginForm">
       <div>
         <input
           type="email"
           name="email"
-          {...register('email', registerOptions.email)} placeholder="Votre email"
-        />
+          {...register('email', registerOptions.email)} placeholder="Votre email"/>
         <small className="text-danger">
           {errors?.email && errors.email.message}
         </small>
       </div>
       <div>
-        <label>Password</label>
         <input
           type="password"
           name="password"
-          {...register('password', registerOptions.password)}
-        />
+          {...register('password', registerOptions.password)} placeholder="Mot de passe"/>
         <small className="text-danger">
           {errors?.password && errors.password.message}
         </small>
       </div>
-      <input type="submit" />
+      <button className="loginBtn">Se connecter</button>
     </form>
+    <div className="registerBox">
+    <h4>Nouveau client ?</h4>
+    <Link to="/enregistrer"><button className="registerBtn">S'enregistrer</button></Link>
+    </div>
+    </div>
   );
 };
 export default RegisterForm;
