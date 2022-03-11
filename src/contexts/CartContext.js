@@ -17,12 +17,14 @@ const reducer = (state, action) => {
                 isCartOpen: !state.isCartOpen
             };
         case "ADD_TO_CART":
-            const id = action.payload.cartItem.id;
-            const isOld = state.items.map((item) => item.id).includes(id);
+            console.log('ADD_TO_CART')
+            console.log(action.payload);
+            const id = action.payload.cartItem.ProductID;
+            const isOld = state.items.map((item) => item.ProductID).includes(id);
             let cartItems = null;
             if (isOld) {
                 const items = state.items.map((item) => {
-                    if (item.id === id) {
+                    if (item.ProductID === id) {
                         return {
                             ...item,
                             quantity: item.quantity + 1
@@ -42,7 +44,7 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 items: state.items.filter(
-                    (item) => item.id !== action.payload.cartItemId
+                    (item) => item.ProductID !== action.payload.cartItemId
                 )
             };
         case "CLEAR_CART":
@@ -105,8 +107,8 @@ const CartProvider = ({ children }) => {
         CartDispatchContext.Provider value = { dispatch } >
         <
         CartStateContext.Provider value = { state } > { children } <
-        /CartStateContext.Provider> <
-        /CartDispatchContext.Provider>
+        /CartStateContext.Provider> < /
+        CartDispatchContext.Provider >
     );
 };
 
