@@ -44,7 +44,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="loginContainer"><h2>Bienvenu ! Identifiez-vous</h2>
+    <div className="loginContainer"><h2>Bienvenue ! Identifiez-vous</h2>
     <form onSubmit={handleSubmit(handleRegistration, handleError)} className="loginForm">
       <div>
         <input
