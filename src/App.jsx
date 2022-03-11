@@ -10,6 +10,7 @@ import Logout from "./components/Logout";
 import TextAdmin from "./pages/TextAdmin";
 import CartProvider from "./contexts/CartContext";
 import UserProvider from './contexts/UserProvider';
+import CartPage from "./pages/CartPage";
 
 import "./App.css";
 
@@ -28,6 +29,7 @@ function App() {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/logout" element={<Logout />} />
               <Route path="/admin/presentation" element={<TextAdmin />} />
+              <Route path="/cart" element={<CartPage />} />
             </Routes>
           </BrowserRouter>
         </CartProvider>

@@ -29,7 +29,7 @@ const ContactForm = () => {
             {errors?.name && errors.name.message}
           </small>
         </div>
-        <button>Envoyer le message</button>
+        <button class="sendingBtn">Envoyer le message</button>
       </form>
     </div>
   );

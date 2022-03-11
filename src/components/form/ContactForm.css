@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     height: 75vh;
-    /* border: 1px solid #000; */
 }
 
 .ContactForm div {
@@ -11,12 +10,38 @@
 
 .Form input {
     width: 30%;
-    font-size: 30px;
+    font-size: 20px;
     font-family: var(--font-text);
+    border: 2px solid #CFE2DE;
+    width: 400px;
+    padding: 0.3em;
+
+
 }
 
 .ContactForm textarea {
     width: 30%;
-    font-size: 30px;
+    font-size: 20px;
     font-family: var(--font-text);
+    border: 2px solid #CFE2DE;
+    width: 400px;
+    padding: 5em 2em;
+}
+
+.sendingBtn {
+    border: none;
+    color: #2C3331;
+    padding: 0.5em 0.5em;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background: #CFE2DE;
+    border: 1px solid #2C3331;
+    transition: all .3s;
+    box-shadow: 6px 6px 12px #CFE2DE,
+                -6px -6px 12px white;
+}
+.sendingBtn:active {
+    color: #2C3331;
+    box-shadow: inset 4px 4px 12px white,
+                inset -4px -4px 12px white;
 }
