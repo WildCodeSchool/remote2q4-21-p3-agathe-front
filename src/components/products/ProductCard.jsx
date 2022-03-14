@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { CartDispatchContext, addToCart } from "../../contexts/CartContext";
 import "./ProductCard.css";
 
 function ProductCard(props) {
+  const dispatch = useContext(CartDispatchContext);
+  const handleAddToCart = () => {
+    const product = { ...props, quantity: 1 };
+    addToCart(dispatch, product);
+    // setIsAdded(true);
+    // setTimeout(() => {
+    // setIsAdded(false);
+    // }, 3500);
+  };
   return (
     <div className={`ProductCardBase ${props.className}`}>
       <img
@@ -19,7 +29,7 @@ function ProductCard(props) {
         </Link>
         <Link to="/catalogue" className="link--hover">
           {" "}
-          <button>Panier</button>{" "}
+          <button onClick={handleAddToCart}>Panier</button>{" "}
         </Link>
       </div>
     </div>

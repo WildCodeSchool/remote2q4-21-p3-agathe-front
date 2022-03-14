@@ -20,7 +20,7 @@ const Introduction = () => {
         </div>
         <div className="access_homepage">
           <p>Accueil</p>
-          <span class="arrow arrow-bottom"></span>
+          <span className="arrow arrow-bottom"></span>
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@ import Catalogue from "./pages/Catalogue";
 import ContactPage from "./pages/ContactPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage"
-import Logout from "./components/Logout";
+import Logout from "./components/form/Logout";
 import TextAdmin from "./pages/TextAdmin";
 import CartProvider from "./contexts/CartContext";
 import UserProvider from './contexts/UserProvider';
