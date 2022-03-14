@@ -20,8 +20,8 @@ const Presentation = () => {
   return (
     <div className="presentation">
       <div className="presentation_text">
-        {presentation.split("\n").map((line) => (
-          <p>{line}</p>
+        {presentation.split("\n").map((line, key) => (
+          <p key={key}>{line}</p>
         ))}
       </div>
 
