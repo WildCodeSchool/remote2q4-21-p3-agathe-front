@@ -31,8 +31,8 @@ function Brand() {
 
                 </div>
 
-                {description.split("\n").map((line) => (
-                    <p>{line}</p>
+                {description.split("\n").map((line,id) => (
+                    <p key={id}>{line}</p>
                 ))}
 
             </section>
