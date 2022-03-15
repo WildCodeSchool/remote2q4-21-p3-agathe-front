@@ -1,61 +1,61 @@
 .DetailsProduct {
-  color: var (--main-bg-color);
-  display: flex;
-  font-family: var(--font-text);
+    color: var (--main-bg-color);
+    display: flex;
+    font-family: var(--font-text);
 }
 
 .DetailsContainer-left {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  border-right: 1px solid var(--darkgreen);
-  margin: auto;
-  padding: 3em 1em;
-  width: 40%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-right: 1px solid var(--darkgreen);
+    margin: auto;
+    padding: 3em 1em;
+    width: 40%;
 }
 
 .DetailsProductImage {
-  width: 400px;
-  height: 325px;
-  border-radius: 30px;
+    width: 400px;
+    height: 325px;
+    border-radius: 30px;
 }
 
 .DetailsProductDescription {
-  margin-top: 2.5em;
-  width: 80%;
-  line-height: 1.5em;
-  font-size: 1.5em;
-  text-align: justify;
+    margin-top: 2.5em;
+    width: 80%;
+    line-height: 1.5em;
+    font-size: 1.5em;
+    text-align: justify;
 }
 
 .DetailsProductCharacteristic {
-  width: 100%;
-  margin: 1em 0;
-  font-size: 1.2em;
-  line-height: 1.5em;
+    width: 100%;
+    margin: 1em 0;
+    font-size: 1.2em;
+    line-height: 1.5em;
 }
 
 .DetailsContainer-right {
-  display: flex;
-  flex-direction: column;
-  padding: 50px 50px 0;
-  width: 80%;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 50px 0;
+    width: 80%;
 }
 
 .DetailsProductTitle {
-  font-size: 2.5em;
-  font-family: var(--font-home);
-  color: var(--darkgreen);
+    font-size: 2.5em;
+    font-family: var(--font-home);
+    color: var(--darkgreen);
 }
 
 .DetailsProductDescription {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .DetailsProductIngredient {
-  padding: 1em 0;
-  font-size: 1.5em;
-  line-height: 1.5em;
+    padding: 1em 0;
+    font-size: 1.5em;
+    line-height: 1.5em;
 }
 
 .DetailsProductIngredient p {
@@ -63,62 +63,66 @@
 }
 
 .DetailsProductIngredient p::before {
-    content:"• ";
+    content: "• ";
     font-size: 1.5em;
 }
 
+.DetailsProductIngredient span {
+    font-weight: bolder;
+}
+
 .DetailsProductCart {
-  border-top: 1px solid var(--darkgreen);
-  display: flex;
-  flex-direction: column;
-  margin: 2em 0 2em 0;
-  padding: 2.5em 1em;
-  width: 60%;
+    border-top: 1px solid var(--darkgreen);
+    display: flex;
+    flex-direction: column;
+    margin: 2em 0 2em 0;
+    padding: 2.5em 1em;
+    width: 60%;
 }
 
 .DetailsProductsInfos {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 20em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 20em;
 }
 
 .DetailsProductPrice {
-  font-size: 25px;
+    font-size: 25px;
 }
 
 .DetailsProductsQuantity {
-  width: 12em;
-  display: flex;
-  align-items: center;
-  height: 2em;
+    width: 12em;
+    display: flex;
+    align-items: center;
+    height: 2em;
 }
 
 .DetailsProductsQuantity p {
-  padding-right: 0.5em;
+    padding-right: 0.5em;
 }
 
 .DetailsProductsQuantity .plus,
 .DetailsProductsQuantity .minus {
-  padding: 0.5em;
-  margin: 0;
-  height: 100%;
-  width: 25px;
+    padding: 0.5em;
+    margin: 0;
+    height: 100%;
+    width: 25px;
 }
 
 .DetailsProductsQuantity input {
-  border: 1px solid var(--greenblue);
-  height: 100%;
-  padding-left: 0.5em;
-  width: 35px;
+    border: 1px solid var(--greenblue);
+    height: 100%;
+    padding-left: 0.5em;
+    width: 35px;
 }
 
 .DetailsProductCart button {
-  background-color: var(--greenblue);
-  border: none;
-  cursor: pointer;
-  font-size: 0.75em;
-  width: 100px;
-  margin-top: 2.5em;
-  padding: 0.5em;
+    background-color: var(--greenblue);
+    border: none;
+    cursor: pointer;
+    font-size: 0.75em;
+    width: 100px;
+    margin-top: 2.5em;
+    padding: 0.5em;
 }
