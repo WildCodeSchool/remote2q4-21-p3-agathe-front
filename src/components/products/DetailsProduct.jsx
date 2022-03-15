@@ -32,18 +32,18 @@ function DetailsProduct(props) {
         />
         <p className="DetailsProductDescription">
           {props.description &&
-            props.description.split("\n").map((line) => <p>{line}</p>)}
+            props.description.split("\n").map((descLine, id) => <span key={id} className="modif">{descLine}</span>)}
         </p>
       </div>
       <div className="DetailsContainer-right">
         <p className="DetailsProductTitle"> {props.name}</p>
         <p className="DetailsProductIngredient">
           {props.ingredients &&
-            props.ingredients.map(ingredient => <p><span>{ingredient.name}</span>{" : "}{ingredient.description}</p>)}
+            props.ingredients.map((ingredient, id) => <span key={id} className="modif"><span>{ingredient.name}</span>{" : "}{ingredient.description}</span>)}
         </p>
         <p className="DetailsProductCharacteristic">
           {props.characteristic &&
-            props.characteristic.split("\n").map((line) => <p>{line}</p>)}
+            props.characteristic.split("\n").map((line, id) => <span key={id} className="modif">{line}</span>)}
         </p>
         <div className="DetailsProductCart">
           <div className="DetailsProductsInfos">
