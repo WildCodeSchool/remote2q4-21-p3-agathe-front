@@ -30,21 +30,21 @@ function DetailsProduct(props) {
           src={`/assets/img/${props.ProductID}.jpeg`}
           alt={props.name}
         />
-        <p className="DetailsProductDescription">
+        <div className="DetailsProductDescription">
           {props.description &&
-            props.description.split("\n").map((line) => <p>{line}</p>)}
-        </p>
+            props.description.split("\n").map((line ,id )=> <p key={id}>{line}</p>)}
+        </div>
       </div>
       <div className="DetailsContainer-right">
         <p className="DetailsProductTitle"> {props.name}</p>
-        <p className="DetailsProductIngredient">
+        <div className="DetailsProductIngredient">
           {props.ingredients &&
-            props.ingredients.map(ingredient => <p><span>{ingredient.name}</span>{" : "}{ingredient.description}</p>)}
-        </p>
-        <p className="DetailsProductCharacteristic">
+            props.ingredients.map((ingredient,id) => <p key={id}><span>{ingredient.name}</span>{" : "}{ingredient.description}</p>)}
+        </div>
+        <div className="DetailsProductCharacteristic">
           {props.characteristic &&
-            props.characteristic.split("\n").map((line) => <p>{line}</p>)}
-        </p>
+            props.characteristic.split("\n").map((line,id) => <p key={id}>{line}</p>)}
+        </div>
         <div className="DetailsProductCart">
           <div className="DetailsProductsInfos">
             <p className="DetailsProductPrice">{props.price} €</p>
@@ -53,7 +53,7 @@ function DetailsProduct(props) {
               <button className="minus" onClick={decrementCounter}>
                 -
               </button>
-              <input type="text" value={counter} />
+              <input type="text" value={counter} readOnly />
               <button className="plus" onClick={incrementCounter}>
                 +
               </button>

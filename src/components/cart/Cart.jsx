@@ -1,16 +1,28 @@
-import React from "react";
-import { CartDispatchContext, removeFromCart  } from "../../contexts/CartContext";
+import React, { useState } from "react";
+import {
+  CartDispatchContext,
+  removeFromCart,
+  clearCart,
+} from "../../contexts/CartContext";
 import { CartStateContext } from "../../contexts/CartContext";
 import "./Cart.css";
 
-function Cart(props) {
+function Cart() {
   const cartContext = React.useContext(CartStateContext);
-
   const dispatch = React.useContext(CartDispatchContext);
-  
-  const handleRemoveFromCart = () => {
-    const product = { ...props, quantity: 1 };
-    removeFromCart(dispatch, product);
+  const [counter, setCounter] = useState(cartContext.items.quantity);
+  const incrementCounter = () => setCounter(counter + 1);
+  let decrementCounter = () => setCounter(counter - 1);
+  if (counter <= 1) {
+    decrementCounter = () => setCounter(1);
+  }
+
+  const handleRemoveFromCart = (productID) => {
+    removeFromCart(dispatch, productID);
+  };
+
+  const handleRemoveAllFromCart = () => {
+    clearCart(dispatch);
   };
 
   return (
@@ -38,14 +50,30 @@ function Cart(props) {
                 />
               </td>
               <td>{item.name}</td>
-              <td className="quantity">{item.quantity}</td>
+              <td className="quantity">
+                <button className="minus" onClick={decrementCounter}>
+                  -
+                </button>
+                <input type="text" value={counter} readOnly />
+                <button className="plus" onClick={incrementCounter}>
+                  +
+                </button>
+                
+              </td>
               <td className="price">{item.price}</td>
-              <td className="total-price">{(item.quantity * item.price).toFixed(2)}</td>
-              <td className="remove"><button onClick={handleRemoveFromCart}>supprimer</button></td>
+              <td className="total-price">
+                {(item.quantity * item.price).toFixed(2)}
+              </td>
+              <td className="remove">
+                <button onClick={(e) => handleRemoveFromCart(item.ProductID)}>
+                  supprimer
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
+      <button onClick={(e) => handleRemoveAllFromCart()}>supprimer</button>
     </div>
   );
 }
