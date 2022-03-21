@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from '../components/home/Footer';
 import Navbar from '../components/home/Navbar';
-import Cart from '../../src/components/cart/Cart'
+import Cart from '../components/cart/Cart'
 import CartTotal from '../components/cart/CartTotal';
 import "./CartPage.css";
 
