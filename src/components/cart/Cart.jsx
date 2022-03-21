@@ -1,21 +1,21 @@
-import React, { useState } from "react";
-import {
-  CartDispatchContext,
-  removeFromCart,
-  clearCart,
-} from "../../contexts/CartContext";
+import React from "react";
+import { CartDispatchContext, removeFromCart, clearCart, addToCart} from "../../contexts/CartContext";
 import { CartStateContext } from "../../contexts/CartContext";
 import "./Cart.css";
 
 function Cart() {
   const cartContext = React.useContext(CartStateContext);
   const dispatch = React.useContext(CartDispatchContext);
-  const [counter, setCounter] = useState(cartContext.items.quantity);
-  const incrementCounter = () => setCounter(counter + 1);
-  let decrementCounter = () => setCounter(counter - 1);
-  if (counter <= 1) {
-    decrementCounter = () => setCounter(1);
-  }
+
+  const decrementQuantity = (ProductID) => {
+    const item = {ProductID, quantity:-1}
+    addToCart(dispatch, item);
+  };
+
+  const incrementQuantity = (ProductID) => {
+    const item = {ProductID, quantity:1}
+    addToCart(dispatch, item);
+  };
 
   const handleRemoveFromCart = (productID) => {
     removeFromCart(dispatch, productID);
@@ -51,14 +51,9 @@ function Cart() {
               </td>
               <td>{item.name}</td>
               <td className="quantity">
-                <button className="minus" onClick={decrementCounter}>
-                  -
-                </button>
-                <input type="text" value={counter} readOnly />
-                <button className="plus" onClick={incrementCounter}>
-                  +
-                </button>
-                
+                <button className="minus" onClick={(e) => decrementQuantity(item.ProductID)}> - </button>
+                {item.quantity}
+                <button className="plus" onClick={(e) => incrementQuantity(item.ProductID)}> + </button>
               </td>
               <td className="price">{item.price}</td>
               <td className="total-price">
@@ -72,6 +67,17 @@ function Cart() {
             </tr>
           ))}
         </tbody>
+        <tfoot>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Total</th>
+            <th></th>
+          </tr>
+        </tfoot>
       </table>
       <button onClick={(e) => handleRemoveAllFromCart()}>supprimer</button>
     </div>
