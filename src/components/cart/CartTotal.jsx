@@ -1,9 +1,9 @@
 import React from "react";
 import * as FaIcons from "react-icons/fa";
+import { Link } from "react-router-dom";
 import "./CartTotal.css";
 
 const CartTotal = () => {
-// const cartContext = React.useContext(CartStateContext);
   return (
     <div className="total">
       <h2>Total de la commande</h2>
@@ -16,7 +16,9 @@ const CartTotal = () => {
         <FaIcons.FaCcMastercard className="payment-cards" />
         <FaIcons.FaCcPaypal className="payment-cards" />
       </div>
-      <button>Valider</button>
+      <Link to="/checkout">
+        <button>Valider</button>
+      </Link>
     </div>
   );
 };

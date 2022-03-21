@@ -5,6 +5,7 @@ import Brand from "./pages/Brand";
 import ProductPage from "./pages/ProductPage";
 import CartPage from "./pages/CartPage";
 import Catalogue from "./pages/Catalogue";
+import Checkout from "./pages/Checkout";
 import ContactPage from "./pages/ContactPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage"
@@ -26,9 +27,10 @@ function App() {
               <Route path="/page_produit/:id" element={<ProductPage />} />
               <Route path="/cart" element={<CartPage />} />
               <Route path="/catalogue" element={<Catalogue />} />
+              <Route path="/checkout" element={<Checkout />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/login" element={<LoginPage />} />
-              <Route path="/enregistrer" element={<RegisterPage />} />
+              <Route path="/register" element={<RegisterPage />} />
               <Route path="/logout" element={<Logout />} />
               <Route path="/admin/presentation" element={<TextAdmin />} />
               <Route path="/cart" element={<CartPage />} />

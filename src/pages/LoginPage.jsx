@@ -8,10 +8,10 @@ function LoginPage() {
   return (
     <div className="LoginPage">
       <Navbar />
-        <div className='LoginContainer'>
-            <LoginForm  />
-        </div>
-        <Footer />
+      <div className='LoginContainer'>
+        <LoginForm />
+      </div>
+      <Footer />
     </div>
   )
 }
