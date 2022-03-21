@@ -1,4 +1,4 @@
-import { all } from "mathjs";
+// import { all } from "mathjs";
 import React from "react";
 import { CartDispatchContext, removeFromCart  } from "../../contexts/CartContext";
 import { CartStateContext } from "../../contexts/CartContext";
@@ -6,12 +6,10 @@ import "./Cart.css";
 
 function Cart(props) {
   const cartContext = React.useContext(CartStateContext);
-
   const dispatch = React.useContext(CartDispatchContext);
   
-  const handleRemoveFromCart = () => {
-    const product = { ...props, quantity: 1 };
-    removeFromCart(dispatch, product);
+  const handleRemoveFromCart = (productID) => {
+    removeFromCart(dispatch, productID);
   };
 
   return (
@@ -42,7 +40,7 @@ function Cart(props) {
               <td className="quantity">{item.quantity}</td>
               <td className="price">{item.price}</td>
               <td className="total-price">{(item.quantity * item.price).toFixed(2)}</td>
-              <td className="remove"><button onClick={handleRemoveFromCart}>supprimer</button></td>
+              <td className="remove"><button onClick={(e) => handleRemoveFromCart(item.ProductID)}>supprimer</button></td>
             </tr>
           ))}
         </tbody>
