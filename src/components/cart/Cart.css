@@ -18,16 +18,24 @@
     width: 300px;
 }
 
+.Cart td.image-product {
+    width: 200px;
+}
+
+.Cart td.image-product img {
+    width: 100%;
+}
+
 .Cart td.price {
     text-align: right;
 }
 
-.Cart td.qty {
+.Cart td.quantity {
     padding-right: 15px;
     text-align: right;
 }
 
-.Cart td.total {
+.Cart td.total-price {
     padding-right: 15px;
     text-align: right;
 }
