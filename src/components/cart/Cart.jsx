@@ -1,4 +1,3 @@
-import { all } from "mathjs";
 import React from "react";
 import { CartDispatchContext, removeFromCart  } from "../../contexts/CartContext";
 import { CartStateContext } from "../../contexts/CartContext";
