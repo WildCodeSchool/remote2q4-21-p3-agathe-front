@@ -17,8 +17,9 @@ const reducer = (state, action) => {
         isCartOpen: !state.isCartOpen,
       };
     case "ADD_TO_CART":
-      console.log("ADD_TO_CART");
-      console.log(action.payload);
+      //
+      // FIXME: when final quantity == 0, remove the item ?
+      //
       const id = action.payload.cartItem.ProductID;
       const isOld = state.items.map((item) => item.ProductID).includes(id);
       let cartItems = null;
@@ -27,7 +28,7 @@ const reducer = (state, action) => {
           if (item.ProductID === id) {
             return {
               ...item,
-              quantity: item.quantity + 1,
+              quantity: item.quantity + action.payload.cartItem.quantity,
             };
           }
           return item;
