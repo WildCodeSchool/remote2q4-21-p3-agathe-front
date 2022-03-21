@@ -13,10 +13,6 @@ function ProductCard(props) {
     const product = { ...props, quantity: 1 };
     addToCart(dispatch, product);
     toggleModalCart();
-    // setIsAdded(true);
-    // setTimeout(() => {
-    // setIsAdded(false);
-    // }, 3500);
   };
   return (
     <div className={`ProductCardBase ${props.className}`}>
@@ -35,8 +31,8 @@ function ProductCard(props) {
           <button onClick={handleAddToCart}>Panier</button>
         </Link>
       </div>
-      <Modal isShowing={isModalCartShowed} hide={toggleModalCart} title="ModalCart">
-        <ModalCart />
+      <Modal isShowing={isModalCartShowed} hide={toggleModalCart} title="Que souhaitez vous faire ?">
+        <ModalCart toggle={toggleModalCart}/>
       </Modal>
     </div>
   );
