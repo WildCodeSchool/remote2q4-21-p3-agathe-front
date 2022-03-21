@@ -1,0 +1,13 @@
+.total {
+    border: 1px solid #000;
+}
+
+.payment-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.payment-cards {
+    width: 30px;
+    height: 30px;
+}

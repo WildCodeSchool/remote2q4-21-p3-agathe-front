@@ -1,7 +1,8 @@
 import React from 'react';
 import Footer from '../components/home/Footer';
 import Navbar from '../components/home/Navbar';
-import Cart from '../components/Cart';
+import Cart from '../../src/components/cart/Cart'
+import CartTotal from '../components/cart/CartTotal';
 import "./CartPage.css";
 
 function CartPage() {
@@ -10,10 +11,11 @@ function CartPage() {
       <Navbar />
         <div className='CartContainer'>
             <Cart />
+            <CartTotal />
         </div>
         <Footer />
     </div>
   )
 }
 
-export default CartPage 
+export default CartPage;

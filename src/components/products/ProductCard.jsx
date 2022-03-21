@@ -24,12 +24,10 @@ function ProductCard(props) {
       <p className="ProductCardPrice">{props.price} €</p>
       <div className="ProductCardBase_buttons">
         <Link to={`/page_produit/${props.ProductID}`} className="link--hover">
-          {" "}
-          <button>Détail</button>{" "}
+          <button>Détail</button>
         </Link>
-        <Link to="/catalogue" className="link--hover">
-          {" "}
-          <button onClick={handleAddToCart}>Panier</button>{" "}
+        <Link to="#" className="link--hover">
+          <button onClick={handleAddToCart}>Panier</button>
         </Link>
       </div>
     </div>
