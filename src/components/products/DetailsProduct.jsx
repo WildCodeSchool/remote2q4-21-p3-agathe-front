@@ -59,9 +59,7 @@ function DetailsProduct(props) {
               </button>
             </div>
           </div>
-          {/* <Link to="/cart" className="link"> */}
           <button onClick={handleAddToCart}>Ajouter au panier</button>
-          {/* </Link> */}
         </div>
       </div>
     </div>
