@@ -1,13 +1,18 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartDispatchContext, addToCart } from "../../contexts/CartContext";
+import Modal from "../modal/modal"
+import useModal from "../modal/useModal";
+import ModalCart from "../cart/ModalCart";
 import "./ProductCard.css";
 
 function ProductCard(props) {
   const dispatch = useContext(CartDispatchContext);
+  const { isShowing: isModalCartShowed, toggle: toggleModalCart } = useModal();
   const handleAddToCart = () => {
     const product = { ...props, quantity: 1 };
     addToCart(dispatch, product);
+    toggleModalCart();
     // setIsAdded(true);
     // setTimeout(() => {
     // setIsAdded(false);
@@ -30,6 +35,9 @@ function ProductCard(props) {
           <button onClick={handleAddToCart}>Panier</button>
         </Link>
       </div>
+      <Modal isShowing={isModalCartShowed} hide={toggleModalCart} title="ModalCart">
+        <ModalCart />
+      </Modal>
     </div>
   );
 }
