@@ -1,6 +1,9 @@
 import React, { useContext, useState } from "react";
 // import { Link } from "react-router-dom";
 import { CartDispatchContext, addToCart } from "../../contexts/CartContext";
+import Modal from "../modal/modal"
+import useModal from "../modal/useModal";
+import ModalCart from "../cart/ModalCart";
 import "./DetailsProduct.css";
 
 function DetailsProduct(props) {
@@ -10,16 +13,14 @@ function DetailsProduct(props) {
   if (counter <= 1) {
     decrementCounter = () => setCounter(1);
   }
+  const { isShowing: isModalCartShowed, toggle: toggleModalCart } = useModal();
 
   const dispatch = useContext(CartDispatchContext);
   
   const handleAddToCart = () => {
     const product = { ...props, quantity: counter };
     addToCart(dispatch, product);
-    // setIsAdded(true);
-    // setTimeout(() => {
-      // setIsAdded(false);
-    // }, 3500);
+    toggleModalCart();
   };
 
   return (
@@ -64,6 +65,9 @@ function DetailsProduct(props) {
           {/* </Link> */}
         </div>
       </div>
+      <Modal isShowing={isModalCartShowed} hide={toggleModalCart} title="Que souhaitez vous faire ?">
+        <ModalCart toggle={toggleModalCart}/>
+      </Modal>
     </div>
   );
 }
