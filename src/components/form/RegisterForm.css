@@ -5,7 +5,6 @@
     flex-direction: column;
     border-radius: 19px;
     background-color: var(--greenblue);
-    /* box-shadow: 0 0 2px rgba(15, 15, 15, 0.28); */
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     align-items: center;
     margin: 5rem 0;
@@ -13,7 +12,6 @@
 }
 
 .registerForm {
-
     width: 100%;
     min-height: 100%;
     display: flex;
@@ -23,20 +21,7 @@
 }
 
 .registerBtn {
-    width: 10%;
-    padding: 1rem;
     margin-top: 1.5rem;
-    color: var(--greenblue);
-    font-size: 15px;
-    font-weight: 600;
-    border: none;
-    border-radius: 100px 100px 100px 100px;
-    cursor: pointer;
-    transition: all, 240ms ease-in-out;
-    background: var(--darkgreen);
-}
-
-.registerBtn {
     width: 50%;
     padding: 1rem;
     color: var(--greenblue);
@@ -72,8 +57,6 @@
     display: flex;
     justify-content: center;
     align-items: baseline;
-    
-
 }
 
 .loginBox h4 {
