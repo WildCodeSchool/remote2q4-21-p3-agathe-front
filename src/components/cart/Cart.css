@@ -1,80 +1,61 @@
-.Cart table {
-    margin: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    border-collapse: collapse;
+.Cart {
+    width: 100%;
+    height: 100%;
 }
 
-.Cart table tr {
-    height: 75px;
-    border-bottom: 2px solid black;
+.cart-items  {
+    border-top: 1px solid #000;
+    display: flex;
+    padding-bottom: 2rem;
 }
 
-.Cart table th {
-    width: 85px;
-}
-
-.Cart th.name {
-    width: 300px;
-}
-
-.Cart th.quantity {
-    width: 150px;
-}
-
-.Cart td.image-product {
+.image-product {
     width: 200px;
 }
 
-.Cart td.image-product img {
+.image-product img {
+    border-radius: 5px;
     width: 100%;
 }
 
-.Cart td.price {
-    text-align: right;
+.products-infos {
+    /* border: 1px solid blue; */
+    display: flex;
+    flex-direction: column;
+    padding-left: 2rem;
+    width: 100%;
 }
 
-.Cart td.quantity {
-    padding-right: 15px;
-    text-align: right;
+.products-quantity {
+    padding: 1rem 0;
 }
 
-.Cart td.total-price {
-    padding-right: 15px;
-    text-align: right;
+.products-quantity button {
+    background-color: var(--greenblue);
+    border: none;
+    cursor: pointer;
+    font-size: 0.75em;
+    width: 100px;
 }
 
-.Cart thead {
-    background-color: var(--darkgreen);
-    color: var(--greenblue);
-}
-
-.quantity-product {
-    border: 1px solid #000;
-    width: 70px;
-}
-
-.quantity-product .plus,
-.quantity-product .minus {
+.products-quantity .plus,
+.products-quantity .minus {
     padding: 0.5em;
     margin: 0;
     height: 100%;
     width: 25px;
 }
 
-.quantity-product input {
+.products-quantity input {
     border: 1px solid var(--greenblue);
     height: 100%;
     padding-left: 0.5em;
     width: 30px;
 }
 
-.quantity-product button {
-    background-color: var(--greenblue);
-    border: none;
-    cursor: pointer;
-    font-size: 0.75em;
-    width: 100px;
+.products-infos .total-price {
+    padding-right: 15px;
+    text-align: right;
 }
 
 .remove {
