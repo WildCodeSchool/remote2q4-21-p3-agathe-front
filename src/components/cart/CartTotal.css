@@ -1,5 +1,24 @@
 .total {
     border: 1px solid #000;
+    border-radius: 5px;
+    width: 250px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.total h2 {
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+.total p {
+    line-height: 1.75rem;
+}
+
+.total p:nth-last-child() {
+    border-top: 2px solid green;
 }
 
 .payment-container {
@@ -10,4 +29,8 @@
 .payment-cards {
     width: 30px;
     height: 30px;
+}
+
+.total .btn {
+    margin: auto;
 }

@@ -18,6 +18,10 @@
     width: 300px;
 }
 
+.Cart th.quantity {
+    width: 150px;
+}
+
 .Cart td.image-product {
     width: 200px;
 }
@@ -45,6 +49,48 @@
     color: var(--greenblue);
 }
 
+.quantity-product {
+    border: 1px solid #000;
+    width: 70px;
+}
+
+.quantity-product .plus,
+.quantity-product .minus {
+    padding: 0.5em;
+    margin: 0;
+    height: 100%;
+    width: 25px;
+}
+
+.quantity-product input {
+    border: 1px solid var(--greenblue);
+    height: 100%;
+    padding-left: 0.5em;
+    width: 30px;
+}
+
+.quantity-product button {
+    background-color: var(--greenblue);
+    border: none;
+    cursor: pointer;
+    font-size: 0.75em;
+    width: 100px;
+}
+
+.remove {
+    padding: 2.25rem;
+}
+
+.remove-btn {
+    text-align: center;
+}
+
+.remove-btn, .remove-all {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    
+}
 
 /* .Cart tbody tr:nth-child(even) {
     background-color: var(--main-bg-color);
