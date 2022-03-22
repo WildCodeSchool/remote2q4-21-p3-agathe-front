@@ -71,6 +71,19 @@
     font-weight: bolder;
 }
 
+.TitleIngredientsDetails {
+    font-family: var(--font-text);
+    font-size: 12px;
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+.IngredientsDetails {
+    font-size: 12px;
+    font-family: var(--font-text);
+
+}
+
 .DetailsProductCart {
     border-top: 1px solid var(--darkgreen);
     display: flex;

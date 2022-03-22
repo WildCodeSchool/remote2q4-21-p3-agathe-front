@@ -8,26 +8,37 @@
     width: 50%;
 }
 
+
 .Form input {
+    /* outline: none;
+    border: none; */
     width: 30%;
     font-size: 20px;
     font-family: var(--font-text);
     border: 2px solid #CFE2DE;
     width: 400px;
     padding: 0.3em;
+    }
 
-
+    .Form input:focus {
+    outline-color: #CFE2DE;
 }
 
 .ContactForm textarea {
+    /* outline: none;
+    border: none; */
     width: 30%;
     font-size: 20px;
     font-family: var(--font-text);
     border: 2px solid #CFE2DE;
     width: 400px;
     padding: 5em 2em;
-}
+} 
 
+.ContactForm textarea:focus {
+    outline-color: #CFE2DE;
+
+}
 .sendingBtn {
     border: none;
     color: #2C3331;

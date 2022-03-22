@@ -1,10 +1,5 @@
 .ContactPage .FormContainer {
-    /*width: 100%;
-    font-size: 20px;
-    text-align: justify;
-    font-family: var(--font-text);
-    border: 1px solid #000;*/
-    margin-left: 30px;
+text-align: center;
 }
 .ContactPage .FormContainer h1 {
     font-size: 40px;
