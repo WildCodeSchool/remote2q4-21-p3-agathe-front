@@ -60,9 +60,7 @@ function DetailsProduct(props) {
               </button>
             </div>
           </div>
-          {/* <Link to="/cart" className="link"> */}
           <button onClick={handleAddToCart}>Ajouter au panier</button>
-          {/* </Link> */}
         </div>
       </div>
       <Modal isShowing={isModalCartShowed} hide={toggleModalCart} title="Que souhaitez vous faire ?">
