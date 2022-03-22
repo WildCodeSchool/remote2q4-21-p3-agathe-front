@@ -33,7 +33,6 @@ function App() {
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/logout" element={<Logout />} />
               <Route path="/admin/presentation" element={<TextAdmin />} />
-              <Route path="/cart" element={<CartPage />} />
             </Routes>
           </BrowserRouter>
         </CartProvider>
