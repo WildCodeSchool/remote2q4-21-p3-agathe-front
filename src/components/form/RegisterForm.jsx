@@ -1,13 +1,30 @@
 import React from "react";
+import axios from "axios";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useUser } from '../../contexts/UserProvider';
 import "./RegisterForm.css"
 
 const RegisterForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const handleRegistration = (data) => console.log(data);
-  const handleError = (errors) => {};
+  const { setUser } = useUser();
 
+  let navigate = useNavigate();
+  
+  const handleRegistration = async (data) => {
+    try {
+      axios
+      .post(`${process.env.REACT_APP_URL_SERVER}/api/users`, data, { withCredentials: true, mode: 'cors' })
+      .then(credentials => {
+        setUser({token: credentials});
+        navigate('/checkout');
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  const handleError = (errors) => { console.log('handleError'); console.log(errors) };
+  
   const registerOptions = {
     firstName: { required: "Votre Prénom est requis" },
     email: { required: "Votre adresse email est requise" },
@@ -45,39 +62,51 @@ const RegisterForm = () => {
       </div>
       <div>
       <div>
-        <input name="Name" type="text" placeholder="Nom" {...register('Name', registerOptions.name) }/>
+        <input name="LastName" type="text" placeholder="Nom" {...register('LastName', registerOptions.name) }/>
         <small className="text-danger">
-          {errors?.name && errors.name.message}
+          {errors?.LastName && errors.LastName.message}
         </small>
       </div>
       <div>
         <input name="FirstName" type="text" placeholder="Prénom" {...register('FirstName', registerOptions.firstName) }/>
         <small className="text-danger">
-          {errors?.firstName && errors.name.message}
+          {errors?.FirstName && errors.FirstName.message}
         </small>
       </div>
       <div>
-        <input name="Phone" type="text" placeholder="Numéro de téléphone" {...register('Phone', registerOptions.phone) }/>
+        <input name="PhoneNumber" type="text" placeholder="Numéro de téléphone" {...register('PhoneNumber', registerOptions.phone) }/>
         <small className="text-danger">
-          {errors?.phone && errors.name.message}
+          {errors?.PhoneNumber && errors.PhoneNumber.message}
         </small>
       </div>
       <div>
-        <input name="Address" type="text" placeholder="Adresse" {...register('Address', registerOptions.address) }/>
+        <input name="Address1" type="text" placeholder="Adresse" {...register('Address1', registerOptions.address) }/>
         <small className="text-danger">
-          {errors?.address && errors.name.message}
+          {errors?.Address1 && errors.Address1.message}
         </small>
       </div>
       <div>
-        <input name="City" type="text" placeholder="Ville" {...register('City', registerOptions.city) }/>
+        <input name="Address2" type="text" placeholder="Adresse" {...register('Address2', registerOptions.address) }/>
         <small className="text-danger">
-          {errors?.city && errors.name.message}
+          {errors?.Address2 && errors.Address2.message}
         </small>
       </div>
       <div>
-        <input name="PostCode" type="text" placeholder="Code Postal" {...register('PostCode', registerOptions.postCode) }/>
+        <input name="Address3" type="text" placeholder="Adresse" {...register('Address3', registerOptions.address) }/>
         <small className="text-danger">
-          {errors?.postCode && errors.name.message}
+          {errors?.Address3 && errors.Address3.message}
+        </small>
+      </div>
+      <div>
+        <input name="city" type="text" placeholder="Ville" {...register('city', registerOptions.city) }/>
+        <small className="text-danger">
+          {errors?.city && errors.city.message}
+        </small>
+      </div>
+      <div>
+        <input name="postCode" type="text" placeholder="Code Postal" {...register('postCode', registerOptions.postCode) }/>
+        <small className="text-danger">
+          {errors?.postCode && errors.postCode.message}
         </small>
       </div>
       </div>
