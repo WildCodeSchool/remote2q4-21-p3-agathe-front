@@ -6,7 +6,7 @@ import {
   addToCart,
 } from "../../contexts/CartContext";
 import { CartStateContext } from "../../contexts/CartContext";
-import { MdClear } from "react-icons/md";
+// import { MdClear } from "react-icons/md";
 import "./Cart.css";
 
 function Cart() {
@@ -27,7 +27,6 @@ function Cart() {
   };
 
   const handleRemoveFromCart = (productID) => {
-    console.log("removeFromCart")
     removeFromCart(dispatch, productID);
   };
 
@@ -70,7 +69,7 @@ function Cart() {
               </button>
             </div>
             <span className="price">{item.price}</span>
-            <button className="remove-btn" onClick={(e) => handleRemoveFromCart(item.productID)}>supprimer</button>
+            <button className="remove-btn" onClick={(e) => handleRemoveFromCart(item.ProductID)}>supprimer</button>
           </div>
           <div className="products-total-price">
             <span>{(item.quantity * item.price).toFixed(2)}</span>
@@ -81,7 +80,7 @@ function Cart() {
         <p>Total : </p>
         <span>{total}</span>
       </div>
-      <button className="remove-all" onClick={(e) => handleRemoveAllFromCart()}>
+      <button className="remove-all" onClick={handleRemoveAllFromCart}>
         Supprimer le panier
       </button>
     </div>
