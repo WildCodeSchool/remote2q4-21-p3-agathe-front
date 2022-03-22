@@ -15,7 +15,7 @@ function Cart() {
   const [total, setTotal] = useState(0);
 
   const decrementQuantity = (ProductID, quantity) => {
-    if (quantity>1) {
+    if (quantity > 1) {
       const item = { ProductID, quantity: -1 };
       addToCart(dispatch, item);
     }
@@ -27,6 +27,7 @@ function Cart() {
   };
 
   const handleRemoveFromCart = (productID) => {
+    console.log("removeFromCart")
     removeFromCart(dispatch, productID);
   };
 
@@ -36,73 +37,50 @@ function Cart() {
 
   useEffect(() => {
     let total = 0;
-    cartContext.items.map(item => total += (item.quantity * item.price))
-    setTotal(total)
-  }, [cartContext.items])
+    cartContext.items.map((item) => (total += item.quantity * item.price));
+    setTotal(total);
+  }, [cartContext.items]);
 
   return (
     <div className="Cart">
-      <table>
-        <thead>
-          <tr>
-            <th>Code Produit</th>
-            <th></th>
-            <th className="name">Désignation</th>
-            <th className="quantity">Quantité</th>
-            <th>Prix Unitaire</th>
-            <th>Total</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {cartContext.items.map((item, index) => (
-            <tr>
-              <td key={index}>{item.ProductID}</td>
-              <td className="image-product">
-                <img
-                  src={`/assets/img/${item.ProductID}.jpeg`}
-                  alt={item.name}
-                />
-              </td>
-              <td>{item.name}</td>
-              <td className="quantity-product">
-                <button
-                  className="minus"
-                  onClick={(e) => decrementQuantity(item.ProductID, item.quantity)}
-                >-</button>
-                <input type="text" value={item.quantity} readOnly />
-                <button
-                  className="plus"
-                  onClick={(e) => incrementQuantity(item.ProductID)}
-                >+</button>
-              </td>
-              <td className="price">{item.price}</td>
-              <td className="total-price">
-                {(item.quantity * item.price).toFixed(2)}
-              </td>
-              <td className="remove">
-                <button
-                  className="remove-btn"
-                  onClick={(e) => handleRemoveFromCart(item.ProductID)}
-                >
-                  <MdClear />
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-        <tfoot>
-          <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th>Total : {total}</th>
-            <th></th>
-          </tr>
-        </tfoot>
-      </table>
+      <h2>Votre sélection</h2>
+      {cartContext.items.map((item, index) => (
+        <div key={index} className="cart-items">
+          <span>{item.ProductID}</span>
+          <div className="image-product">
+            <img src={`/assets/img/${item.ProductID}.jpeg`} alt={item.name} />
+          </div>
+          <div className="products-infos">
+            <h3 className="products-name">{item.name}</h3>
+            <div className="products-quantity">
+              <button
+                className="minus"
+                onClick={(e) =>
+                  decrementQuantity(item.ProductID, item.quantity)
+                }
+              >
+                -
+              </button>
+              <input type="text" value={item.quantity} readOnly />
+              <button
+                className="plus"
+                onClick={(e) => incrementQuantity(item.ProductID)}
+              >
+                +
+              </button>
+            </div>
+            <span className="price">{item.price}</span>
+            <button className="remove-btn" onClick={(e) => handleRemoveFromCart(item.productID)}>supprimer</button>
+          </div>
+          <div className="products-total-price">
+            <span>{(item.quantity * item.price).toFixed(2)}</span>
+          </div>
+        </div>
+      ))}
+      <div className="total-price">
+        <p>Total : </p>
+        <span>{total}</span>
+      </div>
       <button className="remove-all" onClick={(e) => handleRemoveAllFromCart()}>
         Supprimer le panier
       </button>
