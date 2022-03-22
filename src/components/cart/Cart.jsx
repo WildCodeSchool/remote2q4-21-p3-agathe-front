@@ -14,18 +14,12 @@ function Cart() {
   const dispatch = React.useContext(CartDispatchContext);
   const [total, setTotal] = useState(0);
 
-  const decrementQuantity = (ProductID) => {
-    const item = { ProductID, quantity: -1 };
-    addToCart(dispatch, item);
+  const decrementQuantity = (ProductID, quantity) => {
+    if (quantity>1) {
+      const item = { ProductID, quantity: -1 };
+      addToCart(dispatch, item);
+    }
   };
-
-  // Test minimum 1 , fail
-  if (cartContext.items <= 1) {
-    const decrementQuantity = (ProductID) => {
-      const item = { ProductID, quantity: 1 };
-      // addToCart(dispatch, item);
-    };
-  }
 
   const incrementQuantity = (ProductID) => {
     const item = { ProductID, quantity: 1 };
@@ -74,7 +68,7 @@ function Cart() {
               <td className="quantity-product">
                 <button
                   className="minus"
-                  onClick={(e) => decrementQuantity(item.ProductID)}
+                  onClick={(e) => decrementQuantity(item.ProductID, item.quantity)}
                 >-</button>
                 <input type="text" value={item.quantity} readOnly />
                 <button
