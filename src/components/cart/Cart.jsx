@@ -1,35 +1,21 @@
 import React from "react";
-import {
-  CartDispatchContext,
-  CartStateContext,
-  removeFromCart,
-  clearCart,
-  addToCart,
-} from "../../contexts/CartContext";
+import { CartStateContext } from "../../contexts/CartContext";
 import "./Cart.css";
 
 function Cart() {
-  const { cartContext, cartTotal } = React.useContext(CartStateContext);
-  const dispatch = React.useContext(CartDispatchContext);
+  const { items, addToCart, cartTotal, clearCart, removeFromCart } =
+    React.useContext(CartStateContext);
 
   const decrementQuantity = (ProductID, quantity) => {
     if (quantity > 1) {
       const item = { ProductID, quantity: -1 };
-      addToCart(dispatch, item);
+      addToCart(item);
     }
   };
 
   const incrementQuantity = (ProductID) => {
     const item = { ProductID, quantity: 1 };
-    addToCart(dispatch, item);
-  };
-
-  const handleRemoveFromCart = (productID) => {
-    removeFromCart(dispatch, productID);
-  };
-
-  const handleRemoveAllFromCart = () => {
-    clearCart(dispatch);
+    addToCart(item);
   };
 
   return (
@@ -41,18 +27,18 @@ function Cart() {
         <h3 className="total-title">Total</h3>
       </div>
       <div className="cart-items">
-        {cartContext.items &&
-          cartContext.items.map((item, index) => (
+        {items &&
+          items.map((item, index) => (
             <div className="cart-item" key={index}>
               <div className="cart-product">
                 <img
                   src={`/assets/img/${item.ProductID}.jpeg`}
                   alt={item.name}
                 />
-                <div className="cart-product-infos"> 
+                <div className="cart-product-infos">
                   <h3>{item.name}</h3>
                   <span> Réf : {item.SKU}</span>
-                  <button onClick={() => handleRemoveFromCart(item.ProductID)}>
+                  <button onClick={() => removeFromCart(item.ProductID)}>
                     Supprimer
                   </button>
                 </div>
@@ -78,7 +64,7 @@ function Cart() {
           ))}
       </div>
       <div className="cart-summary">
-        <button className="clear-btn" onClick={handleRemoveAllFromCart}>
+        <button className="clear-btn" onClick={clearCart}>
           Supprimer le panier
         </button>
         <div className="subtotal">
