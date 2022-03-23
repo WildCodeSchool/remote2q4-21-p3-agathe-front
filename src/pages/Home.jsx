@@ -5,6 +5,7 @@ import Footer from "../components/home/Footer";
 import Navbar from "../components/home/Navbar";
 import Presentation from "../components/home/Presentation";
 import ProductsList from "../components/products/ProductsList";
+import AdminPanel from "./AdminPanel";
 import "./Home.css";
 
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
@@ -24,9 +25,7 @@ const Home = () => {
   return (
     <div className="home">
       {admin && (<>
-        <Navbar />
-        <div>Admin page placeholder</div>
-        <Footer />
+        <AdminPanel />
       </>)}
       {!admin && (
         <>
