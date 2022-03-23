@@ -15,11 +15,11 @@
     /* outline: none;
     border: none; */
     width: 30%;
-    font-size: 20px;
+    font-size: 15px;
     font-family: var(--font-text);
     border: 1px solid white;
     width: 400px;
-    padding: 0.4em;
+    padding: 0.5em;
     background: #CFE2DE;
     }
 
@@ -31,11 +31,11 @@
     /* outline: none;
     border: none; */
     width: 30%;
-    font-size: 20px;
+    font-size: 15px;
     font-family: var(--font-text);
     border: 1px solid WHITE;
     width: 400px;
-    padding: 4em 2em;
+    padding: 5em 2em;
     background: #CFE2DE;
 } 
 
@@ -47,7 +47,7 @@
     border: none;
     color: #2C3331;
     padding: 0.4em 0.4em;
-    font-size: 16px;
+    font-size: 15px;
     border-radius: 0.5em;
     background: #CFE2DE;
     border: 1px solid white;;
