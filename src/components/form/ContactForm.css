@@ -1,17 +1,58 @@
 .ContactForm {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    height: 75vh;
 }
 
 .ContactForm div {
-    width: 100%;
+    width: 50%;
 }
 
-.ContactForm input {
-    width: 100%;
+
+.Form input {
+    /* outline: none;
+    border: none; */
+    width: 30%;
+    font-size: 20px;
+    font-family: var(--font-text);
+    border: 2px solid #CFE2DE;
+    width: 400px;
+    padding: 0.3em;
+    }
+
+    .Form input:focus {
+    outline-color: #CFE2DE;
 }
 
 .ContactForm textarea {
-    width: 100%;
+    /* outline: none;
+    border: none; */
+    width: 30%;
+    font-size: 20px;
+    font-family: var(--font-text);
+    border: 2px solid #CFE2DE;
+    width: 400px;
+    padding: 5em 2em;
+} 
+
+.ContactForm textarea:focus {
+    outline-color: #CFE2DE;
+
+}
+.sendingBtn {
+    border: none;
+    color: #2C3331;
+    padding: 0.5em 0.5em;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background: #CFE2DE;
+    border: 1px solid #2C3331;
+    transition: all .3s;
+    box-shadow: 6px 6px 12px #CFE2DE,
+                -6px -6px 12px white;
+}
+.sendingBtn:active {
+    color: #2C3331;
+    box-shadow: inset 4px 4px 12px white,
+                inset -4px -4px 12px white;
 }

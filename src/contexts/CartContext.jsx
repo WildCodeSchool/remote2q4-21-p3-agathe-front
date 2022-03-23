@@ -3,7 +3,7 @@ import useLocalStorage from "../hooks/useLocalStorage";
 
 const initialState = {
     isCartOpen: false,
-    items: [],
+    items: []
 };
 
 export const CartDispatchContext = createContext();
@@ -26,9 +26,7 @@ const reducer = (state, action) => {
                     if (item.ProductID === id) {
                         return {
                             ...item,
-                            quantity:
-                                item.quantity +
-                                action.payload.cartItem.quantity,
+                            quantity: item.quantity + action.payload.cartItem.quantity,
                         };
                     }
                     return item;

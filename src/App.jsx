@@ -13,8 +13,7 @@ import Logout from "./components/form/Logout";
 import TextAdmin from "./pages/TextAdmin";
 import CartProvider from "./contexts/CartContext";
 import UserProvider from './contexts/UserProvider';
-
-import "./App.css";
+import "./App.css"
 
 function App() {
   return (
