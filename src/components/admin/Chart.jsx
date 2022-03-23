@@ -19,7 +19,7 @@ const data = [
         Total: 5530
     },
     {
-        name: "May",
+        name: "Mai",
         Total: 5780
     },
     {
