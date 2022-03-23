@@ -1,36 +1,21 @@
 import React from "react";
-import {
-    CartDispatchContext,
-    CartStateContext,
-    removeFromCart,
-    clearCart,
-    addToCart,
-} from "../../contexts/CartContext";
+import { CartStateContext } from "../../contexts/CartContext";
 // import { MdClear } from "react-icons/md";
 import "./Cart.css";
 
 function Cart() {
-    const { cartContext, cartTotal } = React.useContext(CartStateContext);
-    const dispatch = React.useContext(CartDispatchContext);
-
+    const { items, addToCart, cartTotal, clearCart, removeFromCart } =
+        React.useContext(CartStateContext);
     const decrementQuantity = (ProductID, quantity) => {
         if (quantity > 1) {
             const item = { ProductID, quantity: -1 };
-            addToCart(dispatch, item);
+            addToCart(item);
         }
     };
 
     const incrementQuantity = (ProductID) => {
         const item = { ProductID, quantity: 1 };
-        addToCart(dispatch, item);
-    };
-
-    const handleRemoveFromCart = (productID) => {
-        removeFromCart(dispatch, productID);
-    };
-
-    const handleRemoveAllFromCart = () => {
-        clearCart(dispatch);
+        addToCart(item);
     };
 
     return (
@@ -63,7 +48,7 @@ function Cart() {
         //           </button>
         //         </div>
         //         <span className="price">{item.price}€</span>
-        //         <button className="remove-btn" onClick={(e) => handleRemoveFromCart(item.ProductID)}>supprimer</button>
+        //         <button className="remove-btn" onClick={(e) => removeFromCart(item.ProductID)}>supprimer</button>
         //       </div>
         //       <div className="products-total price">
         //         <span>{(item.quantity * item.price).toFixed(2)}€</span>
@@ -74,7 +59,7 @@ function Cart() {
         //     <p>Total : {total}€ </p>
 
         //   </div>
-        //   <button className="remove-all" onClick={handleRemoveAllFromCart}>
+        //   <button className="remove-all" onClick={clearCart}>
         //     Supprimer le panier
         //   </button>
         // </div>
@@ -86,8 +71,8 @@ function Cart() {
                 <h3 className="total-title">Total</h3>
             </div>
             <div className="cart-items">
-                {cartContext.items &&
-                    cartContext.items.map((item, index) => (
+                {items &&
+                    items.map((item, index) => (
                         <div className="cart-item" key={index}>
                             <div className="cart-product">
                                 <img
@@ -98,7 +83,7 @@ function Cart() {
                                     <h3>{item.name}</h3>
                                     <button
                                         onClick={() =>
-                                            handleRemoveFromCart(item.ProductID)
+                                            removeFromCart(item.ProductID)
                                         }
                                     >
                                         Remove
@@ -140,7 +125,7 @@ function Cart() {
                     ))}
             </div>
             <div className="cart-summary">
-                <button className="clear-btn" onClick={handleRemoveAllFromCart}>
+                <button className="clear-btn" onClick={clearCart}>
                     Supprimer le panier
                 </button>
                 <div className="subtotal">

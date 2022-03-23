@@ -7,14 +7,14 @@ import "./Navbar.css";
 
 const Navbar = () => {
     const { user } = useUser();
-    const { cartContext, total } = useContext(CartStateContext);
-    const [items, setItems] = useState("");
+    const { items } = useContext(CartStateContext);
+    const [itemsInCart, setItemsInCart] = useState("");
 
     useEffect(() => {
-        if (cartContext.items.length) {
-            setItems(` (${cartContext.items.length})`);
+        if (items.length) {
+            setItemsInCart(` (${items.length})`);
         }
-    }, [cartContext.items]);
+    }, [items]);
 
     return (
         <div className="navbar">
@@ -41,7 +41,7 @@ const Navbar = () => {
                 </li>
                 <li className="push-right">
                     <Link to="/cart" className="link">
-                        Panier{items}
+                        Panier{itemsInCart}
                     </Link>
                 </li>
                 <li>
