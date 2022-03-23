@@ -2,7 +2,7 @@
     background-color: #eeeee6;
 }
 .ContactPage .FormContainer h1 {
-    font-size: 40px;
+    font-size: 30px;
     font-family: var(--font-home);
     color: #2C3331;
     margin: 0 40%;
@@ -11,5 +11,5 @@
     font-size: 20px;
     font-family: var(--font-text);
     margin: 40%;
-    color: black;
+    color: #2C3331;
 }

@@ -10,6 +10,11 @@
     width: 50%;
 }
 
+.TitleForm {
+    font-size: 30px;
+    font-family: var(--font-home);
+    color: #2C3331;
+}
 
 .Form input {
     /* outline: none;
