@@ -69,7 +69,7 @@ function Cart() {
         </button>
         <div className="subtotal">
           <span>Sous total :</span>
-          <span className="amount">{cartTotal.toFixed(2)} €</span>
+          <span className="subtotal-price">{cartTotal.toFixed(2)} €</span>
         </div>
       </div>
     </div>
