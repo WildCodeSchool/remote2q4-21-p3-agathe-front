@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=BioRhyme:wght@200&family=Cinzel&family=Work+Sans:wght@300&display=swap');
-
 :root {
     /* --main-bg-color: #fbfbf9; */
     --main-bg-color: #eeeee6;
@@ -19,5 +18,5 @@
 
 body {
     width: 100%;
-    min-height: 100vh;
+    /* min-height: 100vh; */
 }
