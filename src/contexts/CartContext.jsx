@@ -22,11 +22,14 @@ const reducer = (state, action) => {
             if (isOld) {
                 const items = state.items.map((item) => {
                     if (item.ProductID === id) {
+                        console.log(console.log(action.change===true))
                         return {
                             ...item,
                             quantity:
-                                item.quantity +
-                                action.payload.cartItem.quantity,
+                                action.change === true
+                                    ? action.payload.cartItem.quantity
+                                    : item.quantity +
+                                      action.payload.cartItem.quantity,
                         };
                     }
                     return item;
@@ -102,6 +105,16 @@ const CartProvider = ({ children }) => {
         });
     };
 
+    const changeToCart = (cartItem) => {
+        return dispatch({
+            type: "ADD_TO_CART",
+            payload: {
+                cartItem: cartItem,
+            },
+            change: true,
+        });
+    };
+
     const removeFromCart = (cartItemId) => {
         return dispatch({
             type: "REMOVE_FROM_CART",
@@ -115,6 +128,7 @@ const CartProvider = ({ children }) => {
         addToCart,
         cartTotal,
         clearCart,
+        changeToCart,
         removeFromCart,
         ...state,
     };

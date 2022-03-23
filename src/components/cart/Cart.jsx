@@ -3,20 +3,14 @@ import { CartStateContext } from "../../contexts/CartContext";
 import "./Cart.css";
 
 function Cart() {
-  const { items, addToCart, cartTotal, clearCart, removeFromCart } =
+  const { items, changeToCart, cartTotal, clearCart, removeFromCart } =
     React.useContext(CartStateContext);
 
-  const decrementQuantity = (ProductID, quantity) => {
-    if (quantity > 1) {
-      const item = { ProductID, quantity: -1 };
-      addToCart(item);
-    }
-  };
-
-  const incrementQuantity = (ProductID) => {
-    const item = { ProductID, quantity: 1 };
-    addToCart(item);
-  };
+  const changeQuantity = (ProductID, quantity) => {
+    console.log(`changeQuantity ${ProductID} ${quantity}`)
+    const item = { ProductID, quantity: quantity };
+    changeToCart(item);
+  }
 
   return (
     <div className="cart-container">
@@ -52,7 +46,7 @@ function Cart() {
                 >
                   -
                 </button> */}
-                <input type="number" onChange={item.quantity} />
+                <input type="number" onInput={(e) => changeQuantity(item.ProductID, e.currentTarget.value)} value={item.quantity} min="1" step="1" />
                 {/* <button onClick={(e) => incrementQuantity(item.ProductID)}>
                   +
                 </button> */}
