@@ -4,7 +4,7 @@
     /* background-color: var(--main-bg-color); */
     font-family: var(--font-text);
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .description-Logo {

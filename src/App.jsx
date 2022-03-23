@@ -34,7 +34,7 @@ function App() {
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/logout" element={<Logout />} />
               <Route path="/admin" element={<AdminPanel />} />
-              <Route path="/presentation" element={<TextAdmin />} />
+              <Route path="/admin/presentation" element={<TextAdmin />} />
             </Routes>
           </BrowserRouter>
         </CartProvider>

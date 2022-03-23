@@ -5,9 +5,6 @@ import CreditCardOutlinedIcon from '@mui/icons-material/CreditCardOutlined';
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
 import AssessmentOutlinedIcon from '@mui/icons-material/AssessmentOutlined';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
-import SettingsSystemDaydreamOutlinedIcon from '@mui/icons-material/SettingsSystemDaydreamOutlined';
-import PsychologyOutlinedIcon from '@mui/icons-material/PsychologyOutlined';
-import SettingsApplicationsOutlinedIcon from '@mui/icons-material/SettingsApplicationsOutlined';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import { Link } from "react-router-dom";
@@ -19,7 +16,7 @@ const Sidebar = () => {
             <div className='center'>
                 <ul>
                     <p className="sidebarTitle">MAIN</p>
-                    <Link to="/" style={{ textDecoration: "none" }}>
+                    <Link to="/admin" style={{ textDecoration: "none" }}>
                     <li>
                         <DashboardIcon className='icon' />
                         <span>Menu</span>
