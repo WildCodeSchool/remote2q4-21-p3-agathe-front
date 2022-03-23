@@ -2,7 +2,7 @@ import "./AdminPanel.css"
 import Chart from "../components/admin/Chart"
 import Featured from "../components/admin/Featured"
 import Sidebar from '../components/admin/Sidebar'
-import Table from "../components/admin/Table"
+import List from "../components/admin/Table"
 import Widget from '../components/admin/Widget'
 import Navbar from '../components/home/Navbar'
 import Footer from '../components/home/Footer'
@@ -26,7 +26,7 @@ const AdminPanel = () => {
           </div>
           <div className="listContainer">
             <div className="listTitle">Dernières Commandes</div>
-            <Table />
+            <List />
           </div>
                 </div>
             </div>

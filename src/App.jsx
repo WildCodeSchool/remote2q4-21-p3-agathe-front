@@ -1,21 +1,25 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { userInputs } from './formSource';
 import AdminPanel from "./pages/AdminPanel";
 import Brand from "./pages/Brand";
 import Catalogue from "./pages/Catalogue";
 import CartPage from "./pages/CartPage";
-import ContactPage from "./pages/ContactPage";
 import CartProvider from "./contexts/CartContext";
 import Checkout from "./pages/Checkout";
+import ContactPage from "./pages/ContactPage";
 import Home from "./pages/Home";
+import List from './pages/List';
 import LoginPage from "./pages/LoginPage";
 import Logout from "./components/form/Logout";
+import New from './pages/New';
 import Page from "./middleware/Page";
 import ProductPage from "./pages/ProductPage";
 import RegisterPage from "./pages/RegisterPage"
+import Single from './pages/Single';
 import TextAdmin from "./pages/TextAdmin";
 import UserProvider from './contexts/UserProvider';
-import "./App.css"
+import "./App.css";
 
 function App() {
   return (
@@ -36,6 +40,11 @@ function App() {
               <Route path="/logout" element={<Logout />} />
               <Route path="/admin" element={<AdminPanel />} />
               <Route path="/admin/presentation" element={<TextAdmin />} />
+              <Route path="users">
+              <Route index element={<List />} />
+              <Route path=":userId" element={<Single />} />
+              <Route path="new" element={<New inputs={userInputs} title="Add New User" />} />
+            </Route>
             </Routes>
           </BrowserRouter>
         </CartProvider>
