@@ -1,3 +1,12 @@
+.Description {
+    display: flex;
+    flex-direction: column;
+    /* background-color: var(--main-bg-color); */
+    font-family: var(--font-text);
+    position: relative;
+    min-height: 100vh;
+}
+
 .description-Logo {
     display: flex;
     background-image: url("../assets/Logo\ Elfenn\ cosmétiques\ modifier.png");
@@ -12,6 +21,7 @@
     background-position: center;
 }
 
+
 .title {
     z-index: 1;
     top: 10%;
@@ -24,7 +34,6 @@
     color: white;
     left: 27%;
 }
-
 
 /* hr {
     z-index: 1;
@@ -45,6 +54,7 @@
 }
 
 .Description p {
+
     font-size: 1.5em;
     text-align: center;
     line-height: 1.5em;

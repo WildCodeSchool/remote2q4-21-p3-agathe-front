@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Footer from "../components/home/Footer";
+import Navbar from "../components/home/Navbar";
 import "./Brand.css"
 
 function Brand() {
@@ -16,8 +18,11 @@ function Brand() {
     }, []);
 
     return (
-        <div>
-            <div className="description-Logo"></div>
+
+        <div className="Description">
+            <Navbar />
+            <div className="description-Logo">
+            </div>
             <section className="BrandDesc">
                 <div className="description_img">
                     <h1 className="title"> Notre histoire </h1>
@@ -29,7 +34,9 @@ function Brand() {
                 {description.split("\n").map((line,id) => (
                     <p key={id}>{line}</p>
                 ))}
+
             </section>
+            <Footer />
         </div>
     );
 };
