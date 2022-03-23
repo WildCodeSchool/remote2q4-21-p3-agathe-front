@@ -1,6 +1,11 @@
+.table {
+    background-color: var(--greenblue);
+}
+
 .cellWrapper {
     display: flex;
     align-items: center;
+    background-color: var(--greenblue);
 }
 
 .datatableImage {

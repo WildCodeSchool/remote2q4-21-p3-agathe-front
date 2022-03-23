@@ -2,7 +2,7 @@
     flex: 1;
     border-right: 0.5px solid var(--darkgreen);
     min-height: 100vh;
-    background-color: var(--greenblue);
+    background-color: var(--main-bg-color);
     width: 20vh;
 }
 
@@ -10,7 +10,7 @@
     padding-left: 10px;
 }
 
-ul {
+.center ul {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -19,21 +19,22 @@ ul {
 .sidebarTitle {
     font-size: 10px;
     font-weight: bold;
-    color: #888;
+    color: var(--darkgreen);
     margin-top: 15px;
     margin-bottom: 5px;
 }
 
-li {
+.center li {
     display: flex;
     align-items: center;
     padding: 5px;
     cursor: pointer;
 }
 
-li:hover {
-    background-color: #ece8ff;
+.center li:hover {
+    background-color: var(--greenblue);
 }
+
 
 .icon {
     font-size: 18px;
@@ -41,7 +42,7 @@ li:hover {
     margin-right: 10px;
 }
 
-span {
+.center span {
     font-size: 13px;
     font-weight: 600;
     color: var(--darkgreen)

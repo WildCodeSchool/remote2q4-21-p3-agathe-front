@@ -22,10 +22,11 @@
     box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
     padding: 20px;
     margin: 20px;
+    background-color: var(--greenblue);
 }
 
 .listTitle {
     font-weight: 500;
-    color: gray;
+    color: var(--darkgreen);
     margin-bottom: 15px;
 }

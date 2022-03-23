@@ -11,10 +11,10 @@ const Datatable = () => {
                 return (
                     <div className="cellAction">
                         <Link to="/users/test" style={{ textDecoration: "none" }}>
-                        <div className="viewButton">View</div>
+                        <div className="viewButton">Voir</div>
                         </Link>
                         <Link to="/users" style={{ textDecoration: "none" }}>
-                        <div className="deleteButton">Delete</div>
+                        <div className="deleteButton">Supprimer</div>
                         </Link>
                     </div>
                 );
@@ -25,9 +25,9 @@ const Datatable = () => {
     return (
         <div className='datatable'>
             <div className="datatableTitle">
-                Add New User
+                Ajouter un client
                 <Link to="/users/new" className="datatableLink">
-                    Add New
+                    Ajouter
                 </Link>
             </div>
             <DataGrid
