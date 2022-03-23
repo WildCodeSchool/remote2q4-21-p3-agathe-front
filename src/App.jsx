@@ -14,6 +14,7 @@ import TextAdmin from "./pages/TextAdmin";
 import CartProvider from "./contexts/CartContext";
 import UserProvider from './contexts/UserProvider';
 import "./App.css"
+import AdminPanel from "./pages/AdminPanel";
 
 function App() {
   return (
@@ -22,8 +23,8 @@ function App() {
         <CartProvider>
           <BrowserRouter>
             <Routes>
-              <Route exact path="/" element={<Home />} />
-              <Route exact path="Brand" element={<Brand />} />
+              <Route path="/" element={<Home />} />
+              <Route path="Brand" element={<Brand />} />
               <Route path="/page_produit/:id" element={<ProductPage />} />
               <Route path="/cart" element={<CartPage />} />
               <Route path="/catalogue" element={<Catalogue />} />
@@ -32,7 +33,8 @@ function App() {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/logout" element={<Logout />} />
-              <Route path="/admin/presentation" element={<TextAdmin />} />
+              <Route path="/admin" element={<AdminPanel />} />
+              <Route path="/presentation" element={<TextAdmin />} />
             </Routes>
           </BrowserRouter>
         </CartProvider>
