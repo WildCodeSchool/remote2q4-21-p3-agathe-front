@@ -1,21 +1,21 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
+import AdminPanel from "./pages/AdminPanel";
 import Brand from "./pages/Brand";
-import ProductPage from "./pages/ProductPage";
 import CartPage from "./pages/CartPage";
+import CartProvider from "./contexts/CartContext";
 import Catalogue from "./pages/Catalogue";
 import Checkout from "./pages/Checkout";
 import ContactPage from "./pages/ContactPage";
+import Home from "./pages/Home";
 import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage"
 import Logout from "./components/form/Logout";
+import Page from "./middleware/Page";
+import ProductPage from "./pages/ProductPage";
+import RegisterPage from "./pages/RegisterPage";
 import TextAdmin from "./pages/TextAdmin";
-import CartProvider from "./contexts/CartContext";
 import UserProvider from './contexts/UserProvider';
 import "./App.css"
-import AdminPanel from "./pages/AdminPanel";
-import Page from "./middleware/Page";
 
 function App() {
   return (
