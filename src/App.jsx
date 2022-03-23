@@ -7,22 +7,23 @@ import CartPage from "./pages/CartPage";
 import Catalogue from "./pages/Catalogue";
 import Checkout from "./pages/Checkout";
 import ContactPage from "./pages/ContactPage";
+import List from './pages/List';
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage"
 import Logout from "./components/form/Logout";
+import New from './pages/New';
 import TextAdmin from "./pages/TextAdmin";
 import CartProvider from "./contexts/CartContext";
 import UserProvider from './contexts/UserProvider';
-import "./App.css";
 import AdminPanel from "./pages/AdminPanel";
-import List from "./pages/List";
-import Single from "./pages/Single";
-import New from "./pages/New";
+import Page from "./middleware/Page";
+import Single from './pages/Single';
 import { userInputs } from './formSource';
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
+    <>
       <UserProvider>
         <CartProvider>
           <BrowserRouter>
@@ -30,7 +31,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="Brand" element={<Brand />} />
               <Route path="/page_produit/:id" element={<ProductPage />} />
-              <Route path="/cart" element={<CartPage />} />
+              <Route path="/cart" element={<Page SubPage={CartPage} />} />
               <Route path="/catalogue" element={<Catalogue />} />
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/contact" element={<ContactPage />} />
@@ -48,7 +49,7 @@ function App() {
           </BrowserRouter>
         </CartProvider>
       </UserProvider>
-    </div>
+    </>
   );
 }
 
