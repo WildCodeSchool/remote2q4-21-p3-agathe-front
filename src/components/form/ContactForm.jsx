@@ -14,6 +14,7 @@ const ContactForm = () => {
 
   return (
     <div className="ContactForm">
+      <h1 className="TitleForm">Formulaire de Contact</h1>
       <form onSubmit={handleSubmit(handleRegistration, handleError)}>
         <div className="Form">
           <input type="email" name="email" placeholder="Votre email" required
