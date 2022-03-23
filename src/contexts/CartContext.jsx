@@ -3,10 +3,9 @@ import useLocalStorage from "../hooks/useLocalStorage";
 
 const initialState = {
     isCartOpen: false,
-    items: [],
+    items: []
 };
 
-export const CartStateContext = createContext();
 export const CartDispatchContext = createContext();
 
 const reducer = (state, action) => {
@@ -17,11 +16,10 @@ const reducer = (state, action) => {
                 isCartOpen: !state.isCartOpen,
             };
         case "ADD_TO_CART":
-            //
-            // FIXME: when final quantity == 0, remove the item ?
-            //
             const id = action.payload.cartItem.ProductID;
-            const isOld = state.items.map((item) => item.ProductID).includes(id);
+            const isOld = state.items
+                .map((item) => item.ProductID)
+                .includes(id);
             let cartItems = null;
             if (isOld) {
                 const items = state.items.map((item) => {
@@ -88,6 +86,8 @@ export const clearCart = (dispatch) => {
     });
 };
 
+export const CartStateContext = createContext();
+
 const CartProvider = ({ children }) => {
     const [persistedCartItems, setPersistedCartItems] = useLocalStorage(
         "cartItems",
@@ -100,14 +100,21 @@ const CartProvider = ({ children }) => {
     };
 
     const [state, dispatch] = useReducer(reducer, persistedCartState);
+    const [total, setTotal] = React.useState(0);
 
     useEffect(() => {
         setPersistedCartItems(state.items);
+        const newTotal = state.items.reduce(
+          (total, cartItem) => total + cartItem.quantity * cartItem.price,
+          0
+        );
+        setTotal(newTotal);
+
     }, [JSON.stringify(state.items)]);
 
     return (
         <CartDispatchContext.Provider value={dispatch}>
-            <CartStateContext.Provider value={state}>
+            <CartStateContext.Provider value={{cartContext:state, cartTotal:total}}>
                 {children}
             </CartStateContext.Provider>
         </CartDispatchContext.Provider>
