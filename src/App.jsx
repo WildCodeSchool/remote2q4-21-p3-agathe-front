@@ -15,10 +15,11 @@ import CartProvider from "./contexts/CartContext";
 import UserProvider from './contexts/UserProvider';
 import "./App.css"
 import AdminPanel from "./pages/AdminPanel";
+import Page from "./middleware/Page";
 
 function App() {
   return (
-    <div className="App">
+    <>
       <UserProvider>
         <CartProvider>
           <BrowserRouter>
@@ -26,7 +27,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="Brand" element={<Brand />} />
               <Route path="/page_produit/:id" element={<ProductPage />} />
-              <Route path="/cart" element={<CartPage />} />
+              <Route path="/cart" element={<Page SubPage={CartPage} />} />
               <Route path="/catalogue" element={<Catalogue />} />
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/contact" element={<ContactPage />} />
@@ -39,7 +40,7 @@ function App() {
           </BrowserRouter>
         </CartProvider>
       </UserProvider>
-    </div>
+    </>
   );
 }
 

@@ -1,12 +1,5 @@
-.CartPage {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    justify-content: space-between;
-    background-color: var(--main-bg-color);
-}
-
 .CartContainer {
+    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
