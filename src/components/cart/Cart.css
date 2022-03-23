@@ -1,132 +1,6 @@
-/* .Cart {
-    display: flex;
-    flex-direction: column;
-    font-family: var(--font-text);
-    padding: 2rem;
-    width: 60%;
-    height: 100%;
-}
-
-.Cart h1 {
-    align-self: flex-start;
-    font-size: 1.75rem;
-    padding-bottom: 1rem;
-}
-
-.Cart .line {
-    border-top: 2px solid var(--greenblue);
-    padding-bottom: 2rem;
-    width: 100%;
-}
-
-.cart-items  {
-    border-bottom: 1px solid #000;
-    display: flex;
-    justify-content: space-around;
-    padding: 1rem 0;
-    width: 100%;
-}
-
-.item-index {
-    margin: auto;
-    padding-right: 2rem;
-}
-
-.image-product {
-    width: 250px;
-    height: fit-content;
-}
-
-.image-product img {
-    border-radius: 5px;
-    width: 100%;
-    object-fit: cover;
-}
-
-.products-infos {
-    display: flex;
-    flex-direction: column;
-    padding-left: 2rem;
-    width: 100%;
-}
-
-
-
-.products-quantity {
-    padding: 1rem 0;
-}
-
-.products-quantity button {
-    background-color: var(--greenblue);
-    border: none;
-    cursor: pointer;
-    font-size: 0.75em;
-    width: 100px;
-}
-
-.products-quantity .plus,
-.products-quantity .minus {
-    margin: 0;
-    height: 100%;
-    width: 15px;
-}
-
-.products-quantity input {
-    border: 1px solid var(--greenblue);
-    font-size: 0.75rem;
-    text-align: center;
-    height: 100%;
-    width: 30px;
-}
-
-
-.products-infos .total-price {
-    padding-right: 15px;
-    text-align: right;
-}
-
-.remove {
-    padding: 2.25rem;
-}
-
-.remove-btn {
-    align-self: flex-end;
-}
-
-.remove-btn, .remove-all {
-    font-size: 0.65rem;
-    padding-top: 0.5rem;
-}
-
-.remove-btn, .remove-all {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    width: fit-content;
-}
-
-.price, .total-price  {
-    font-weight: bold;
-}
-
-.total-price {
-    padding-top: 1.5rem;
-    text-align: right;
-}
-
-.total-price p {
-    font-size: 1.5rem;
-} */
-
 .cart-container {
   font-family: var(--font-text);
   padding: 2rem 4rem;
-}
-
-.cart-container h2 {
-  font-weight: 400;
-  font-size: 30px;
-  text-align: center;
 }
 
 .cart-container .titles {
@@ -134,7 +8,7 @@
 }
 
 .cart-container .titles h3 {
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: 400;
   text-transform: uppercase;
 }
@@ -172,29 +46,42 @@
 
 .cart-item .cart-product img {
   border-radius: 5px;
-  width: 100px;
+  width: 150px;
   max-width: 100%;
   margin-right: 1rem;
 }
+.cart-product-infos {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
 
-.cart-item .cart-product h3 {
+.cart-item .cart-product-infos h3 {
+  font-size: 0.95rem;
+  font-weight: 400;
+  padding-bottom: 0.25rem;
+}
+
+.cart-item .cart-product-infos span {
+  color: var(--darkgreen);
   font-size: 0.75rem;
   font-weight: 400;
 }
 
-.cart-item .cart-product button {
+.cart-item .cart-product-infos button {
   background: none;
   border: none;
-  color: var(--greenblue);
+  /* color: var(--greenblue); */
   cursor: pointer;
-  font-size: 0.75rem;
-  margin-top: 0.7rem;
+  font-size: 0.5rem;
+  letter-spacing: 0.1rem;
+  padding-top: 3.25rem;
   outline: none;
 }
 
-.cart-item .cart-product button:hover {
+/* .cart-item .cart-product-infos button:hover, .cart-summary button:hover {
   color: var(--darkgreen);
-}
+} */
 
 .cart-item .cart-product-quantity {
   display: flex;
@@ -223,7 +110,13 @@
     width: 30px;
 }
 
+
+.cart-product-price {
+  font-size: 0.65rem;
+}
+
 .cart-item .cart-product-total-price {
+  font-size: 0.85rem;
   font-weight: 700;
   justify-self: right;
   padding-right: 0.5rem;
@@ -234,24 +127,27 @@
   justify-content: space-between;
   align-items: flex-start;
   border-top: 1px solid rgb(187, 187, 187);
-  padding-top: 2rem;
+  padding-top: 1.5rem;
 }
 
 .cart-summary .clear-btn {
   background-color: transparent;
   border: none;
-  color: var(--greenblue);
+  /* color: var(--greenblue); */
   cursor: pointer;
   font-size: 0.75rem;
   letter-spacing: 1.15px;
 }
 
 .subtotal {
-  width: 270px;
-  max-width: 100%;
+  /* border: 2px solid #000;
+  background-color: var(--darkgreen); */
   display: flex;
   justify-content: space-between;
-  font-size: 20px;
+  color: var(--darkgreen);
+  font-size: 1.5rem;
+  width: 180px;
+  max-width: 100%;
 }
 
 .amount {
