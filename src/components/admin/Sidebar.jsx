@@ -22,60 +22,47 @@ const Sidebar = () => {
                     <Link to="/" style={{ textDecoration: "none" }}>
                     <li>
                         <DashboardIcon className='icon' />
-                        <span>Dashboard</span>
+                        <span>Menu</span>
                     </li>
                     </Link>
                     <p className="sidebarTitle">LISTS</p>
                     <Link to="/users" style={{ textDecoration: "none" }}>
                     <li>
                         <PersonOutlineOutlinedIcon className='icon' />
-                        <span>Users</span>
+                        <span>Clients</span>
                     </li>
                     </Link>
                     <Link to="/products" style={{ textDecoration: "none" }}>
                     <li>
                         <Inventory2OutlinedIcon className='icon' />
-                        <span>Products</span>
+                        <span>Produits</span>
                     </li>
                     </Link>
                     <li>
                         <CreditCardOutlinedIcon className='icon' />
-                        <span>Orders</span>
+                        <span>Commandes</span>
                     </li>
                     <li>
                         <LocalShippingOutlinedIcon className='icon' />
-                        <span>Delivery</span>
+                        <span>Livraison</span>
                     </li>
-                    <p className="sidebarTitle">USEFUL</p>
+                    <p className="sidebarTitle">UTILE</p>
                     <li>
                         <AssessmentOutlinedIcon className='icon' />
-                        <span>Stats</span>
+                        <span>Statistiques</span>
                     </li>
                     <li>
                         <NotificationsNoneOutlinedIcon className='icon' />
                         <span>Notifications</span>
                     </li>
-                    <p className="sidebarTitle">SERVICE</p>
-                    <li>
-                        <SettingsSystemDaydreamOutlinedIcon className='icon' />
-                        <span>System Health</span>
-                    </li>
-                    <li>
-                        <PsychologyOutlinedIcon className='icon' />
-                        <span>Logs</span>
-                    </li>
-                    <li>
-                        <SettingsApplicationsOutlinedIcon className='icon' />
-                        <span>Settings</span>
-                    </li>
-                    <p className="sidebarTitle">USER</p>
+                    <p className="sidebarTitle">UTILISATEUR</p>
                     <li>
                         <AccountCircleOutlinedIcon className='icon' />
-                        <span>Profile</span>
+                        <span>Profil</span>
                     </li>
                     <li>
                         <LogoutOutlinedIcon className='icon' />
-                        <span>Logout</span>
+                        <span>Déconnexion</span>
                     </li>
                 </ul>
             </div>

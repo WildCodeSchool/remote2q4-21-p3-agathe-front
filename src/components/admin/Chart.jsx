@@ -3,28 +3,28 @@ import { AreaChart, Area, XAxis, CartesianGrid, Tooltip, ResponsiveContainer } f
 
 const data = [
     {
-        name: "January",
-        Total: 2450
+        name: "Janvier",
+        Total: 6150
     },
     {
-        name: "February",
-        Total: 2210
+        name: "Février",
+        Total: 5370
     },
     {
-        name: "March",
-        Total: 2290
+        name: "Mars",
+        Total: 4920
     },
     {
-        name: "April",
-        Total: 2000
+        name: "Avril",
+        Total: 5530
     },
     {
-        name: "May",
-        Total: 2181
+        name: "Mai",
+        Total: 5780
     },
     {
-        name: "June",
-        Total: 2500
+        name: "Juin",
+        Total: 4700
     },
 ];
 

@@ -15,33 +15,33 @@ const Widget = ({ type }) => {
     switch(type){
         case "user":
             data= {
-                title:"USERS",
+                title:"CLIENTS",
                 isMoney: false,
-                link:"See all users",
+                link:"Voir tous les clients",
                 icon: <PersonOutlinedIcon className="icon" style={{color: "crimson", backgroundColor: "rgba(255, 0, 0, 0.2)",}} />,
             };
             break;
             case "order":
             data= {
-                title:"ORDERS",
+                title:"COMMANDES",
                 isMoney: false,
-                link:"View all orders",
+                link:"Voir toutes les commandes",
                 icon: <ShoppingCartOutlinedIcon className="icon" style={{color: "goldenrod", backgroundColor: "rgba(218, 165, 32, 0.2)",}} />,
             };
             break;
             case "earning":
             data= {
-                title:"EARNINGS",
+                title:"VENTES",
                 isMoney: true,
-                link:"View net earnings",
+                link:"Voir toutes les ventes",
                 icon: <MonetizationOnOutlinedIcon className="icon" style={{color: "green", backgroundColor: "rgba(0, 128, 0, 0.2)",}} />,
             };
             break;
             case "balance":
             data= {
-                title:"BALANCE",
+                title:"RESULTAT NET",
                 isMoney: true,
-                link:"View balance",
+                link:"Voir le détail",
                 icon: <AccountBalanceWalletOutlinedIcon className="icon" style={{color: "purple", backgroundColor: "rgba(128, 0, 128, 0.2)",}} />,
             };
             break;

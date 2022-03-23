@@ -9,36 +9,36 @@ const Featured = () => {
   return (
     <div className='featured'>
         <div className="featuredTop">
-            <h1 className="topTitle">Total Revenue</h1>
+            <h1 className="topTitle">Revenu des ventes</h1>
             <MoreVertIcon fontSize="small"/>
         </div>
         <div className="featuredBottom">
             <div className="featuredChart">
                 <CircularProgressbar value={70} text={"70%"} strokeWidth={5}/>
             </div>
-            <p className="bottomTtitle">Total sales made today</p>
-            <p className="amount">$420</p>
-            <p className="desc">Previous transactions processing last payments may not be included</p>
+            <p className="bottomTtitle">Vente total du jour</p>
+            <p className="amount">250 €</p>
+            <p className="desc">Les paiements du jour d'avant peuvent être toujours en cours de calcul</p>
             <div className="summary">
                 <div className="item">
-                    <div className="itemTitle">Yesterday</div>
+                    <div className="itemTitle">Hier</div>
                     <div className="itemResult negative">
                         <KeyboardArrowDownIcon fontSize="small" />
-                        <div className="resultAmount">$250</div>
+                        <div className="resultAmount">120 €</div>
                     </div>
                 </div>
                 <div className="item">
-                    <div className="itemTitle">Last Week</div>
+                    <div className="itemTitle">Semaine passée</div>
                     <div className="itemResult positive">
                         <KeyboardArrowUpOutlinedIcon fontSize="small" />
-                        <div className="resultAmount">$3,000</div>
+                        <div className="resultAmount">1550 €</div>
                     </div>
                 </div>
                 <div className="item">
-                    <div className="itemTitle">Last Month</div>
+                    <div className="itemTitle">Mois dernier</div>
                     <div className="itemResult positive">
                         <KeyboardArrowUpOutlinedIcon fontSize="small" />
-                        <div className="resultAmount">$12,000</div>
+                        <div className="resultAmount">6230 €</div>
                     </div>
                 </div>
             </div>
