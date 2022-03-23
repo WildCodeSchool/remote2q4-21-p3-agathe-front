@@ -1,5 +1,5 @@
 .ContactPage .FormContainer {
-text-align: center;
+    background-color: #eeeee6;
 }
 .ContactPage .FormContainer h1 {
     font-size: 40px;

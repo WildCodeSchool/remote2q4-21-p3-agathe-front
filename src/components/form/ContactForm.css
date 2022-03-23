@@ -1,7 +1,9 @@
 .ContactForm {
     display: flex;
     flex-direction: column;
-    height: 75vh;
+    height: 60vh;
+    margin-top: 100px;
+    align-items: center;
 }
 
 .ContactForm div {
@@ -15,9 +17,10 @@
     width: 30%;
     font-size: 20px;
     font-family: var(--font-text);
-    border: 2px solid #CFE2DE;
+    border: 1px solid white;
     width: 400px;
-    padding: 0.3em;
+    padding: 0.4em;
+    background: #CFE2DE;
     }
 
     .Form input:focus {
@@ -30,9 +33,10 @@
     width: 30%;
     font-size: 20px;
     font-family: var(--font-text);
-    border: 2px solid #CFE2DE;
+    border: 1px solid WHITE;
     width: 400px;
-    padding: 5em 2em;
+    padding: 4em 2em;
+    background: #CFE2DE;
 } 
 
 .ContactForm textarea:focus {
@@ -42,14 +46,14 @@
 .sendingBtn {
     border: none;
     color: #2C3331;
-    padding: 0.5em 0.5em;
-    font-size: 18px;
+    padding: 0.4em 0.4em;
+    font-size: 16px;
     border-radius: 0.5em;
     background: #CFE2DE;
-    border: 1px solid #2C3331;
+    border: 1px solid white;;
     transition: all .3s;
     box-shadow: 6px 6px 12px #CFE2DE,
-                -6px -6px 12px white;
+                -6px -6px 12px #eeeee6;
 }
 .sendingBtn:active {
     color: #2C3331;
