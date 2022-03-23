@@ -13,8 +13,12 @@ import Logout from "./components/form/Logout";
 import TextAdmin from "./pages/TextAdmin";
 import CartProvider from "./contexts/CartContext";
 import UserProvider from './contexts/UserProvider';
-import "./App.css"
+import "./App.css";
 import AdminPanel from "./pages/AdminPanel";
+import List from "./pages/List";
+import Single from "./pages/Single";
+import New from "./pages/New";
+import { userInputs } from './formSource';
 
 function App() {
   return (
@@ -35,6 +39,11 @@ function App() {
               <Route path="/logout" element={<Logout />} />
               <Route path="/admin" element={<AdminPanel />} />
               <Route path="/admin/presentation" element={<TextAdmin />} />
+              <Route path="users">
+              <Route index element={<List />} />
+              <Route path=":userId" element={<Single />} />
+              <Route path="new" element={<New inputs={userInputs} title="Add New User" />} />
+            </Route>
             </Routes>
           </BrowserRouter>
         </CartProvider>
