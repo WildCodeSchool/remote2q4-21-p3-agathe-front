@@ -35,7 +35,7 @@ function App() {
               <Route path="/catalogue" element={<Page SubPage={Catalogue} />} />
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/contact" element={<Page SubPage={ContactPage} />} />
-              <Route path="/login" element={<LoginPage />} />
+              <Route path="/login" element={<Page SubPage={LoginPage} />} />
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/logout" element={<Logout />} />
               <Route path="/admin" element={<AdminPanel />} />
