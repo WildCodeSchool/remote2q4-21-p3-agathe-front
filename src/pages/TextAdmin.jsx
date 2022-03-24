@@ -1,18 +1,8 @@
-import React from 'react'
-import Navbar from '../components/home/Navbar'
-import Footer from '../components/home/Footer'
-import TextForm from '../components/admin/TextForm'
+import React from "react";
+import TextForm from "../components/admin/TextForm";
 
 const TextAdmin = () => {
-  return (
-    <div>
-        <Navbar />
-        <div className='LoginContainer'>
-            <TextForm/>
-        </div>
-        <Footer />
-    </div>
-  )
-}
+    return <TextForm />;
+};
 
-export default TextAdmin
+export default TextAdmin;
