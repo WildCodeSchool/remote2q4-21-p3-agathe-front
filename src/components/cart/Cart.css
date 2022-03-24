@@ -73,7 +73,7 @@
   border: none;
   /* color: var(--greenblue); */
   cursor: pointer;
-  font-size: 0.5rem;
+  font-size: 0.7rem;
   letter-spacing: 0.1rem;
   padding-top: 3.25rem;
   outline: none;
@@ -112,11 +112,11 @@
 
 
 .cart-product-price {
-  font-size: 0.65rem;
+  font-size: 0.85rem;
 }
 
 .cart-item .cart-product-total-price {
-  font-size: 0.85rem;
+  font-size: 1.2rem;
   font-weight: 700;
   justify-self: right;
   padding-right: 0.5rem;
@@ -144,6 +144,7 @@
   background-color: var(--darkgreen); */
   display: flex;
   justify-content: space-between;
+  align-items: center;
   color: var(--darkgreen);
   font-size: 1.5rem;
   width: 180px;
@@ -151,6 +152,7 @@
 }
 
 .subtotal-price {
+  font-size: 1.2rem;
   font-weight: 700;
   padding-right: 0.5rem;
 }

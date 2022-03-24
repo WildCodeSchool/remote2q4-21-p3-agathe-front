@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import DetailsProduct from "../components/products/DetailsProduct";
-import Navbar from "../components/home/Navbar";
-import Footer from "../components/home/Footer";
-import "./ProductPage.css";
 
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
@@ -19,11 +16,7 @@ function ProductPage() {
     }, []);
 
     return (
-        <div className="ProductPage">
-            <Navbar />
-            <DetailsProduct {...productData} key={productData.ProductID} />
-            <Footer />
-        </div>
+        <DetailsProduct {...productData} key={productData.ProductID} />
     )
 };
 

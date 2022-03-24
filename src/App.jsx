@@ -15,7 +15,7 @@ import Logout from "./components/form/Logout";
 import New from './pages/New';
 import Page from "./middleware/Page";
 import ProductPage from "./pages/ProductPage";
-import RegisterPage from "./pages/RegisterPage"
+import RegisterPage from "./pages/RegisterPage";
 import Single from './pages/Single';
 import TextAdmin from "./pages/TextAdmin";
 import UserProvider from './contexts/UserProvider';
@@ -30,20 +30,20 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="Brand" element={<Brand />} />
-              <Route path="/page_produit/:id" element={<ProductPage />} />
+              <Route path="/page_produit/:id" element={<Page SubPage={ProductPage} />} />
               <Route path="/cart" element={<Page SubPage={CartPage} />} />
-              <Route path="/catalogue" element={<Catalogue />} />
-              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/catalogue" element={<Page SubPage={Catalogue} />} />
+              <Route path="/checkout" element={<Page SubPage={Checkout} />} />
               <Route path="/contact" element={<Page SubPage={ContactPage} />} />
-              <Route path="/login" element={<LoginPage />} />
+              <Route path="/login" element={<Page SubPage={LoginPage} />} />
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/logout" element={<Logout />} />
               <Route path="/admin" element={<AdminPanel />} />
-              <Route path="/admin/presentation" element={<TextAdmin />} />
+              <Route path="/admin/presentation" element={<Page SubPage={TextAdmin} />} />
               <Route path="users">
-              <Route index element={<List />} />
-              <Route path=":userId" element={<Single />} />
-              <Route path="new" element={<New inputs={userInputs} title="Add New User" />} />
+                <Route index element={<List />} />
+                <Route path=":userId" element={<Single />} />
+                <Route path="new" element={<New inputs={userInputs} title="Add New User" />} />
             </Route>
             </Routes>
           </BrowserRouter>
