@@ -15,7 +15,7 @@ import Logout from "./components/form/Logout";
 import New from './pages/New';
 import Page from "./middleware/Page";
 import ProductPage from "./pages/ProductPage";
-import RegisterPage from "./pages/RegisterPage"
+import RegisterPage from "./pages/RegisterPage";
 import Single from './pages/Single';
 import TextAdmin from "./pages/TextAdmin";
 import UserProvider from './contexts/UserProvider';
