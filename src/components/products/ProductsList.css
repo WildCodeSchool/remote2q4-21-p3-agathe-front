@@ -1,16 +1,3 @@
-/* .ProductList {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    width: 100%;
-    border: 1px solid #000;
-}
-
-.ProductList-Link {
-    text-decoration: none;
-    color: black;
-} */
-
 .ProductList {
     display: flex;
     flex-wrap: wrap;
