@@ -39,7 +39,7 @@ function App() {
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/logout" element={<Logout />} />
               <Route path="/admin" element={<AdminPanel />} />
-              <Route path="/admin/presentation" element={<TextAdmin />} />
+              <Route path="/admin/presentation" element={<Page SubPage={TextAdmin} />} />
               <Route path="users">
               <Route index element={<List />} />
               <Route path=":userId" element={<Single />} />
