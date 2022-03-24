@@ -33,7 +33,7 @@ function App() {
               <Route path="/page_produit/:id" element={<Page SubPage={ProductPage} />} />
               <Route path="/cart" element={<Page SubPage={CartPage} />} />
               <Route path="/catalogue" element={<Page SubPage={Catalogue} />} />
-              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/checkout" element={<Page SubPage={Checkout} />} />
               <Route path="/contact" element={<Page SubPage={ContactPage} />} />
               <Route path="/login" element={<Page SubPage={LoginPage} />} />
               <Route path="/register" element={<RegisterPage />} />
@@ -41,9 +41,9 @@ function App() {
               <Route path="/admin" element={<AdminPanel />} />
               <Route path="/admin/presentation" element={<Page SubPage={TextAdmin} />} />
               <Route path="users">
-              <Route index element={<List />} />
-              <Route path=":userId" element={<Single />} />
-              <Route path="new" element={<New inputs={userInputs} title="Add New User" />} />
+                <Route index element={<List />} />
+                <Route path=":userId" element={<Single />} />
+                <Route path="new" element={<New inputs={userInputs} title="Add New User" />} />
             </Route>
             </Routes>
           </BrowserRouter>
