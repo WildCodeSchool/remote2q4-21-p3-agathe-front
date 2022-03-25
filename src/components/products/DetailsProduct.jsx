@@ -32,22 +32,22 @@ function DetailsProduct(props) {
         />
         <div className="DetailsProductDescription">
           {props.description &&
-            props.description.split("\n").map((line ,id )=> <p key={id}>{line}</p>)}
+            props.description.split("\n").map((line, id) => <p key={id}>{line}</p>)}
         </div>
       </div>
       <div className="DetailsContainer-right">
         <p className="DetailsProductTitle"> {props.name}</p>
         <div className="DetailsProductIngredient">
           {props.ingredients &&
-            props.ingredients.map((ingredient,id) => <p key={id}><span>{ingredient.name}</span>{" : "}{ingredient.description}</p>)}
+            props.ingredients.map((ingredient, id) => <p key={id}><span>{ingredient.name}</span>{" : "}{ingredient.description}</p>)}
         </div>
         <div>
-          <span  className="TitleIngredientsDetails">COMPOSITION : </span> <p className="IngredientsDetails"> {props.ingredients_details} </p> <br></br>
-          <p className="AllergensIngredients">*Allèrgenes</p>
+          <span className="TitleIngredientsDetails">COMPOSITION : </span> <p className="IngredientsDetails"> {props.ingredients_details} </p> <br></br>
+          {props.ingredients_details && props.ingredients_details.includes('*') ? <p className="AllergensIngredients">*Allèrgenes</p> : null}
         </div>
         <div className="DetailsProductCharacteristic">
           {props.characteristic &&
-            props.characteristic.split("\n").map((line,id) => <p key={id}>{line}</p>)}
+            props.characteristic.split("\n").map((line, id) => <p key={id}>{line}</p>)}
         </div>
         <div className="DetailsProductCart">
           <div className="DetailsProductsInfos">
@@ -67,7 +67,7 @@ function DetailsProduct(props) {
         </div>
       </div>
       <Modal isShowing={isModalCartShowed} hide={toggleModalCart} title="Que souhaitez vous faire ?">
-        <ModalCart toggle={toggleModalCart}/>
+        <ModalCart toggle={toggleModalCart} />
       </Modal>
     </div>
   );
