@@ -1,12 +1,13 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 // import { Link } from "react-router-dom";
-import { CartStateContext } from "../../contexts/CartContext";
+import { useCart } from "../../contexts/CartContext";
 import Modal from "../modal/modal"
 import useModal from "../modal/useModal";
 import ModalCart from "../cart/ModalCart";
 import "./DetailsProduct.css";
 
 function DetailsProduct(props) {
+  const cart = useCart();
   const [counter, setCounter] = useState(1);
   const incrementCounter = () => setCounter(counter + 1);
   let decrementCounter = () => setCounter(counter - 1);
@@ -15,11 +16,9 @@ function DetailsProduct(props) {
   }
   const { isShowing: isModalCartShowed, toggle: toggleModalCart } = useModal();
 
-  const {addToCart} = useContext(CartStateContext);
-  
   const handleAddToCart = () => {
     const product = { ...props, quantity: counter };
-    addToCart(product);
+    cart.add(product);
     toggleModalCart();
   };
 

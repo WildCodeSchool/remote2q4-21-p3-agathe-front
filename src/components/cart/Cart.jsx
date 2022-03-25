@@ -1,15 +1,13 @@
 import React from "react";
-import { CartStateContext } from "../../contexts/CartContext";
+import { useCart } from "../../contexts/CartContext";
 import "./Cart.css";
 
 function Cart() {
-  const { items, changeToCart, cartTotal, clearCart, removeFromCart } =
-    React.useContext(CartStateContext);
+  const cart = useCart();
 
   const changeQuantity = (ProductID, quantity) => {
-    console.log(`changeQuantity ${ProductID} ${quantity}`)
     const item = { ProductID, quantity: quantity };
-    changeToCart(item);
+    cart.change(item);
   }
 
   return (
@@ -21,8 +19,8 @@ function Cart() {
         <h3 className="total-title">Total</h3>
       </div>
       <div className="cart-items">
-        {items &&
-          items.map((item, index) => (
+        {cart.items &&
+          cart.items.map((item, index) => (
             <div className="cart-item" key={index}>
               <div className="cart-product">
                 <img
@@ -32,7 +30,7 @@ function Cart() {
                 <div className="cart-product-infos">
                   <h3>{item.name}</h3>
                   <span> Réf : {item.SKU}</span>
-                  <button onClick={() => removeFromCart(item.ProductID)}>
+                  <button onClick={() => cart.remove(item.ProductID)}>
                     Supprimer
                   </button>
                 </div>
@@ -58,12 +56,12 @@ function Cart() {
           ))}
       </div>
       <div className="cart-summary">
-        <button className="clear-btn" onClick={clearCart}>
+        <button className="clear-btn" onClick={cart.clear}>
           Supprimer le panier
         </button>
         <div className="subtotal">
           <span>Sous total :</span>
-          <span className="subtotal-price">{cartTotal.toFixed(2)} €</span>
+          <span className="subtotal-price">{cart.total.toFixed(2)} €</span>
         </div>
       </div>
     </div>
