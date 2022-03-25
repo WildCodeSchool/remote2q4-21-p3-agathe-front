@@ -1,17 +1,17 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { CartStateContext } from "../../contexts/CartContext";
+import { useCart } from "../../contexts/CartContext";
 import Modal from "../modal/modal"
 import useModal from "../modal/useModal";
 import ModalCart from "../cart/ModalCart";
 import "./ProductCard.css";
 
 function ProductCard(props) {
-  const {addToCart} = useContext(CartStateContext);
-  const { isShowing: isModalCartShowed, toggle: toggleModalCart } = useModal();
+  const cart = useCart();
+    const { isShowing: isModalCartShowed, toggle: toggleModalCart } = useModal();
   const handleAddToCart = () => {
     const product = { ...props, quantity: 1 };
-    addToCart(product);
+    cart.add(product);
     toggleModalCart();
   };
   return (

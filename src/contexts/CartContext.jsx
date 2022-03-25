@@ -22,7 +22,6 @@ const reducer = (state, action) => {
             if (isOld) {
                 const items = state.items.map((item) => {
                     if (item.ProductID === id) {
-                        console.log(console.log(action.change===true))
                         return {
                             ...item,
                             quantity:
@@ -79,7 +78,7 @@ const CartProvider = ({ children }) => {
     };
 
     const [state, dispatch] = useReducer(reducer, persistedCartState);
-    const [cartTotal, setCartTotal] = React.useState(0);
+    const [total, setTotal] = React.useState(0);
 
     useEffect(() => {
         setPersistedCartItems(state.items);
@@ -87,10 +86,10 @@ const CartProvider = ({ children }) => {
             (total, cartItem) => total + cartItem.quantity * cartItem.price,
             0
         );
-        setCartTotal(newTotal);
+        setTotal(newTotal);
     }, [JSON.stringify(state.items)]);
 
-    const addToCart = (cartItem) => {
+    const add = (cartItem) => {
         return dispatch({
             type: "ADD_TO_CART",
             payload: {
@@ -99,13 +98,13 @@ const CartProvider = ({ children }) => {
         });
     };
 
-    const clearCart = () => {
+    const clear = () => {
         return dispatch({
             type: "CLEAR_CART",
         });
     };
 
-    const changeToCart = (cartItem) => {
+    const change = (cartItem) => {
         return dispatch({
             type: "ADD_TO_CART",
             payload: {
@@ -115,7 +114,7 @@ const CartProvider = ({ children }) => {
         });
     };
 
-    const removeFromCart = (cartItemId) => {
+    const remove = (cartItemId) => {
         return dispatch({
             type: "REMOVE_FROM_CART",
             payload: {
@@ -125,11 +124,11 @@ const CartProvider = ({ children }) => {
     };
 
     const contextValues = {
-        addToCart,
-        cartTotal,
-        clearCart,
-        changeToCart,
-        removeFromCart,
+        add,
+        total,
+        clear,
+        change,
+        remove,
         ...state,
     };
 
@@ -139,5 +138,7 @@ const CartProvider = ({ children }) => {
         </CartStateContext.Provider>
     );
 };
+
+export const useCart = () => React.useContext(CartStateContext);
 
 export default CartProvider;
