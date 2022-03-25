@@ -42,7 +42,8 @@ function DetailsProduct(props) {
             props.ingredients.map((ingredient,id) => <p key={id}><span>{ingredient.name}</span>{" : "}{ingredient.description}</p>)}
         </div>
         <div>
-          <span  className="TitleIngredientsDetails">COMPOSITION : </span> <p className="IngredientsDetails"> {props.ingredients_details} </p>
+          <span  className="TitleIngredientsDetails">COMPOSITION : </span> <p className="IngredientsDetails"> {props.ingredients_details} </p> <br></br>
+          <p className="AllergensIngredients">*Allèrgenes</p>
         </div>
         <div className="DetailsProductCharacteristic">
           {props.characteristic &&
