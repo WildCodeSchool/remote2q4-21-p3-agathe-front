@@ -1,3 +1,43 @@
+export const ordersColumns = [
+  { field: "OrderId", headerName: "ID", width: 70 },
+  { field: "OrderDate", headerName: "Date", width: 70 },
+ { field: "name",
+  headerName: "Client",
+  width: 200,
+  renderCell: (params) => {
+    return (
+      <div className="cellWithImg">
+          {/* <img className="cellImg" src={params.row.img} alt="avatar" /> */}
+          {params.row.name}
+        </div>
+      );
+    },
+  },
+       {
+       field: "product",
+       headerName: "Produit",
+       width: 200,
+       renderCell: (params) => {
+         return (
+           <div className="cellWithImg">
+             {/* <img className="cellImg" src={params.row.img} alt="avatar" /> */}
+             {params.row.product}
+           </div>
+         );
+       },
+     }, 
+     {
+      field: "quantity",
+      headerName: "Quantité",
+      width: 100,
+    },
+     {
+    field: "amount",
+    headerName: "Montant",
+    width: 100,
+  },
+];
+
 export const productColumns = [
   { field: "ProductID", headerName: "ID", width: 70 },
   {

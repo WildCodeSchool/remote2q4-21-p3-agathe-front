@@ -23,22 +23,24 @@ const Sidebar = () => {
                     </li>
                     </Link>
                     <p className="sidebarTitle">LISTS</p>
-                    <Link to="/users" style={{ textDecoration: "none" }}>
+                    <Link to="/admin/users" style={{ textDecoration: "none" }}>
                     <li>
                         <PersonOutlineOutlinedIcon className='icon' />
                         <span>Clients</span>
                     </li>
                     </Link>
-                    <Link to="/products" style={{ textDecoration: "none" }}>
+                    <Link to="/admin/products" style={{ textDecoration: "none" }}>
                     <li>
                         <Inventory2OutlinedIcon className='icon' />
                         <span>Produits</span>
                     </li>
                     </Link>
+                    <Link to="/admin/orders" style={{ textDecoration: "none" }}>
                     <li>
                         <CreditCardOutlinedIcon className='icon' />
                         <span>Commandes</span>
                     </li>
+                    </Link>
                     <li>
                         <LocalShippingOutlinedIcon className='icon' />
                         <span>Livraison</span>
