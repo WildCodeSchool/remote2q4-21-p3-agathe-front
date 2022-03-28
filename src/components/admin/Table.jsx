@@ -20,19 +20,6 @@ const List = () => {
             .then((response) => setRows(response.data));
     }, []);
 
-    const rowsOld = [
-        {
-            id: 1143155,
-            product: "",
-            img: "",
-            customer: "John Smith",
-            date: "1 March",
-            amount: 785,
-            method: "Cash on Delivery",
-            status: "Approved",
-        },
-    ];
-
     return (
         <TableContainer component={Paper} className="table">
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
