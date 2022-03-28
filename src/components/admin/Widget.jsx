@@ -20,6 +20,12 @@ const Widget = ({ type }) => {
 
     }
 
+    const getTotalSalesAmount = () => {
+        axios
+        .get(`${BASE_URL}/api/orders/total`)
+        .then(response => setAmount(response.data.total));
+    }
+
     //temporary
     // const amount = 100;
     const diff = 20;
@@ -73,6 +79,7 @@ const Widget = ({ type }) => {
                     />
                 ),
             };
+            getTotalSalesAmount()
             break;
         case "balance":
             data = {
