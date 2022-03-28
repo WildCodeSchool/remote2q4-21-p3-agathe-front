@@ -6,7 +6,7 @@ import "./List.css";
 const List = () => {
     return (
         <>
-            <Navbar />
+            {/* <Navbar /> */}
             <div className="list">
                 <Sidebar />
                 <div className="listContainer">
