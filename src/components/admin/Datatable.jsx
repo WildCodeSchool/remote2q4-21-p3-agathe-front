@@ -1,6 +1,6 @@
 import React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import { productColumns, userColumns, userRows } from "../../dataTableSource";
+import { productColumns, userColumns } from "../../dataTableSource";
 import { Link } from "react-router-dom";
 import "./Datatable.css";
 import axios from 'axios';
@@ -8,13 +8,18 @@ import axios from 'axios';
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
 const Datatable = () => {
-    const [rows, setRows] = React.useState([])
+    const [rows, setRows] = React.useState(null)
     const [columns, setColumns] = React.useState([])
     const [path, setPath] = React.useState('')
 
     const getProducts = () => {
         axios
             .get(`${BASE_URL}/api/products`)
+            .then((response) => setRows(response.data));
+    }
+    const getUsers = () => {
+        axios
+            .get(`${BASE_URL}/api/users`)
             .then((response) => setRows(response.data));
     }
 
@@ -26,14 +31,16 @@ const Datatable = () => {
     }, [window.location.pathname]);
 
     React.useEffect(() => {
+        console.log(path)
         if (path === '/users') {
-            setRows(userRows);
+            console.log('/user')
+            setRows(getUsers());
             setColumns(userColumns)
         } else if (path === '/products') {
             setRows(getProducts());
             setColumns(productColumns)
-            console.log(rows)
         }
+        console.log(rows)
     }, [path]);
 
     const actionColumn = [
