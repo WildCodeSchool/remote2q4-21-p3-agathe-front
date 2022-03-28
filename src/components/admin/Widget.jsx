@@ -26,6 +26,12 @@ const Widget = ({ type }) => {
         .then(response => setAmount(response.data.total));
     }
 
+    const getTotalOrders = () => {
+        axios
+        .get(`${BASE_URL}/api/orders/total_orders`)
+        .then(response => setAmount(response.data.totalOrders));
+    }
+
     //temporary
     // const amount = 100;
     const diff = 20;
@@ -63,6 +69,7 @@ const Widget = ({ type }) => {
                     />
                 ),
             };
+            getTotalOrders()
             break;
         case "earning":
             data = {
