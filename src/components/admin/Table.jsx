@@ -1,4 +1,5 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -13,11 +14,15 @@ const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
 const List = () => {
     const [rows, setRows] = React.useState(null);
+    const id = useParams().id;
 
     React.useEffect(() => {
+        let url
+        if (id) url = `${BASE_URL}/api/orders/user/${id}`
+        else url = `${BASE_URL}/api/orders`
         axios
-            .get(`${BASE_URL}/api/orders`)
-            .then((response) => setRows(response.data));
+            .get(url)
+            .then(response => setRows(response.data));
     }, []);
 
     return (
