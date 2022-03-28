@@ -17,7 +17,12 @@ const Widget = ({ type }) => {
         axios
         .get(`${BASE_URL}/api/users/count`)
         .then(response => setAmount(response.data.count));
+    }
 
+    const getProductsCount = () => {
+        axios
+        .get(`${BASE_URL}/api/products/count`)
+        .then(response => setAmount(response.data.count));
     }
 
     const getTotalSalesAmount = () => {
@@ -88,10 +93,10 @@ const Widget = ({ type }) => {
             };
             getTotalSalesAmount()
             break;
-        case "balance":
+        case "products":
             data = {
-                title: "RESULTAT NET",
-                isMoney: true,
+                title: "NOMBRE PRODUITS",
+                isMoney: false,
                 link: "Voir le détail",
                 icon: (
                     <AccountBalanceWalletOutlinedIcon
@@ -103,6 +108,7 @@ const Widget = ({ type }) => {
                     />
                 ),
             };
+            getProductsCount()
             break;
         default:
             break;
