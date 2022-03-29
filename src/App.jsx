@@ -12,6 +12,7 @@ import List from './pages/List';
 import LoginForm from "./components/form/LoginForm"
 import Logout from "./components/form/Logout";
 import New from './pages/New';
+import NewProduct from "./pages/NewProduct"
 import Page from "./middleware/Page";
 import ProductsList from "./components/products/ProductsList";
 import ProductPage from "./pages/ProductPage";
@@ -54,7 +55,7 @@ function App() {
               <Route path="/admin/products">
                 <Route index element={<List />} />
                 <Route path=":id" element={<Single />} />
-                <Route path="new" element={<New inputs={productInputs} title="Add New Product" />} />
+                <Route path="new" element={<NewProduct inputs={productInputs} title="Ajouter un nouveau produit" />} />
               </Route>
             </Routes>
           </BrowserRouter>
