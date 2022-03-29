@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { userInputs } from './formSource';
+import { productInputs, userInputs } from './formSource';
 import AdminPanel from "./pages/AdminPanel";
 import Brand from "./pages/Brand";
 import CartPage from "./pages/CartPage";
@@ -54,8 +54,7 @@ function App() {
               <Route path="/admin/products">
                 <Route index element={<List />} />
                 <Route path=":id" element={<Single />} />
-                {/* <Route path="new" element={<New inputs={productInputs} title="Add New Product" />} /> */}
-                <Route path="new" element={<New title="Add New Product" />} />
+                <Route path="new" element={<New inputs={productInputs} title="Add New Product" />} />
               </Route>
             </Routes>
           </BrowserRouter>

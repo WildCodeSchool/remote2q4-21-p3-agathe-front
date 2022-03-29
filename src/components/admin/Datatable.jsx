@@ -73,7 +73,7 @@ const Datatable = () => {
             <div className="datatableTitle">
                 Liste des{" "}
                 {{orders: 'commandes', products:'produits', users: 'utilisateurs'}[type]}
-                <Link to="/users/new" className="datatableLink">
+                <Link to={`/admin/${type}/new`} className="datatableLink">
                     Ajouter
                 </Link>
             </div>
