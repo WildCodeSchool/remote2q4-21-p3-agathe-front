@@ -5,7 +5,7 @@ import Sidebar from "../components/admin/Sidebar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import "./New.css";
 
-const New = ({ inputs, title }) => {
+const New = ({ title }) => {
     const { register, handleSubmit, setValue } = useForm();
     const [file, setFile] = useState("");
 

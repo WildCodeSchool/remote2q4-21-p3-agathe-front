@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { productInputs, userInputs } from './formSource';
 import AdminPanel from "./pages/AdminPanel";
 import Brand from "./pages/Brand";
 import CartPage from "./pages/CartPage";
@@ -55,7 +54,6 @@ function App() {
               <Route path="/admin/products">
                 <Route index element={<List />} />
                 <Route path=":id" element={<Single />} />
-                <Route path="new" element={<NewProduct inputs={productInputs} title="Ajouter un nouveau produit" />} />
               </Route>
             </Routes>
           </BrowserRouter>

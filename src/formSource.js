@@ -15,7 +15,7 @@ export const userInputs = [{
     {
         id: 3,
         label: "Email",
-        name: 'email',
+        name: "Email",
         type: "mail",
         placeholder: "louis_dubois@gmail.com",
     },
@@ -39,7 +39,6 @@ export const userInputs = [{
         type: "text",
         placeholder: "Av. des Champs-Élysées",
     },
-
     {
         id: 7,
         label: "Adresse 2",
@@ -67,37 +66,5 @@ export const userInputs = [{
         name: "city",
         type: "text",
         placeholder: "Paris",
-    },
-];
-
-export const productInputs = [{
-        id: 1,
-        label: "Title",
-        type: "text",
-        placeholder: "Apple Macbook Pro",
-    },
-    {
-        id: 2,
-        label: "Description",
-        type: "text",
-        placeholder: "Description",
-    },
-    {
-        id: 3,
-        label: "Category",
-        type: "text",
-        placeholder: "Computers",
-    },
-    {
-        id: 4,
-        label: "Price",
-        type: "text",
-        placeholder: "100",
-    },
-    {
-        id: 5,
-        label: "Stock",
-        type: "text",
-        placeholder: "in stock",
     },
 ];
