@@ -57,7 +57,7 @@ const New = ({ inputs, title }) => {
                   <div className="formInput" key={input.id}>
                     <label>{input.label}</label>
                     <input type={input.type} placeholder={input.placeholder}
-                    {...register(input.name)} /> 
+                    {...register(input.name)} />  
                   </div>
                 ))}
                 <button>Send</button>
