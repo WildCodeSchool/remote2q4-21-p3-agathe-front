@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import axios from "axios";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
@@ -39,7 +40,7 @@ const Widget = ({ type }) => {
             data = {
                 title: "CLIENTS",
                 isMoney: false,
-                link: "Voir tous les clients",
+                link: <NavLink to="/admin/users">Voir tous les clients</NavLink>,
                 icon: (
                     <PersonOutlinedIcon
                         className="icon"
@@ -56,7 +57,7 @@ const Widget = ({ type }) => {
             data = {
                 title: "COMMANDES",
                 isMoney: false,
-                link: "Voir toutes les commandes",
+                link: <NavLink to="/admin/orders">Voir toutes les commandes</NavLink>,
                 icon: (
                     <ShoppingCartOutlinedIcon
                         className="icon"
@@ -90,7 +91,7 @@ const Widget = ({ type }) => {
             data = {
                 title: "NOMBRE PRODUITS",
                 isMoney: false,
-                link: "Voir le détail",
+                link: <NavLink to="/admin/products">Voir tous les produits</NavLink>,
                 icon: (
                     <AccountBalanceWalletOutlinedIcon
                         className="icon"

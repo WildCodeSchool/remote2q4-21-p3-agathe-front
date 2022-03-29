@@ -53,7 +53,7 @@ function App() {
               </Route>
               <Route path="/admin/products">
                 <Route index element={<List />} />
-                <Route path=":productId" element={<Single />} />
+                <Route path=":id" element={<Single />} />
                 {/* <Route path="new" element={<New inputs={productInputs} title="Add New Product" />} /> */}
                 <Route path="new" element={<New title="Add New Product" />} />
               </Route>
