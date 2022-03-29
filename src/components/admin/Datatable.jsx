@@ -50,11 +50,11 @@ const Datatable = () => {
             field: "action",
             headerName: "Action",
             width: 200,
-            renderCell: () => {
+            renderCell: (params) => {
                 return (
                     <div className="cellAction">
                         <Link
-                            to={`${path}/test`}
+                            to={`${path}/${params.row.id}`}
                             style={{ textDecoration: "none" }}
                         >
                             <div className="viewButton">Voir</div>

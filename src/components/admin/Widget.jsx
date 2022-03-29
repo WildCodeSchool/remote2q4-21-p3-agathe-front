@@ -13,15 +13,9 @@ const Widget = ({ type }) => {
     const [amount, setAmount] = React.useState(0)
     let data;
 
-    const getUsersCount = () => {
+    const getCount = (what) => {
         axios
-        .get(`${BASE_URL}/api/users/count`)
-        .then(response => setAmount(response.data.count));
-    }
-
-    const getProductsCount = () => {
-        axios
-        .get(`${BASE_URL}/api/products/count`)
+        .get(`${BASE_URL}/api/${what}/count`)
         .then(response => setAmount(response.data.count));
     }
 
@@ -38,7 +32,6 @@ const Widget = ({ type }) => {
     }
 
     //temporary
-    // const amount = 100;
     const diff = 20;
 
     switch (type) {
@@ -57,7 +50,7 @@ const Widget = ({ type }) => {
                     />
                 ),
             };
-            getUsersCount()
+            getCount('users')
             break;
         case "order":
             data = {
@@ -108,7 +101,7 @@ const Widget = ({ type }) => {
                     />
                 ),
             };
-            getProductsCount()
+            getCount('products')
             break;
         default:
             break;
