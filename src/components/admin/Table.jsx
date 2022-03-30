@@ -21,7 +21,7 @@ const List = () => {
         if (id) url = `${BASE_URL}/api/orders/user/${id}`
         else url = `${BASE_URL}/api/orders`
         axios
-            .get(url)
+            .get(url, { withCredentials: true, mode: 'cors' })
             .then(response => setRows(response.data));
     }, []);
 

@@ -15,7 +15,8 @@ const Datatable = () => {
 
     const getRows = (type) => {
         axios
-            .get(`${BASE_URL}/api/${type}`)
+            .get(`${BASE_URL}/api/${type}`,
+            { withCredentials: true, mode: 'cors' })
             .then(response => setRows(response.data));
     }
 
