@@ -10,52 +10,55 @@ import "./Featured.css";
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
 const Featured = () => {
-    const [amount, setAmount] = useState(0);
+    const [amount, setAmount] = useState("");
 
-        useEffect(() => {
+    useEffect(() => {
+        const lastMonthSales = () => {
             axios
-            .get(`${BASE_URL}/api/orders/last_month_sales`)
-            .then(response => setAmount(response.data));
-        }, []);
+                .get(`${BASE_URL}/api/orders/last_month_sales`)
+                .then(response => setAmount(response.data));
+        };
+        lastMonthSales();
+    }, []);
 
-  return (
-    <div className='featured'>
-        <div className="featuredTop">
-            <h1 className="topTitle">Revenu des ventes</h1>
-            <MoreVertIcon fontSize="small"/>
-        </div>
-        <div className="featuredBottom">
-            <div className="featuredChart">
-                <CircularProgressbar value={70} text={"70%"} strokeWidth={5}/>
+    return (
+        <div className='featured'>
+            <div className="featuredTop">
+                <h1 className="topTitle">Revenu des ventes</h1>
+                <MoreVertIcon fontSize="small" />
             </div>
-            <p className="bottomTtitle">Vente total du jour</p>
-            <p className="amount"></p>
-            <div className="summary">
-                <div className="item">
-                    <div className="itemTitle">Hier</div>
-                    <div className="itemResult negative">
-                        <KeyboardArrowDownIcon fontSize="small" />
-                        <div className="resultAmount">120 €</div>
-                    </div>
+            <div className="featuredBottom">
+                <div className="featuredChart">
+                    <CircularProgressbar value={70} text={"70%"} strokeWidth={5} />
                 </div>
-                <div className="item">
-                    <div className="itemTitle">Semaine passée</div>
-                    <div className="itemResult positive">
-                        <KeyboardArrowUpOutlinedIcon fontSize="small" />
-                        <div className="resultAmount">1550 €</div>
+                <p className="bottomTtitle">Vente total du jour</p>
+                <p className="amount"></p>
+                <div className="summary">
+                    <div className="item">
+                        <div className="itemTitle">Hier</div>
+                        <div className="itemResult negative">
+                            <KeyboardArrowDownIcon fontSize="small" />
+                            <div className="resultAmount">120 €</div>
+                        </div>
                     </div>
-                </div>
-                <div className="item">
-                    <div className="itemTitle">Mois dernier</div>
-                    <div className="itemResult positive">
-                        <KeyboardArrowUpOutlinedIcon fontSize="small" />
-                        <div className="resultAmount">{amount} €</div>
+                    <div className="item">
+                        <div className="itemTitle">Semaine passée</div>
+                        <div className="itemResult positive">
+                            <KeyboardArrowUpOutlinedIcon fontSize="small" />
+                            <div className="resultAmount">1550 €</div>
+                        </div>
+                    </div>
+                    <div className="item">
+                        <div className="itemTitle">Mois dernier</div>
+                        <div className="itemResult positive">
+                            <KeyboardArrowUpOutlinedIcon fontSize="small" />
+                            <div className="resultAmount">{amount.lastMonthSales} €</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-  )
+    )
 }
 
 export default Featured
