@@ -1,11 +1,23 @@
-import "./Featured.css";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css"
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
+import "./Featured.css";
+
+const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
 const Featured = () => {
+    const [amount, setAmount] = useState(0);
+
+        useEffect(() => {
+            axios
+            .get(`${BASE_URL}/api/orders/last_month_sales`)
+            .then(response => setAmount(response.data));
+        }, []);
+
   return (
     <div className='featured'>
         <div className="featuredTop">
@@ -17,8 +29,7 @@ const Featured = () => {
                 <CircularProgressbar value={70} text={"70%"} strokeWidth={5}/>
             </div>
             <p className="bottomTtitle">Vente total du jour</p>
-            <p className="amount">250 €</p>
-            <p className="desc">Les paiements du jour d'avant peuvent être toujours en cours de calcul</p>
+            <p className="amount"></p>
             <div className="summary">
                 <div className="item">
                     <div className="itemTitle">Hier</div>
@@ -38,7 +49,7 @@ const Featured = () => {
                     <div className="itemTitle">Mois dernier</div>
                     <div className="itemResult positive">
                         <KeyboardArrowUpOutlinedIcon fontSize="small" />
-                        <div className="resultAmount">6230 €</div>
+                        <div className="resultAmount">{amount} €</div>
                     </div>
                 </div>
             </div>
