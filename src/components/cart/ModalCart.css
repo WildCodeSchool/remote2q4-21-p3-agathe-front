@@ -1,0 +1,17 @@
+.ModalCart {
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    background-color: var(--darkgreen);
+    border: none;
+    border-radius: 5px;
+    color: var(--greenblue);
+    cursor: pointer;
+    padding: 1rem;
+}
+
+.ModalCart .btn-link:visited {
+    color: var(--greenblue);
+}

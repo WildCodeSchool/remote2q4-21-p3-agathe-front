@@ -63,15 +63,17 @@ const Modal = ({ isShowing, hide, title, ...props }) =>
             .modal-header {
               display: flex;
               justify-content: space-between;
-              align-items: center;
+              color: var(--darkgreen);
+              font-family: var(--font-text);
+              margin: 0 1.25rem 1.25rem;
             }
 
             .modal-close-button {
-              font-size: 1.4rem;
               font-weight: 700;
               color: #000;
               cursor: pointer;
               border: none;
+              padding:0;
               background: transparent;
             }
           `}</style>
