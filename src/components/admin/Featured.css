@@ -39,13 +39,6 @@
     font-size: 30px;
 }
 
-.desc {
-    font-weight: 300;
-    font-size: 12px;
-    color: var(--darkgreen);
-    text-align: center;
-}
-
 .summary {
     width: 100%;
     display: flex;
