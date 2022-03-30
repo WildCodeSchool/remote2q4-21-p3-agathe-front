@@ -10,13 +10,13 @@ import "./Featured.css";
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
 const Featured = () => {
-    const [amount, setAmount] = useState("");
+    const [monthly, setMonthly] = useState("");
 
     useEffect(() => {
         const lastMonthSales = () => {
             axios
                 .get(`${BASE_URL}/api/orders/last_month_sales`)
-                .then(response => setAmount(response.data));
+                .then(response => setMonthly(response.data));
         };
         lastMonthSales();
     }, []);
@@ -52,7 +52,7 @@ const Featured = () => {
                         <div className="itemTitle">Mois dernier</div>
                         <div className="itemResult positive">
                             <KeyboardArrowUpOutlinedIcon fontSize="small" />
-                            <div className="resultAmount">{amount.lastMonthSales} €</div>
+                            <div className="resultAmount">{monthly.lastMonthSales} €</div>
                         </div>
                     </div>
                 </div>
