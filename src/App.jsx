@@ -19,6 +19,7 @@ import RegisterForm from "./components/form/RegisterForm";
 import Single from './pages/Single';
 import TextForm from "./components/admin/TextForm";
 import UserProvider from './contexts/UserProvider';
+import { userInputs } from "./formSource";
 import "./App.css";
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
               <Route path="/admin/products">
                 <Route index element={<List />} />
                 <Route path=":id" element={<Single />} />
+                <Route path="new" element={<NewProduct title="Ajouter un produit" />} />
               </Route>
             </Routes>
           </BrowserRouter>

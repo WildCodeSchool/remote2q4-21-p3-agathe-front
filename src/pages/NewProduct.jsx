@@ -119,7 +119,7 @@ const New = ({ title }) => {
                                                 <input
                                                     type="text"
                                                     {...register(
-                                                        "ingredient1_name"
+                                                        "ingredient-0-name"
                                                     )}
                                                 />
                                             </td>
@@ -127,25 +127,7 @@ const New = ({ title }) => {
                                                 <input
                                                     type="text"
                                                     {...register(
-                                                        "ingredient1-description"
-                                                    )}
-                                                />
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input
-                                                    type="text"
-                                                    {...register(
-                                                        "ingredient2_name"
-                                                    )}
-                                                />
-                                            </td>
-                                            <td>
-                                                <input
-                                                    type="text"
-                                                    {...register(
-                                                        "ingredient2-description"
+                                                        "ingredient-0-description"
                                                     )}
                                                 />
                                             </td>
@@ -155,7 +137,7 @@ const New = ({ title }) => {
                                                 <input
                                                     type="text"
                                                     {...register(
-                                                        "ingredient3_name"
+                                                        "ingredient-1-name"
                                                     )}
                                                 />
                                             </td>
@@ -163,25 +145,7 @@ const New = ({ title }) => {
                                                 <input
                                                     type="text"
                                                     {...register(
-                                                        "ingredient3-description"
-                                                    )}
-                                                />
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input
-                                                    type="text"
-                                                    {...register(
-                                                        "ingredient4_name"
-                                                    )}
-                                                />
-                                            </td>
-                                            <td>
-                                                <input
-                                                    type="text"
-                                                    {...register(
-                                                        "ingredient4-description"
+                                                        "ingredient-1-description"
                                                     )}
                                                 />
                                             </td>
@@ -191,7 +155,7 @@ const New = ({ title }) => {
                                                 <input
                                                     type="text"
                                                     {...register(
-                                                        "ingredient5_name"
+                                                        "ingredient-2-name"
                                                     )}
                                                 />
                                             </td>
@@ -199,7 +163,43 @@ const New = ({ title }) => {
                                                 <input
                                                     type="text"
                                                     {...register(
-                                                        "ingredient5-description"
+                                                        "ingredient-2-description"
+                                                    )}
+                                                />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input
+                                                    type="text"
+                                                    {...register(
+                                                        "ingredient-3-name"
+                                                    )}
+                                                />
+                                            </td>
+                                            <td>
+                                                <input
+                                                    type="text"
+                                                    {...register(
+                                                        "ingredient-3-description"
+                                                    )}
+                                                />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input
+                                                    type="text"
+                                                    {...register(
+                                                        "ingredient-4-name"
+                                                    )}
+                                                />
+                                            </td>
+                                            <td>
+                                                <input
+                                                    type="text"
+                                                    {...register(
+                                                        "ingredient-4-description"
                                                     )}
                                                 />
                                             </td>
