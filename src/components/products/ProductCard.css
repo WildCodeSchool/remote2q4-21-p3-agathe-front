@@ -12,13 +12,9 @@
 }
 
 .ProductCardBase::before {
-  /* empty pseudo */
   content: "";
-
-  /* start transparent, include a transition bcuz */
   opacity: 0;
   transition: opacity 0.5s ease;
-  /* covers the whole div */
   position: absolute;
   top: 0;
   left: 0;
