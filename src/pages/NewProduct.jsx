@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import Sidebar from "../components/admin/Sidebar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
-import "./New.css";
+import "./NewProduct.css";
 
 const New = ({ title }) => {
     const { register, handleSubmit, setValue } = useForm();
@@ -73,16 +73,16 @@ const New = ({ title }) => {
                                     type="text"
                                     {...register("SKU")}
                                     placeholder="Code du produit"
-                                    maxlength="13"
+                                    maxLength="13"
                                 />
                                 <input
                                     type="text"
                                     {...register("Name")}
                                     placeholder="Désignation du produit"
-                                    maxlength="200"
+                                    maxLength="200"
                                 />
-                                <input
-                                    type="number"
+                                <input 
+                                    type="number" step="any"
                                     {...register("Price")}
                                     placeholder="Prix du produit"
                                     maxLength="5"
