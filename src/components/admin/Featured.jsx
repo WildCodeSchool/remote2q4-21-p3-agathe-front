@@ -12,11 +12,11 @@ const BASE_URL = process.env.REACT_APP_URL_SERVER;
 const Featured = () => {
     const [amount, setAmount] = useState(0);
 
-        useEffect(() => {
-            axios
-            .get(`${BASE_URL}/api/orders/last_month_sales`)
-            .then(response => setAmount(response.data));
-        }, []);
+//         useEffect(() => {
+//             axios
+//             .get(`${BASE_URL}/api/orders/last_month_sales`)
+//             .then(response => setAmount(response.data));
+//         }, []);
 
   return (
     <div className='featured'>
