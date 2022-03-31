@@ -6,46 +6,56 @@ import Footer from "../components/home/Footer";
 import Navbar from "../components/home/Navbar";
 import Presentation from "../components/home/Presentation";
 import ProductsList from "../components/products/ProductsList";
+import {useUser} from "../contexts/UserProvider";
 import "./Home.css";
 
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
 const Home = () => {
-  const [admin, setAdmin] = React.useState(false);
+    const {user} = useUser();
+    const [admin, setAdmin] = React.useState(false);
 
-  React.useEffect(() => {
-    axios
-      .get(`${BASE_URL}/api/auth/admin`, { withCredentials: true })
-      .then(response => {
-        setAdmin(response.status === 202) // admin user
-      })
-      .catch(err => console.log(err))
-  }, []);
+    React.useEffect(() => {
+      console.log(`user: ${user}`)
+      if (!user) {
+            setAdmin(false);
+        } else {
+            axios
+                .get(`${BASE_URL}/api/auth/admin`, { withCredentials: true })
+                .then((response) => {
+                    setAdmin(response.status === 202); // admin user
+                })
+                .catch((err) => console.log(err));
+        }
+    }, [user]);
 
-  return (
-    <div className="home">
-      {admin && (<>
-        <AdminPanel />
-      </>)}
-      {!admin && (
-        <>
-          <Introduction />
-          <div id="homepage" className="page home_page">
-            <Navbar />
-            <div><Presentation />
-              <div className="home_products">
-                <h2>Nos produits</h2>
-                <div className="products">
-                  <ProductsList randomize={true} />
-                </div>
-              </div>
-            </div>
-            <Footer />
-          </div>
-        </>)
-      }
-    </div>
-  );
+    return (
+        <div className="home">
+            {admin && (
+                <>
+                    <AdminPanel />
+                </>
+            )}
+            {!admin && (
+                <>
+                    <Introduction />
+                    <div id="homepage" className="page home_page">
+                        <Navbar />
+                        <div>
+                            <Presentation />
+                            <div className="home_products">
+                                <h2>Nos produits</h2>
+                                <div className="products">
+                                    <ProductsList randomize={true} />
+                                </div>
+                            </div>
+                        </div>
+                        <Footer />
+                    </div>
+                </>
+            )}
+        </div>
+    );
 };
 
 export default Home;

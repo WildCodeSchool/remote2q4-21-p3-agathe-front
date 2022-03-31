@@ -1,13 +1,15 @@
 import React from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 import { DataGrid } from "@mui/x-data-grid";
 import { ordersColumns, productColumns, userColumns } from "../../dataTableSource";
-import { Link } from "react-router-dom";
+import { useUser } from "../../contexts/UserProvider";
 import "./Datatable.css";
-import axios from "axios";
 
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
 const Datatable = () => {
+    const user = useUser()
     const [type, setType] = React.useState(null);
     const [rows, setRows] = React.useState(null);
     const [columns, setColumns] = React.useState([]);
@@ -15,8 +17,7 @@ const Datatable = () => {
 
     const getRows = (type) => {
         axios
-            .get(`${BASE_URL}/api/${type}`,
-            { withCredentials: true, mode: 'cors' })
+            .get(`${BASE_URL}/api/${type}`, user.getOptions())
             .then(response => setRows(response.data));
     }
 

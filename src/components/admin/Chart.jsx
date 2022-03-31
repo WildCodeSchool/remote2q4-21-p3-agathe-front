@@ -26,18 +26,6 @@ const data = [
         name: "Juin",
         Total: 4700
     },
-    {
-        name: "Juin",
-        Total: 4700
-    },
-    {
-        name: "Juin",
-        Total: 4700
-    },
-    {
-        name: "Juin",
-        Total: 4700
-    },
 ];
 
 const Chart = ({ aspect, title }) => {
