@@ -11,13 +11,12 @@ import TableRow from "@mui/material/TableRow";
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
 const HistoryOders = () => {
-    const [order, setOrder] = React.useState(null);
     const [rows, setRows] = React.useState(null);
 
     React.useEffect(() => {
         axios
             .get(`${BASE_URL}/api/users/0/orders`, { withCredentials: true, mode: 'cors' })
-            .then(response => { setOrder(response.OrderID); });
+            .then(response => { setRows(response.data); });
     }, []);
 
   return (
