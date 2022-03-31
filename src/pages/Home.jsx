@@ -1,11 +1,11 @@
 import React from "react";
 import axios from "axios";
+import AdminPanel from "./admin/AdminPanel";
 import Introduction from "../components/home/Introduction";
 import Footer from "../components/home/Footer";
 import Navbar from "../components/home/Navbar";
 import Presentation from "../components/home/Presentation";
 import ProductsList from "../components/products/ProductsList";
-import AdminPanel from "./AdminPanel";
 import "./Home.css";
 
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
