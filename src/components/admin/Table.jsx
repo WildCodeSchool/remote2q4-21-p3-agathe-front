@@ -17,12 +17,16 @@ const List = () => {
     const id = useParams().id;
 
     React.useEffect(() => {
-        let url
-        if (id) url = `${BASE_URL}/api/orders/user/${id}`
-        else url = `${BASE_URL}/api/orders`
+        let path = window.location.pathname
+        let url = `${BASE_URL}/api/orders`;
+        if (path.startsWith("/admin/users")) {
+            if (id) url = `${BASE_URL}/api/users/${id}/orders`;
+        } else if (path.startsWith("/admin/products")) {
+            if (id) url = `${BASE_URL}/api/products/${id}/orders`;
+        }
         axios
-            .get(url, { withCredentials: true, mode: 'cors' })
-            .then(response => setRows(response.data));
+            .get(url, { withCredentials: true, mode: "cors" })
+            .then((response) => setRows(response.data));
     }, []);
 
     return (
@@ -44,14 +48,14 @@ const List = () => {
                 <TableBody>
                     {rows &&
                         rows.map((row) => (
-                            <TableRow key={row.OrderId}>
+                            <TableRow key={row.order_id}>
                                 <TableCell className="tableCell">
-                                    {row.OrderId}
+                                    {row.order_id}
                                 </TableCell>
                                 <TableCell className="tableCell">
                                     <div className="cellWrapper">
                                         <img
-                                            src={row.img}
+                                            src={`/assets/img/${row.product_id}.jpeg`}
                                             alt=""
                                             className="datatableImage"
                                         />
@@ -59,20 +63,22 @@ const List = () => {
                                     </div>
                                 </TableCell>
                                 <TableCell className="tableCell">
-                                    {row.name}
+                                    {row.user_name}
                                 </TableCell>
                                 <TableCell className="tableCell">
-                                    {new Date(row.OrderDate).toLocaleDateString()}
+                                    {new Date(
+                                        row.order_date
+                                    ).toLocaleDateString()}
                                 </TableCell>
                                 <TableCell className="tableCell">
-                                    {row.amount}
+                                    {row.amount} €
                                 </TableCell>
                                 <TableCell className="tableCell">
                                     {row.method}
                                 </TableCell>
                                 <TableCell className="tableCell">
-                                    <span className={`status ${row.status}`}>
-                                        {row.status}
+                                    <span className={`status ${row.state}`}>
+                                        {row.state}
                                     </span>
                                 </TableCell>
                             </TableRow>
