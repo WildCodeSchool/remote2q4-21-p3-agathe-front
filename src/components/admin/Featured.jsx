@@ -23,7 +23,7 @@ const Featured = () => {
         };
         const lastWeekSales = () => {
             axios
-                .get(`${BASE_URL}/api/orders/last_month_sales`)
+                .get(`${BASE_URL}/api/orders/last_week_sales`)
                 .then(response => setWeekly(response.data));
         };
         const yesterdaySales = () => {
@@ -50,7 +50,7 @@ const Featured = () => {
             </div>
             <div className="featuredBottom">
                 <div className="featuredChart">
-                    <CircularProgressbar value={70} text={"70%"} strokeWidth={5} />
+                    <CircularProgressbar value={(today.dailysales/yesterday.yesterdaySales*100) ?? 0} text={`${(today.dailysales/yesterday.yesterdaySales*100) ?? 0}%`} strokeWidth={5} />
                 </div>
                 <p className="bottomTtitle">Vente total du jour</p>
                 <p className="amount">{today.dailySales ?? 0} €</p>
@@ -73,7 +73,7 @@ const Featured = () => {
                         <div className="itemTitle">Mois dernier</div>
                         <div className="itemResult positive">
                             <KeyboardArrowUpOutlinedIcon fontSize="small" />
-                            <div className="resultAmount">{monthly.lastMonthSales ?? 0} €</div>
+                            <div className="resultAmount">{monthly.lastMonthSales} €</div>
                         </div>
                     </div>
                 </div>
