@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import Sidebar from "../components/admin/Sidebar";
+import Sidebar from "../../components/admin/Sidebar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import "./NewProduct.css";
 
