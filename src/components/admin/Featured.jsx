@@ -50,7 +50,7 @@ const Featured = () => {
             </div>
             <div className="featuredBottom">
                 <div className="featuredChart">
-                    <CircularProgressbar value={70} text={"70%"} strokeWidth={5} />
+                    <CircularProgressbar value={(today.sales/yesterday.sales*100) ?? 0} text={`${(today.sales/yesterday.sales*100) ?? 0}%`} strokeWidth={5} />
                 </div>
                 <p className="bottomTtitle">Vente total du jour</p>
                 <p className="amount">{today.sales ?? 0} €</p>
