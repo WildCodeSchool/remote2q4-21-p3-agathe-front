@@ -22,6 +22,7 @@ import TextForm from "./components/admin/TextForm";
 import UserProvider from './contexts/UserProvider';
 import { userInputs } from "./formSource";
 import "./App.css";
+import HistoryOdersPage from "./pages/user/HistoryOrdersPage";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
               <Route path="/login" element={<Page SubPage={LoginForm} />} />
               <Route path="/register" element={<Page SubPage={RegisterForm} />} />
               <Route path="/logout" element={<Logout />} />
+              <Route path="/user/history" element={<HistoryOdersPage />} />
               <Route path="/admin" element={<AdminPanel />} />
               <Route path="/admin/presentation" element={<Page SubPage={TextForm} />} />
               <Route path="/admin/users">
