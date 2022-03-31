@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useCart } from "../contexts/CartContext";
 import { useUser } from '../contexts/UserProvider';
