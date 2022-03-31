@@ -1,9 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Sidebar from "../components//admin/Sidebar";
-import Chart from "../components/admin/Chart";
-import List from "../components/admin/Table";
+import Chart from "../../components/admin/Chart";
+import List from "../../components/admin/Table";
+import Sidebar from "../../components/admin/Sidebar";
 import "./Single.css";
 
 const BASE_URL = process.env.REACT_APP_URL_SERVER;

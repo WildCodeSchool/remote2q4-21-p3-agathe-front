@@ -1,5 +1,5 @@
-import Sidebar from "../components/admin/Sidebar";
-import Datatable from "../components/admin/Datatable";
+import Sidebar from "../../components/admin/Sidebar";
+import Datatable from "../../components/admin/Datatable";
 import "./List.css";
 
 const List = () => {
