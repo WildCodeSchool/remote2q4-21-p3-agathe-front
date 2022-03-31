@@ -51,7 +51,7 @@ function App() {
               </Route>
               <Route path="/admin/orders">
                 <Route index element={<List />} />
-                <Route path=":Id" element={<Single />} />
+                <Route path=":id" element={<Single />} />
                 {/* <Route path="new" element={<New inputs={productInputs} title="Add New Product" />} /> */}
                 <Route path="new" element={<New title="Add New Product" />} />
               </Route>

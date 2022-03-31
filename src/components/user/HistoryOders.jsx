@@ -11,18 +11,14 @@ import TableRow from "@mui/material/TableRow";
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
 const HistoryOders = () => {
-  const [rows, setRows] = React.useState(null);
-  const id = useParams().id;
+    const [order, setOrder] = React.useState(null);
+    const [rows, setRows] = React.useState(null);
 
-  React.useEffect(() => {
-    let url;
-    if (id) url = `${BASE_URL}/api/orders/user/${id}`;
-    // if (id) url = `${BASE_URL}/api/user/${id}/orders`;
-    else url = `${BASE_URL}/api/orders`;
-    axios
-      .get(url, { withCredentials: true, mode: "cors" })
-      .then((response) => setRows(response.data));
-  }, []);
+    React.useEffect(() => {
+        axios
+            .get(`${BASE_URL}/api/users/0/orders`, { withCredentials: true, mode: 'cors' })
+            .then(response => { setOrder(response.OrderID); });
+    }, []);
 
   return (
     <div>
