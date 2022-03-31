@@ -61,7 +61,7 @@ const Sidebar = () => {
                     </li>
                     <li>
                         <LogoutOutlinedIcon className='icon' />
-                        <span>Déconnexion</span>
+                        <Link to="/logout"><span>Déconnexion</span></Link>
                     </li>
                 </ul>
             </div>
