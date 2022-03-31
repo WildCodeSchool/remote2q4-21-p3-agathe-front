@@ -23,7 +23,7 @@ const Featured = () => {
         };
         const lastWeekSales = () => {
             axios
-                .get(`${BASE_URL}/api/orders/last_month_sales`)
+                .get(`${BASE_URL}/api/orders/last_week_sales`)
                 .then(response => setWeekly(response.data));
         };
         const yesterdaySales = () => {
@@ -53,27 +53,27 @@ const Featured = () => {
                     <CircularProgressbar value={70} text={"70%"} strokeWidth={5} />
                 </div>
                 <p className="bottomTtitle">Vente total du jour</p>
-                <p className="amount">{today.dailySales ?? 0} €</p>
+                <p className="amount">{today.sales ?? 0} €</p>
                 <div className="summary">
                     <div className="item">
                         <div className="itemTitle">Hier</div>
                         <div className="itemResult negative">
                             <KeyboardArrowDownIcon fontSize="small" />
-                            <div className="resultAmount">{yesterday.yesterdaySales ?? 0} €</div>
+                            <div className="resultAmount">{yesterday.sales ?? 0} €</div>
                         </div>
                     </div>
                     <div className="item">
                         <div className="itemTitle">Semaine passée</div>
                         <div className="itemResult positive">
                             <KeyboardArrowUpOutlinedIcon fontSize="small" />
-                            <div className="resultAmount">{weekly.lastWeekSales ?? 0} €</div>
+                            <div className="resultAmount">{weekly.sales ?? 0} €</div>
                         </div>
                     </div>
                     <div className="item">
                         <div className="itemTitle">Mois dernier</div>
                         <div className="itemResult positive">
                             <KeyboardArrowUpOutlinedIcon fontSize="small" />
-                            <div className="resultAmount">{monthly.lastMonthSales ?? 0} €</div>
+                            <div className="resultAmount">{monthly.sales ?? 0} €</div>
                         </div>
                     </div>
                 </div>
