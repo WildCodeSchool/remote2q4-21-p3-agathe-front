@@ -1,22 +1,23 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import AdminPanel from "./pages/AdminPanel";
+import AdminPanel from "./pages/admin/AdminPanel";
+import List from './pages/admin/List';
+import New from './pages/admin/New';
+import NewProduct from "./pages/admin/NewProduct"
+import Single from './pages/admin/Single';
+
 import Brand from "./pages/Brand";
 import CartPage from "./pages/CartPage";
 import CartProvider from "./contexts/CartContext";
 import Checkout from "./pages/Checkout";
 import ContactPage from "./pages/ContactPage";
 import Home from "./pages/Home";
-import List from './pages/List';
 import LoginForm from "./components/form/LoginForm"
 import Logout from "./components/form/Logout";
-import New from './pages/New';
-import NewProduct from "./pages/NewProduct"
 import Page from "./middleware/Page";
 import ProductsList from "./components/products/ProductsList";
 import ProductPage from "./pages/ProductPage";
 import RegisterForm from "./components/form/RegisterForm";
-import Single from './pages/Single';
 import TextForm from "./components/admin/TextForm";
 import UserProvider from './contexts/UserProvider';
 import { userInputs } from "./formSource";
