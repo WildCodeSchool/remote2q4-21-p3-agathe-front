@@ -26,7 +26,7 @@ const Datatable = () => {
             .then((response) => setRows(response.data));
     };
 
-    const getOrderId = (row) => row.OrderId;
+    const getOrderId = (row) => row.order_id;
     const getProductId = (row) => row.ProductID;
     const getUserId = (row) => row.id;
 
@@ -60,7 +60,15 @@ const Datatable = () => {
             renderCell: (params) => {
                 return (
                     <div className="cellAction">
-                        {type === "products" && (
+                        {type === "orders" && (
+                            <Link
+                                to={`${path}/${params.row.order_id}`}
+                                style={{ textDecoration: "none" }}
+                            >
+                                <div className="viewButton">Voir</div>
+                            </Link>
+                        )}
+                                                {type === "products" && (
                             <Link
                                 to={`${path}/${params.row.ProductID}`}
                                 style={{ textDecoration: "none" }}
@@ -68,7 +76,7 @@ const Datatable = () => {
                                 <div className="viewButton">Voir</div>
                             </Link>
                         )}
-                        {type !== "products" && (
+                        {type === "users" && (
                             <Link
                                 to={`${path}/${params.row.id}`}
                                 style={{ textDecoration: "none" }}
