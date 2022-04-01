@@ -51,26 +51,27 @@ const New = ({ title }) => {
                 }
                 alt=""
               />
-              <label htmlFor="file">
-                Image: <DriveFolderUploadOutlinedIcon className="newIcon" />
-              </label>
             </div>
             <div className="newRight">
               <form onSubmit={handleSubmit(onSubmit)}>
                 {/* {inputs.map((input) => (
                                     <div className="formInput" key={input.id}>
-                                        <label>{input.label}</label>
-                                        <input
-                                            type={input.type}
-                                            placeholder={input.placeholder}
-                                        />
+                                    <label>{input.label}</label>
+                                    <input
+                                    type={input.type}
+                                    placeholder={input.placeholder}
+                                    />
                                     </div>
                                 ))} */}
+
+                <label htmlFor="file">
+                  Image: <DriveFolderUploadOutlinedIcon className="newIcon" />
+                </label>
                 <div className=".newFormInput">
                   <input
+                    {...register("picture")}
                     type="file"
                     id="file"
-                    {...register("picture")}
                     onChange={(e) => setFile(e.target.files[0])}
                     style={{ display: "none" }}
                   />
