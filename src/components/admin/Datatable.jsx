@@ -11,6 +11,7 @@ import { useUser } from "../../contexts/UserProvider";
 import "./Datatable.css";
 
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
+const PATH_ADMIN = process.env.REACT_APP_PATH_ADMIN;
 
 const Datatable = () => {
     const user = useUser();
@@ -35,15 +36,15 @@ const Datatable = () => {
 
     React.useEffect(() => {
         console.log(path);
-        if (path === "/admin/users") {
+        if (path === `${PATH_ADMIN}/users`) {
             setType("users");
             getRows("users");
             setColumns(userColumns);
-        } else if (path === "/admin/orders") {
+        } else if (path === `${PATH_ADMIN}/orders`) {
             setType("orders");
             getRows("orders");
             setColumns(ordersColumns);
-        } else if (path === "/admin/products") {
+        } else if (path === `${PATH_ADMIN}/products`) {
             setType("products");
             getRows("products");
             setColumns(productColumns);
@@ -95,7 +96,7 @@ const Datatable = () => {
                         users: "utilisateurs",
                     }[type]
                 }
-                <Link to={`/admin/${type}/new`} className="datatableLink">
+                <Link to={`${PATH_ADMIN}/${type}/new`} className="datatableLink">
                     Ajouter
                 </Link>
             </div>
