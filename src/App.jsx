@@ -46,21 +46,28 @@ function App() {
               <Route path="/user/history" element={<HistoryOdersPage />} />
               <Route path={PATH_ADMIN} element={<AdminPanel />} />
               <Route path={`${PATH_ADMIN}/presentation`} element={<Page SubPage={TextForm} />} />
-              <Route path={`${PATH_ADMIN}/users`}>
+              <Route path={`${PATH_ADMIN}/deliveries`}>
                 <Route index element={<List />} />
                 <Route path=":id" element={<Single />} />
-                <Route path="new" element={<New inputs={userInputs} title="Add New User" />} />
+                {/* <Route path="new" element={<New inputs={productInputs} title="Add New Product" />} /> */}
+                {/* <Route path="new" element={<New title="Add New Product" />} /> */}
               </Route>
+
               <Route path={`${PATH_ADMIN}/orders`}>
                 <Route index element={<List />} />
                 <Route path=":id" element={<Single />} />
                 {/* <Route path="new" element={<New inputs={productInputs} title="Add New Product" />} /> */}
-                <Route path="new" element={<New title="Add New Product" />} />
+                {/* <Route path="new" element={<New title="Add New Product" />} /> */}
               </Route>
               <Route path={`${PATH_ADMIN}/products`}>
                 <Route index element={<List />} />
                 <Route path=":id" element={<SingleProduct />} />
                 <Route path="new" element={<NewProduct title="Ajouter un produit" />} />
+              </Route>
+              <Route path={`${PATH_ADMIN}/users`}>
+                <Route index element={<List />} />
+                <Route path=":id" element={<Single />} />
+                <Route path="new" element={<New inputs={userInputs} title="Add New User" />} />
               </Route>
             </Routes>
           </BrowserRouter>
