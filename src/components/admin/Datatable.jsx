@@ -21,12 +21,17 @@ const Datatable = () => {
     const [path, setPath] = React.useState("");
 
     const getRows = (type) => {
+        let url
+        if (type === 'deliveries')
+            url = `${BASE_URL}/api/orders/pending_deliveries`
+        else
+            url = `${BASE_URL}/api/${type}`
         axios
-            .get(`${BASE_URL}/api/${type}`, user.getOptions())
+            .get(url, user.getOptions())
             .then((response) => setRows(response.data));
     };
 
-    const getOrderId = (row) => row.OrderId;
+    const getOrderId = (row) => row.id;
     const getProductId = (row) => row.ProductID;
     const getUserId = (row) => row.id;
 
@@ -36,7 +41,11 @@ const Datatable = () => {
 
     React.useEffect(() => {
         console.log(path);
-        if (path === `${PATH_ADMIN}/users`) {
+        if (path === `${PATH_ADMIN}/deliveries`) {
+            setType("deliveries");
+            getRows("deliveries");
+            setColumns(ordersColumns);
+        } else if (path === `${PATH_ADMIN}/users`) {
             setType("users");
             getRows("users");
             setColumns(userColumns);
@@ -91,12 +100,16 @@ const Datatable = () => {
                 Liste des{" "}
                 {
                     {
+                        deliveries: "commandes à expédier",
                         orders: "commandes",
                         products: "produits",
                         users: "utilisateurs",
                     }[type]
                 }
-                <Link to={`${PATH_ADMIN}/${type}/new`} className="datatableLink">
+                <Link
+                    to={`${PATH_ADMIN}/${type}/new`}
+                    className="datatableLink"
+                >
                     Ajouter
                 </Link>
             </div>

@@ -4,7 +4,7 @@ import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUpload
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import "./New.css";
+import "./NewUser.css";
 
 const New = ({ inputs, title }) => {
   const [file, setFile] = useState("");
@@ -38,13 +38,8 @@ const New = ({ inputs, title }) => {
             <h1>{title}</h1>
           </div>
           <div className="newBottom">
-            
             <div className="newRight">
               <form onSubmit={handleSubmit(onSubmit)}>
-                <div className=".newFormInput">
-                  <label htmlFor="file">Image: <DriveFolderUploadOutlinedIcon className="newIcon" /></label>
-                  <input type="file" id="file" onChange={e => setFile(e.target.files[0])} style={{ display: "none" }} />
-                </div>
                 {inputs.map((input) => (
                   <div className="formInput" key={input.id}>
                     <label>{input.label}</label>

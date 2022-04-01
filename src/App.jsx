@@ -2,11 +2,10 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AdminPanel from "./pages/admin/AdminPanel";
 import List from './pages/admin/List';
-import New from './pages/admin/New';
+import New from './pages/admin/NewUser';
 import NewProduct from "./pages/admin/NewProduct"
 import Single from './pages/admin/Single';
 import SingleProduct from './pages/admin/SingleProduct';
-
 import Brand from "./pages/Brand";
 import CartPage from "./pages/CartPage";
 import CartProvider from "./contexts/CartContext";
@@ -47,21 +46,28 @@ function App() {
               <Route path="/user/history" element={<HistoryOdersPage />} />
               <Route path={PATH_ADMIN} element={<AdminPanel />} />
               <Route path={`${PATH_ADMIN}/presentation`} element={<Page SubPage={TextForm} />} />
-              <Route path={`${PATH_ADMIN}/users`}>
+              <Route path={`${PATH_ADMIN}/deliveries`}>
                 <Route index element={<List />} />
                 <Route path=":id" element={<Single />} />
-                <Route path="new" element={<New inputs={userInputs} title="Add New User" />} />
+                {/* <Route path="new" element={<New inputs={productInputs} title="Add New Product" />} /> */}
+                {/* <Route path="new" element={<New title="Add New Product" />} /> */}
               </Route>
+
               <Route path={`${PATH_ADMIN}/orders`}>
                 <Route index element={<List />} />
                 <Route path=":id" element={<Single />} />
                 {/* <Route path="new" element={<New inputs={productInputs} title="Add New Product" />} /> */}
-                <Route path="new" element={<New title="Add New Product" />} />
+                {/* <Route path="new" element={<New title="Add New Product" />} /> */}
               </Route>
               <Route path={`${PATH_ADMIN}/products`}>
                 <Route index element={<List />} />
                 <Route path=":id" element={<SingleProduct />} />
                 <Route path="new" element={<NewProduct title="Ajouter un produit" />} />
+              </Route>
+              <Route path={`${PATH_ADMIN}/users`}>
+                <Route index element={<List />} />
+                <Route path=":id" element={<Single />} />
+                <Route path="new" element={<New inputs={userInputs} title="Add New User" />} />
               </Route>
             </Routes>
           </BrowserRouter>

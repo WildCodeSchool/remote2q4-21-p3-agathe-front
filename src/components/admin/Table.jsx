@@ -49,9 +49,9 @@ const List = () => {
                 <TableBody>
                     {rows &&
                         rows.map((row) => (
-                            <TableRow key={row.order_id}>
+                            <TableRow key={row.id}>
                                 <TableCell className="tableCell">
-                                    {row.order_id}
+                                    {row.id}
                                 </TableCell>
                                 <TableCell className="tableCell">
                                     <div className="cellWrapper">
