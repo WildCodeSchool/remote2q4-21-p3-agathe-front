@@ -2,14 +2,18 @@ import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { DataGrid } from "@mui/x-data-grid";
-import { ordersColumns, productColumns, userColumns } from "../../dataTableSource";
+import {
+    ordersColumns,
+    productColumns,
+    userColumns,
+} from "../../dataTableSource";
 import { useUser } from "../../contexts/UserProvider";
 import "./Datatable.css";
 
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
 const Datatable = () => {
-    const user = useUser()
+    const user = useUser();
     const [type, setType] = React.useState(null);
     const [rows, setRows] = React.useState(null);
     const [columns, setColumns] = React.useState([]);
@@ -18,8 +22,8 @@ const Datatable = () => {
     const getRows = (type) => {
         axios
             .get(`${BASE_URL}/api/${type}`, user.getOptions())
-            .then(response => setRows(response.data));
-    }
+            .then((response) => setRows(response.data));
+    };
 
     const getOrderId = (row) => row.OrderId;
     const getProductId = (row) => row.ProductID;
@@ -33,15 +37,15 @@ const Datatable = () => {
         console.log(path);
         if (path === "/admin/users") {
             setType("users");
-            getRows('users');
+            getRows("users");
             setColumns(userColumns);
         } else if (path === "/admin/orders") {
             setType("orders");
-            getRows('orders');
+            getRows("orders");
             setColumns(ordersColumns);
         } else if (path === "/admin/products") {
             setType("products");
-            getRows('products');
+            getRows("products");
             setColumns(productColumns);
         }
         console.log(rows);
@@ -55,12 +59,22 @@ const Datatable = () => {
             renderCell: (params) => {
                 return (
                     <div className="cellAction">
-                        <Link
-                            to={`${path}/${params.row.id}`}
-                            style={{ textDecoration: "none" }}
-                        >
-                            <div className="viewButton">Voir</div>
-                        </Link>
+                        {type === "products" && (
+                            <Link
+                                to={`${path}/${params.row.ProductID}`}
+                                style={{ textDecoration: "none" }}
+                            >
+                                <div className="viewButton">Voir</div>
+                            </Link>
+                        )}
+                        {type !== "products" && (
+                            <Link
+                                to={`${path}/${params.row.id}`}
+                                style={{ textDecoration: "none" }}
+                            >
+                                <div className="viewButton">Voir</div>
+                            </Link>
+                        )}
                         <Link to={`${path}`} style={{ textDecoration: "none" }}>
                             <div className="deleteButton">Supprimer</div>
                         </Link>
@@ -74,7 +88,13 @@ const Datatable = () => {
         <div className="datatable">
             <div className="datatableTitle">
                 Liste des{" "}
-                {{orders: 'commandes', products:'produits', users: 'utilisateurs'}[type]}
+                {
+                    {
+                        orders: "commandes",
+                        products: "produits",
+                        users: "utilisateurs",
+                    }[type]
+                }
                 <Link to={`/admin/${type}/new`} className="datatableLink">
                     Ajouter
                 </Link>
@@ -85,7 +105,13 @@ const Datatable = () => {
                 pageSize={20}
                 rowsPerPageOptions={[10]}
                 checkboxSelection
-                getRowId={{orders:getOrderId, products:getProductId, users:getUserId}[type]}
+                getRowId={
+                    {
+                        orders: getOrderId,
+                        products: getProductId,
+                        users: getUserId,
+                    }[type]
+                }
             />
         </div>
     );

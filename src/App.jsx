@@ -5,6 +5,7 @@ import List from './pages/admin/List';
 import New from './pages/admin/New';
 import NewProduct from "./pages/admin/NewProduct"
 import Single from './pages/admin/Single';
+import SingleProduct from './pages/admin/SingleProduct';
 
 import Brand from "./pages/Brand";
 import CartPage from "./pages/CartPage";
@@ -57,7 +58,7 @@ function App() {
               </Route>
               <Route path="/admin/products">
                 <Route index element={<List />} />
-                <Route path=":id" element={<Single />} />
+                <Route path=":id" element={<SingleProduct />} />
                 <Route path="new" element={<NewProduct title="Ajouter un produit" />} />
               </Route>
             </Routes>
