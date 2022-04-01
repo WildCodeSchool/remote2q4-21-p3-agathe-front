@@ -50,8 +50,9 @@ const Featured = () => {
             </div>
             <div className="featuredBottom">
                 <div className="featuredChart">
-                    <CircularProgressbar value={(today.sales/yesterday.sales*100)} text={`${(today.sales/yesterday.sales*100)}%`} strokeWidth={5} />
+                    <CircularProgressbar value={(today.sales/yesterday.sales*100).toFixed(2)} text={`${(today.sales/yesterday.sales*100).toFixed(2)}%`} strokeWidth={5} />
                 </div>
+                {(today.sales/yesterday.sales*100) > 100 ? <p>Objectif de la veille dépassé !</p> : ""}
                 <p className="bottomTtitle">Vente total du jour</p>
                 <p className="amount">{today.sales ?? 0} €</p>
                 <div className="summary">

@@ -2,11 +2,10 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AdminPanel from "./pages/admin/AdminPanel";
 import List from './pages/admin/List';
-import New from './pages/admin/New';
+import New from './pages/admin/NewUser';
 import NewProduct from "./pages/admin/NewProduct"
 import Single from './pages/admin/Single';
 import SingleProduct from './pages/admin/SingleProduct';
-
 import Brand from "./pages/Brand";
 import CartPage from "./pages/CartPage";
 import CartProvider from "./contexts/CartContext";
