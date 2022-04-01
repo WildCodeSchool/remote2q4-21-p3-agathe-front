@@ -1,34 +1,22 @@
 import { BarChart, Bar, XAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import "./Chart.css";
 
-const data = [
-    {
-        name: "Janvier",
-        Total: 6150
-    },
-    {
-        name: "Février",
-        Total: 5370
-    },
-    {
-        name: "Mars",
-        Total: 4920
-    },
-    {
-        name: "Avril",
-        Total: 5530
-    },
-    {
-        name: "Mai",
-        Total: 5780
-    },
-    {
-        name: "Juin",
-        Total: 4700
-    },
-];
+const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
 const Chart = ({ aspect, title }) => {
+    const [stats, setStats] = useState([]);
+
+    useEffect(() => {
+      const chart = () => {
+        axios
+          .get(`${BASE_URL}/api/orders/yearly_sales`)
+          .then((response) => setStats(response.data));
+      };
+      chart();
+    }, []);
+
     return (
         <div className="chart">
             <div className="chartTitle">{title}</div>
@@ -36,7 +24,7 @@ const Chart = ({ aspect, title }) => {
             <BarChart
           width={500}
           height={300}
-          data={data}
+          data={stats}
           margin={{
             top: 5,
             right: 30,
@@ -45,9 +33,9 @@ const Chart = ({ aspect, title }) => {
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
+          <XAxis dataKey="month" fontSize="small"/>
           <Tooltip />
-          <Bar dataKey="Total" fill="#2C3331" />
+          <Bar dataKey="total_amount" fill="#2C3331" />
         </BarChart>
             </ResponsiveContainer>
         </div>
