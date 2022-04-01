@@ -50,7 +50,7 @@ const Featured = () => {
             </div>
             <div className="featuredBottom">
                 <div className="featuredChart">
-                    <CircularProgressbar value={(today.sales/yesterday.sales*100) ?? 0} text={`${(today.sales/yesterday.sales*100) ?? 0}%`} strokeWidth={5} />
+                    <CircularProgressbar value={(today.sales/yesterday.sales*100)} text={`${(today.sales/yesterday.sales*100)}%`} strokeWidth={5} />
                 </div>
                 <p className="bottomTtitle">Vente total du jour</p>
                 <p className="amount">{today.sales ?? 0} €</p>
@@ -59,21 +59,21 @@ const Featured = () => {
                         <div className="itemTitle">Hier</div>
                         <div className="itemResult negative">
                             <KeyboardArrowDownIcon fontSize="small" />
-                            <div className="resultAmount">{yesterday.sales ?? 0} €</div>
+                            <div className="resultAmount">{yesterday.sales} €</div>
                         </div>
                     </div>
                     <div className="item">
                         <div className="itemTitle">Semaine passée</div>
                         <div className="itemResult positive">
                             <KeyboardArrowUpOutlinedIcon fontSize="small" />
-                            <div className="resultAmount">{weekly.sales ?? 0} €</div>
+                            <div className="resultAmount">{weekly.sales} €</div>
                         </div>
                     </div>
                     <div className="item">
                         <div className="itemTitle">Mois dernier</div>
                         <div className="itemResult positive">
                             <KeyboardArrowUpOutlinedIcon fontSize="small" />
-                            <div className="resultAmount">{monthly.sales ?? 0} €</div>
+                            <div className="resultAmount">{monthly.sales} €</div>
                         </div>
                     </div>
                 </div>
