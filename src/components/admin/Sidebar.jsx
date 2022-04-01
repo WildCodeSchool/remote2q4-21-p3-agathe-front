@@ -10,32 +10,34 @@ import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import { Link } from "react-router-dom";
 import "./Sidebar.css"
 
+const PATH_ADMIN = process.env.REACT_APP_PATH_ADMIN;
+
 const Sidebar = () => {
     return (
         <div className='sidebar'>
             <div className='center'>
                 <ul>
                     <p className="sidebarTitle">MAIN</p>
-                    <Link to="/admin" style={{ textDecoration: "none" }}>
+                    <Link to={`${PATH_ADMIN}`} style={{ textDecoration: "none" }}>
                     <li>
                         <DashboardIcon className='icon' />
                         <span>Menu</span>
                     </li>
                     </Link>
                     <p className="sidebarTitle">LISTS</p>
-                    <Link to="/admin/users" style={{ textDecoration: "none" }}>
+                    <Link to={`${PATH_ADMIN}/users`} style={{ textDecoration: "none" }}>
                     <li>
                         <PersonOutlineOutlinedIcon className='icon' />
                         <span>Clients</span>
                     </li>
                     </Link>
-                    <Link to="/admin/products" style={{ textDecoration: "none" }}>
+                    <Link to={`${PATH_ADMIN}/products`} style={{ textDecoration: "none" }}>
                     <li>
                         <Inventory2OutlinedIcon className='icon' />
                         <span>Produits</span>
                     </li>
                     </Link>
-                    <Link to="/admin/orders" style={{ textDecoration: "none" }}>
+                    <Link to={`${PATH_ADMIN}/orders`} style={{ textDecoration: "none" }}>
                     <li>
                         <CreditCardOutlinedIcon className='icon' />
                         <span>Commandes</span>

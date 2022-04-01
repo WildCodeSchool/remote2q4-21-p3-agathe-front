@@ -9,6 +9,7 @@ import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalance
 import "./Widget.css";
 
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
+const PATH_ADMIN = process.env.REACT_APP_PATH_ADMIN;
 
 const Widget = ({ type }) => {
     const [amount, setAmount] = React.useState(0)
@@ -34,7 +35,7 @@ const Widget = ({ type }) => {
             data = {
                 title: "CLIENTS",
                 isMoney: false,
-                link: <NavLink to="/admin/users">Voir tous les clients</NavLink>,
+                link: <NavLink to={`${PATH_ADMIN}/users`}>Voir tous les clients</NavLink>,
                 icon: (
                     <PersonOutlinedIcon
                         className="icon"
@@ -51,7 +52,7 @@ const Widget = ({ type }) => {
             data = {
                 title: "COMMANDES",
                 isMoney: false,
-                link: <NavLink to="/admin/orders">Voir toutes les commandes</NavLink>,
+                link: <NavLink to={`${PATH_ADMIN}/orders`}>Voir toutes les commandes</NavLink>,
                 icon: (
                     <ShoppingCartOutlinedIcon
                         className="icon"
@@ -85,7 +86,7 @@ const Widget = ({ type }) => {
             data = {
                 title: "NOMBRE PRODUITS",
                 isMoney: false,
-                link: <NavLink to="/admin/products">Voir tous les produits</NavLink>,
+                link: <NavLink to={`${PATH_ADMIN}/products`}>Voir tous les produits</NavLink>,
                 icon: (
                     <AccountBalanceWalletOutlinedIcon
                         className="icon"
