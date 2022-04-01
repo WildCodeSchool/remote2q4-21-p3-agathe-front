@@ -47,14 +47,14 @@ const Sidebar = () => {
                         <LocalShippingOutlinedIcon className='icon' />
                         <span>Livraison</span>
                     </li>
-                    <p className="sidebarTitle">UTILE</p>
+                    <p className="sidebarTitle">Modifications</p>
                     <li>
                         <AssessmentOutlinedIcon className='icon' />
-                        <span>Statistiques</span>
+                        <span>Présentation</span>
                     </li>
                     <li>
                         <NotificationsNoneOutlinedIcon className='icon' />
-                        <span>Notifications</span>
+                        <span>Ajout d'articles</span>
                     </li>
                     <p className="sidebarTitle">UTILISATEUR</p>
                     <li>
