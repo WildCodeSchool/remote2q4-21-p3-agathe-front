@@ -11,9 +11,19 @@ const New = ({ title }) => {
 
     const onSubmit = async (data) => {
         try {
-            console.log(data);
+            let formData = new FormData();
+            for (let item in data) {
+                if (item === "picture") {
+                    formData.append(item, data[item][0]);
+                } else {
+                    formData.append(item, data[item]);
+                }
+            }
             axios
-                .post(`${process.env.REACT_APP_URL_SERVER}/api/products`, data)
+                .post(
+                    `${process.env.REACT_APP_URL_SERVER}/api/products`,
+                    formData
+                )
                 .then((res) => {
                     if (res.status === 200) {
                         // setUpdate("Mise à jour effectuée");
@@ -44,31 +54,36 @@ const New = ({ title }) => {
                                 }
                                 alt=""
                             />
-                            <label htmlFor="file">
-                                Image:{" "}
-                                <DriveFolderUploadOutlinedIcon className="newIcon" />
-                            </label>
-                            <div className=".newFormInput">
-                                <input
-                                    type="file"
-                                    id="file"
-                                    onChange={(e) => setFile(e.target.files[0])}
-                                    style={{ display: "none" }}
-                                />
-                            </div>
                         </div>
                         <div className="newRight">
-                            <form onSubmit={handleSubmit(onSubmit)}>
+                            <form
+                                onSubmit={handleSubmit(onSubmit)}
+                            >
                                 {/* {inputs.map((input) => (
                                     <div className="formInput" key={input.id}>
-                                        <label>{input.label}</label>
-                                        <input
-                                            type={input.type}
-                                            placeholder={input.placeholder}
-                                        />
+                                    <label>{input.label}</label>
+                                    <input
+                                    type={input.type}
+                                    placeholder={input.placeholder}
+                                    />
                                     </div>
                                 ))} */}
 
+                                <label htmlFor="file">
+                                    Image:{" "}
+                                    <DriveFolderUploadOutlinedIcon className="newIcon" />
+                                </label>
+                                <div className=".newFormInput">
+                                    <input
+                                        {...register("picture")}
+                                        type="file"
+                                        id="file"
+                                        onChange={(e) =>
+                                            setFile(e.target.files[0])
+                                        }
+                                        style={{ display: "none" }}
+                                    />
+                                </div>
                                 <input
                                     type="text"
                                     {...register("SKU")}
@@ -81,8 +96,9 @@ const New = ({ title }) => {
                                     placeholder="Désignation du produit"
                                     maxLength="200"
                                 />
-                                <input 
-                                    type="number" step="any"
+                                <input
+                                    type="number"
+                                    step="any"
                                     {...register("Price")}
                                     placeholder="Prix du produit"
                                     maxLength="5"
