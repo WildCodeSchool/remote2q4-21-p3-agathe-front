@@ -11,6 +11,7 @@ import Paper from "@mui/material/Paper";
 import "./Table.css";
 
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
+const PATH_ADMIN = process.env.REACT_APP_PATH_ADMIN;
 
 const List = () => {
     const [rows, setRows] = React.useState(null);
@@ -19,9 +20,9 @@ const List = () => {
     React.useEffect(() => {
         let path = window.location.pathname
         let url = `${BASE_URL}/api/orders`;
-        if (path.startsWith("/admin/users")) {
+        if (path.startsWith(`${PATH_ADMIN}/users`)) {
             if (id) url = `${BASE_URL}/api/users/${id}/orders`;
-        } else if (path.startsWith("/admin/products")) {
+        } else if (path.startsWith(`${PATH_ADMIN}/products`)) {
             if (id) url = `${BASE_URL}/api/products/${id}/orders`;
         }
         axios
