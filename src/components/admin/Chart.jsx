@@ -33,7 +33,7 @@ const Chart = ({ aspect, title }) => {
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="month" fontSize="small"/>
+          <XAxis dataKey="month_name" fontSize="small"/>
           <Tooltip />
           <Bar dataKey="total_amount" fill="#2C3331" />
         </BarChart>

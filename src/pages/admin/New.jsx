@@ -38,15 +38,7 @@ const New = ({ inputs, title }) => {
             <h1>{title}</h1>
           </div>
           <div className="newBottom">
-            <div className="newLeft">
-              <img
-                src={
-                  file
-                    ? URL.createObjectURL(file)
-                    : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
-                }
-                alt="" />
-            </div>
+            
             <div className="newRight">
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className=".newFormInput">
