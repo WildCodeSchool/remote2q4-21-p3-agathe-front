@@ -1,5 +1,5 @@
 export const ordersColumns = [
-    { field: "order_id", headerName: "ID", width: 70 },
+    { field: "id", headerName: "ID", width: 70 },
     { field: "order_date", headerName: "Date", width: 70 },
     {
         field: "user_name",

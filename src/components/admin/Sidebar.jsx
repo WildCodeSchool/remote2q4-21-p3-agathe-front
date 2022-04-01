@@ -43,10 +43,13 @@ const Sidebar = () => {
                         <span>Commandes</span>
                     </li>
                     </Link>
+                    <Link to={`${PATH_ADMIN}/deliveries`} style={{ textDecoration: "none" }}>
+
                     <li>
                         <LocalShippingOutlinedIcon className='icon' />
                         <span>Livraison</span>
                     </li>
+                    </Link>
                     <p className="sidebarTitle">Modifications</p>
                     <li>
                         <AssessmentOutlinedIcon className='icon' />
