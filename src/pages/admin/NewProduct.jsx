@@ -14,6 +14,8 @@ const New = ({ title }) => {
             let formData = new FormData();
             for (let item in data) {
                 if (item === "picture") {
+                    console.log('picture')
+                    console.log(data[item])
                     formData.append(item, data[item][0]);
                 } else {
                     formData.append(item, data[item]);
@@ -77,11 +79,11 @@ const New = ({ title }) => {
                                     <input
                                         {...register("picture")}
                                         type="file"
-                                        id="file"
+                                        // id="picture"
                                         onChange={(e) =>
                                             setFile(e.target.files[0])
                                         }
-                                        style={{ display: "none" }}
+                                        // style={{ display: "none" }}
                                     />
                                 </div>
                                 <input
