@@ -1,5 +1,4 @@
 import React from "react";
-import { useParams } from "react-router-dom";
 import axios from "axios";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -16,7 +15,7 @@ const HistoryOders = () => {
     React.useEffect(() => {
         axios
             .get(`${BASE_URL}/api/users/0/orders`, { withCredentials: true, mode: 'cors' })
-            .then(response => { setRows(response.data); });
+            .then(response => { setRows(response.data.sort((a, b) => a.order_date<b.order_date)); });
     }, []);
 
   return (
@@ -36,19 +35,19 @@ const HistoryOders = () => {
           <TableBody>
             {rows &&
               rows.map((row) => (
-                <TableRow key={row.OrderId}>
-                  <TableCell className="tableCell">{row.OrderId}</TableCell>
+                <TableRow key={row.id}>
+                  <TableCell className="tableCell">{row.id}</TableCell>
                   <TableCell className="tableCell">
                     <div className="cellWrapper">
-                      <img src={row.img} alt="" className="datatableImage" />
+                      <img src={`${BASE_URL}/assets/${row.picture}`} alt="" className="datatableImage" />
                       {row.product}
                     </div>
                   </TableCell>
                   <TableCell className="tableCell">
-                    {new Date(row.OrderDate).toLocaleDateString()}
+                    {new Date(row.order_date).toLocaleDateString()}
                   </TableCell>
-                  <TableCell className="tableCell">{row.amount}</TableCell>
-                  <TableCell className="tableCell">{row.name}</TableCell>
+                  <TableCell className="tableCell">{row.amount} €</TableCell>
+                  <TableCell className="tableCell">{row.user_name}</TableCell>
                 </TableRow>
               ))}
           </TableBody>

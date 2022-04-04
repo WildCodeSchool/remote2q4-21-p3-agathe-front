@@ -16,7 +16,6 @@ const Single = () => {
 
     React.useEffect(() => {
         setPath(window.location.pathname);
-        console.log(path);
     }, [window.location.pathname]);
 
     React.useEffect(() => {

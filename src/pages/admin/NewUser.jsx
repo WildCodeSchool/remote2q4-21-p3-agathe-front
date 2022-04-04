@@ -19,7 +19,6 @@ const New = ({ inputs, title }) => {
           if (res.status === 200) {
             console.log("création réussie")
             // setUpdate("Mise à jour effectuée");
-            // console.log({ update });
             //   redirect("/#homepage");
           }
         });
