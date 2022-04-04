@@ -2,11 +2,13 @@ import React from "react";
 import { useCart } from "../../contexts/CartContext";
 import "./Cart.css";
 
+const BASE_URL = process.env.REACT_APP_URL_SERVER;
+
 function Cart() {
   const cart = useCart();
 
-  const changeQuantity = (ProductID, quantity) => {
-    const item = { ProductID, quantity: quantity };
+  const changeQuantity = (id, quantity) => {
+    const item = { id, quantity: quantity };
     cart.change(item);
   }
 
@@ -24,13 +26,13 @@ function Cart() {
             <div className="cart-item" key={index}>
               <div className="cart-product">
                 <img
-                  src={`/assets/img/${item.ProductID}.jpeg`}
+                  src={`${BASE_URL}/assets/${item.picture}`}
                   alt={item.name}
                 />
                 <div className="cart-product-infos">
                   <h3>{item.name}</h3>
                   <span> Réf : {item.SKU}</span>
-                  <button onClick={() => cart.remove(item.ProductID)}>
+                  <button onClick={() => cart.remove(item.id)}>
                     Supprimer
                   </button>
                 </div>
@@ -39,13 +41,13 @@ function Cart() {
               <div className="cart-product-quantity">
                 {/* <button
                   onClick={(e) =>
-                    decrementQuantity(item.ProductID, item.quantity)
+                    decrementQuantity(item.id, item.quantity)
                   }
                 >
                   -
                 </button> */}
-                <input type="number" onInput={(e) => changeQuantity(item.ProductID, e.currentTarget.value)} value={item.quantity} min="1" step="1" />
-                {/* <button onClick={(e) => incrementQuantity(item.ProductID)}>
+                <input type="number" onInput={(e) => changeQuantity(item.id, e.currentTarget.value)} value={item.quantity} min="1" step="1" />
+                {/* <button onClick={(e) => incrementQuantity(item.id)}>
                   +
                 </button> */}
               </div>

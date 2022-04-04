@@ -35,7 +35,7 @@ const Single = () => {
                             <h1 className="singleTitle">Information</h1>
                             <div className="singleItem">
                                 <img
-                                    src={`/assets/img/${data?.ProductID}.jpeg`}
+                                    src={`/assets/img/${data?.id}.jpeg`}
                                     alt=""
                                     className="itemImg"
                                 />
@@ -47,7 +47,7 @@ const Single = () => {
                                     <div className="singleDetailItem">
                                         <span className="itemKey">Code: </span>
                                         <span className="itemValue">
-                                            {data?.SKU}
+                                            {data?.sku}
                                         </span>
                                     </div>
                                     <div className="singleDetailItem">
@@ -63,7 +63,7 @@ const Single = () => {
                                             :{" "}
                                         </span>
                                         <span className="itemValue">
-                                            {data?.address1}
+                                            {data?.address_1}
                                         </span>
                                     </div>
                                     <div className="singleDetailItem">

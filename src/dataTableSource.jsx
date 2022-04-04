@@ -21,7 +21,7 @@ export const ordersColumns = [
         renderCell: (params) => {
             return (
                 <div className="cellWithImg">
-                    {/* <img className="cellImg" src={params.row.img} alt="avatar" /> */}
+                    <img className="cellImg" src={params.row.picture} alt="avatar" />
                     {params.row.product}
                 </div>
             );
@@ -40,16 +40,16 @@ export const ordersColumns = [
 ];
 
 export const productColumns = [
-    { field: "ProductID", headerName: "ID", width: 70 },
+    { field: "id", headerName: "ID", width: 70 },
     {
-        field: "SKU",
+        field: "sku",
         headerName: "SKU",
         width: 100,
         renderCell: (params) => {
             return (
                 <div className="cellWithImg">
                     {/* <img className="cellImg" src={params.row.img} alt="avatar" /> */}
-                    {params.row.SKU}
+                    {params.row.sku}
                 </div>
             );
         },
@@ -77,11 +77,11 @@ export const productColumns = [
 export const userColumns = [
     { field: "id", headerName: "ID", width: 70 },
     {
-        field: "user",
+        field: "user_name",
         headerName: "User",
         width: 230,
         renderCell: (params) => {
-            return `${params.row.FirstName} ${params.row.LastName}`;
+            return `${params.row.first_name} ${params.row.last_name}`;
         },
     },
     {

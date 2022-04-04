@@ -38,7 +38,7 @@ function ProductsList({ randomize }) {
         <ProductCard
           className={randomize === true ? "ProductCard" : "CatalogueCard"}
           {...product}
-          key={product.ProductID}
+          key={product.id}
         />
       ))}
     </div>
