@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { DataGrid } from "@mui/x-data-grid";
 import {
     ordersColumns,
@@ -18,48 +18,42 @@ const Datatable = () => {
     const [type, setType] = React.useState(null);
     const [rows, setRows] = React.useState(null);
     const [columns, setColumns] = React.useState([]);
-    const [path, setPath] = React.useState("");
+    const { pathname } = useLocation();
 
     const getRows = (type) => {
-        let url
-        if (type === 'deliveries')
-            url = `${BASE_URL}/api/orders/pending_deliveries`
-        else
-            url = `${BASE_URL}/api/${type}`
+        let url;
+        if (type === "deliveries")
+            url = `${BASE_URL}/api/orders/pending_deliveries`;
+        else url = `${BASE_URL}/api/${type}`;
         axios
             .get(url, user.getOptions())
             .then((response) => setRows(response.data));
     };
 
-    // const getOrderId = (row) => row.id;
-    // const getProductId = (row) => row.id;
-    // const getUserId = (row) => row.id;
-
     React.useEffect(() => {
-        setPath(window.location.pathname);
-    }, [window.location.pathname]);
-
-    React.useEffect(() => {
-        console.log(path);
-        if (path === `${PATH_ADMIN}/deliveries`) {
+        if (!pathname) {
+            console.log("undefined");
+            return;
+        }
+        console.log(`Location update [${pathname}]`);
+        if (pathname === `${PATH_ADMIN}/deliveries`) {
             setType("deliveries");
             getRows("deliveries");
             setColumns(ordersColumns);
-        } else if (path === `${PATH_ADMIN}/users`) {
+        } else if (pathname === `${PATH_ADMIN}/users`) {
             setType("users");
             getRows("users");
             setColumns(userColumns);
-        } else if (path === `${PATH_ADMIN}/orders`) {
+        } else if (pathname === `${PATH_ADMIN}/orders`) {
             setType("orders");
             getRows("orders");
             setColumns(ordersColumns);
-        } else if (path === `${PATH_ADMIN}/products`) {
+        } else if (pathname === `${PATH_ADMIN}/products`) {
             setType("products");
             getRows("products");
             setColumns(productColumns);
         }
-        console.log(rows);
-    }, [path]);
+    }, [pathname]);
 
     const actionColumn = [
         {
@@ -71,7 +65,7 @@ const Datatable = () => {
                     <div className="cellAction">
                         {type === "products" && (
                             <Link
-                                to={`${path}/${params.row.id}`}
+                                to={`${pathname}/${params.row.id}`}
                                 style={{ textDecoration: "none" }}
                             >
                                 <div className="viewButton">Voir</div>
@@ -79,13 +73,16 @@ const Datatable = () => {
                         )}
                         {type !== "products" && (
                             <Link
-                                to={`${path}/${params.row.id}`}
+                                to={`${pathname}/${params.row.id}`}
                                 style={{ textDecoration: "none" }}
                             >
                                 <div className="viewButton">Voir</div>
                             </Link>
                         )}
-                        <Link to={`${path}`} style={{ textDecoration: "none" }}>
+                        <Link
+                            to={`${pathname}`}
+                            style={{ textDecoration: "none" }}
+                        >
                             <div className="deleteButton">Supprimer</div>
                         </Link>
                     </div>
@@ -113,20 +110,47 @@ const Datatable = () => {
                     Ajouter
                 </Link>
             </div>
-            <DataGrid
-                rows={rows ?? []}
-                columns={columns.concat(actionColumn)}
-                pageSize={20}
-                rowsPerPageOptions={[10]}
-                checkboxSelection
-                // getRowId={
-                //     {
-                //         orders: getOrderId,
-                //         products: getProductId,
-                //         users: getUserId,
-                //     }[type]
-                // }
-            />
+            {console.log(rows)}
+            {/* I know, it's not correct to repeat this code,
+                but it's a fix to a DataGrid bug,
+                otherwise when you switch to a list with lesser rows,
+                DataGrid does not remove the extra rows */}
+            {type === "deliveries" ? (
+                <DataGrid
+                    rows={rows ?? []}
+                    columns={columns.concat(actionColumn)}
+                    pageSize={20}
+                    rowsPerPageOptions={[10]}
+                    checkboxSelection
+                />
+            ) : null}
+            {type === "users" ? (
+                <DataGrid
+                    rows={rows ?? []}
+                    columns={columns.concat(actionColumn)}
+                    pageSize={20}
+                    rowsPerPageOptions={[10]}
+                    checkboxSelection
+                />
+            ) : null}
+            {type === "orders" ? (
+                <DataGrid
+                    rows={rows ?? []}
+                    columns={columns.concat(actionColumn)}
+                    pageSize={20}
+                    rowsPerPageOptions={[10]}
+                    checkboxSelection
+                />
+            ) : null}
+            {type === "products" ? (
+                <DataGrid
+                    rows={rows ?? []}
+                    columns={columns.concat(actionColumn)}
+                    pageSize={20}
+                    rowsPerPageOptions={[10]}
+                    checkboxSelection
+                />
+            ) : null}
         </div>
     );
 };
