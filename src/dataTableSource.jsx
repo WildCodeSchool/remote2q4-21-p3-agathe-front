@@ -1,28 +1,36 @@
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
 export const ordersColumns = [
-    { field: "id", headerName: "ID", width: 70 },
-    { field: "order_date", headerName: "Date", width: 70 },
+    { field: "id", headerName: "ID", type:'number', width: 60 },
+    {
+        field: "order_date",
+        headerName: "Date",
+        type: 'date',
+        width: 95,
+        renderCell: (params) => {
+            return <div className="cellWithImg">{new Date(params.row.order_date).toLocaleDateString()}</div>;
+        },
+    },
     {
         field: "user_name",
         headerName: "Client",
         width: 200,
         renderCell: (params) => {
-            return (
-                <div className="cellWithImg">
-                    {params.row.user_name}
-                </div>
-            );
+            return <div className="cellWithImg">{params.row.user_name}</div>;
         },
     },
     {
         field: "product",
         headerName: "Produit",
-        width: 200,
+        width: 250,
         renderCell: (params) => {
             return (
                 <div className="cellWithImg">
-                    <img className="cellImg" src={`${BASE_URL}/assets/${params.row.picture}`} alt="avatar" />
+                    <img
+                        className="cellImg"
+                        src={`${BASE_URL}/assets/${params.row.picture}`}
+                        alt="avatar"
+                    />
                     {params.row.product}
                 </div>
             );
@@ -31,12 +39,14 @@ export const ordersColumns = [
     {
         field: "quantity",
         headerName: "Quantité",
-        width: 100,
+        type:'number',
+        // width: 100,
     },
     {
         field: "amount",
-        headerName: "Montant",
-        width: 100,
+        headerName: "Montant €",
+        type:'number',
+        // width: 100,
     },
 ];
 
@@ -49,7 +59,11 @@ export const productColumns = [
         renderCell: (params) => {
             return (
                 <div className="cellWithImg">
-                    <img className="cellImg" src={`${BASE_URL}/assets/${params.row.picture}`} alt="avatar" />
+                    <img
+                        className="cellImg"
+                        src={`${BASE_URL}/assets/${params.row.picture}`}
+                        alt="avatar"
+                    />
                     {params.row.sku}
                 </div>
             );
