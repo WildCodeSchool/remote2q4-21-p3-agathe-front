@@ -1,3 +1,8 @@
+div.address {
+    display: flex;
+    flex-direction: column;
+}
+
 .registerContainer {
     min-width: 70vh;
     min-height: 550px;

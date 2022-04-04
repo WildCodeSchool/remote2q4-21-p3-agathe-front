@@ -22,7 +22,7 @@ import Presentation from "./pages/admin/Presentation";
 import UserProvider from './contexts/UserProvider';
 import { userInputs } from "./formSource";
 import "./App.css";
-import HistoryOdersPage from "./pages/user/HistoryOrdersPage";
+import HistoryOrdersPage from "./components/user/HistoryOrders";
 
 const PATH_ADMIN = process.env.REACT_APP_PATH_ADMIN;
 
@@ -43,7 +43,10 @@ function App() {
               <Route path="/login" element={<Page SubPage={LoginForm} />} />
               <Route path="/register" element={<Page SubPage={RegisterForm} />} />
               <Route path="/logout" element={<Logout />} />
-              <Route path="/user/history" element={<HistoryOdersPage />} />
+              <Route path="/user">
+                <Route path="edit" element={<Page SubPage={RegisterForm} />} />
+                <Route path="history" element={<Page SubPage={HistoryOrdersPage} />} />
+              </Route>
               <Route path={PATH_ADMIN} element={<AdminPanel />} />
               <Route path={`${PATH_ADMIN}/presentation`} element={<Presentation />} />
               <Route path={`${PATH_ADMIN}/deliveries`}>
