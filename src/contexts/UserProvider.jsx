@@ -12,10 +12,15 @@ const UserProvider = ({ children }) => {
             ? JSON.parse(localStorage.getItem("user"))
             : null
     );
+    const [infos, setInfos] = useState({})
 
     useEffect(() => {
         if (user) {
             localStorage.setItem("user", JSON.stringify(user));
+            axios
+            .get(`${BASE_URL}/api/users/who_am_i`, getOptions())
+            .then(response => setInfos(response.data))
+            .catch(error => console.log(`call to who_am_i: ${error}`));
         } else {
             axios
                 .get(`${BASE_URL}/api/auth/logout`)
@@ -28,14 +33,15 @@ const UserProvider = ({ children }) => {
     }, [user]);
 
     const getOptions = () => {
-      if (user) return { withCredentials: true, mode: 'cors' }
-      else return {}
-    }
+        if (user) return { withCredentials: true, mode: "cors" };
+        else return {};
+    };
 
     const contextValues = {
-      user,
-      setUser,
-      getOptions,
+        user,
+        infos,
+        setUser,
+        getOptions,
     };
 
     return (
