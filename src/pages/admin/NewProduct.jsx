@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import Sidebar from "../../components/admin/Sidebar";
@@ -8,14 +9,24 @@ import "./NewProduct.css";
 const New = ({ title }) => {
     const { register, handleSubmit, setValue } = useForm();
     const [file, setFile] = useState("");
+    const params = useParams()
+
+    React.useEffect(() => {
+        if (params.id) {
+            axios
+            .get(`${process.env.REACT_APP_URL_SERVER}/api/products/${params.id}`)
+            .then(response => {
+                for (let item of ['sku','name','price','characteristic','description','ingredients_details'])
+                    setValue(item, response.data[item])
+            });
+        }
+      }, []);
 
     const onSubmit = async (data) => {
         try {
             let formData = new FormData();
             for (let item in data) {
                 if (item === "picture") {
-                    console.log('picture')
-                    console.log(data[item])
                     formData.append(item, data[item][0]);
                 } else {
                     formData.append(item, data[item]);
@@ -88,37 +99,37 @@ const New = ({ title }) => {
                                 </div>
                                 <input
                                     type="text"
-                                    {...register("SKU")}
+                                    {...register("sku")}
                                     placeholder="Code du produit"
                                     maxLength="13"
                                 />
                                 <input
                                     type="text"
-                                    {...register("Name")}
+                                    {...register("name")}
                                     placeholder="Désignation du produit"
                                     maxLength="200"
                                 />
                                 <input
                                     type="number"
                                     step="any"
-                                    {...register("Price")}
+                                    {...register("price")}
                                     placeholder="Prix du produit"
                                     maxLength="5"
                                 />
                                 <textarea
-                                    {...register("Characteristic")}
+                                    {...register("characteristic")}
                                     cols="30"
                                     rows="10"
                                     placeholder="caractéristiques"
                                 ></textarea>
                                 <textarea
-                                    {...register("Description")}
+                                    {...register("description")}
                                     cols="30"
                                     rows="10"
                                     placeholder="description"
                                 ></textarea>
                                 <textarea
-                                    {...register("Ingredients_details")}
+                                    {...register("ingredients_details")}
                                     cols="30"
                                     rows="10"
                                     placeholder="composition"

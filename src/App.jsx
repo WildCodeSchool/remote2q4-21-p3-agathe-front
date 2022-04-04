@@ -63,6 +63,7 @@ function App() {
                 <Route index element={<List />} />
                 <Route path=":id" element={<SingleProduct />} />
                 <Route path="new" element={<NewProduct title="Ajouter un produit" />} />
+                <Route path="edit/:id" element={<NewProduct title="Modifier un produit" />} />
               </Route>
               <Route path={`${PATH_ADMIN}/users`}>
                 <Route index element={<List />} />
