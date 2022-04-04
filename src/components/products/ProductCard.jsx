@@ -6,6 +6,8 @@ import useModal from "../modal/useModal";
 import ModalCart from "../cart/ModalCart";
 import "./ProductCard.css";
 
+const BASE_URL = process.env.REACT_APP_URL_SERVER;
+
 function ProductCard(props) {
   const cart = useCart();
     const { isShowing: isModalCartShowed, toggle: toggleModalCart } = useModal();
@@ -18,13 +20,13 @@ function ProductCard(props) {
     <div className={`ProductCardBase ${props.className}`}>
       <img
         className="ProductCardImage"
-        src={`/assets/img/${props.ProductID}.jpeg`}
+        src={`${BASE_URL}/assets/${props.picture}`}
         alt={props.name}
       />
       <h4 className="ProductCardTitle">{props.name}</h4>
       <p className="ProductCardPrice">{props.price} €</p>
       <div className="ProductCardBase_buttons">
-        <Link to={`/page_produit/${props.ProductID}`} className="link--hover">
+        <Link to={`/page_produit/${props.id}`} className="link--hover">
           <button>Détail</button>
         </Link>
         <Link to="#" className="link--hover">

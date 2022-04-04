@@ -16,7 +16,7 @@ function ProductPage() {
     }, []);
 
     return (
-        <DetailsProduct {...productData} key={productData.ProductID} />
+        <DetailsProduct {...productData} key={productData.id} />
     )
 };
 

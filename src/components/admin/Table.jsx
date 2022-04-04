@@ -27,7 +27,7 @@ const List = () => {
         }
         axios
             .get(url, { withCredentials: true, mode: "cors" })
-            .then((response) => setRows(response.data));
+            .then((response) => {setRows(response.data);console.log(rows)});
     }, []);
 
     return (
@@ -56,7 +56,7 @@ const List = () => {
                                 <TableCell className="tableCell">
                                     <div className="cellWrapper">
                                         <img
-                                            src={`/assets/img/${row.product_id}.jpeg`}
+                                            src={`{BASE_URL}/assets/${row.picture}`}
                                             alt=""
                                             className="datatableImage"
                                         />

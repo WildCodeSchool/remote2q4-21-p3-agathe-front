@@ -6,6 +6,8 @@ import useModal from "../modal/useModal";
 import ModalCart from "../cart/ModalCart";
 import "./DetailsProduct.css";
 
+const BASE_URL = process.env.REACT_APP_URL_SERVER;
+
 function DetailsProduct(props) {
   const cart = useCart();
   const [counter, setCounter] = useState(1);
@@ -27,7 +29,7 @@ function DetailsProduct(props) {
       <div className="DetailsContainer-left">
         <img
           className="DetailsProductImage"
-          src={`/assets/img/${props.ProductID}.jpeg`}
+          src={`${BASE_URL}/assets/${props.picture}`}
           alt={props.name}
         />
         <div className="DetailsProductDescription">
