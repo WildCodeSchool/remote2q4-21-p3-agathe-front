@@ -31,9 +31,9 @@ const Datatable = () => {
             .then((response) => setRows(response.data));
     };
 
-    const getOrderId = (row) => row.id;
-    const getProductId = (row) => row.ProductID;
-    const getUserId = (row) => row.id;
+    // const getOrderId = (row) => row.id;
+    // const getProductId = (row) => row.id;
+    // const getUserId = (row) => row.id;
 
     React.useEffect(() => {
         setPath(window.location.pathname);
@@ -71,7 +71,7 @@ const Datatable = () => {
                     <div className="cellAction">
                         {type === "products" && (
                             <Link
-                                to={`${path}/${params.row.ProductID}`}
+                                to={`${path}/${params.row.id}`}
                                 style={{ textDecoration: "none" }}
                             >
                                 <div className="viewButton">Voir</div>
@@ -119,13 +119,13 @@ const Datatable = () => {
                 pageSize={20}
                 rowsPerPageOptions={[10]}
                 checkboxSelection
-                getRowId={
-                    {
-                        orders: getOrderId,
-                        products: getProductId,
-                        users: getUserId,
-                    }[type]
-                }
+                // getRowId={
+                //     {
+                //         orders: getOrderId,
+                //         products: getProductId,
+                //         users: getUserId,
+                //     }[type]
+                // }
             />
         </div>
     );

@@ -11,10 +11,10 @@ const Order = () => {
     const [order, setOrder] = React.useState(null)
 
     React.useEffect(() => {
-        const data = cart.items.map(item => {return {ProductID:item.ProductID, quantity:item.quantity, price:item.price}})
+        const data = cart.items.map(item => {return {id:item.id, quantity:item.quantity, price:item.price}})
         axios
             .post(`${BASE_URL}/api/orders`, data, { withCredentials: true, mode: 'cors' })
-            .then(response => { setOrder(response.data.OrderID); });
+            .then(response => { setOrder(response.data.id); });
     }, []);
 
     return (

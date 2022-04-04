@@ -1,3 +1,5 @@
+const BASE_URL = process.env.REACT_APP_URL_SERVER;
+
 export const ordersColumns = [
     { field: "id", headerName: "ID", width: 70 },
     { field: "order_date", headerName: "Date", width: 70 },
@@ -8,7 +10,6 @@ export const ordersColumns = [
         renderCell: (params) => {
             return (
                 <div className="cellWithImg">
-                    {/* <img className="cellImg" src={params.row.img} alt="avatar" /> */}
                     {params.row.user_name}
                 </div>
             );
@@ -21,7 +22,7 @@ export const ordersColumns = [
         renderCell: (params) => {
             return (
                 <div className="cellWithImg">
-                    {/* <img className="cellImg" src={params.row.img} alt="avatar" /> */}
+                    <img className="cellImg" src={`${BASE_URL}/assets/${params.row.picture}`} alt="avatar" />
                     {params.row.product}
                 </div>
             );
@@ -40,16 +41,16 @@ export const ordersColumns = [
 ];
 
 export const productColumns = [
-    { field: "ProductID", headerName: "ID", width: 70 },
+    { field: "id", headerName: "ID", width: 70 },
     {
-        field: "SKU",
+        field: "sku",
         headerName: "SKU",
-        width: 100,
+        width: 140,
         renderCell: (params) => {
             return (
                 <div className="cellWithImg">
-                    {/* <img className="cellImg" src={params.row.img} alt="avatar" /> */}
-                    {params.row.SKU}
+                    <img className="cellImg" src={`${BASE_URL}/assets/${params.row.picture}`} alt="avatar" />
+                    {params.row.sku}
                 </div>
             );
         },
@@ -57,7 +58,7 @@ export const productColumns = [
     {
         field: "product",
         headerName: "Produit",
-        width: 280,
+        width: 340,
         renderCell: (params) => {
             return (
                 <div className="cellWithImg">
@@ -77,16 +78,16 @@ export const productColumns = [
 export const userColumns = [
     { field: "id", headerName: "ID", width: 70 },
     {
-        field: "user",
+        field: "user_name",
         headerName: "User",
-        width: 230,
+        width: 250,
         renderCell: (params) => {
-            return `${params.row.FirstName} ${params.row.LastName}`;
+            return `${params.row.first_name} ${params.row.last_name}`;
         },
     },
     {
         field: "email",
         headerName: "Email",
-        width: 230,
+        width: 300,
     },
 ];
