@@ -36,7 +36,7 @@ const Single = () => {
 
                                 <div className="details">
                                     <h1 className="singleItemTitle">
-                                        {data?.firstname + " " + data?.lastname}
+                                        {data?.first_name + " " + data?.last_name}
                                     </h1>
                                     <div className="singleDetailItem">
                                         <span className="itemKey">Email: </span>
@@ -49,7 +49,7 @@ const Single = () => {
                                             Téléphone:{" "}
                                         </span>
                                         <span className="itemValue">
-                                            {data?.phonenumber}
+                                            {data?.phone_number}
                                         </span>
                                     </div>
                                     <div className="singleDetailItem">
@@ -57,13 +57,13 @@ const Single = () => {
                                             Adresse:{" "}
                                         </span>
                                         <span className="itemValue">
-                                            {data?.address1}
+                                            {data?.address_1}
                                         </span>
                                     </div>
                                     <div className="singleDetailItem">
                                         <span className="itemKey">Ville: </span>
                                         <span className="itemValue">
-                                            {data?.postcode} {data?.city}
+                                            {data?.post_code} {data?.city}
                                         </span>
                                     </div>
                                 </div>

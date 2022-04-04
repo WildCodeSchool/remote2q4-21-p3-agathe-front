@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 
-const TextForm = () => {
+const PresentationForm = () => {
   const { register, handleSubmit, setValue } = useForm();
   const [update, setUpdate] = useState("");
 
@@ -46,4 +46,4 @@ const TextForm = () => {
   );
 };
 
-export default TextForm;
+export default PresentationForm;

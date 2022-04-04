@@ -18,7 +18,7 @@ import Page from "./middleware/Page";
 import ProductsList from "./components/products/ProductsList";
 import ProductPage from "./pages/ProductPage";
 import RegisterForm from "./components/form/RegisterForm";
-import TextForm from "./components/admin/TextForm";
+import Presentation from "./pages/admin/Presentation";
 import UserProvider from './contexts/UserProvider';
 import { userInputs } from "./formSource";
 import "./App.css";
@@ -45,7 +45,7 @@ function App() {
               <Route path="/logout" element={<Logout />} />
               <Route path="/user/history" element={<HistoryOdersPage />} />
               <Route path={PATH_ADMIN} element={<AdminPanel />} />
-              <Route path={`${PATH_ADMIN}/presentation`} element={<Page SubPage={TextForm} />} />
+              <Route path={`${PATH_ADMIN}/presentation`} element={<Presentation />} />
               <Route path={`${PATH_ADMIN}/deliveries`}>
                 <Route index element={<List />} />
                 <Route path=":id" element={<Single />} />
