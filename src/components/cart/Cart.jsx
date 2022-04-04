@@ -31,7 +31,7 @@ function Cart() {
                 />
                 <div className="cart-product-infos">
                   <h3>{item.name}</h3>
-                  <span> Réf : {item.SKU}</span>
+                  <span> Réf : {item.sku}</span>
                   <button onClick={() => cart.remove(item.id)}>
                     Supprimer
                   </button>

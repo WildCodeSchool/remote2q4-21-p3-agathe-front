@@ -1,20 +1,20 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/Logo Elfenn cosmétiques.png";
 import { useUser } from "../../contexts/UserProvider";
-import { CartStateContext } from "../../contexts/CartContext";
+import { useCart } from "../../contexts/CartContext";
+// import { CartStateContext } from "../../contexts/CartContext";
 import "./Navbar.css";
 
 const Navbar = () => {
     const { user } = useUser();
-    const { items } = useContext(CartStateContext);
+    const cart = useCart();
     const [itemsInCart, setItemsInCart] = useState("");
 
     useEffect(() => {
-        if (items.length) {
-            setItemsInCart(` (${items.length})`);
-        }
-    }, [items]);
+        if (cart.numberOfProducts()) setItemsInCart(` (${cart.numberOfProducts()})`)
+        else  setItemsInCart('')
+    }, [cart]);
 
     return (
         <div className="navbar">

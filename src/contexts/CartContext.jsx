@@ -114,6 +114,8 @@ const CartProvider = ({ children }) => {
         });
     };
 
+    const numberOfProducts = () => state.items.length
+
     const remove = (cartItemId) => {
         return dispatch({
             type: "REMOVE_FROM_CART",
@@ -125,10 +127,11 @@ const CartProvider = ({ children }) => {
 
     const contextValues = {
         add,
-        total,
         clear,
         change,
+        numberOfProducts,
         remove,
+        total,
         ...state,
     };
 
