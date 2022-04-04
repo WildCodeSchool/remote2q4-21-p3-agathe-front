@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import axios from "axios";
 import Chart from "../../components/admin/Chart";
 import List from "../../components/admin/Table";
@@ -7,6 +7,7 @@ import Sidebar from "../../components/admin/Sidebar";
 import "./SingleProduct.css";
 
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
+const PATH_ADMIN = process.env.REACT_APP_PATH_ADMIN;
 
 const Single = () => {
     const [data, setData] = React.useState(null);
@@ -15,7 +16,7 @@ const Single = () => {
 
     React.useEffect(() => {
         setPath(window.location.pathname);
-        console.log(path)
+        console.log(path);
     }, [window.location.pathname]);
 
     React.useEffect(() => {
@@ -31,7 +32,11 @@ const Single = () => {
                 <div className="singleContainer">
                     <div className="singleTop">
                         <div className="singleLeft">
-                            <div className="editButton">Editer</div>
+                            <NavLink
+                                to={`${PATH_ADMIN}/products/edit/${data?.id}`}
+                            >
+                                <div className="editButton">Editer</div>
+                            </NavLink>
                             <h1 className="singleTitle">Information</h1>
                             <div className="singleItem">
                                 <img
@@ -51,17 +56,13 @@ const Single = () => {
                                         </span>
                                     </div>
                                     <div className="singleDetailItem">
-                                        <span className="itemKey">
-                                            Prix:{" "}
-                                        </span>
+                                        <span className="itemKey">Prix: </span>
                                         <span className="itemValue">
                                             {data?.price} €
                                         </span>
                                     </div>
                                     <div className="singleDetailItem">
-                                        <span className="itemKey">
-                                            :{" "}
-                                        </span>
+                                        <span className="itemKey">: </span>
                                         <span className="itemValue">
                                             {data?.address_1}
                                         </span>
