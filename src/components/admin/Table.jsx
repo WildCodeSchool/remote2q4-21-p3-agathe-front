@@ -48,15 +48,16 @@ const List = () => {
                 </TableHead>
                 <TableBody>
                     {rows &&
-                        rows.map((row) => (
-                            <TableRow key={row.id}>
+                        rows.map((row, index) => (
+                            <TableRow key={index}>
                                 <TableCell className="tableCell">
                                     {row.id}
                                 </TableCell>
                                 <TableCell className="tableCell">
                                     <div className="cellWrapper">
+                                        {console.log(`${row}`)}
                                         <img
-                                            src={`{BASE_URL}/assets/${row.picture}`}
+                                            src={`${BASE_URL}/assets/${row.picture}`}
                                             alt=""
                                             className="datatableImage"
                                         />

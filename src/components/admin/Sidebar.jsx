@@ -51,10 +51,13 @@ const Sidebar = () => {
                     </li>
                     </Link>
                     <p className="sidebarTitle">Modifications</p>
+                    <Link to={`${PATH_ADMIN}/presentation`} style={{ textDecoration: "none" }}>
                     <li>
                         <AssessmentOutlinedIcon className='icon' />
                         <span>Présentation</span>
                     </li>
+                    </Link>
+
                     <li>
                         <NotificationsNoneOutlinedIcon className='icon' />
                         <span>Ajout d'articles</span>
