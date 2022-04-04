@@ -1,11 +1,4 @@
-.dropdown_menu {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.menu {
+.submenu {
   background: #ffffff;
   border-radius: 8px;
   position: absolute;
@@ -19,23 +12,23 @@
   transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
 }
 
-.menu.active {
+.submenu.active {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
-.menu ul {
+.submenu ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.menu li {
+.submenu li {
   border-bottom: 1px solid #dddddd;
 }
 
-.menu li .sublink {
+.submenu li .sublink {
   text-decoration: none;
   color: #333333;
   padding: 15px 20px;

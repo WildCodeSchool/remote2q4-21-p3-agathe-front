@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
-// import { useCookies } from "react-cookie";
 import PropTypes from "prop-types";
 
 const UserContext = createContext(null);
@@ -8,7 +7,6 @@ const UserContext = createContext(null);
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
 const UserProvider = ({ children }) => {
-    // const [cookie, setCookie, removeCookie] = useCookies(['']);
     const [user, setUser] = useState(
         localStorage.getItem("user")
             ? JSON.parse(localStorage.getItem("user"))
@@ -16,13 +14,7 @@ const UserProvider = ({ children }) => {
     );
 
     useEffect(() => {
-        // console.log(`cookie: ${cookie}`)
-        // console.table(cookie)
-        // console.log(`cookie.user_token: ${cookie.user_token}`)
-
-        // console.table(cookie)
         if (user) {
-            // console.log('setUser localstorage')
             localStorage.setItem("user", JSON.stringify(user));
         } else {
             axios

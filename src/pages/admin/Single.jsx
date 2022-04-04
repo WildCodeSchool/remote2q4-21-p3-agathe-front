@@ -63,7 +63,7 @@ const Single = () => {
                                     <div className="singleDetailItem">
                                         <span className="itemKey">Ville: </span>
                                         <span className="itemValue">
-                                            {data?.post_code} {data?.city}
+                                            {data?.postcode} {data?.city}
                                         </span>
                                     </div>
                                 </div>

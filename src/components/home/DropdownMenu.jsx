@@ -1,16 +1,11 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-// import { useDetectOutsideClick } from "../../hooks/useDetectOutsideClick";
 import "./DropdownMenu.css";
 
 const DropdownMenu = ({isActive}) => {
-//   const dropdownRef = useRef(null);
-//   const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
-
   return (
     <nav
-    //   ref={dropdownRef}
-      className={`menu ${isActive ? "active" : "inactive"}`}
+      className={`submenu ${isActive ? "active" : "inactive"}`}
     >
       <ul>
         <li>
