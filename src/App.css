@@ -1,0 +1,25 @@
+<<<<<<< HEAD
+=======
+@import url('https://fonts.googleapis.com/css2?family=BioRhyme:wght@200&family=Cinzel&family=Work+Sans:wght@300&display=swap');
+:root {
+    /* --main-bg-color: #fbfbf9; */
+    --main-bg-color: #eeeee6;
+    --greenblue: #CFE2DE;
+    --darkgreen: #2C3331;
+    --font-title: 'BioRhyme', serif;
+    --font-home: 'Cinzel', serif;
+    --font-text: 'Work Sans', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+body {
+    width: 100%;
+    /* min-height: 100vh; */
+}
+>>>>>>> dev
