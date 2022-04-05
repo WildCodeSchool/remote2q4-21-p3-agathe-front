@@ -9,7 +9,7 @@ import TableRow from "@mui/material/TableRow";
 
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
-const HistoryOders = () => {
+const HistoryOrders = () => {
     const [rows, setRows] = React.useState(null);
 
     React.useEffect(() => {
@@ -57,4 +57,4 @@ const HistoryOders = () => {
   );
 };
 
-export default HistoryOders;
+export default HistoryOrders;

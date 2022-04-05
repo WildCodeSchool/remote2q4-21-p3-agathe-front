@@ -24,8 +24,8 @@ const UserProvider = ({ children }) => {
         } else {
             axios
                 .get(`${BASE_URL}/api/auth/logout`)
-                .then((response) => localStorage.removeItem("user"))
-                .catch((error) => {
+                .then(response => localStorage.removeItem("user"))
+                .catch(error => {
                     console.log("error logout");
                     console.log(error);
                 });

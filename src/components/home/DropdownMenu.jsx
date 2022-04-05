@@ -12,7 +12,7 @@ const DropdownMenu = ({isActive}) => {
           <Link to="/user/history" className="sublink">Historique des commandes</Link>
         </li>
         <li>
-          <Link to="#" className="sublink">Paramètres</Link>
+          <Link to="/user/edit" className="sublink">Paramètres</Link>
         </li>
         <li>
           <Link to="/logout" className="sublink">
