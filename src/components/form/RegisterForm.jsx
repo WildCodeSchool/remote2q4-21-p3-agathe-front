@@ -174,14 +174,16 @@ const RegisterForm = () => {
                         </small>
                     </div>
                 </div>
-                <button className="registerBtn">Créer votre compte</button>
+                <button className="registerBtn">{infos ? "Valider" : "Créer votre compte"}</button>
             </form>
+            {!infos &&
             <div className="loginBox">
                 <h4>Déjà client ?</h4>
                 <Link to="/login">
                     <button className="loginBtn">Se connecter</button>
                 </Link>
             </div>
+            }
         </div>
     );
 };
