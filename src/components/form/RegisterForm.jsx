@@ -20,7 +20,8 @@ const RegisterForm = () => {
     }, []);
 
     const handleRegistration = async (data) => {
-        axios
+        if (!user.data) {
+            axios
             .post(`${process.env.REACT_APP_URL_SERVER}/api/users`, data, {
                 withCredentials: true,
                 mode: "cors",
@@ -31,22 +32,36 @@ const RegisterForm = () => {
                 navigate("/checkout");
             })
             .catch(error => console.log(error));
+        }else{
+            console.log('update user')
+            console.log(data)
+            axios
+            .put(`${process.env.REACT_APP_URL_SERVER}/api/users`, data, {
+                withCredentials: true,
+                mode: "cors",
+            })
+            .then(credentials => {
+                console.log(credentials)
+                user.set(credentials.data);
+                navigate("/");
+            })
+            .catch(error => console.log(error));
+        }
     };
     const handleError = (errors) => {
-        console.log("handleError");
         console.log(errors);
     };
 
     const registerOptions = {
-        first_name: { required: "Prénom requis" },
-        last_name: { required: "Nom requis" },
-        email: { required: "Adresse email requise" },
-        phone_number: { required: "Numéro de téléphone requis" },
-        address_1: { required: "Adresse requise" },
-        post_code: { required: "Code postal requis" },
-        city: { required: "Ville requise" },
+        first_name: { required: "Votre prénom est requis" },
+        last_name: { required: "Votre nom est requis" },
+        email: { required: "Votre adresse email est requise" },
+        phone_number: { required: "Votre numéro de téléphone est requis" },
+        address_1: { required: "Votre adresse est requise" },
+        post_code: { required: "Votre code postal est requis" },
+        city: { required: "Votre ville est requis" },
         password: {
-            required: "Mot de passe requis",
+            required: "Votre mot de passe est requis",
             minLength: {
                 value: 8,
                 message:
@@ -60,46 +75,34 @@ const RegisterForm = () => {
             <h2>{user.data ? "Modifier votre compte" : "Création de compte"}</h2>
             <form
                 onSubmit={handleSubmit(handleRegistration, handleError)}
-                className="registerForm">
-                <span>Information de connexion</span>
-                <div className="connexion">
-                    <div className="regInput">
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="Votre email"
-                            {...register("email", registerOptions.email)}
-                        />
-                        <small className="text-danger">
-                            {errors?.email && errors.email.message}
-                        </small>
-                    </div>
-                    <div className="regInput">
-                        <input
-                            type="password"
-                            name="password"
-                            placeholder="Mot de passe"
-                            {...register("password", registerOptions.password)}
-                        />
-                        <small className="text-danger">
-                            {errors?.password && errors.password.message}
-                        </small>
-                    </div>
+                className="registerForm"
+            >
+                <div>
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Votre email"
+                        {...register("email", registerOptions.email)}
+                    />
+                    <small className="text-danger">
+                        {errors?.email && errors.email.message}
+                    </small>
                 </div>
-                <span>Information personnelle</span>
-                <div className="info">
-                    <div className="regInput">
-                        <input
-                            name="last_name"
-                            type="text"
-                            placeholder="Nom"
-                            {...register("last_name", registerOptions.last_name)}
-                        />
-                        <small className="text-danger">
-                            {errors?.last_name && errors.last_name.message}
-                        </small>
-                    </div>
-                    <div className="regInput">
+                {!user.data && 
+                <div>
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Mot de passe"
+                        {...register("password", registerOptions.password)}
+                    />
+                    <small className="text-danger">
+                        {errors?.password && errors.password.message}
+                    </small>
+                </div>
+}
+                <div>
+                    <div>
                         <input
                             name="first_name"
                             type="text"
@@ -113,7 +116,21 @@ const RegisterForm = () => {
                             {errors?.first_name && errors.first_name.message}
                         </small>
                     </div>
-                    <div className="regInput">
+                    <div>
+                        <input
+                            name="last_name"
+                            type="text"
+                            placeholder="Nom"
+                            {...register(
+                                "last_name",
+                                registerOptions.last_name
+                            )}
+                        />
+                        <small className="text-danger">
+                            {errors?.last_name && errors.last_name.message}
+                        </small>
+                    </div>
+                    <div>
                         <input
                             name="phone_number"
                             type="text"
@@ -128,10 +145,7 @@ const RegisterForm = () => {
                                 errors.phone_number.message}
                         </small>
                     </div>
-                </div>
-                <span>Adresse postale</span>
-                <div className="postAddress">
-                    <div className="regInputb address">
+                    <div className="address">
                         <input
                             name="address_1"
                             type="text"
@@ -157,7 +171,7 @@ const RegisterForm = () => {
                             {...register("address_3")}
                         />
                     </div>
-                    <div className="regInput city">
+                    <div>
                         <input
                             name="post_code"
                             type="text"
@@ -170,6 +184,8 @@ const RegisterForm = () => {
                         <small className="text-danger">
                             {errors?.post_code && errors.post_code.message}
                         </small>
+                    </div>
+                    <div>
                         <input
                             name="city"
                             type="text"
@@ -196,5 +212,4 @@ const RegisterForm = () => {
         </div>
     );
 };
-
 export default RegisterForm;
