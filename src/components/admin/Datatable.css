@@ -43,18 +43,18 @@
     border-radius: 5px;
 }
 
-.active {
+/* .active {
     color: green;
     background-color: rgba(0, 128, 0, 0.151);
-}
-.pending {
+} */
+/* .pending {
     color: goldenrod;
     background-color:rgba(189, 189, 3, 0.151);
 }
 .passive {
     color: crimson;
     background-color: rgba(255, 0, 0, 0.151);
-}
+} */
 
 .cellAction {
     display: flex;

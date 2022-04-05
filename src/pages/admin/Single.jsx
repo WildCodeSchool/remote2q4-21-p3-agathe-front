@@ -28,12 +28,6 @@ const Single = () => {
                             <div className="editButton">Editer</div>
                             <h1 className="singleTitle">Information</h1>
                             <div className="singleItem">
-                                <img
-                                    src="https://images.pexels.com/photos/1933873/pexels-photo-1933873.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
-                                    alt=""
-                                    className="itemImg"
-                                />
-
                                 <div className="details">
                                     <h1 className="singleItemTitle">
                                         {data?.first_name + " " + data?.last_name}
