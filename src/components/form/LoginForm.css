@@ -10,7 +10,8 @@
     margin: 5rem 0;
     color: var(--darkgreen);
     font-size: 0.8em;
-    padding-top: 1.5rem;
+    padding-top: 2rem;
+    font-family: var(--font-home);
 }
 
 .loginForm {
@@ -19,7 +20,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 5rem;
+    margin-bottom: 6rem;
 }
 
 .input {
@@ -33,7 +34,7 @@
 .loginBtn {
     width: 10rem;
     padding: 1rem;
-    margin-top: 1.5rem;
+    margin-top: 2.5rem;
     color: var(--greenblue);
     font-size: 1em;
     font-weight: 600;
@@ -41,6 +42,7 @@
     border-radius: 100px 100px 100px 100px;
     cursor: pointer;
     background: var(--darkgreen);
+    font-family: var(--font-text);
 }
 
 .registerBtn {
@@ -52,6 +54,7 @@
     border-radius: 100px 100px 100px 100px;
     cursor: pointer;
     background: var(--darkgreen);
+    font-family: var(--font-text);
 }
 
 .loginContainer h2 {
@@ -72,6 +75,7 @@
     border: none;
     text-align: center;
     font-size: 0.85em;
+    font-family: var(--font-text);
 }
 
 .registerBox {
