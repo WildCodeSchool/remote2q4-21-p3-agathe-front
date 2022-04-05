@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import axios from "axios";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -16,18 +16,18 @@ const PATH_ADMIN = process.env.REACT_APP_PATH_ADMIN;
 const List = () => {
     const [rows, setRows] = React.useState(null);
     const id = useParams().id;
+    const { pathname } = useLocation();
 
     React.useEffect(() => {
-        let path = window.location.pathname
         let url = `${BASE_URL}/api/orders`;
-        if (path.startsWith(`${PATH_ADMIN}/users`)) {
+        if (pathname.startsWith(`${PATH_ADMIN}/users`)) {
             if (id) url = `${BASE_URL}/api/users/${id}/orders`;
-        } else if (path.startsWith(`${PATH_ADMIN}/products`)) {
+        } else if (pathname.startsWith(`${PATH_ADMIN}/products`)) {
             if (id) url = `${BASE_URL}/api/products/${id}/orders`;
         }
         axios
             .get(url, { withCredentials: true, mode: "cors" })
-            .then((response) => {setRows(response.data);console.log(rows)});
+            .then(response => setRows(response.data));
     }, []);
 
     return (
