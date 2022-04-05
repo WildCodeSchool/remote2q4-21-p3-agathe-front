@@ -1,5 +1,5 @@
 .loginContainer {
-    min-width: 30vw;
+    min-width: 20vw;
     min-height: 35rem;
     display: flex;
     flex-direction: column;
@@ -85,18 +85,18 @@
 
 @media screen and (max-width: 1000px)  {
     .loginContainer {
-        width: 40vw;
+        width: 35vw;
 }
 }
 
 @media screen and (max-width: 760px)  {
     .loginContainer {
-        width: 60vw;
+        width: 50vw;
 }
 }
 
 @media screen and (max-width: 550px)  {
     .loginContainer {
-        width: 80vw;
+        width: 70vw;
 }
 }

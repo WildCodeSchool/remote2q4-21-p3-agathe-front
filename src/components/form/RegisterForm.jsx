@@ -131,7 +131,7 @@ const RegisterForm = () => {
                 </div>
                 <span>Adresse postale</span>
                 <div className="postAddress">
-                    <div className="regInput">
+                    <div className="regInputb address">
                         <input
                             name="address_1"
                             type="text"
@@ -157,7 +157,7 @@ const RegisterForm = () => {
                             {...register("address_3")}
                         />
                     </div>
-                    <div className="regInput">
+                    <div className="regInput city">
                         <input
                             name="post_code"
                             type="text"
@@ -170,8 +170,6 @@ const RegisterForm = () => {
                         <small className="text-danger">
                             {errors?.post_code && errors.post_code.message}
                         </small>
-                    </div>
-                    <div className="regInput">
                         <input
                             name="city"
                             type="text"

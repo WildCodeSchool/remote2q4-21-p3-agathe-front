@@ -27,7 +27,7 @@ div.address {
 
 .registerBtn {
     margin-top: 1.5rem;
-    width: 50%;
+    width: 25%;
     padding: 1rem;
     color: var(--greenblue);
     font-size: 15px;
@@ -95,21 +95,48 @@ div.address {
 
 .connexion {
     display: flex;
-    justify-content: center;
-    width: 50%;
+    justify-content: start;
+    width: 60%;
+}
+
+.connexion input {
+    width: 15rem;
 }
 
 .info {
     display: flex;
     flex-wrap: wrap;
+    justify-content: start;
+    width: 60%;
+}
+
+.info input {
+    width: 10rem;
 }
 
 .postAddress {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    width: 60%;
+}
+
+.address input {
+    width: 15rem;
 }
 
 .registerForm span{
     width: 60%;
     text-align: left;
+}
 
+.city {
+    display: flex;
+    justify-content: center;
+    align-self: flex-start;
+}
+
+.city input {
+    width: 10rem;
+    justify-content: center;
 }
