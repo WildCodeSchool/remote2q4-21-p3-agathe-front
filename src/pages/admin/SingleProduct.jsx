@@ -11,17 +11,12 @@ const PATH_ADMIN = process.env.REACT_APP_PATH_ADMIN;
 
 const Single = () => {
     const [data, setData] = React.useState(null);
-    const [path, setPath] = React.useState("");
     const id = useParams().id;
-
-    React.useEffect(() => {
-        setPath(window.location.pathname);
-    }, [window.location.pathname]);
 
     React.useEffect(() => {
         axios
             .get(`${BASE_URL}/api/products/${id}`)
-            .then((response) => setData(response.data));
+            .then(response => setData(response.data));
     }, [id]);
 
     return (
