@@ -1,0 +1,30 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--main-bg-color);
+  font-family: var(--font-text);
+}
+
+.page {
+  min-height: 100vh;
+}
+
+.footer {
+  background-color: var(--darkgreen);
+}
+
+.home_products {
+  margin: 4em auto 3em;
+  width: 90%;
+}
+
+.home_products h2 {
+  font-size: 2em;
+  padding-bottom: 0.5em;
+}
+
+.products {
+  border-top: 1px solid var(--darkgreen);
+  padding: 2em 0;
+}
+

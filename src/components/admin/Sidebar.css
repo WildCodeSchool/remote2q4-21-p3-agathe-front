@@ -1,0 +1,49 @@
+.sidebar {
+    flex: 1;
+    border-right: 0.5px solid var(--darkgreen);
+    min-height: 100vh;
+    background-color: var(--main-bg-color);
+    width: 20vh;
+}
+
+.center {
+    padding-left: 10px;
+}
+
+.center ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebarTitle {
+    font-size: 10px;
+    font-weight: bold;
+    color: var(--darkgreen);
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.center li {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.center li:hover {
+    background-color: var(--greenblue);
+}
+
+
+.icon {
+    font-size: 18px;
+    color: var(--darkgreen);
+    margin-right: 10px;
+}
+
+.center span {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--darkgreen)
+}

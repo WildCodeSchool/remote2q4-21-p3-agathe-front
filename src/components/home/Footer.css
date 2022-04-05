@@ -1,0 +1,24 @@
+.footer {
+    border: 1px solid #000;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    color: var(--greenblue);
+    font-family: var(--font-home);
+    padding: 2em 0;
+    width: 100%
+}
+
+.social-icons {
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid #000; */
+    width: 5.5em;
+}
+
+.social-icons .link svg {
+    fill: var(--greenblue);
+    width: 1.5em;
+    height: auto;
+}
