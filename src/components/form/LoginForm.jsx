@@ -8,7 +8,7 @@ import "./LoginForm.css";
 const RegisterForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const { setUser } = useUser();
+  const user = useUser();
 
   let navigate = useNavigate();
   const redirect = (url) => {
@@ -21,7 +21,7 @@ const RegisterForm = () => {
         .post(`${process.env.REACT_APP_URL_SERVER}/api/auth/login`, { email, password },
           { withCredentials: true, mode: 'cors' })
         .then(credentials => {
-          setUser({token: credentials});
+          user.set(credentials.data);
           redirect(-1);
         });
     } catch (error) {
@@ -31,9 +31,9 @@ const RegisterForm = () => {
   const handleError = (errors) => { console.log('handleError'); console.log(errors) };
 
   const registerOptions = {
-    email: { required: "Email is required" },
+    email: { required: "Adresse email requise" },
     password: {
-      required: "Password is required",
+      required: "Mot de passe requis",
       // minLength: {
       //   value: 8,
       //   message: "Password must have at least 8 characters"
@@ -42,18 +42,18 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="loginContainer"><h2>Bienvenue ! Identifiez-vous</h2>
+    <div className="loginContainer"><h2>Bienvenue !</h2>
     <form onSubmit={handleSubmit(handleRegistration, handleError)} className="loginForm">
-      <div>
+      <div className="input">
         <input
           type="email"
           name="email"
-          {...register('email', registerOptions.email)} placeholder="Votre email"/>
+          {...register('email', registerOptions.email)} placeholder="Adresse email"/>
         <small className="text-danger">
           {errors?.email && errors.email.message}
         </small>
       </div>
-      <div>
+      <div className="input">
         <input
           type="password"
           name="password"
@@ -66,7 +66,7 @@ const RegisterForm = () => {
     </form>
     <div className="registerBox">
     <h4>Nouveau client ?</h4>
-    <Link to="/register"><button className="registerBtn">S'enregistrer</button></Link>
+    <Link to="/register" className="registerLink"><button className="registerBtn">S'enregistrer</button></Link>
     </div>
     </div>
   );

@@ -3,10 +3,10 @@ import { Navigate } from 'react-router-dom';
 import { useUser } from '../../contexts/UserProvider';
 
 const Logout = () => {
-  const { setUser } = useUser();
+  const user = useUser();
 
   useEffect(() => {
-    setUser(null);
+    user.set(null);
   }, []);
 
   return <Navigate to="/" />;

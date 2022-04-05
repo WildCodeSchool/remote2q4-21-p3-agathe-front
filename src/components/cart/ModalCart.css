@@ -3,7 +3,7 @@
     justify-content: space-around;
 }
 
-button {
+.ModalCart button {
     background-color: var(--darkgreen);
     border: none;
     border-radius: 5px;
