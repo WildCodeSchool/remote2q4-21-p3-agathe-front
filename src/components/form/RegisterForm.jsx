@@ -20,7 +20,8 @@ const RegisterForm = () => {
     }, []);
 
     const handleRegistration = async (data) => {
-        axios
+        if (!user.data) {
+            axios
             .post(`${process.env.REACT_APP_URL_SERVER}/api/users`, data, {
                 withCredentials: true,
                 mode: "cors",
@@ -31,9 +32,23 @@ const RegisterForm = () => {
                 navigate("/checkout");
             })
             .catch(error => console.log(error));
+        }else{
+            console.log('update user')
+            console.log(data)
+            axios
+            .put(`${process.env.REACT_APP_URL_SERVER}/api/users`, data, {
+                withCredentials: true,
+                mode: "cors",
+            })
+            .then(credentials => {
+                console.log(credentials)
+                user.set(credentials.data);
+                navigate("/");
+            })
+            .catch(error => console.log(error));
+        }
     };
     const handleError = (errors) => {
-        console.log("handleError");
         console.log(errors);
     };
 
@@ -73,6 +88,7 @@ const RegisterForm = () => {
                         {errors?.email && errors.email.message}
                     </small>
                 </div>
+                {!user.data && 
                 <div>
                     <input
                         type="password"
@@ -84,6 +100,7 @@ const RegisterForm = () => {
                         {errors?.password && errors.password.message}
                     </small>
                 </div>
+}
                 <div>
                     <div>
                         <input
