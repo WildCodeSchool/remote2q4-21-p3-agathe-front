@@ -34,7 +34,7 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="Brand" element={<Brand />} />
+              <Route path="Brand" element={<Page SubPage={Brand} />} />
               <Route path="/page_produit/:id" element={<Page SubPage={ProductPage} />} />
               <Route path="/cart" element={<Page SubPage={CartPage} />} />
               <Route path="/catalogue" element={<Page SubPage={ProductsList} />} />

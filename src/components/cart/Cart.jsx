@@ -39,17 +39,7 @@ function Cart() {
               </div>
               <div className="cart-product-price">{item.price}€</div>
               <div className="cart-product-quantity">
-                {/* <button
-                  onClick={(e) =>
-                    decrementQuantity(item.id, item.quantity)
-                  }
-                >
-                  -
-                </button> */}
                 <input type="number" onInput={(e) => changeQuantity(item.id, e.currentTarget.value)} value={item.quantity} min="1" step="1" />
-                {/* <button onClick={(e) => incrementQuantity(item.id)}>
-                  +
-                </button> */}
               </div>
               <div className="cart-product-total-price">
                 {(item.quantity * item.price).toFixed(2)}€
