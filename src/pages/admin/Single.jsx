@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import axios from "axios";
 import Chart from "../../components/admin/Chart";
 import List from "../../components/admin/Table";
@@ -25,7 +25,11 @@ const Single = () => {
                 <div className="singleContainer">
                     <div className="singleTop">
                         <div className="singleLeft">
+                            <NavLink
+                                to={`/user/edit/${data?.id}`}
+                            >
                             <div className="editButton">Editer</div>
+                            </NavLink>
                             <h1 className="singleTitle">Information</h1>
                             <div className="singleItem">
                                 <div className="details">
