@@ -26,13 +26,14 @@
     gap: 15px;
 }
 .featuredChart {
-    width: 100px;
-    height: 100px;
+    width: 180px;
+    height: 180px;
 }
 
 .bottomTitle {
     font-weight: 500;
     color: var(--darkgreen);
+    margin-top: 1.5rem;
 }
 
 .amount {
@@ -44,6 +45,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: 4rem;
 }
 
 .item {

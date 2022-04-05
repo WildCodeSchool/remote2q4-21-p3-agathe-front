@@ -8,7 +8,7 @@ import DropdownMenu from "./DropdownMenu";
 import "./Navbar.css";
 
 const Navbar = () => {
-    const { infos, user } = useUser();
+    const user = useUser();
     const cart = useCart();
     const [itemsInCart, setItemsInCart] = useState("");
     const dropdownRef = useRef(null);
@@ -21,6 +21,7 @@ const Navbar = () => {
         else setItemsInCart("");
     }, [cart]);
 
+        console.log(user.data)
     return (
         <div className="navbar">
             <div className="logo">
@@ -50,22 +51,22 @@ const Navbar = () => {
                     </Link>
                 </li>
                 <li>
-                    {!user && (
+                    {!user.data && (
                         <Link to="/login" className="link">
                             Connexion
                         </Link>
                     )}
-                    {user && (
+                    {user.data && (
                         <div className="dropdown_menu">
                             <button
                                 onClick={handleClick}
                                 className="menu-trigger"
                             >
                                 <span>
-                                    {infos
-                                        ? infos.first_name +
+                                    {user.data
+                                        ? user.data.first_name +
                                           " " +
-                                          infos.last_name
+                                          user.data.last_name
                                         : null}
                                 </span>
                             </button>

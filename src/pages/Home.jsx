@@ -12,11 +12,11 @@ import "./Home.css";
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
 const Home = () => {
-    const {user} = useUser();
+    const user = useUser();
     const [admin, setAdmin] = React.useState(false);
 
     React.useEffect(() => {
-      if (!user) {
+      if (!user.data) {
             setAdmin(false);
         } else {
             axios
@@ -26,7 +26,7 @@ const Home = () => {
                 })
                 .catch(err => err.response.status!==403 ? console.log(err):null);
         }
-    }, [user]);
+    }, [user.data]);
 
     return (
         <div className="home">
