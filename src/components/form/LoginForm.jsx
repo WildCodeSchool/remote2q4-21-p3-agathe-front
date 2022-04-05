@@ -8,7 +8,7 @@ import "./LoginForm.css";
 const RegisterForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const { setUser } = useUser();
+  const user = useUser();
 
   let navigate = useNavigate();
   const redirect = (url) => {
@@ -21,7 +21,7 @@ const RegisterForm = () => {
         .post(`${process.env.REACT_APP_URL_SERVER}/api/auth/login`, { email, password },
           { withCredentials: true, mode: 'cors' })
         .then(credentials => {
-          setUser({token: credentials});
+          user.set(credentials.data);
           redirect(-1);
         });
     } catch (error) {

@@ -12,28 +12,25 @@ const RegisterForm = () => {
         formState: { errors },
         reset,
     } = useForm();
-    const { infos, setUser } = useUser();
+    const user = useUser();
     let navigate = useNavigate();
 
     React.useEffect(() => {
-        if (infos) reset(infos) 
-    }, [])
+        if (user.data) reset(user.data);
+    }, []);
 
     const handleRegistration = async (data) => {
-        try {
-            axios
-                .post(`${process.env.REACT_APP_URL_SERVER}/api/users`, data)
-                // , {
-                //     withCredentials: true,
-                //     mode: "cors",
-                // })
-                .then(credentials => {
-                    setUser({ token: credentials });
-                    navigate("/checkout");
-                });
-        } catch (error) {
-            console.log(error);
-        }
+        axios
+            .post(`${process.env.REACT_APP_URL_SERVER}/api/users`, data, {
+                withCredentials: true,
+                mode: "cors",
+            })
+            .then(credentials => {
+                console.log(credentials)
+                user.set(credentials.data);
+                navigate("/checkout");
+            })
+            .catch(error => console.log(error));
     };
     const handleError = (errors) => {
         console.log("handleError");
@@ -60,7 +57,7 @@ const RegisterForm = () => {
 
     return (
         <div className="registerContainer">
-            <h2>{infos ? "Modifier votre compte" : "Création de compte"}</h2>
+            <h2>{user.data ? "Modifier votre compte" : "Création de compte"}</h2>
             <form
                 onSubmit={handleSubmit(handleRegistration, handleError)}
                 className="registerForm"
@@ -107,7 +104,10 @@ const RegisterForm = () => {
                             name="last_name"
                             type="text"
                             placeholder="Nom"
-                            {...register("last_name", registerOptions.name)}
+                            {...register(
+                                "last_name",
+                                registerOptions.last_name
+                            )}
                         />
                         <small className="text-danger">
                             {errors?.last_name && errors.last_name.message}
@@ -118,7 +118,10 @@ const RegisterForm = () => {
                             name="phone_number"
                             type="text"
                             placeholder="Numéro de téléphone"
-                            {...register("phone_number", registerOptions.phone)}
+                            {...register(
+                                "phone_number",
+                                registerOptions.phone_number
+                            )}
                         />
                         <small className="text-danger">
                             {errors?.phone_number &&
@@ -130,7 +133,10 @@ const RegisterForm = () => {
                             name="address_1"
                             type="text"
                             placeholder="Adresse"
-                            {...register("address_1", registerOptions.address_1)}
+                            {...register(
+                                "address_1",
+                                registerOptions.address_1
+                            )}
                         />
                         <small className="text-danger">
                             {errors?.address_1 && errors.address_1.message}
@@ -174,16 +180,18 @@ const RegisterForm = () => {
                         </small>
                     </div>
                 </div>
-                <button className="registerBtn">{infos ? "Valider" : "Créer votre compte"}</button>
+                <button className="registerBtn">
+                    {user.data ? "Valider" : "Créer votre compte"}
+                </button>
             </form>
-            {!infos &&
-            <div className="loginBox">
-                <h4>Déjà client ?</h4>
-                <Link to="/login">
-                    <button className="loginBtn">Se connecter</button>
-                </Link>
-            </div>
-            }
+            {!user.data && (
+                <div className="loginBox">
+                    <h4>Déjà client ?</h4>
+                    <Link to="/login">
+                        <button className="loginBtn">Se connecter</button>
+                    </Link>
+                </div>
+            )}
         </div>
     );
 };
