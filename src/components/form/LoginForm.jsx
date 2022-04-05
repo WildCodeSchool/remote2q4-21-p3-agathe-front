@@ -15,19 +15,17 @@ const RegisterForm = () => {
     navigate(url);
   };
 
-  const handleRegistration = async (data) => {
+  const handleRegistration = async ({email, password}) => {
     try {
       axios
-        .post(`${process.env.REACT_APP_URL_SERVER}/api/auth/login`, { email: data.email, password: data.password },
+        .post(`${process.env.REACT_APP_URL_SERVER}/api/auth/login`, { email, password },
           { withCredentials: true, mode: 'cors' })
         .then(credentials => {
-          setUser({
-            token: credentials,
-          });
+          setUser({token: credentials});
           redirect(-1);
         });
     } catch (error) {
-      console.log(error);
+      console.log(`error when login :${error}`);
     }
   }
   const handleError = (errors) => { console.log('handleError'); console.log(errors) };

@@ -16,16 +16,15 @@ const Home = () => {
     const [admin, setAdmin] = React.useState(false);
 
     React.useEffect(() => {
-      console.log(`user: ${user}`)
       if (!user) {
             setAdmin(false);
         } else {
             axios
                 .get(`${BASE_URL}/api/auth/admin`, { withCredentials: true })
-                .then((response) => {
+                .then(response => {
                     setAdmin(response.status === 202); // admin user
                 })
-                .catch((err) => console.log(err));
+                .catch(err => err.response.status!==403 ? console.log(err):null);
         }
     }, [user]);
 
