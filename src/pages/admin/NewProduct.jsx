@@ -7,46 +7,108 @@ import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUpload
 import "./NewProduct.css";
 
 const New = ({ title }) => {
-    const { register, handleSubmit, setValue } = useForm();
+    const { register, handleSubmit, reset } = useForm();
+    const [productData, setProductData] = useState(null);
     const [file, setFile] = useState("");
-    const params = useParams()
+    const params = useParams();
 
     React.useEffect(() => {
         if (params.id) {
             axios
-            .get(`${process.env.REACT_APP_URL_SERVER}/api/products/${params.id}`)
-            .then(response => {
-                for (let item of ['sku','name','price','characteristic','description','ingredients_details'])
-                    setValue(item, response.data[item])
-            });
+                .get(
+                    `${process.env.REACT_APP_URL_SERVER}/api/products/${params.id}`
+                )
+                .then(response => {
+                    reset(response.data);
+                    setProductData(response.data);
+                });
         }
-      }, []);
+    }, []);
 
     const onSubmit = async (data) => {
+        let formData = new FormData();
         try {
-            let formData = new FormData();
             for (let item in data) {
-                if (item === "picture") {
-                    formData.append(item, data[item][0]);
-                } else {
-                    formData.append(item, data[item]);
-                }
+                if (item === "picture") formData.append(item, data[item][0]);
+                else formData.append(item, data[item]);
             }
-            axios
+            if (productData) {
+                axios
+                .put(
+                    `${process.env.REACT_APP_URL_SERVER}/api/products`,
+                    formData
+                    )
+                    .then(res => {
+                        if (res.status === 200) {
+                            // setUpdate("Mise à jour effectuée");
+                            // console.log({ update });
+                            //   redirect("/#homepage");
+                        }
+                    });
+            } else {
+                axios
                 .post(
                     `${process.env.REACT_APP_URL_SERVER}/api/products`,
                     formData
-                )
-                .then((res) => {
-                    if (res.status === 200) {
-                        // setUpdate("Mise à jour effectuée");
-                        // console.log({ update });
-                        //   redirect("/#homepage");
-                    }
-                });
+                    )
+                    .then(res => {
+                        if (res.status === 200) {
+                            // setUpdate("Mise à jour effectuée");
+                            // console.log({ update });
+                            //   redirect("/#homepage");
+                        }
+                    });
+                }
         } catch (error) {
             console.log(error);
         }
+    };
+
+    const Ingredients = () => {
+        return (
+            <>
+                {!productData &&
+                    [0, 1, 2, 3, 4, 5].map(index => (
+                        <tr>
+                            <td>
+                                <input
+                                    type="text"
+                                    {...register(`ingredient-${index}-name`)}
+                                />
+                            </td>
+                            <td>
+                                <input
+                                    type="text"
+                                    {...register(
+                                        `ingredient-${index}-description`
+                                    )}
+                                />
+                            </td>
+                        </tr>
+                    ))}
+                {productData &&
+                    productData.ingredients.map(({ id, name, description }) => (
+                        <tr>
+                            <td>
+                                <input
+                                    type="text"
+                                    {...register(`ingredient-${id}-name`)}
+                                    value={name}
+                                />
+                            </td>
+                            <td>
+                                <input
+                                    type="text"
+                                    {...register(
+                                        `ingredient-${id}-description`
+                                    )}
+                                    value={description}
+                                />
+                            </td>
+                        </tr>
+                    ))}
+            </>
+        );
     };
 
     return (
@@ -69,19 +131,7 @@ const New = ({ title }) => {
                             />
                         </div>
                         <div className="newRight">
-                            <form
-                                onSubmit={handleSubmit(onSubmit)}
-                            >
-                                {/* {inputs.map((input) => (
-                                    <div className="formInput" key={input.id}>
-                                    <label>{input.label}</label>
-                                    <input
-                                    type={input.type}
-                                    placeholder={input.placeholder}
-                                    />
-                                    </div>
-                                ))} */}
-
+                            <form onSubmit={handleSubmit(onSubmit)}>
                                 <label htmlFor="file">
                                     Image:{" "}
                                     <DriveFolderUploadOutlinedIcon className="newIcon" />
@@ -143,96 +193,7 @@ const New = ({ title }) => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <input
-                                                    type="text"
-                                                    {...register(
-                                                        "ingredient-0-name"
-                                                    )}
-                                                />
-                                            </td>
-                                            <td>
-                                                <input
-                                                    type="text"
-                                                    {...register(
-                                                        "ingredient-0-description"
-                                                    )}
-                                                />
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input
-                                                    type="text"
-                                                    {...register(
-                                                        "ingredient-1-name"
-                                                    )}
-                                                />
-                                            </td>
-                                            <td>
-                                                <input
-                                                    type="text"
-                                                    {...register(
-                                                        "ingredient-1-description"
-                                                    )}
-                                                />
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input
-                                                    type="text"
-                                                    {...register(
-                                                        "ingredient-2-name"
-                                                    )}
-                                                />
-                                            </td>
-                                            <td>
-                                                <input
-                                                    type="text"
-                                                    {...register(
-                                                        "ingredient-2-description"
-                                                    )}
-                                                />
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input
-                                                    type="text"
-                                                    {...register(
-                                                        "ingredient-3-name"
-                                                    )}
-                                                />
-                                            </td>
-                                            <td>
-                                                <input
-                                                    type="text"
-                                                    {...register(
-                                                        "ingredient-3-description"
-                                                    )}
-                                                />
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input
-                                                    type="text"
-                                                    {...register(
-                                                        "ingredient-4-name"
-                                                    )}
-                                                />
-                                            </td>
-                                            <td>
-                                                <input
-                                                    type="text"
-                                                    {...register(
-                                                        "ingredient-4-description"
-                                                    )}
-                                                />
-                                            </td>
-                                        </tr>
+                                        <Ingredients />
                                     </tbody>
                                 </table>
                                 <button>Send</button>
