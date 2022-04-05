@@ -45,6 +45,7 @@ function App() {
               <Route path="/logout" element={<Logout />} />
               <Route path="/user">
                 <Route path="edit" element={<Page SubPage={RegisterForm} />} />
+                <Route path="edit/:id" element={<Page SubPage={RegisterForm} />} />
                 <Route path="history" element={<Page SubPage={HistoryOrdersPage} />} />
               </Route>
               <Route path={PATH_ADMIN} element={<AdminPanel />} />

@@ -34,7 +34,7 @@ const Single = () => {
                             <h1 className="singleTitle">Information</h1>
                             <div className="singleItem">
                                 <img
-                                    src={`/assets/img/${data?.id}.jpeg`}
+                                    src={`${BASE_URL}/assets/${data?.picture}`}
                                     alt=""
                                     className="itemImg"
                                 />
