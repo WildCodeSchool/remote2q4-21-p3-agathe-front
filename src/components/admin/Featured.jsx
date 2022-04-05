@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css"
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -46,7 +45,6 @@ const Featured = () => {
         <div className='featured'>
             <div className="featuredTop">
                 <h1 className="topTitle">Revenu des ventes</h1>
-                <MoreVertIcon fontSize="small" />
             </div>
             <div className="featuredBottom">
                 <div className="featuredChart">
