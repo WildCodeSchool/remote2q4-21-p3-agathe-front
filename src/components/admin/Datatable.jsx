@@ -32,7 +32,6 @@ const Datatable = () => {
 
     React.useEffect(() => {
         if (!pathname) {
-            console.log("undefined");
             return;
         }
         console.log(`Location update [${pathname}]`);
@@ -110,7 +109,6 @@ const Datatable = () => {
                     Ajouter
                 </Link>
             </div>
-            {console.log(rows)}
             {/* I know, it's not correct to repeat this code,
                 but it's a fix to a DataGrid bug,
                 otherwise when you switch to a list with lesser rows,
