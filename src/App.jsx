@@ -13,7 +13,6 @@ import Checkout from "./pages/Checkout";
 import ContactPage from "./pages/ContactPage";
 import Home from "./pages/Home";
 import LoginForm from "./components/form/LoginForm"
-import Logout from "./components/form/Logout";
 import Page from "./middleware/Page";
 import ProductsList from "./components/products/ProductsList";
 import ProductPage from "./pages/ProductPage";
@@ -29,9 +28,9 @@ const PATH_ADMIN = process.env.REACT_APP_PATH_ADMIN;
 function App() {
   return (
     <>
-      <UserProvider>
-        <CartProvider>
-          <BrowserRouter>
+      <BrowserRouter>
+        <UserProvider>
+          <CartProvider>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="Brand" element={<Page SubPage={Brand} />} />
@@ -42,7 +41,6 @@ function App() {
               <Route path="/contact" element={<Page SubPage={ContactPage} />} />
               <Route path="/login" element={<Page SubPage={LoginForm} />} />
               <Route path="/register" element={<Page SubPage={RegisterForm} />} />
-              <Route path="/logout" element={<Logout />} />
               <Route path="/user">
                 <Route path="edit" element={<Page SubPage={RegisterForm} />} />
                 <Route path="edit/:id" element={<Page SubPage={RegisterForm} />} />
@@ -75,9 +73,9 @@ function App() {
                 <Route path="new" element={<New inputs={userInputs} title="Add New User" />} />
               </Route>
             </Routes>
-          </BrowserRouter>
-        </CartProvider>
-      </UserProvider>
+          </CartProvider>
+        </UserProvider>
+      </BrowserRouter>
     </>
   );
 }
