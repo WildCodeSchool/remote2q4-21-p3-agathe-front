@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import imageTest from "../../assets/IMG_7178.jpeg";
 import "./Presentation.css";
 
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
@@ -26,7 +25,7 @@ const Presentation = () => {
       </div>
 
       <div className="presentation_img">
-        <img src={imageTest} alt="product" />
+        <img src="assets/img/IMG_1201.jpeg" alt="product" />
       </div>
     </div>
   );
