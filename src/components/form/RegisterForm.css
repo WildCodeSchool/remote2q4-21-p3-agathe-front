@@ -1,14 +1,17 @@
-div.address {
+.registerPage {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-home);
 }
 
 .registerContainer {
-    min-width: 70vh;
+    width: 600px;
     min-height: 550px;
     display: flex;
     flex-direction: column;
-    border-radius: 19px;
     background-color: var(--greenblue);
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     align-items: center;
@@ -21,13 +24,29 @@ div.address {
     min-height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin-bottom: 5rem;
+    margin-bottom: 2.5rem;
+}
+
+.registerInput {
+    display: flex;
+    justify-content: center;
+}
+
+.registerLeft, .registerRight {
+    margin: 2.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.registerLeft h3, .registerRight h3 {
+    margin-bottom: 1rem;
 }
 
 .registerBtn {
     margin-top: 1.5rem;
-    width: 25%;
+    width: 30%;
     padding: 1rem;
     color: var(--greenblue);
     font-size: 15px;
@@ -37,32 +56,28 @@ div.address {
     cursor: pointer;
     transition: all, 240ms ease-in-out;
     background: var(--darkgreen);
+    font-family: var(--font-text);
 }
 
-.registerContainer h2 {
-    margin: 0rem;
+.registerPage h1 {
     font-size: 3em;
     text-align: center;
-    margin-bottom: 2rem;
-}
-
-.registerContainer h4 {
-    margin-bottom: 1rem;
-    font-size: 1.5em;
+    margin-top: 2rem;
 }
 
 .registerContainer input {
     margin: 1rem 0;
-    width: 15rem;
+    width: 100%;
+    height: 2rem;
     border: none;
     text-align: center;
     font-size: 0.85em;
     font-family: var(--font-text);
     margin-right: 2rem;
+    color: var(--darkgreen);
 }
 
 .loginBox {
-    min-width: 20vh;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -72,6 +87,8 @@ div.address {
 .loginBox h4 {
     min-width: 10rem;
     height: 100px;
+    margin-bottom: 1rem;
+    font-size: 1.5em;
 }
 
 .loginBox button {
@@ -79,64 +96,49 @@ div.address {
     margin-left: 2rem;
 }
 
-.regInput {
+.text-danger {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    color: red;
-}
-
-.text-danger {
     text-align: center;
     color: red;
     font-size: 0.75em;
 }
 
-.connexion {
+.inputsRegister {
     display: flex;
-    justify-content: start;
-    width: 60%;
+    flex-direction: column;
 }
 
-.connexion input {
-    width: 15rem;
+.inputsRegister input {
+    margin-top: 2rem;
 }
 
-.info {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: start;
-    width: 60%;
+@media screen and (max-width: 630px)  {
+    .registerContainer {
+        width: 95vw;
+    }
+
+    .registerBtn {
+        width: 40%;
+    }
 }
 
-.info input {
-    width: 10rem;
-}
+@media screen and (max-width: 400px)  {
+    .registerContainer {
+        width: 85vw;
+    }
+    .registerInput {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 
-.postAddress {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: start;
-    width: 60%;
-}
+    .registerBtn {
+        width: 60%;
+    }
 
-.address input {
-    width: 15rem;
-}
+    .registerContainer input {
+        width: 15rem;
 
-.registerForm span{
-    width: 60%;
-    text-align: left;
-}
-
-.city {
-    display: flex;
-    justify-content: center;
-    align-self: flex-start;
-}
-
-.city input {
-    width: 10rem;
-    justify-content: center;
+    }
 }
