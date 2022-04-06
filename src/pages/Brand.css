@@ -1,6 +1,5 @@
 .Description {
     display: flex;
-    align-items: center;
     min-height: 100vh;
     flex-direction: column;
     font-family: var(--font-text);
@@ -62,6 +61,8 @@
 }
 
 .bottomImg {
-    width: 30%;
+    width: 100%;
     margin-top: -50px;
+    display: flex;
+    justify-content: center;
 }
