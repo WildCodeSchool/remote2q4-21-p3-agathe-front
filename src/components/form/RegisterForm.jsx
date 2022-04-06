@@ -80,31 +80,31 @@ const RegisterForm = () => {
                     className="registerForm"
                 >
                     <div className="registerInput">
-                    <div className="registerLeft"><h3>Informations Personnelles</h3>
-                        <div className="inputsRegister">
-                            <input
-                                type="email"
-                                name="email"
-                                placeholder="Votre email"
-                                {...register("email", registerOptions.email)}
-                            />
-                            <small className="text-danger">
-                                {errors?.email && errors.email.message}
-                            </small>
-                        </div>
-                        {!user.data &&
+                        <div className="registerLeft"><h3>Informations Personnelles</h3>
                             <div className="inputsRegister">
                                 <input
-                                    type="password"
-                                    name="password"
-                                    placeholder="Mot de passe"
-                                    {...register("password", registerOptions.password)}
+                                    type="email"
+                                    name="email"
+                                    placeholder="Votre email"
+                                    {...register("email", registerOptions.email)}
                                 />
                                 <small className="text-danger">
-                                    {errors?.password && errors.password.message}
+                                    {errors?.email && errors.email.message}
                                 </small>
                             </div>
-                        }
+                            {!user.data &&
+                                <div className="inputsRegister">
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        placeholder="Mot de passe"
+                                        {...register("password", registerOptions.password)}
+                                    />
+                                    <small className="text-danger">
+                                        {errors?.password && errors.password.message}
+                                    </small>
+                                </div>
+                            }
                             <div className="inputsRegister">
                                 <input
                                     name="first_name"
@@ -148,8 +148,8 @@ const RegisterForm = () => {
                                         errors.phone_number.message}
                                 </small>
                             </div>
-                    </div>
-                    <div className="registerRight"><h3>Adresse</h3>
+                        </div>
+                        <div className="registerRight"><h3>Adresse</h3>
                             <div className="inputsRegister">
                                 <input
                                     name="address_1"
@@ -202,8 +202,8 @@ const RegisterForm = () => {
                                 </small>
                             </div>
                         </div>
-                        </div>
-                        <button className="registerBtn">
+                    </div>
+                    <button className="registerBtn">
                         {user.data ? "Valider" : "Créer votre compte"}
                     </button>
                 </form>
