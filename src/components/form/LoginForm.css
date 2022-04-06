@@ -1,5 +1,5 @@
 .loginContainer {
-    min-width: 30vw;
+    min-width: 20vw;
     min-height: 35rem;
     display: flex;
     flex-direction: column;
@@ -45,8 +45,9 @@
     font-family: var(--font-text);
 }
 
-.registerBtn {
-    padding: 2rem;
+.registerButton {
+    margin-top: 1rem;
+    padding: 1rem;
     color: var(--greenblue);
     font-size: 1em;
     font-weight: 600;
@@ -55,6 +56,11 @@
     cursor: pointer;
     background: var(--darkgreen);
     font-family: var(--font-text);
+    width: 50%;
+}
+
+.registerLink {
+    width: 20rem;
 }
 
 .loginContainer h2 {
@@ -85,18 +91,18 @@
 
 @media screen and (max-width: 1000px)  {
     .loginContainer {
-        width: 40vw;
+        width: 35vw;
 }
 }
 
 @media screen and (max-width: 760px)  {
     .loginContainer {
-        width: 60vw;
+        width: 50vw;
 }
 }
 
 @media screen and (max-width: 550px)  {
     .loginContainer {
-        width: 80vw;
+        width: 70vw;
 }
 }

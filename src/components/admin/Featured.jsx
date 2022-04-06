@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css"
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -46,14 +45,13 @@ const Featured = () => {
         <div className='featured'>
             <div className="featuredTop">
                 <h1 className="topTitle">Revenu des ventes</h1>
-                <MoreVertIcon fontSize="small" />
             </div>
             <div className="featuredBottom">
                 <div className="featuredChart">
-                    <CircularProgressbar value={(today.sales/yesterday.sales*100).toFixed(2)} text={`${(today.sales/yesterday.sales*100).toFixed(2)}%`} strokeWidth={5} />
+                    <CircularProgressbar value={yesterday.sales != 0 ? (today.sales/yesterday.sales*100.toFixed(2)) : 0} text={`${yesterday.sales != 0 ? (today.sales/yesterday.sales*100).toFixed(2) : 0}%`} strokeWidth={5} />
                 </div>
-                {(today.sales/yesterday.sales*100) > 100 ? <p>Objectif de la veille dépassé !</p> : ""}
-                <p className="bottomTtitle">Vente total du jour</p>
+                {today.sales > yesterday.sales ? <p>Objectif de la veille dépassé !</p> : ""}
+                <p className="bottomTitle">Vente total du jour</p>
                 <p className="amount">{today.sales ?? 0} €</p>
                 <div className="summary">
                     <div className="item">

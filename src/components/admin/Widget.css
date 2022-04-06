@@ -34,6 +34,12 @@
     border-bottom: 1px solid gray;
 }
 
+.widgetLink a {
+    text-decoration: none;
+    color: var(--darkgreen);
+    font-size: 1em;
+}
+
 .percentage {
     display: flex;
     align-items: center;

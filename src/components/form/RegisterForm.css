@@ -27,7 +27,7 @@ div.address {
 
 .registerBtn {
     margin-top: 1.5rem;
-    width: 50%;
+    width: 25%;
     padding: 1rem;
     color: var(--greenblue);
     font-size: 15px;
@@ -53,7 +53,12 @@ div.address {
 
 .registerContainer input {
     margin: 1rem 0;
-    width: 18rem;
+    width: 15rem;
+    border: none;
+    text-align: center;
+    font-size: 0.85em;
+    font-family: var(--font-text);
+    margin-right: 2rem;
 }
 
 .loginBox {
@@ -72,4 +77,66 @@ div.address {
 .loginBox button {
     width: 10rem;
     margin-left: 2rem;
+}
+
+.regInput {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: red;
+}
+
+.text-danger {
+    text-align: center;
+    color: red;
+    font-size: 0.75em;
+}
+
+.connexion {
+    display: flex;
+    justify-content: start;
+    width: 60%;
+}
+
+.connexion input {
+    width: 15rem;
+}
+
+.info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    width: 60%;
+}
+
+.info input {
+    width: 10rem;
+}
+
+.postAddress {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    width: 60%;
+}
+
+.address input {
+    width: 15rem;
+}
+
+.registerForm span{
+    width: 60%;
+    text-align: left;
+}
+
+.city {
+    display: flex;
+    justify-content: center;
+    align-self: flex-start;
+}
+
+.city input {
+    width: 10rem;
+    justify-content: center;
 }

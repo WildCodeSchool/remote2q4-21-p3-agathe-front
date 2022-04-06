@@ -66,7 +66,7 @@ const RegisterForm = () => {
     </form>
     <div className="registerBox">
     <h4>Nouveau client ?</h4>
-    <Link to="/register" className="registerLink"><button className="registerBtn">S'enregistrer</button></Link>
+    <Link to="/register" className="registerLink"><button className="registerButton">S'enregistrer</button></Link>
     </div>
     </div>
   );
