@@ -48,9 +48,6 @@ const Featured = () => {
             </div>
             <div className="featuredBottom">
                 <div className="featuredChart">
-                    {console.log(yesterday.sales)}
-                    {console.log(typeof yesterday.sales)}
-                    {console.log(yesterday.sales!==0)}
                     <CircularProgressbar value={yesterday.sales !== 0 ? (today.sales / yesterday.sales * 100).toFixed(2) : 0} text={`${yesterday.sales !== 0 ? (today.sales / yesterday.sales * 100).toFixed(2) : 0}%`} strokeWidth={5} />
                 </div>
                 {today.sales > yesterday.sales ? <p>Objectif de la veille dépassé !</p> : ""}
