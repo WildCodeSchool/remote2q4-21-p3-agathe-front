@@ -17,12 +17,27 @@
   color: black;
 }
 
+.CatalogueCard {
+  margin: 7em;
+  width: 25em;
+}
+
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   .ProductList {
     justify-content: center;
   }
 
   .ProductCard {
-      margin-bottom: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .CatalogueList {
+    margin: 2rem 0;
+  }
+
+  .CatalogueCard {
+    margin: 2rem 0;
+    max-width: 70%;
+    text-align: center;
   }
 }

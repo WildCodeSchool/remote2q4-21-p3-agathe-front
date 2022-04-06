@@ -1,145 +1,209 @@
 .DetailsProduct {
-    background-color: var(--main-bg-color);
-    display: flex;
-    font-family: var(--font-text);
+  background-color: var(--main-bg-color);
+  display: flex;
+  font-family: var(--font-text);
 }
 
 .DetailsContainer-left {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    border-right: 1px solid var(--darkgreen);
-    margin: auto;
-    padding: 3em 1em;
-    width: 40%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-right: 1px solid var(--darkgreen);
+  margin: auto;
+  padding: 3rem 1rem;
+  width: 40%;
 }
 
 .DetailsProductImage {
-    width: 400px;
-    height: 325px;
-    border-radius: 30px;
+  width: 400px;
+  height: 325px;
+  border-radius: 10px;
 }
 
 .DetailsProductDescription {
-    margin-top: 2.5em;
-    width: 80%;
-    line-height: 1.5em;
-    font-size: 1.5em;
-    text-align: justify;
-}
-
-.DetailsProductCharacteristic {
-    width: 100%;
-    margin: 1em 0;
-    font-size: 1.2em;
-    line-height: 1.5em;
+  /* box-sizing: border-box; */
+  margin-top: 2.5rem;
+  width: 80%;
+  line-height: 1.5rem;
+  font-size: 1.5rem;
+  text-align: justify;
 }
 
 .DetailsContainer-right {
-    display: flex;
-    flex-direction: column;
-    padding: 50px 50px 0;
-    width: 80%;
+  display: flex;
+  flex-direction: column;
+  padding: 50px 50px 0;
+  width: 80%;
 }
 
 .DetailsProductTitle {
-    font-size: 2.5em;
-    font-family: var(--font-home);
-    color: var(--darkgreen);
-}
-
-.DetailsProductDescription {
-    box-sizing: border-box;
+  font-size: 2.5rem;
+  font-family: var(--font-home);
+  color: var(--darkgreen);
 }
 
 .DetailsProductIngredient {
-    padding: 1em 0;
-    font-size: 1.5em;
-    line-height: 1.5em;
+  padding: 1rem 0;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
 }
 
 .DetailsProductIngredient p {
-    padding-bottom: 1em;
+  padding-bottom: 1rem;
 }
 
 .DetailsProductIngredient p::before {
-    content: "• ";
-    font-size: 1.5em;
+  content: "• ";
+  font-size: 1.5rem;
 }
 
 .DetailsProductIngredient span {
-    font-weight: bolder;
+  font-weight: bolder;
+}
+
+.DetailsProductCharacteristic {
+  width: 100%;
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
 }
 
 .TitleIngredientsDetails {
-    font-family: var(--font-text);
-    font-size: 12px;
-    font-weight: bolder;
-    text-decoration: underline;
+  font-family: var(--font-text);
+  font-size: 0.75rem;
+  font-weight: bolder;
 }
 
-.IngredientsDetails {
-    font-size: 12px;
-    font-family: var(--font-text);
+.IngredientsDetails p {
+  font-size: 0.75rem;
+  font-family: var(--font-text);
+  line-height: 1.25rem;
+  padding-top: 0.5rem;
 }
 
 .AllergensIngredients {
-    font-size: 10px;
-    font-family: var(--font-text);
+  font-size: 0.65rem;
+  font-family: var(--font-text);
 }
 
 .DetailsProductCart {
-    border-top: 1px solid var(--darkgreen);
-    display: flex;
-    flex-direction: column;
-    margin: 2em 0 2em 0;
-    padding: 2.5em 1em;
-    width: 60%;
+  border-top: 1px solid var(--darkgreen);
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0;
+  padding: 2.5rem 1rem;
+  width: 60%;
 }
 
 .DetailsProductsInfos {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 20em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 20rem;
 }
 
 .DetailsProductPrice {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 .DetailsProductsQuantity {
-    width: 12em;
-    display: flex;
-    align-items: center;
-    height: 2em;
+  display: flex;
+  align-items: center;
+  height: 2rem;
+  width: 12rem;
 }
 
 .DetailsProductsQuantity p {
-    padding-right: 0.5em;
+  padding-right: 0.5rem;
 }
 
 .DetailsProductsQuantity .plus,
 .DetailsProductsQuantity .minus {
-    padding: 0.5em;
-    margin: 0;
-    height: 100%;
-    width: 25px;
+  padding: 0.5rem;
+  margin: 0;
+  height: 100%;
+  width: 25px;
 }
 
 .DetailsProductsQuantity input {
-    border: 1px solid var(--greenblue);
-    height: 100%;
-    padding-left: 0.5em;
-    width: 35px;
+  border: 1px solid var(--greenblue);
+  height: 100%;
+  padding-left: 0.5rem;
+  width: 35px;
 }
 
 .DetailsProductCart button {
-    background-color: var(--greenblue);
+  background-color: var(--greenblue);
+  border: none;
+  cursor: pointer;
+  font-size: 0.75rem;
+  width: 100px;
+  margin-top: 2.5rem;
+  padding: 0.5rem;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .DetailsProduct {
+    flex-direction: column;
+    padding: 2rem;
+    width: 100%;
+  }
+
+  .DetailsContainer-left {
     border: none;
-    cursor: pointer;
-    font-size: 0.75em;
-    width: 100px;
-    margin-top: 2.5em;
-    padding: 0.5em;
+    padding: 0;
+    width: 100%;
+  }
+
+  .DetailsProductImage {
+      max-width: 95%;
+      height: auto;
+  }
+
+  .DetailsProductDescription {
+      width: 100%;
+  }
+
+  .DetailsProductDescription, .DetailsProductIngredient p {
+    text-align: justify;
+    -moz-text-align-last: center;
+    text-align-last: center;
+  }
+
+  .DetailsContainer-right {
+    padding: 2rem 0;
+    width: 100%;
+  }
+
+  .DetailsProductTitle {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .DetailsProductIngredient p {
+    padding-bottom: 1rem;
+  }
+
+  .TitleIngredientsDetails {
+      text-align: center;
+  }
+
+  .IngredientsDetails p:nth-child(2) {
+      font-size: 0.6rem;
+    text-align: justify;
+    -moz-text-align-last: center;
+    text-align-last: center;
+  }
+
+  .AllergensIngredients {
+      text-align: left;
+  }
+
+  .DetailsProductCart {
+    width: 100%;
+  }
+
+  .DetailsProductCart button {
+    align-self: center;
+  }
 }

@@ -28,11 +28,6 @@
   opacity: 1;
 }
 
-.CatalogueCard {
-  margin: 7em;
-  width: 25em;
-}
-
 .ProductCardImage {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
