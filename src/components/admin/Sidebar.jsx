@@ -8,11 +8,14 @@ import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNone
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import { Link } from "react-router-dom";
+import { useUser } from "../../contexts/UserProvider";
 import "./Sidebar.css"
 
 const PATH_ADMIN = process.env.REACT_APP_PATH_ADMIN;
 
 const Sidebar = () => {
+    const user = useUser()
+
     return (
         <div className='sidebar'>
             <div className='center'>
@@ -65,12 +68,8 @@ const Sidebar = () => {
                     </Link>
                     <p className="sidebarTitle">UTILISATEUR</p>
                     <li>
-                        <AccountCircleOutlinedIcon className='icon' />
-                        <span>Profil</span>
-                    </li>
-                    <li>
                         <LogoutOutlinedIcon className='icon' />
-                        <Link to="/logout"><span>Déconnexion</span></Link>
+                        <Link to="" onClick={user.logout}><span>Déconnexion</span></Link>
                     </li>
                 </ul>
             </div>

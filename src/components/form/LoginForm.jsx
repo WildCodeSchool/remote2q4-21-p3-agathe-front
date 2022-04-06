@@ -1,49 +1,24 @@
 import React from "react";
-import axios from "axios";
 import { useForm } from "react-hook-form";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useUser } from '../../contexts/UserProvider';
 import "./LoginForm.css";
 
 const RegisterForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
-
-  const user = useUser();
-
-  let navigate = useNavigate();
-  const redirect = (url) => {
-    navigate(url);
-  };
-
-  const handleRegistration = async ({email, password}) => {
-    try {
-      axios
-        .post(`${process.env.REACT_APP_URL_SERVER}/api/auth/login`, { email, password },
-          { withCredentials: true, mode: 'cors' })
-        .then(credentials => {
-          user.set(credentials.data);
-          redirect(-1);
-        });
-    } catch (error) {
-      console.log(`error when login :${error}`);
-    }
-  }
   const handleError = (errors) => { console.log('handleError'); console.log(errors) };
+  const user = useUser();
 
   const registerOptions = {
     email: { required: "Adresse email requise" },
     password: {
       required: "Mot de passe requis",
-      // minLength: {
-      //   value: 8,
-      //   message: "Password must have at least 8 characters"
-      // }
     }
   };
 
   return (
     <div className="loginContainer"><h2>Bienvenue !</h2>
-    <form onSubmit={handleSubmit(handleRegistration, handleError)} className="loginForm">
+    <form onSubmit={handleSubmit(user.login, handleError)} className="loginForm">
       <div className="input">
         <input
           type="email"
