@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useUser } from "../../contexts/UserProvider";
 import "./DropdownMenu.css";
 
 const DropdownMenu = ({isActive}) => {
+  const user = useUser()
+
   return (
     <nav
       className={`submenu ${isActive ? "active" : "inactive"}`}
@@ -15,7 +18,7 @@ const DropdownMenu = ({isActive}) => {
           <Link to="/user/edit" className="sublink">Mon compte</Link>
         </li>
         <li>
-          <Link to="/logout" className="sublink">
+          <Link to="" onClick={user.logout} className="sublink">
             Déconnexion
           </Link>
         </li>
