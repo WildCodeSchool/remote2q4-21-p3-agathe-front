@@ -48,30 +48,29 @@ function App() {
                 <Route path="history" element={<Page SubPage={HistoryOrdersPage} />} />
               </Route>
               <Route path={PATH_ADMIN} element={<ProtectedRoute><AdminPanel /></ProtectedRoute>} />
-              <Route path={`${PATH_ADMIN}/presentation`} element={<Presentation />} />
+              <Route path={`${PATH_ADMIN}/presentation`} element={<ProtectedRoute><Presentation /></ProtectedRoute>} />
               <Route path={`${PATH_ADMIN}/deliveries`}>
-                <Route index element={<List />} />
-                <Route path=":id" element={<Single />} />
+                <Route index element={<ProtectedRoute><List /></ProtectedRoute>} />
+                <Route path=":id" element={<ProtectedRoute><Single /></ProtectedRoute>} />
                 {/* <Route path="new" element={<New inputs={productInputs} title="Add New Product" />} /> */}
                 {/* <Route path="new" element={<New title="Add New Product" />} /> */}
               </Route>
-
               <Route path={`${PATH_ADMIN}/orders`}>
-                <Route index element={<List />} />
-                <Route path=":id" element={<Single />} />
+                <Route index element={<ProtectedRoute><List /></ProtectedRoute>} />
+                <Route path=":id" element={<ProtectedRoute><Single /></ProtectedRoute>} />
                 {/* <Route path="new" element={<New inputs={productInputs} title="Add New Product" />} /> */}
                 {/* <Route path="new" element={<New title="Add New Product" />} /> */}
               </Route>
               <Route path={`${PATH_ADMIN}/products`}>
-                <Route index element={<List />} />
-                <Route path=":id" element={<SingleProduct />} />
-                <Route path="new" element={<NewProduct title="Ajouter un produit" />} />
-                <Route path="edit/:id" element={<NewProduct title="Modifier un produit" />} />
+                <Route index element={<ProtectedRoute><List /></ProtectedRoute>} />
+                <Route path=":id" element={<ProtectedRoute><SingleProduct /></ProtectedRoute>} />
+                <Route path="new" element={<ProtectedRoute><NewProduct title="Ajouter un produit" /></ProtectedRoute>} />
+                <Route path="edit/:id" element={<ProtectedRoute><NewProduct title="Modifier un produit" /></ProtectedRoute>} />
               </Route>
               <Route path={`${PATH_ADMIN}/users`}>
-                <Route index element={<List />} />
-                <Route path=":id" element={<Single />} />
-                <Route path="new" element={<New inputs={userInputs} title="Add New User" />} />
+                <Route index element={<ProtectedRoute><List /></ProtectedRoute>} />
+                <Route path=":id" element={<ProtectedRoute><Single /></ProtectedRoute>} />
+                <Route path="new" element={<ProtectedRoute><New inputs={userInputs} title="Add New User" /></ProtectedRoute>} />
               </Route>
             </Routes>
           </CartProvider>
