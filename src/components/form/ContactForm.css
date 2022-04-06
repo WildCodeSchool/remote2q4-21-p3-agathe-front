@@ -14,6 +14,7 @@
     font-size: 30px;
     font-family: var(--font-home);
     color: #2C3331;
+    margin-bottom: 2rem;
 }
 
 .Form input {
