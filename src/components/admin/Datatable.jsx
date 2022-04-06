@@ -20,6 +20,14 @@ const Datatable = () => {
     const [columns, setColumns] = React.useState([]);
     const { pathname } = useLocation();
 
+    const deleteProduct = (id) => {
+        // modal
+        //axios.delete
+        let url = `${BASE_URL}/api/products/${id}`;
+        axios
+        .delete(url, user.getOptions())
+        .then((response) => getRows('products'))
+    }
     const getRows = (type) => {
         let url;
         if (type === "deliveries")
@@ -34,7 +42,6 @@ const Datatable = () => {
         if (!pathname) {
             return;
         }
-        console.log(`Location update [${pathname}]`);
         if (pathname === `${PATH_ADMIN}/deliveries`) {
             setType("deliveries");
             getRows("deliveries");
@@ -62,24 +69,15 @@ const Datatable = () => {
             renderCell: (params) => {
                 return (
                     <div className="cellAction">
-                        {type === "products" && (
-                            <Link
-                                to={`${pathname}/${params.row.id}`}
-                                style={{ textDecoration: "none" }}
-                            >
-                                <div className="viewButton">Voir</div>
-                            </Link>
-                        )}
-                        {type !== "products" && (
-                            <Link
-                                to={`${pathname}/${params.row.id}`}
-                                style={{ textDecoration: "none" }}
-                            >
-                                <div className="viewButton">Voir</div>
-                            </Link>
-                        )}
                         <Link
-                            to={`${pathname}`}
+                            to={`${pathname}/${params.row.id}`}
+                            style={{ textDecoration: "none" }}
+                            >
+                            <div className="viewButton">Voir</div>
+                        </Link>
+                        <Link
+                            to=""
+                            onClick={() => deleteProduct(params.row.id)}
                             style={{ textDecoration: "none" }}
                         >
                             <div className="deleteButton">Supprimer</div>
@@ -109,10 +107,6 @@ const Datatable = () => {
                     Ajouter
                 </Link>
             </div>
-            {/* I know, it's not correct to repeat this code,
-                but it's a fix to a DataGrid bug,
-                otherwise when you switch to a list with lesser rows,
-                DataGrid does not remove the extra rows */}
             {type === "deliveries" ? (
                 <DataGrid
                     rows={rows ?? []}
