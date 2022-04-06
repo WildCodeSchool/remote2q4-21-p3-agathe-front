@@ -31,6 +31,9 @@ function Brand() {
                     <p key={id}>{line}</p>
                 ))}
             </div>
+            <div className="bottomImg">
+            <img src="../../assets/img/MIB.png" alt="" />
+            </div>
         </div>
     );
 };
