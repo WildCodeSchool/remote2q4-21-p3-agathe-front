@@ -7,6 +7,8 @@ import {
     productColumns,
     userColumns,
 } from "../../dataTableSource";
+import useModal from "../modal/useModal";
+import Modal from "../modal/modal";
 import { useUser } from "../../contexts/UserProvider";
 import "./Datatable.css";
 
@@ -15,19 +17,38 @@ const PATH_ADMIN = process.env.REACT_APP_PATH_ADMIN;
 
 const Datatable = () => {
     const user = useUser();
+    const [idToDelete, setIDToDelete] = React.useState(null)
     const [type, setType] = React.useState(null);
     const [rows, setRows] = React.useState(null);
     const [columns, setColumns] = React.useState([]);
+    const { isShowing: isModalShowed, toggle: toggleModal } = useModal();
     const { pathname } = useLocation();
-
-    const deleteProduct = (id) => {
-        // modal
-        //axios.delete
-        let url = `${BASE_URL}/api/products/${id}`;
-        axios
-        .delete(url, user.getOptions())
-        .then((response) => getRows('products'))
+    
+    const ModalConfirmation = ({toggle}) => {
+        return (
+            <div className='ModalCart'>
+                <button onClick={deleteProduct}>Oui</button>
+                <button onClick={toggle} className='btn-link'>Non</button>
+            </div>
+        )
     }
+
+    const deleteProduct = () => {
+        if (idToDelete){
+            let url = `${BASE_URL}/api/products/${idToDelete}`;
+            axios
+            .delete(url, user.getOptions())
+            .then((response) => getRows('products'))
+            setIDToDelete(null)
+        }
+        toggleModal()
+    }
+    
+    const onDeleteProduct = (id) => {
+        setIDToDelete(id)
+        toggleModal()
+    }
+
     const getRows = (type) => {
         let url;
         if (type === "deliveries")
@@ -37,6 +58,10 @@ const Datatable = () => {
             .get(url, user.getOptions())
             .then((response) => setRows(response.data));
     };
+
+    React.useEffect(() => {
+        console.log('Datatable created !')
+    }, []);
 
     React.useEffect(() => {
         if (!pathname) {
@@ -77,7 +102,7 @@ const Datatable = () => {
                         </Link>
                         <Link
                             to=""
-                            onClick={() => deleteProduct(params.row.id)}
+                            onClick={() => onDeleteProduct(params.row.id)}
                             style={{ textDecoration: "none" }}
                         >
                             <div className="deleteButton">Supprimer</div>
@@ -143,6 +168,9 @@ const Datatable = () => {
                     checkboxSelection
                 />
             ) : null}
+            <Modal isShowing={isModalShowed} hide={toggleModal} title="Etes vous certain de vouloir supprimer cet article ?">
+                <ModalConfirmation toggle={toggleModal}/>
+            </Modal>
         </div>
     );
 };
