@@ -18,6 +18,7 @@ import ProductsList from "./components/products/ProductsList";
 import ProductPage from "./pages/ProductPage";
 import RegisterForm from "./components/form/RegisterForm";
 import Presentation from "./pages/admin/Presentation";
+import ProtectedRoute from "./middleware/ProtectedRoute";
 import UserProvider from './contexts/UserProvider';
 import { userInputs } from "./formSource";
 import "./App.css";
@@ -46,7 +47,7 @@ function App() {
                 <Route path="edit/:id" element={<Page SubPage={RegisterForm} />} />
                 <Route path="history" element={<Page SubPage={HistoryOrdersPage} />} />
               </Route>
-              <Route path={PATH_ADMIN} element={<AdminPanel />} />
+              <Route path={PATH_ADMIN} element={<ProtectedRoute><AdminPanel /></ProtectedRoute>} />
               <Route path={`${PATH_ADMIN}/presentation`} element={<Presentation />} />
               <Route path={`${PATH_ADMIN}/deliveries`}>
                 <Route index element={<List />} />
