@@ -10,7 +10,7 @@ const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
 function ProductCard(props) {
   const cart = useCart();
-    const { isShowing: isModalCartShowed, toggle: toggleModalCart } = useModal();
+  const { isShowing: isModalCartShowed, toggle: toggleModalCart } = useModal();
   const handleAddToCart = () => {
     const product = { ...props, quantity: 1 };
     cart.add(product);

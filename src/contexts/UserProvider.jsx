@@ -1,13 +1,65 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import PropTypes from "prop-types";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const UserContext = createContext(null);
+const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
 const UserProvider = ({ children }) => {
     const [data, setData] = useState(null)
+    const [isAdmin, setIsAdmin] = useState(false)
+    const [localUser, setLocalUser] = useLocalStorage('user', null)
+    const navigate = useNavigate()
 
-     const set = (userData) => {
+    
+    const login = async ({email, password}) => {
+        try {
+            let url = `${process.env.REACT_APP_URL_SERVER}/api/auth/login`
+            let result = await axios.post(url, { email, password }, { withCredentials: true, mode: 'cors' })
+            set(result.data)
+            navigate(-1)
+        } catch (error) {
+          console.log(`Error during login :${error}`);
+        }
+    }
+
+    const logout = async () => {
+        try {
+            let url = `${process.env.REACT_APP_URL_SERVER}/api/auth/logout`
+            await axios.get(url, null, { withCredentials: true, mode: 'cors' })
+        } catch (error) {
+            console.log(`Error during logout :${error}`);
+        } finally {
+            set(null)
+            navigate('/')
+        }
+    }
+    
+    const reloadData = () => {
+        console.log('reloadData()', localUser)
+        axios
+            .get(`${BASE_URL}/api/users/${localUser}`, { withCredentials: true, mode: "cors" })
+            .then((response) => set(response.data));
+    }
+
+    const set = (userData) => {
+        console.log('set()', userData)
         setData(userData)
+        if (!userData) {
+            setIsAdmin(false)
+            setLocalUser(null)
+        } else {
+            setIsAdmin(userData.is_admin)
+            setLocalUser(userData.id)
+        }
+    }
+    const getData = () => {
+        console.log('getData()')
+        if (!data && localUser)
+            reloadData()
+        return data
     }
     const getOptions = () => {
         if (data) return { withCredentials: true, mode: "cors" };
@@ -16,9 +68,16 @@ const UserProvider = ({ children }) => {
 
     const contextValues = {
         data,
+        isAdmin,
+        login,
+        logout,
         set,
         getOptions,
     };
+    Object.defineProperty(contextValues, 'data', {
+        get: getData
+      }
+    )
 
     return (
         <UserContext.Provider value={contextValues}>
