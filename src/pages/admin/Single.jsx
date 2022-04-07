@@ -12,12 +12,17 @@ const BASE_URL = process.env.REACT_APP_URL_SERVER;
 const Single = () => {
     const id = useParams().id;
     const [data, setData] = React.useState(null);
+    const [stats, setStats] = React.useState(null);
     const user = useUser()
 
     React.useEffect(() => {
         axios
             .get(`${BASE_URL}/api/users/${id}`, user.getOptions())
             .then((response) => setData(response.data));
+
+        axios
+            .get(`${BASE_URL}/api/users/${id}/yearly_sales`)
+            .then((response) => setStats(response.data));
     }, [id]);
 
     return (
@@ -73,6 +78,7 @@ const Single = () => {
                             <Chart
                                 aspect={3 / 1}
                                 title="Revenu du client (Des 6 derniers mois)"
+                                data={stats}
                             />
                         </div>
                     </div>
