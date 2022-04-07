@@ -24,7 +24,7 @@ const Sidebar = () => {
                     <Link to={`${PATH_ADMIN}`} style={{ textDecoration: "none" }}>
                     <li>
                         <DashboardIcon className='icon' />
-                        <span>Menu</span>
+                        <span>Tableau de bord</span>
                     </li>
                     </Link>
                     <p className="sidebarTitle">LISTS</p>
@@ -40,6 +40,7 @@ const Sidebar = () => {
                         <span>Produits</span>
                     </li>
                     </Link>
+                    <p className="sidebarTitle">COMMANDES</p>
                     <Link to={`${PATH_ADMIN}/orders`} style={{ textDecoration: "none" }}>
                     <li>
                         <CreditCardOutlinedIcon className='icon' />
@@ -53,11 +54,11 @@ const Sidebar = () => {
                         <span>Livraison</span>
                     </li>
                     </Link>
-                    <p className="sidebarTitle">Modifications</p>
+                    <p className="sidebarTitle">MODIFICATIONS</p>
                     <Link to={`${PATH_ADMIN}/presentation`} style={{ textDecoration: "none" }}>
                     <li>
                         <AssessmentOutlinedIcon className='icon' />
-                        <span>Présentation</span>
+                        <span>Présentation société</span>
                     </li>
                     </Link>
                     <Link to={`${PATH_ADMIN}/products/new`} style={{ textDecoration: "none" }}>
