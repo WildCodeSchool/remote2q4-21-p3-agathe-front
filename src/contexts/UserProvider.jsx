@@ -12,8 +12,14 @@ const UserProvider = ({ children }) => {
     const [isAdmin, setIsAdmin] = useState(false)
     const [localUser, setLocalUser] = useLocalStorage('user', null)
     const navigate = useNavigate()
-
     
+    React.useEffect(()=>{
+        axios
+            .get(`${BASE_URL}/api/users/${localUser}`, { withCredentials: true, mode: "cors" })
+            .then((response) => set(response.data))
+            .catch(err => set(null))
+    },[])
+
     const login = async ({email, password}) => {
         try {
             let url = `${process.env.REACT_APP_URL_SERVER}/api/auth/login`
@@ -37,15 +43,7 @@ const UserProvider = ({ children }) => {
         }
     }
     
-    const reloadData = () => {
-        console.log('reloadData()', localUser)
-        axios
-            .get(`${BASE_URL}/api/users/${localUser}`, { withCredentials: true, mode: "cors" })
-            .then((response) => set(response.data));
-    }
-
     const set = (userData) => {
-        console.log('set()', userData)
         setData(userData)
         if (!userData) {
             setIsAdmin(false)
@@ -55,12 +53,7 @@ const UserProvider = ({ children }) => {
             setLocalUser(userData.id)
         }
     }
-    const getData = () => {
-        console.log('getData()')
-        if (!data && localUser)
-            reloadData()
-        return data
-    }
+
     const getOptions = () => {
         if (data) return { withCredentials: true, mode: "cors" };
         else return {};
@@ -74,10 +67,6 @@ const UserProvider = ({ children }) => {
         set,
         getOptions,
     };
-    Object.defineProperty(contextValues, 'data', {
-        get: getData
-      }
-    )
 
     return (
         <UserContext.Provider value={contextValues}>

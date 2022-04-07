@@ -60,10 +60,6 @@ const Datatable = () => {
     };
 
     React.useEffect(() => {
-        console.log('Datatable created !')
-    }, []);
-
-    React.useEffect(() => {
         if (!pathname) {
             return;
         }

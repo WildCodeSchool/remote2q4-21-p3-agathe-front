@@ -55,7 +55,6 @@ const List = () => {
                                 </TableCell>
                                 <TableCell className="tableCell">
                                     <div className="cellWrapper">
-                                        {console.log(`${row}`)}
                                         <img
                                             src={`${BASE_URL}/assets/${row.picture}`}
                                             alt=""
