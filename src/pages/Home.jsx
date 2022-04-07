@@ -11,9 +11,14 @@ import "./Home.css";
 const Home = () => {
     const user = useUser();
 
+    const DashBoard = () => {
+        if (user.isAdmin) return <AdminPanel />
+        return null
+    }
+    
     return (
         <div className="home">
-            {user.isAdmin && <AdminPanel />}
+            <DashBoard />
             {!user.isAdmin && (
                 <>
                     <Introduction />

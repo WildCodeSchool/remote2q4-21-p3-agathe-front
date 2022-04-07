@@ -2,9 +2,11 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AdminPanel from "./pages/admin/AdminPanel";
 import List from './pages/admin/List';
+import ListOrders from './pages/admin/ListOrders';
 import New from './pages/admin/NewUser';
 import Product from "./pages/admin/Product"
 import Single from './pages/admin/Single';
+import SingleOrder from './pages/admin/SingleOrder';
 import SingleProduct from './pages/admin/SingleProduct';
 import Brand from "./pages/Brand";
 import CartPage from "./pages/CartPage";
@@ -50,14 +52,14 @@ function App() {
               <Route path={PATH_ADMIN} element={<ProtectedRoute><AdminPanel /></ProtectedRoute>} />
               <Route path={`${PATH_ADMIN}/presentation`} element={<ProtectedRoute><Presentation /></ProtectedRoute>} />
               <Route path={`${PATH_ADMIN}/deliveries`}>
-                <Route index element={<ProtectedRoute><List /></ProtectedRoute>} />
-                <Route path=":id" element={<ProtectedRoute><Single /></ProtectedRoute>} />
+                <Route index element={<ProtectedRoute><ListOrders /></ProtectedRoute>} />
+                <Route path=":id" element={<ProtectedRoute><SingleOrder /></ProtectedRoute>} />
                 {/* <Route path="new" element={<New inputs={productInputs} title="Add New Product" />} /> */}
                 {/* <Route path="new" element={<New title="Add New Product" />} /> */}
               </Route>
               <Route path={`${PATH_ADMIN}/orders`}>
-                <Route index element={<ProtectedRoute><List /></ProtectedRoute>} />
-                <Route path=":id" element={<ProtectedRoute><Single /></ProtectedRoute>} />
+                <Route index element={<ProtectedRoute><ListOrders /></ProtectedRoute>} />
+                <Route path=":id" element={<ProtectedRoute><SingleOrder /></ProtectedRoute>} />
                 {/* <Route path="new" element={<New inputs={productInputs} title="Add New Product" />} /> */}
                 {/* <Route path="new" element={<New title="Add New Product" />} /> */}
               </Route>
