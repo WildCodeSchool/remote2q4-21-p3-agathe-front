@@ -1,16 +1,10 @@
 import React from "react";
 import { NavLink, useParams } from "react-router-dom";
 import axios from "axios";
-<<<<<<< HEAD
-import Sidebar from "../../components/admin/Sidebar";
-import Chart from "../../components/admin/Chart";
-import List from "../../components/admin/Table";
-=======
 import Chart from "../../components/admin/Chart";
 import List from "../../components/admin/Table";
 import Sidebar from "../../components/admin/Sidebar";
 import { useUser } from "../../contexts/UserProvider";
->>>>>>> c5dc37a9e2fdca7dba298f509bea5d352759a6c1
 import "./Single.css";
 
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
