@@ -6,11 +6,13 @@
 .datatableTitle {
     width: 100%;
     font-size: 24px;
-    color: gray;
     margin-bottom: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    color: var(--darkgreen);
+    font-family: var(--font-home);
+    font-weight: 600;
 }
 
 .datatableLink {
