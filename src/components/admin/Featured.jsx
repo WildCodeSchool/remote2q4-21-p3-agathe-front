@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css"
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -23,7 +22,7 @@ const Featured = () => {
         };
         const lastWeekSales = () => {
             axios
-                .get(`${BASE_URL}/api/orders/last_month_sales`)
+                .get(`${BASE_URL}/api/orders/last_week_sales`)
                 .then(response => setWeekly(response.data));
         };
         const yesterdaySales = () => {
@@ -46,34 +45,34 @@ const Featured = () => {
         <div className='featured'>
             <div className="featuredTop">
                 <h1 className="topTitle">Revenu des ventes</h1>
-                <MoreVertIcon fontSize="small" />
             </div>
             <div className="featuredBottom">
                 <div className="featuredChart">
-                    <CircularProgressbar value={70} text={"70%"} strokeWidth={5} />
+                    <CircularProgressbar value={yesterday.sales !== 0 ? (today.sales / yesterday.sales * 100).toFixed(2) : 0} text={`${yesterday.sales !== 0 ? (today.sales / yesterday.sales * 100).toFixed(2) : 0}%`} strokeWidth={5} />
                 </div>
-                <p className="bottomTtitle">Vente total du jour</p>
-                <p className="amount">{today.dailySales ?? 0} €</p>
+                {today.sales > yesterday.sales ? <p>Objectif de la veille dépassé !</p> : ""}
+                <p className="bottomTitle">Vente total du jour</p>
+                <p className="amount">{today.sales ?? 0} €</p>
                 <div className="summary">
                     <div className="item">
                         <div className="itemTitle">Hier</div>
                         <div className="itemResult negative">
                             <KeyboardArrowDownIcon fontSize="small" />
-                            <div className="resultAmount">{yesterday.yesterdaySales ?? 0} €</div>
+                            <div className="resultAmount">{yesterday.sales} €</div>
                         </div>
                     </div>
                     <div className="item">
                         <div className="itemTitle">Semaine passée</div>
                         <div className="itemResult positive">
                             <KeyboardArrowUpOutlinedIcon fontSize="small" />
-                            <div className="resultAmount">{weekly.lastWeekSales ?? 0} €</div>
+                            <div className="resultAmount">{weekly.sales} €</div>
                         </div>
                     </div>
                     <div className="item">
                         <div className="itemTitle">Mois dernier</div>
                         <div className="itemResult positive">
                             <KeyboardArrowUpOutlinedIcon fontSize="small" />
-                            <div className="resultAmount">{monthly.lastMonthSales ?? 0} €</div>
+                            <div className="resultAmount">{monthly.sales} €</div>
                         </div>
                     </div>
                 </div>

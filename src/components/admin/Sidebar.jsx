@@ -8,60 +8,69 @@ import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNone
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import { Link } from "react-router-dom";
+import { useUser } from "../../contexts/UserProvider";
 import "./Sidebar.css"
 
+const PATH_ADMIN = process.env.REACT_APP_PATH_ADMIN;
+
 const Sidebar = () => {
+    const user = useUser()
+
     return (
         <div className='sidebar'>
             <div className='center'>
                 <ul>
                     <p className="sidebarTitle">MAIN</p>
-                    <Link to="/admin" style={{ textDecoration: "none" }}>
+                    <Link to={`${PATH_ADMIN}`} style={{ textDecoration: "none" }}>
                     <li>
                         <DashboardIcon className='icon' />
-                        <span>Menu</span>
+                        <span>Tableau de bord</span>
                     </li>
                     </Link>
                     <p className="sidebarTitle">LISTS</p>
-                    <Link to="/admin/users" style={{ textDecoration: "none" }}>
+                    <Link to={`${PATH_ADMIN}/users`} style={{ textDecoration: "none" }}>
                     <li>
                         <PersonOutlineOutlinedIcon className='icon' />
                         <span>Clients</span>
                     </li>
                     </Link>
-                    <Link to="/admin/products" style={{ textDecoration: "none" }}>
+                    <Link to={`${PATH_ADMIN}/products`} style={{ textDecoration: "none" }}>
                     <li>
                         <Inventory2OutlinedIcon className='icon' />
                         <span>Produits</span>
                     </li>
                     </Link>
-                    <Link to="/admin/orders" style={{ textDecoration: "none" }}>
+                    <p className="sidebarTitle">COMMANDES</p>
+                    <Link to={`${PATH_ADMIN}/orders`} style={{ textDecoration: "none" }}>
                     <li>
                         <CreditCardOutlinedIcon className='icon' />
-                        <span>Commandes</span>
+                        <span>Attente paiement</span>
                     </li>
                     </Link>
+                    <Link to={`${PATH_ADMIN}/deliveries`} style={{ textDecoration: "none" }}>
+
                     <li>
                         <LocalShippingOutlinedIcon className='icon' />
-                        <span>Livraison</span>
+                        <span>A livrer</span>
                     </li>
-                    <p className="sidebarTitle">UTILE</p>
+                    </Link>
+                    <p className="sidebarTitle">MODIFICATIONS</p>
+                    <Link to={`${PATH_ADMIN}/presentation`} style={{ textDecoration: "none" }}>
                     <li>
                         <AssessmentOutlinedIcon className='icon' />
-                        <span>Statistiques</span>
+                        <span>Présentation société</span>
                     </li>
+                    </Link>
+                    <Link to={`${PATH_ADMIN}/products/new`} style={{ textDecoration: "none" }}>
                     <li>
                         <NotificationsNoneOutlinedIcon className='icon' />
-                        <span>Notifications</span>
+                        <span>Ajout d'articles</span>
                     </li>
+                    </Link>
                     <p className="sidebarTitle">UTILISATEUR</p>
                     <li>
-                        <AccountCircleOutlinedIcon className='icon' />
-                        <span>Profil</span>
-                    </li>
-                    <li>
                         <LogoutOutlinedIcon className='icon' />
-                        <Link to="/logout"><span>Déconnexion</span></Link>
+                        <Link to="" onClick={user.logout}><span>Déconnexion</span></Link>
                     </li>
                 </ul>
             </div>

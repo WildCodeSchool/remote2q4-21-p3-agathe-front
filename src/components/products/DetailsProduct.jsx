@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-// import { Link } from "react-router-dom";
 import { useCart } from "../../contexts/CartContext";
 import Modal from "../modal/modal"
 import useModal from "../modal/useModal";
 import ModalCart from "../cart/ModalCart";
 import "./DetailsProduct.css";
+
+const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
 function DetailsProduct(props) {
   const cart = useCart();
@@ -27,7 +28,7 @@ function DetailsProduct(props) {
       <div className="DetailsContainer-left">
         <img
           className="DetailsProductImage"
-          src={`/assets/img/${props.ProductID}.jpeg`}
+          src={`${BASE_URL}/assets/${props.picture}`}
           alt={props.name}
         />
         <div className="DetailsProductDescription">
@@ -41,8 +42,9 @@ function DetailsProduct(props) {
           {props.ingredients &&
             props.ingredients.map((ingredient, id) => <p key={id}><span>{ingredient.name}</span>{" : "}{ingredient.description}</p>)}
         </div>
-        <div>
-          <span className="TitleIngredientsDetails">COMPOSITION : </span> <p className="IngredientsDetails"> {props.ingredients_details} </p> <br></br>
+        <div className="IngredientsDetails">
+          <span className="TitleIngredientsDetails"> COMPOSITION : </span> 
+          <p> {props.ingredients_details} </p> 
           {props.ingredients_details && props.ingredients_details.includes('*') ? <p className="AllergensIngredients">*Allèrgenes</p> : null}
         </div>
         <div className="DetailsProductCharacteristic">

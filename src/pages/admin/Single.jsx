@@ -1,21 +1,34 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import axios from "axios";
+<<<<<<< HEAD
 import Sidebar from "../../components/admin/Sidebar";
 import Chart from "../../components/admin/Chart";
 import List from "../../components/admin/Table";
+=======
+import Chart from "../../components/admin/Chart";
+import List from "../../components/admin/Table";
+import Sidebar from "../../components/admin/Sidebar";
+import { useUser } from "../../contexts/UserProvider";
+>>>>>>> c5dc37a9e2fdca7dba298f509bea5d352759a6c1
 import "./Single.css";
 
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
 const Single = () => {
-    const [data, setData] = React.useState(null);
     const id = useParams().id;
+    const [data, setData] = React.useState(null);
+    const [stats, setStats] = React.useState(null);
+    const user = useUser()
 
     React.useEffect(() => {
         axios
-            .get(`${BASE_URL}/api/users/${id}`)
+            .get(`${BASE_URL}/api/users/${id}`, user.getOptions())
             .then((response) => setData(response.data));
+
+        axios
+            .get(`${BASE_URL}/api/users/${id}/yearly_sales`)
+            .then((response) => setStats(response.data));
     }, [id]);
 
     return (
@@ -25,18 +38,16 @@ const Single = () => {
                 <div className="singleContainer">
                     <div className="singleTop">
                         <div className="singleLeft">
+                            <NavLink
+                                to={`/user/edit/${data?.id}`}
+                            >
                             <div className="editButton">Editer</div>
+                            </NavLink>
                             <h1 className="singleTitle">Information</h1>
                             <div className="singleItem">
-                                <img
-                                    src="https://images.pexels.com/photos/1933873/pexels-photo-1933873.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
-                                    alt=""
-                                    className="itemImg"
-                                />
-
                                 <div className="details">
                                     <h1 className="singleItemTitle">
-                                        {data?.firstname + " " + data?.lastname}
+                                        {data?.first_name + " " + data?.last_name}
                                     </h1>
                                     <div className="singleDetailItem">
                                         <span className="itemKey">Email: </span>
@@ -49,7 +60,7 @@ const Single = () => {
                                             Téléphone:{" "}
                                         </span>
                                         <span className="itemValue">
-                                            {data?.phonenumber}
+                                            {data?.phone_number}
                                         </span>
                                     </div>
                                     <div className="singleDetailItem">
@@ -57,7 +68,7 @@ const Single = () => {
                                             Adresse:{" "}
                                         </span>
                                         <span className="itemValue">
-                                            {data?.address1}
+                                            {data?.address_1}
                                         </span>
                                     </div>
                                     <div className="singleDetailItem">
@@ -73,6 +84,7 @@ const Single = () => {
                             <Chart
                                 aspect={3 / 1}
                                 title="Revenu du client (Des 6 derniers mois)"
+                                data={stats}
                             />
                         </div>
                     </div>

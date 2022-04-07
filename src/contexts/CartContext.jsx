@@ -14,14 +14,14 @@ const reducer = (state, action) => {
                 isCartOpen: !state.isCartOpen,
             };
         case "ADD_TO_CART":
-            const id = action.payload.cartItem.ProductID;
+            const id = action.payload.cartItem.id;
             const isOld = state.items
-                .map((item) => item.ProductID)
+                .map((item) => item.id)
                 .includes(id);
             let cartItems = null;
             if (isOld) {
                 const items = state.items.map((item) => {
-                    if (item.ProductID === id) {
+                    if (item.id === id) {
                         return {
                             ...item,
                             quantity:
@@ -45,7 +45,7 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 items: state.items.filter(
-                    (item) => item.ProductID !== action.payload.cartItemId
+                    (item) => item.id !== action.payload.cartItemId
                 ),
             };
         case "CLEAR_CART":
@@ -114,6 +114,8 @@ const CartProvider = ({ children }) => {
         });
     };
 
+    const numberOfProducts = () => state.items.length
+
     const remove = (cartItemId) => {
         return dispatch({
             type: "REMOVE_FROM_CART",
@@ -125,10 +127,11 @@ const CartProvider = ({ children }) => {
 
     const contextValues = {
         add,
-        total,
         clear,
         change,
+        numberOfProducts,
         remove,
+        total,
         ...state,
     };
 

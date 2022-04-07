@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import "./PresentationForm.css"
 
-const TextForm = () => {
+const PresentationForm = () => {
   const { register, handleSubmit, setValue } = useForm();
   const [update, setUpdate] = useState("");
 
@@ -30,20 +31,20 @@ const TextForm = () => {
   });
 
   return (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <div className="presentationForm">
+      <h1>Modification du texte de présentation</h1>
+      <form classeName="presentationForm" onSubmit={handleSubmit(onSubmit)}>
         <textarea
           id="presentation"
           cols="30"
           rows="10"
           {...register("presentation")}
         ></textarea>
-
-        <input type="submit" />
+        <input type="submit" value="Valider"/>
       </form>
       <p>{update}</p>
     </div>
   );
 };
 
-export default TextForm;
+export default PresentationForm;
