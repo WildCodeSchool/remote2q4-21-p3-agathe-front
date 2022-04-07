@@ -53,6 +53,9 @@ const Footer = () => {
       <div className="legals">
         <p>Mentions légales</p>
       </div>
+      <div className="developed-by">
+        <p>Développé avec ❤️ par les <a href="https://www.wildcodeschool.com/fr-FR">Wilders</a></p>
+      </div>
     </div>
   );
 };
