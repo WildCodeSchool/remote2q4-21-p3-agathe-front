@@ -16,6 +16,11 @@
     border: 1px solid gray;
 }
 
+.tableCell {
+    font-weight: 600;
+    font-family: var(--font-home);
+}
+
 .status {
     padding: 5px;
     border-radius: 5px;

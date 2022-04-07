@@ -25,7 +25,7 @@ const ContactForm = () => {
                 {errors?.email && errors.email.message}
               </small>
             </div>
-            <div>
+            <div className="Form">
               <textarea name="name" type="text" placeholder="Votre message" {...register('name', registerOptions.name)} />
               <small className="text-danger">
                 {errors?.name && errors.name.message}
