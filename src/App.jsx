@@ -2,19 +2,12 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AdminPanel from "./pages/admin/AdminPanel";
 import List from './pages/admin/List';
-<<<<<<< HEAD
-import New from './pages/admin/New';
-import NewProduct from "./pages/admin/NewProduct"
-import Single from './pages/admin/Single';
-
-=======
 import ListOrders from './pages/admin/ListOrders';
 import New from './pages/admin/NewUser';
 import Product from "./pages/admin/Product"
 import Single from './pages/admin/Single';
 import SingleOrder from './pages/admin/SingleOrder';
 import SingleProduct from './pages/admin/SingleProduct';
->>>>>>> c5dc37a9e2fdca7dba298f509bea5d352759a6c1
 import Brand from "./pages/Brand";
 import CartPage from "./pages/CartPage";
 import CartProvider from "./contexts/CartContext";
@@ -22,20 +15,12 @@ import Checkout from "./pages/Checkout";
 import ContactPage from "./pages/ContactPage";
 import Home from "./pages/Home";
 import LoginForm from "./components/form/LoginForm"
-<<<<<<< HEAD
-import Logout from "./components/form/Logout";
-=======
->>>>>>> c5dc37a9e2fdca7dba298f509bea5d352759a6c1
 import Page from "./middleware/Page";
 import ProductsList from "./components/products/ProductsList";
 import ProductPage from "./pages/ProductPage";
 import RegisterForm from "./components/form/RegisterForm";
-<<<<<<< HEAD
-import TextForm from "./components/admin/TextForm";
-=======
 import Presentation from "./pages/admin/Presentation";
 import ProtectedRoute from "./middleware/ProtectedRoute";
->>>>>>> c5dc37a9e2fdca7dba298f509bea5d352759a6c1
 import UserProvider from './contexts/UserProvider';
 import { userInputs } from "./formSource";
 import "./App.css";
