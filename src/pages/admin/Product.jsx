@@ -4,9 +4,9 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import Sidebar from "../../components/admin/Sidebar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
-import "./NewProduct.css";
+import "./Product.css";
 
-const New = ({ title }) => {
+const Product = ({ title }) => {
     const { register, handleSubmit, reset } = useForm();
     const [productData, setProductData] = useState(null);
     const [file, setFile] = useState("");
@@ -18,7 +18,16 @@ const New = ({ title }) => {
                 .get(
                     `${process.env.REACT_APP_URL_SERVER}/api/products/${params.id}`
                 )
-                .then(response => {
+                .then((response) => {
+                    // préparation de ingrédients
+                    let i = 0
+                    for (let { id, name, description } of response.data
+                        .ingredients) {
+                        response.data[`ingredient-${i}-name`] = name;
+                        response.data[`ingredient-${i}-description`] =
+                            description;
+                        i += 1
+                    }
                     reset(response.data);
                     setProductData(response.data);
                 });
@@ -33,49 +42,80 @@ const New = ({ title }) => {
                 else formData.append(item, data[item]);
             }
             if (productData) {
+                console.log('formData:')
+                for (let fi of formData.entries()) console.log(fi)
+
                 axios
-                .put(
-                    `${process.env.REACT_APP_URL_SERVER}/api/products`,
-                    formData
+                    .put(
+                        `${process.env.REACT_APP_URL_SERVER}/api/products`,
+                        formData, { withCredentials: true, mode: "cors" }
                     )
-                    .then(res => {
+                    .then((res) => {
+                        console.log(res)
                         if (res.status === 200) {
                             // setUpdate("Mise à jour effectuée");
                             // console.log({ update });
                             //   redirect("/#homepage");
                         }
-                    });
+                    })
+                    .catch(err => console.log(err));
             } else {
                 axios
-                .post(
-                    `${process.env.REACT_APP_URL_SERVER}/api/products`,
-                    formData
+                    .post(
+                        `${process.env.REACT_APP_URL_SERVER}/api/products`,
+                        formData, { withCredentials: true, mode: "cors" }
                     )
-                    .then(res => {
+                    .then((res) => {
                         if (res.status === 200) {
                             // setUpdate("Mise à jour effectuée");
                             // console.log({ update });
                             //   redirect("/#homepage");
                         }
-                    });
-                }
+                    })
+                    .catch(err => console.log(err));
+            }
         } catch (error) {
             console.log(error);
         }
     };
 
-    const Ingredients = ({ingredients}) => {
-        console.log(ingredients)
+    const EmptyIngredients = () => {
         return (
             <>
-                {!productData &&
-                    [0, 1, 2, 3, 4, 5].map(index => (
+                {[0, 1, 2, 3, 4, 5].map((index) => (
+                    <tr>
+                        <td>
+                            <input
+                                type="text"
+                                {...register(`ingredient-${index}-name`)}
+                            />
+                        </td>
+                        <td>
+                            <input
+                                type="text"
+                                {...register(`ingredient-${index}-description`)}
+                            />
+                        </td>
+                    </tr>
+                ))}
+            </>
+        );
+    };
+
+    const Ingredients = () => {
+        if (!productData) return <>Loading...</>;
+        console.log(productData?.ingredients);
+        return (
+            <>
+                {productData.ingredients &&
+                    productData.ingredients.map(({ id, name, description }, index) => (
                         <tr>
+                            {/* {console.log(id, name, description)} */}
                             <td>
                                 <input
                                     type="text"
                                     {...register(`ingredient-${index}-name`)}
-                                />
+                               />
                             </td>
                             <td>
                                 <input
@@ -83,27 +123,6 @@ const New = ({ title }) => {
                                     {...register(
                                         `ingredient-${index}-description`
                                     )}
-                                />
-                            </td>
-                        </tr>
-                    ))}
-                {productData &&
-                    productData.ingredients.map(({ id, name, description }) => (
-                        <tr>
-                            <td>
-                                <input
-                                    type="text"
-                                    {...register(`ingredient-${id}-name`)}
-                                    value={name}
-                                />
-                            </td>
-                            <td>
-                                <input
-                                    type="text"
-                                    {...register(
-                                        `ingredient-${id}-description`
-                                    )}
-                                    value={description}
                                 />
                             </td>
                         </tr>
@@ -194,7 +213,12 @@ const New = ({ title }) => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <Ingredients ingredients={productData?.ingredients}/>
+                                        {!productData && <EmptyIngredients/>}
+                                        {productData && (
+                                            <Ingredients
+                                                key={productData?.id}
+                                            />
+                                        )}
                                     </tbody>
                                 </table>
                                 <button>Send</button>
@@ -207,4 +231,4 @@ const New = ({ title }) => {
     );
 };
 
-export default New;
+export default Product;

@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AdminPanel from "./pages/admin/AdminPanel";
 import List from './pages/admin/List';
 import New from './pages/admin/NewUser';
-import NewProduct from "./pages/admin/NewProduct"
+import Product from "./pages/admin/Product"
 import Single from './pages/admin/Single';
 import SingleProduct from './pages/admin/SingleProduct';
 import Brand from "./pages/Brand";
@@ -64,8 +64,8 @@ function App() {
               <Route path={`${PATH_ADMIN}/products`}>
                 <Route index element={<ProtectedRoute><List /></ProtectedRoute>} />
                 <Route path=":id" element={<ProtectedRoute><SingleProduct /></ProtectedRoute>} />
-                <Route path="new" element={<ProtectedRoute><NewProduct title="Ajouter un produit" /></ProtectedRoute>} />
-                <Route path="edit/:id" element={<ProtectedRoute><NewProduct title="Modifier un produit" /></ProtectedRoute>} />
+                <Route path="new" element={<ProtectedRoute><Product title="Ajouter un produit" /></ProtectedRoute>} />
+                <Route path="edit/:id" element={<ProtectedRoute><Product title="Modifier un produit" /></ProtectedRoute>} />
               </Route>
               <Route path={`${PATH_ADMIN}/users`}>
                 <Route index element={<ProtectedRoute><List /></ProtectedRoute>} />
