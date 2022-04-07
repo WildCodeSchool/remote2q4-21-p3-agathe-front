@@ -44,14 +44,14 @@ const Sidebar = () => {
                     <Link to={`${PATH_ADMIN}/orders`} style={{ textDecoration: "none" }}>
                     <li>
                         <CreditCardOutlinedIcon className='icon' />
-                        <span>Commandes</span>
+                        <span>Attente paiement</span>
                     </li>
                     </Link>
                     <Link to={`${PATH_ADMIN}/deliveries`} style={{ textDecoration: "none" }}>
 
                     <li>
                         <LocalShippingOutlinedIcon className='icon' />
-                        <span>Livraison</span>
+                        <span>A livrer</span>
                     </li>
                     </Link>
                     <p className="sidebarTitle">MODIFICATIONS</p>
