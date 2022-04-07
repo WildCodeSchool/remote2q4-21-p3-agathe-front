@@ -6,10 +6,6 @@
     align-items: center;
 }
 
-.ContactForm div {
-    width: 50%;
-}
-
 .TitleForm {
     font-size: 30px;
     font-family: var(--font-home);
@@ -18,8 +14,6 @@
 }
 
 .Form input {
-    /* outline: none;
-    border: none; */
     width: 30%;
     font-size: 15px;
     font-family: var(--font-text);
@@ -34,8 +28,6 @@
 }
 
 .ContactForm textarea {
-    /* outline: none;
-    border: none; */
     width: 30%;
     font-size: 15px;
     font-family: var(--font-text);
@@ -65,4 +57,14 @@
     color: #2C3331;
     box-shadow: inset 4px 4px 12px white,
                 inset -4px -4px 12px white;
+}
+
+@media screen and (max-width: 400px) {
+    .contactContainer {
+        width: 350px;
+    }
+
+    .Form input, .Form textarea {
+        width: 350px;
+    }
 }

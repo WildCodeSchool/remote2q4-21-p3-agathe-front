@@ -53,7 +53,7 @@ const Sidebar = () => {
                         <span>Livraison</span>
                     </li>
                     </Link>
-                    <p className="sidebarTitle">Modifications</p>
+                    <p className="sidebarTitle">MODIFICATIONS</p>
                     <Link to={`${PATH_ADMIN}/presentation`} style={{ textDecoration: "none" }}>
                     <li>
                         <AssessmentOutlinedIcon className='icon' />

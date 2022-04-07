@@ -8,7 +8,7 @@
 }
 
 .registerContainer {
-    width: 600px;
+    width: 750px;
     min-height: 550px;
     display: flex;
     flex-direction: column;
@@ -35,6 +35,7 @@
 }
 
 .registerLeft, .registerRight {
+    width: 300px;
     margin: 2.5rem;
     display: flex;
     flex-direction: column;
@@ -127,6 +128,11 @@
     .registerContainer {
         width: 85vw;
     }
+
+    .registerLeft, .registerRight {
+        width: 100%;
+    }
+
     .registerInput {
         display: flex;
         flex-direction: column;
@@ -139,6 +145,5 @@
 
     .registerContainer input {
         width: 15rem;
-
     }
 }

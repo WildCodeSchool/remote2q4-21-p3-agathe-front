@@ -7,6 +7,7 @@
     background-repeat: no-repeat;
     background-size: 50% 100%;
     background-position: right;
+    min-height: 80vh;
 }
 
 .contactContainer {
@@ -36,4 +37,15 @@ a.email {
     font-size: 20px;
     font-family: var(--font-text);
     color: #2C3331;
+}
+
+@media screen and (max-width: 1000px) {
+    .contactPage {
+        background-image: none;
+    }
+
+    .contactRight {
+        Flex: 0;
+    }
+
 }

@@ -4,6 +4,7 @@
     min-height: 100vh;
     background-color: var(--main-bg-color);
     width: 20vh;
+    font-family: var(--font-text);
 }
 
 .center {
@@ -17,11 +18,12 @@
 }
 
 .sidebarTitle {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: bold;
     color: var(--darkgreen);
     margin-top: 15px;
     margin-bottom: 5px;
+    font-family: var(--font-title);
 }
 
 .center li {

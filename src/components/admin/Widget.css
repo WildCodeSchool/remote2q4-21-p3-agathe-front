@@ -17,9 +17,10 @@
 }
 
 .widgetTitle {
-    font-weight: bold;
     font-size: 14px;
     color: var(--darkgreen);
+    font-weight: 600;
+    font-family: var(--font-home);
 }
 
 .counter {
