@@ -47,7 +47,7 @@ const Checkout = () => {
             )}
             {user.data && (
                 <>
-                    <div>User connected</div>
+                    <div>Utilisateur connecté</div>
                     <Order />
                 </>
             )}

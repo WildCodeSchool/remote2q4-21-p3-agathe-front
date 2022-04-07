@@ -21,7 +21,6 @@ const Navbar = () => {
         else setItemsInCart("");
     }, [cart]);
 
-        console.log(user.data)
     return (
         <div className="navbar">
             <div className="logo">
