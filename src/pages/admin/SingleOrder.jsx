@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import List from "../../components/admin/Table";
 import Sidebar from "../../components/admin/Sidebar";
@@ -10,29 +10,30 @@ const BASE_URL = process.env.REACT_APP_URL_SERVER;
 const Single = () => {
     const id = useParams().id;
     const [order, setOrder] = React.useState(null);
+    const navigate = useNavigate()
 
     const orderPaid = (order) => {
         axios
-            .get(`${BASE_URL}/api/orders/paid/${id}`, id, {
+            .put(`${BASE_URL}/api/orders/paid/${id}`, {
                 withCredentials: true,
                 mode: "cors",
             })
-            .then((response) => {console.log(response.data)})
+            .then((response) => {console.log(response.data);navigate(-1)})
             .catch((err) => console.log(err));
     }
     const orderShipped = (order) => {
         axios
-            .get(`${BASE_URL}/api/orders/shipped/${id}`, id, {
+            .put(`${BASE_URL}/api/orders/shipped/${id}`, {
                 withCredentials: true,
                 mode: "cors",
             })
-            .then((response) => {console.log(response.data)})
+            .then((response) => {console.log(response.data);navigate(-1)})
             .catch((err) => console.log(err));
     }
 
     React.useEffect(() => {
         axios
-            .get(`${BASE_URL}/api/orders/${id}`, id, {
+            .get(`${BASE_URL}/api/orders/${id}`, {
                 withCredentials: true,
                 mode: "cors",
             })
