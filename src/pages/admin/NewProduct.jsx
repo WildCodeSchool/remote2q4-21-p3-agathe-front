@@ -64,7 +64,8 @@ const New = ({ title }) => {
         }
     };
 
-    const Ingredients = () => {
+    const Ingredients = ({ingredients}) => {
+        console.log(ingredients)
         return (
             <>
                 {!productData &&
@@ -170,19 +171,19 @@ const New = ({ title }) => {
                                     {...register("characteristic")}
                                     cols="30"
                                     rows="10"
-                                    placeholder="caractéristiques"
+                                    placeholder="Caractéristiques"
                                 ></textarea>
                                 <textarea
                                     {...register("description")}
                                     cols="30"
                                     rows="10"
-                                    placeholder="description"
+                                    placeholder="Description"
                                 ></textarea>
                                 <textarea
                                     {...register("ingredients_details")}
                                     cols="30"
                                     rows="10"
-                                    placeholder="composition"
+                                    placeholder="Composition"
                                 ></textarea>
 
                                 <table>
@@ -193,7 +194,7 @@ const New = ({ title }) => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <Ingredients />
+                                        <Ingredients ingredients={productData?.ingredients}/>
                                     </tbody>
                                 </table>
                                 <button>Send</button>

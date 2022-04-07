@@ -10,13 +10,18 @@ const BASE_URL = process.env.REACT_APP_URL_SERVER;
 const PATH_ADMIN = process.env.REACT_APP_PATH_ADMIN;
 
 const Single = () => {
-    const [data, setData] = React.useState(null);
     const id = useParams().id;
+    const [data, setData] = React.useState(null);
+    const [stats, setStats] = React.useState(null);
 
     React.useEffect(() => {
         axios
             .get(`${BASE_URL}/api/products/${id}`)
             .then(response => setData(response.data));
+
+        axios
+            .get(`${BASE_URL}/api/products/${id}/yearly_sales`)
+            .then((response) => setStats(response.data));
     }, [id]);
 
     return (
@@ -56,24 +61,20 @@ const Single = () => {
                                         </span>
                                     </div>
                                     <div className="singleDetailItem">
-                                        <span className="itemKey">: </span>
+                                        <span className="itemKey">Caract.: </span>
                                         <span className="itemValue">
-                                            {data?.address_1}
+                                            {data?.characteristic}
                                         </span>
                                     </div>
-                                    <div className="singleDetailItem">
-                                        <span className="itemKey">: </span>
-                                        <span className="itemValue">
-                                            {data?.postcode} {data?.city}
-                                        </span>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
                         <div className="singleRight">
                             <Chart
                                 aspect={3 / 1}
-                                title="Revenu du client (Des 6 derniers mois)"
+                                title="Revenu du produit (Des 6 derniers mois)"
+                                data={stats}
                             />
                         </div>
                     </div>
