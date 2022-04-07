@@ -9,11 +9,12 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import "./Table.css";
+import { defaultListboxReducer } from "@mui/base";
 
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
 const PATH_ADMIN = process.env.REACT_APP_PATH_ADMIN;
 
-const List = () => {
+const ListComplete = () => {
     const [rows, setRows] = React.useState(null);
     const id = useParams().id;
     const { pathname } = useLocation();
@@ -27,7 +28,7 @@ const List = () => {
         }
         axios
             .get(url, { withCredentials: true, mode: "cors" })
-            .then(response => setRows(response.data));
+            .then((response) => setRows(response.data));
     }, []);
 
     return (
@@ -90,4 +91,64 @@ const List = () => {
     );
 };
 
+const ListOrder = ({ order }) => {
+    const [rows, setRows] = React.useState(null);
+
+    React.useEffect(() => {
+        console.log("ListOrder", order);
+        let url = `${BASE_URL}/api/orders/detail/${order}`;
+        axios
+            .get(url, { withCredentials: true, mode: "cors" })
+            .then((response) => setRows(response.data));
+    }, []);
+
+    return (
+        <TableContainer component={Paper} className="table">
+            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                <TableHead>
+                    <TableRow>
+                        <TableCell className="tableCell">Produit</TableCell>
+                        <TableCell className="tableCell">Quantité</TableCell>
+                        <TableCell className="tableCell">
+                            Prix Unitaire
+                        </TableCell>
+                        <TableCell className="tableCell">Montant</TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    {console.log("rows", rows)}
+                    {rows &&
+                        rows.map((row, index) => (
+                            <TableRow key={index}>
+                                <TableCell className="tableCell">
+                                    <div className="cellWrapper">
+                                        <img
+                                            src={`${BASE_URL}/assets/${row.picture}`}
+                                            alt=""
+                                            className="datatableImage"
+                                        />
+                                        {row.product}
+                                    </div>
+                                </TableCell>
+                                <TableCell className="tableCell">
+                                    {row.quantity}
+                                </TableCell>
+                                <TableCell className="tableCell">
+                                    {row.price}
+                                </TableCell>
+                                <TableCell className="tableCell">
+                                    {row.amount} €
+                                </TableCell>
+                            </TableRow>
+                        ))}
+                </TableBody>
+            </Table>
+        </TableContainer>
+    );
+};
+
+const List = ({ order }) => {
+    if (order) return <ListOrder order={order} />;
+    else return <ListComplete />;
+};
 export default List;

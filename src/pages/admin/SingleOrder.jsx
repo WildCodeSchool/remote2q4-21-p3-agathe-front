@@ -37,12 +37,8 @@ const Single = () => {
                 withCredentials: true,
                 mode: "cors",
             })
-            .then((response) => {console.log(response.data);setOrder(response.data)})
+            .then((response) => setOrder(response.data))
             .catch((err) => console.log(err));
-
-        // axios
-        //     .get(`${BASE_URL}/api/users/${id}/yearly_sales`)
-        //     .then((response) => setStats(response.data));
     }, [id]);
 
     return (
@@ -59,7 +55,6 @@ const Single = () => {
                                 Information de la commande {id}
                             </h1>
                             <div className="singleItem">
-                                {console.log('order', order)}
                                 <table>
                                     <thead>
                                         <tr>
@@ -91,7 +86,7 @@ const Single = () => {
                     </div>
                     <div className="singleBottom">
                         <h2 className="singleTitle">Dernières commandes</h2>
-                        <List />
+                        <List order={order?.id}/>
                     </div>
                 </div>
             </div>
