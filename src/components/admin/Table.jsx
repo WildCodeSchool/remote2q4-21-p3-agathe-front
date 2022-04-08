@@ -31,8 +31,9 @@ const ListComplete = () => {
     }, []);
 
     const getClassName = (state) => {
-        if (state==='En attente') return 'Pending'
-        else if (state==='Payé') return 'Approved'
+        if (state === 'En attente') return 'Pending'
+        if (state === 'Envoyé') return 'Shipped'
+        else if (state === 'Payé') return 'Payed'
     }
 
     return (
