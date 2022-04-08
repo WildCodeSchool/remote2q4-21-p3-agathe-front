@@ -3,7 +3,7 @@ import { NavLink, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import List from "../../components/admin/Table";
 import Sidebar from "../../components/admin/Sidebar";
-import "./Single.css";
+import "./SingleOrder.css";
 
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
@@ -55,7 +55,7 @@ const Single = () => {
                                 Information de la commande {id}
                             </h1>
                             <div className="singleItem">
-                                <table>
+                                <table className="headerTable">
                                     <thead>
                                         <tr>
                                             <th>No commande</th>
