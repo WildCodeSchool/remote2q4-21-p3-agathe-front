@@ -3,13 +3,12 @@
   flex-direction: column;
   font-family: var(--font-text);
   width: 100%;
-  border: 1px solid #000;
 }
 
 .cart-title h1 {
   color: var(--darkgreen);
   font-size: 3rem;
-  margin-top: 2rem;
+  margin-bottom: 5rem;
   padding-left: 3rem;
   text-align: center;
   text-transform: uppercase;
@@ -30,6 +29,7 @@
 
   .cart-title h1 {
     font-size: 1.25rem;
+    margin: 2rem 0 1rem;
     padding-left: 0;
     text-align: center;
     text-transform: uppercase;
