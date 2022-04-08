@@ -41,7 +41,6 @@ const ContactForm = () => {
               </small>
             </div>
             <div className="Form">
-<<<<<<< HEAD
               <input type="email" name="email" placeholder="Votre email" required
                 {...register('email', registerOptions.email)}
               />
@@ -51,9 +50,7 @@ const ContactForm = () => {
             </div>
             <div className="Form">
               <textarea name="name" type="text" placeholder="Votre message" {...register('name', registerOptions.name)} />
-=======
               <textarea name="name" type="text" placeholder="Message" {...register('name', registerOptions.name)} />
->>>>>>> 88e0d56c8b560a4e6d25347f95bcdb0ec3252ad1
               <small className="text-danger">
                 {errors?.name && errors.name.message}
               </small>
