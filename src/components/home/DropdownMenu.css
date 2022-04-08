@@ -35,3 +35,8 @@
     padding: 15px 20px;
     display: block;
 }
+
+.submenu li:hover {
+    background-color: var(--greenblue);
+    border-radius: 8px;
+}

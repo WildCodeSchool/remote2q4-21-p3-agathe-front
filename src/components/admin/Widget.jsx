@@ -5,7 +5,7 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
-import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
+import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import "./Widget.css";
 
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
@@ -88,7 +88,7 @@ const Widget = ({ type }) => {
                 isMoney: false,
                 link: <NavLink to={`${PATH_ADMIN}/products`}>Voir tous les produits</NavLink>,
                 icon: (
-                    <AccountBalanceWalletOutlinedIcon
+                    <Inventory2OutlinedIcon
                         className="icon"
                         style={{
                             color: "purple",
