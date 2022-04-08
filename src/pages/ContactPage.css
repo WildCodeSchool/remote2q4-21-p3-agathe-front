@@ -39,7 +39,7 @@ a.email {
     color: #2C3331;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 480px) {
     .contactPage {
         background-image: none;
     }

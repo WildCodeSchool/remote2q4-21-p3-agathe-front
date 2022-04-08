@@ -15,10 +15,25 @@ const ContactForm = () => {
   return (
     <div className="contactContainer">
         <div className="ContactForm">
-          <h1 className="TitleForm">Formulaire de Contact</h1>
           <form onSubmit={handleSubmit(handleRegistration, handleError)}>
+          <div className="Form">
+              <input type="text" name="lastname" placeholder="Nom" required
+                {...register('last_name', registerOptions.last_name)}
+              />
+              <small className="text-danger">
+                {errors?.last_name && errors.last_name.message}
+              </small>
+            </div>
             <div className="Form">
-              <input type="email" name="email" placeholder="Votre email" required
+              <input type="text" name="firstname" placeholder="Prénom" required
+                {...register('first_name', registerOptions.first_name)}
+              />
+              <small className="text-danger">
+                {errors?.first_name && errors.email.first_name}
+              </small>
+            </div>
+            <div className="Form">
+              <input type="email" name="email" placeholder="Email" required
                 {...register('email', registerOptions.email)}
               />
               <small className="text-danger">
@@ -26,6 +41,7 @@ const ContactForm = () => {
               </small>
             </div>
             <div className="Form">
+<<<<<<< HEAD
               <input type="email" name="email" placeholder="Votre email" required
                 {...register('email', registerOptions.email)}
               />
@@ -35,12 +51,15 @@ const ContactForm = () => {
             </div>
             <div className="Form">
               <textarea name="name" type="text" placeholder="Votre message" {...register('name', registerOptions.name)} />
+=======
+              <textarea name="name" type="text" placeholder="Message" {...register('name', registerOptions.name)} />
+>>>>>>> 88e0d56c8b560a4e6d25347f95bcdb0ec3252ad1
               <small className="text-danger">
                 {errors?.name && errors.name.message}
               </small>
             </div>
-            <button class="sendingBtn">Envoyer le message</button>
           </form>
+          <button class="sendingBtn">Envoyer</button>
         </div>
     </div>
   );
