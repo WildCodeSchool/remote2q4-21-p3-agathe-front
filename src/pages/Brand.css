@@ -40,7 +40,6 @@
 }
 
 .Description p {
-
     font-size: 1.5em;
     text-align: center;
     line-height: 1.5em;
@@ -82,5 +81,10 @@
         left: 0%;
         top: 2%;
         font-size: 3em;
+    }
+
+    .Description p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
     }
 }
