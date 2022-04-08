@@ -19,7 +19,6 @@
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   .ModalCart button {
     font-size: 0.7rem;
-    cursor: none;
     padding: 0.5rem;
   }
 }
