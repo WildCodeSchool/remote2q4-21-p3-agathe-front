@@ -30,6 +30,11 @@ const ListComplete = () => {
             .then((response) => setRows(response.data));
     }, []);
 
+    const getClassName = (state) => {
+        if (state==='En attente') return 'Pending'
+        else if (state==='Payé') return 'Approved'
+    }
+
     return (
         <TableContainer component={Paper} className="table">
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -78,7 +83,7 @@ const ListComplete = () => {
                                     {row.method}
                                 </TableCell>
                                 <TableCell className="tableCell">
-                                    <span className={`status ${row.state}`}>
+                                    <span className={`status ${getClassName(row.state)}`}>
                                         {row.state}
                                     </span>
                                 </TableCell>

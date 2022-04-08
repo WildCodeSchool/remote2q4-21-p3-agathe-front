@@ -51,7 +51,7 @@ const Sidebar = () => {
 
                     <li>
                         <LocalShippingOutlinedIcon className='icon' />
-                        <span>A livrer</span>
+                        <span>En Livraison</span>
                     </li>
                     </Link>
                     <p className="sidebarTitle">MODIFICATIONS</p>
