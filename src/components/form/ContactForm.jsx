@@ -4,7 +4,7 @@ import "./ContactForm.css";
 
 const ContactForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const handleRegistration = (data) => console.log(data);
+  const handleRegistration = (data) => {}
   const handleError = (errors) => { };
 
   const registerOptions = {

@@ -27,30 +27,24 @@ const RegisterForm = () => {
                     mode: "cors",
                 })
                 .then(credentials => {
-                    console.log(credentials)
                     user.set(credentials.data);
                     navigate("/checkout");
                 })
-                .catch(error => console.log(error));
+                .catch(error => {});
         } else {
-            console.log('update user')
-            console.log(data)
             axios
                 .put(`${process.env.REACT_APP_URL_SERVER}/api/users`, data, {
                     withCredentials: true,
                     mode: "cors",
                 })
                 .then(credentials => {
-                    console.log(credentials)
                     user.set(credentials.data);
                     navigate("/");
                 })
-                .catch(error => console.log(error));
+                .catch(error => {});
         }
     };
-    const handleError = (errors) => {
-        console.log(errors);
-    };
+    const handleError = (errors) => {}
 
     const registerOptions = {
         first_name: { required: "Votre prénom est requis" },

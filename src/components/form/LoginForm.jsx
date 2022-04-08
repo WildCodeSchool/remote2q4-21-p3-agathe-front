@@ -6,7 +6,7 @@ import "./LoginForm.css";
 
 const RegisterForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const handleError = (errors) => { console.log('handleError'); console.log(errors) };
+  const handleError = (errors) => {};
   const user = useUser();
 
   const registerOptions = {

@@ -26,9 +26,7 @@ const UserProvider = ({ children }) => {
             let result = await axios.post(url, { email, password }, { withCredentials: true, mode: 'cors' })
             set(result.data)
             navigate(-1)
-        } catch (error) {
-          console.log(`Error during login :${error}`);
-        }
+        } catch (error) {}
     }
 
     const logout = async () => {
@@ -36,7 +34,6 @@ const UserProvider = ({ children }) => {
             let url = `${process.env.REACT_APP_URL_SERVER}/api/auth/logout`
             await axios.get(url, null, { withCredentials: true, mode: 'cors' })
         } catch (error) {
-            console.log(`Error during logout :${error}`);
         } finally {
             set(null)
             navigate('/')

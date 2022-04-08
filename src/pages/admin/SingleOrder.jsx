@@ -18,8 +18,8 @@ const Single = () => {
                 withCredentials: true,
                 mode: "cors",
             })
-            .then((response) => {console.log(response.data);navigate(-1)})
-            .catch((err) => console.log(err));
+            .then((response) => navigate(-1))
+            .catch((err) => {});
     }
     const orderShipped = (order) => {
         axios
@@ -27,8 +27,8 @@ const Single = () => {
                 withCredentials: true,
                 mode: "cors",
             })
-            .then((response) => {console.log(response.data);navigate(-1)})
-            .catch((err) => console.log(err));
+            .then((response) => navigate(-1))
+            .catch((err) => {});
     }
 
     React.useEffect(() => {
@@ -38,7 +38,7 @@ const Single = () => {
                 mode: "cors",
             })
             .then((response) => setOrder(response.data))
-            .catch((err) => console.log(err));
+            .catch((err) => {});
     }, [id]);
 
     return (

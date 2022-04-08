@@ -12,14 +12,11 @@ const New = ({ inputs, title }) => {
                 .post(`${process.env.REACT_APP_URL_SERVER}/api/users`, data)
                 .then((res) => {
                     if (res.status === 200) {
-                        console.log("création réussie");
                         // setUpdate("Mise à jour effectuée");
-                        //   redirect("/#homepage");
+                        // redirect("/#homepage");
                     }
                 });
-        } catch (error) {
-            console.log(error);
-        }
+        } catch (error) {}
     };
 
     return (
