@@ -2,10 +2,7 @@ import React from "react";
 import axios from "axios";
 import { Link, useLocation } from "react-router-dom";
 import { DataGrid } from "@mui/x-data-grid";
-import {
-    productColumns,
-    userColumns,
-} from "../../dataTableSource";
+import { productColumns, userColumns } from "../../dataTableSource";
 import useModal from "../modal/useModal";
 import Modal from "../modal/modal";
 import { useUser } from "../../contexts/UserProvider";
