@@ -16,7 +16,6 @@ import "./Navbar.css";
 const Navbar = () => {
   const cart = useCart();
   const dropdownRef = useRef("ddmenu");
-  console.log(dropdownRef)
   const user = useUser();
 
   const [itemsInCart, setItemsInCart] = useState("");

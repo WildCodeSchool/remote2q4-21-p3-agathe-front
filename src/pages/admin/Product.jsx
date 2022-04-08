@@ -52,7 +52,7 @@ const Product = ({ title }) => {
                         if (res.status === 200)
                             navigate(-1)
                     })
-                    .catch(err => console.log(err));
+                    .catch(err => {});
             } else {
                 axios
                     .post(
@@ -63,11 +63,9 @@ const Product = ({ title }) => {
                         if (res.status === 200)
                             navigate(-1)
                     })
-                    .catch(err => console.log(err));
+                    .catch(err => {});
             }
-        } catch (error) {
-            console.log(error);
-        }
+        } catch (error) {}
     };
 
     const EmptyIngredients = () => {
@@ -95,13 +93,11 @@ const Product = ({ title }) => {
 
     const Ingredients = () => {
         if (!productData) return <>Loading...</>;
-        console.log(productData?.ingredients);
         return (
             <>
                 {productData.ingredients &&
                     productData.ingredients.map(({ id, name, description }, index) => (
                         <tr>
-                            {/* {console.log(id, name, description)} */}
                             <td>
                                 <input
                                     type="text"
