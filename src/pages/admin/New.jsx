@@ -12,20 +12,15 @@ const New = ({ inputs, title }) => {
   const { register, handleSubmit, setValue } = useForm();
   const onSubmit = async (data) => {
     try {
-      console.log(data);
       axios
         .post(`${process.env.REACT_APP_URL_SERVER}/api/users`, data)
         .then((res) => {
           if (res.status === 200) {
-            console.log("création réussie")
             // setUpdate("Mise à jour effectuée");
-            // console.log({ update });
-            //   redirect("/#homepage");
+            // redirect("/#homepage");
           }
         });
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   return (

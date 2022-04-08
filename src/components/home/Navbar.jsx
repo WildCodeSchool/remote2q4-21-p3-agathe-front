@@ -15,7 +15,7 @@ import "./Navbar.css";
 
 const Navbar = () => {
   const cart = useCart();
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef("ddmenu");
   const user = useUser();
 
   const [itemsInCart, setItemsInCart] = useState("");
@@ -87,7 +87,7 @@ const Navbar = () => {
                       : null}
                   </span> }
                 </button>
-                <DropdownMenu innerRef={dropdownRef} isActive={isActive} />
+                <DropdownMenu ref={dropdownRef} isActive={isActive} />
               </div>
             )}
           </li>

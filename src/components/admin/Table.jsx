@@ -94,7 +94,6 @@ const ListOrder = ({ order }) => {
     const [rows, setRows] = React.useState(null);
 
     React.useEffect(() => {
-        console.log("ListOrder", order);
         let url = `${BASE_URL}/api/orders/detail/${order}`;
         axios
             .get(url, { withCredentials: true, mode: "cors" })
@@ -115,7 +114,6 @@ const ListOrder = ({ order }) => {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {console.log("rows", rows)}
                     {rows &&
                         rows.map((row, index) => (
                             <TableRow key={index}>

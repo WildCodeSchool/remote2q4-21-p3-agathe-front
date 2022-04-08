@@ -9,19 +9,15 @@ const PresentationForm = () => {
 
   const onSubmit = async (data) => {
     try {
-      console.log(data);
       axios
         .put(`${process.env.REACT_APP_URL_SERVER}/api/presentation`, data)
         .then((res) => {
           if (res.status === 200) {
             setUpdate("Mise à jour effectuée");
-            console.log({ update });
             //   redirect("/#homepage");
           }
         });
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {
