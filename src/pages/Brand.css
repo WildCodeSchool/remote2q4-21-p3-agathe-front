@@ -66,21 +66,3 @@
     justify-content: center;
 }
 
-@media screen and (max-width: 750px) {
-    .bottomImg img {
-        width: 100%;
-    }
-
-    .description_img {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-
-    .title {
-        width: 100%;
-        left: 0%;
-        top: 2%;
-        font-size: 3em;
-    }
-}
