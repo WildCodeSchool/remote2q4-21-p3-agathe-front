@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import Sidebar from "../../components/admin/Sidebar";
@@ -10,6 +10,7 @@ const Product = ({ title }) => {
     const { register, handleSubmit, reset } = useForm();
     const [productData, setProductData] = useState(null);
     const [file, setFile] = useState("");
+    const navigate = useNavigate()
     const params = useParams();
 
     React.useEffect(() => {
@@ -42,21 +43,14 @@ const Product = ({ title }) => {
                 else formData.append(item, data[item]);
             }
             if (productData) {
-                console.log('formData:')
-                for (let fi of formData.entries()) console.log(fi)
-
+                // BUG: with FormData, we receive a req.body={} in back. Why ?
+                // for (let fi of formData.entries()) console.log(fi)
+                let url = `${process.env.REACT_APP_URL_SERVER}/api/products/${data.id}`
                 axios
-                    .put(
-                        `${process.env.REACT_APP_URL_SERVER}/api/products`,
-                        formData, { withCredentials: true, mode: "cors" }
-                    )
+                    .put(url, data, { withCredentials: true, mode: "cors" })
                     .then((res) => {
-                        console.log(res)
-                        if (res.status === 200) {
-                            // setUpdate("Mise à jour effectuée");
-                            // console.log({ update });
-                            //   redirect("/#homepage");
-                        }
+                        if (res.status === 200)
+                            navigate(-1)
                     })
                     .catch(err => console.log(err));
             } else {
@@ -66,11 +60,8 @@ const Product = ({ title }) => {
                         formData, { withCredentials: true, mode: "cors" }
                     )
                     .then((res) => {
-                        if (res.status === 200) {
-                            // setUpdate("Mise à jour effectuée");
-                            // console.log({ update });
-                            //   redirect("/#homepage");
-                        }
+                        if (res.status === 200)
+                            navigate(-1)
                     })
                     .catch(err => console.log(err));
             }
