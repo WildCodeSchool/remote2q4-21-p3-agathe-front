@@ -21,7 +21,6 @@
     background-position: center;
 }
 
-
 .title {
     z-index: 1;
     top: 10%;
@@ -67,3 +66,22 @@
     justify-content: center;
 }
 
+@media screen and (max-width: 750px) {
+    .bottomImg img {
+        width: 100%;
+    }
+
+    .description_img {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .title {
+        width: 100%;
+        left: 0%;
+        top: 2%;
+        font-size: 3em;
+        /* border: 1px solid black; */
+    }
+}
