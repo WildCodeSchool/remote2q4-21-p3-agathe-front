@@ -49,11 +49,7 @@
   transition: all 0.3s;
   align-self: flex-end;
   margin: 0;
-}
-
-.sendingBtn:active {
-  color: var(--darkgreen);
-  box-shadow: inset 4px 4px 12px white, inset -4px -4px 12px white;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 480px) {
