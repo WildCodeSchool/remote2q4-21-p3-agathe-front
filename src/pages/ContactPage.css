@@ -1,7 +1,5 @@
 .contactPage {
     display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
     background-image: url("../../public/assets/img/Coquillages.jpeg");
     background-repeat: no-repeat;
@@ -23,11 +21,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 h1.contact {
-    margin-top: 40px;
+    /* margin-top: 40px; */
     font-size: 2em;
     font-family: var(--font-home);
     color: #2C3331;
@@ -43,9 +41,7 @@ a.email {
     .contactPage {
         background-image: none;
     }
-
     .contactRight {
         Flex: 0;
     }
-
 }

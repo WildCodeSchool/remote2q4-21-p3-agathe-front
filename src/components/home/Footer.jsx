@@ -59,7 +59,7 @@ const Footer = () => {
       <div className="developed-by">
         <p>
           Développé avec ❤️ par les{" "}
-          <a href="https://www.wildcodeschool.com/fr-FR">Wilders</a>
+          <a href="https://www.wildcodeschool.com/fr-FR" target="_blank" rel="noreferrer">Wilders</a>
         </p>
       </div>
     </div>
