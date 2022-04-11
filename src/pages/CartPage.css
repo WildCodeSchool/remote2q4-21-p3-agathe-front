@@ -1,6 +1,42 @@
 .CartContainer {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-text);
+  width: 100%;
+}
+
+.cart-title h1 {
+  color: var(--darkgreen);
+  font-size: 3rem;
+  margin-bottom: 5rem;
+  padding-left: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.cart-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .CartContainer {
     width: 100%;
-    display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .cart-title h1 {
+    font-size: 1.25rem;
+    margin: 2rem 0 1rem;
+    padding-left: 0;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .cart-content {
     align-items: center;
+    flex-direction: column;
+  }
 }

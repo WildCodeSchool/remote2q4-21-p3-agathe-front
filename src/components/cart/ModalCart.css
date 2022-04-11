@@ -1,17 +1,24 @@
 .ModalCart {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
-button {
-    background-color: var(--darkgreen);
-    border: none;
-    border-radius: 5px;
-    color: var(--greenblue);
-    cursor: pointer;
-    padding: 1rem;
+.ModalCart button {
+  background-color: var(--darkgreen);
+  border: none;
+  border-radius: 5px;
+  color: var(--greenblue);
+  cursor: pointer;
+  padding: 1rem;
 }
 
 .ModalCart .btn-link:visited {
-    color: var(--greenblue);
+  color: var(--greenblue);
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .ModalCart button {
+    font-size: 0.7rem;
+    padding: 0.5rem;
+  }
 }

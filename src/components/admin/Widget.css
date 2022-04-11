@@ -17,9 +17,10 @@
 }
 
 .widgetTitle {
-    font-weight: bold;
     font-size: 14px;
     color: var(--darkgreen);
+    font-weight: 600;
+    font-family: var(--font-home);
 }
 
 .counter {
@@ -32,6 +33,12 @@
     width: max-content;
     font-size: 12px;
     border-bottom: 1px solid gray;
+}
+
+.widgetLink a {
+    text-decoration: none;
+    color: var(--darkgreen);
+    font-size: 1em;
 }
 
 .percentage {

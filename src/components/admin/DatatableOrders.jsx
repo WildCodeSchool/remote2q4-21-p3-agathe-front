@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { Link, useLocation } from "react-router-dom";
 import { DataGrid } from "@mui/x-data-grid";
-import { productColumns, userColumns } from "../../dataTableSource";
+import {ordersColumns} from "../../dataTableSource";
 import useModal from "../modal/useModal";
 import Modal from "../modal/modal";
 import { useUser } from "../../contexts/UserProvider";
@@ -46,7 +46,10 @@ const Datatable = () => {
     }
 
     const getRows = (type) => {
-        let url = `${BASE_URL}/api/${type}`;
+        let url;
+        if (type === "deliveries")
+            url = `${BASE_URL}/api/orders/pending_deliveries`;
+        else url = `${BASE_URL}/api/orders/pending_payment`;
         axios
             .get(url, user.getOptions())
             .then((response) => setRows(response.data));
@@ -56,14 +59,14 @@ const Datatable = () => {
         if (!pathname) {
             return;
         }
-        if (pathname === `${PATH_ADMIN}/users`) {
-            setType("users");
-            getRows("users");
-            setColumns(userColumns);
-        } else if (pathname === `${PATH_ADMIN}/products`) {
-            setType("products");
-            getRows("products");
-            setColumns(productColumns);
+        if (pathname === `${PATH_ADMIN}/deliveries`) {
+            setType("deliveries");
+            getRows("deliveries");
+            setColumns(ordersColumns);
+        } else if (pathname === `${PATH_ADMIN}/orders`) {
+            setType("orders");
+            getRows("orders");
+            setColumns(ordersColumns);
         }
     }, [pathname]);
 
@@ -100,8 +103,8 @@ const Datatable = () => {
                 Liste des{" "}
                 {
                     {
-                        products: "produits",
-                        users: "utilisateurs",
+                        deliveries: "commandes à expédier",
+                        orders: "commandes en attente de paiement",
                     }[type]
                 }
                 <Link
@@ -111,7 +114,7 @@ const Datatable = () => {
                     Ajouter
                 </Link>
             </div>
-            {type === "users" ? (
+            {type === "deliveries" ? (
                 <DataGrid
                     rows={rows ?? []}
                     columns={columns.concat(actionColumn)}
@@ -120,7 +123,7 @@ const Datatable = () => {
                     checkboxSelection
                 />
             ) : null}
-            {type === "products" ? (
+            {type === "orders" ? (
                 <DataGrid
                     rows={rows ?? []}
                     columns={columns.concat(actionColumn)}

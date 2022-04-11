@@ -1,7 +1,7 @@
 .Description {
     display: flex;
+    min-height: 100vh;
     flex-direction: column;
-    /* background-color: var(--main-bg-color); */
     font-family: var(--font-text);
     position: relative;
     min-height: 100vh;
@@ -12,7 +12,7 @@
     background-image: url("../assets/Logo\ Elfenn\ cosmétiques\ modifier.png");
     background-repeat: no-repeat;
     position: absolute;
-    top: 50%;
+    top: 20%;
     z-index: 0;
     height: 80%;
     opacity: 0.2;
@@ -20,7 +20,6 @@
     object-fit: fill;
     background-position: center;
 }
-
 
 .title {
     z-index: 1;
@@ -35,26 +34,12 @@
     left: 27%;
 }
 
-/* hr {
-    z-index: 1;
-    top: 27%;
-    position: absolute;
-    height: 5px;
-    width: 27vw;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 5%;
-    color: white;
-    left: 37%;
-} */
-
 .BrandDesc {
     margin-bottom: 80px;
     position: relative;
 }
 
 .Description p {
-
     font-size: 1.5em;
     text-align: center;
     line-height: 1.5em;
@@ -73,7 +58,33 @@
     object-position: 0 50%;
 }
 
+.bottomImg {
+    width: 100%;
+    margin-top: -50px;
+    display: flex;
+    justify-content: center;
+}
 
-/* background-image: url("../assets/Logo\ Elfenn\ cosmétiques\ modifier.png");
-background-repeat: no-repeat;
-background-position */
+@media screen and (max-width: 750px) {
+    .bottomImg img {
+        width: 100%;
+    }
+
+    .description_img {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .title {
+        width: 100%;
+        left: 0%;
+        top: 2%;
+        font-size: 3em;
+    }
+
+    .Description p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+}

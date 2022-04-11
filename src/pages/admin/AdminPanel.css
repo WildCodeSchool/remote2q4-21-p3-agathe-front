@@ -26,7 +26,8 @@
 }
 
 .listTitle {
-    font-weight: 500;
     color: var(--darkgreen);
     margin-bottom: 15px;
+    font-weight: 600;
+    font-family: var(--font-home);
 }
