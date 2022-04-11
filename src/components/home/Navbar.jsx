@@ -46,6 +46,12 @@ const Navbar = () => {
     };
   }, []);
 
+  const getUserName = (desktop) => {
+    if (desktop) return `${user.data.first_name} ${user.data.last_name}`
+    else
+       return `${user.data.first_name.charAt(0).toUpperCase()} . ${user.data.last_name.charAt(0).toUpperCase()}`
+  }
+
   return (
     <nav className="navbar">
       <div className="logo">
@@ -77,17 +83,10 @@ const Navbar = () => {
             {user.data && (
               <div className="dropdown_menu">
                 <button onClick={handleClick} className="menu-trigger">
-                  {screenWidth > 500 ?  <span>
-                    {user.data
-                      ? user.data.first_name + " " + user.data.last_name
-                      : null}
-                  </span> : <span>
-                    {user.data
-                      ? user.data.first_name.charAt(0).toUpperCase() + " . " + user.data.last_name.charAt(0).toUpperCase()
-                      : null}
-                  </span> }
-                </button>
+                  <span>{getUserName(screenWidth > 500)}
                 <DropdownMenu ref={dropdownRef} isActive={isActive} />
+                  </span>
+                </button>
               </div>
             )}
           </li>
