@@ -14,8 +14,7 @@ const Introduction = () => {
         <div className="shop_btn">
           <h1>Inspiré par les éléments</h1>
           <Link to="/catalogue" className="link">
-            {" "}
-            <button>Boutique</button>{" "}
+            <button>Boutique</button>
           </Link>
         </div>
         <div className="access_homepage">
