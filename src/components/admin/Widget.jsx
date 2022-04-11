@@ -27,7 +27,7 @@ const Widget = ({ type }) => {
         .then(response => setAmount(response.data.total));
     }
 
-    //temporary
+    // FIXME with true data
     const diff = 20;
 
     switch (type) {
