@@ -1,6 +1,7 @@
-# `Getting Started with Create React App`
+# `BUILD WITH`
 
-Node.js : https://nodejs.org/en/download/
+Node.js : https://nodejs.org/en/download/  
+React.js
 
 ## `Available Scripts`
 
@@ -25,13 +26,19 @@ npm install regarding following dependencies:
     "react-scripts": "5.0.0",  
     "recharts": "^2.1.9",  
     "web-vitals": "^2.1.4"  
+    
+### `Start With`
+
+git clone https://github.com/WildCodeSchool/remote2q4-21-p3-agathe-front.git
 
 ### `.ENV`
 
 Please make sure to set up your .env file using the following .env sample:
 
-REACT_APP_URL_SERVER=http://localhost:8000
+REACT_APP_URL_SERVER=http://localhost:8000  
 REACT_APP_PATH_ADMIN=/admin
+
+*Path admin is required to access admin section*
 
 ### `npm start`
 
