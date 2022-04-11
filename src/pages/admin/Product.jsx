@@ -44,7 +44,6 @@ const Product = ({ title }) => {
             }
             if (productData) {
                 // BUG: with FormData, we receive a req.body={} in back. Why ?
-                // for (let fi of formData.entries()) console.log(fi)
                 let url = `${process.env.REACT_APP_URL_SERVER}/api/products/${data.id}`
                 axios
                     .put(url, data, { withCredentials: true, mode: "cors" })

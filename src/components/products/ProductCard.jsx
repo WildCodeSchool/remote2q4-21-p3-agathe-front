@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-// import { HiPlusCircle } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { MdInfoOutline, MdOutlineAddShoppingCart } from "react-icons/md";
 import { useCart } from "../../contexts/CartContext";

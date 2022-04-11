@@ -7,7 +7,7 @@ const Modal = ({ isShowing, hide, title, ...props }) =>
   isShowing
     ? ReactDOM.createPortal(
         <>
-          <div className="modal-overlay">
+          <div className={`modal-overlay ${props.className}`}>
             <div className="modal-wrapper">
               <div className="modal">
                 <div className="modal-header">

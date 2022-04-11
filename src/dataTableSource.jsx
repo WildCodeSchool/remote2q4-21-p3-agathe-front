@@ -40,13 +40,11 @@ export const ordersColumns = [
         field: "quantity",
         headerName: "Quantité",
         type:'number',
-        // width: 100,
     },
     {
         field: "amount",
         headerName: "Montant €",
         type:'number',
-        // width: 100,
     },
 ];
 
