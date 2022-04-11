@@ -15,6 +15,7 @@
 }
 
 .contacts .footer-link {
+  color: var(--greenblue);
   text-decoration: none;
 }
 

@@ -53,15 +53,17 @@
 .shop_btn .link {
   display: flex;
   margin: auto;
+  text-decoration: none;
 }
 
-.shop_btn button {
+.shop_btn .link button {
   background-color: transparent;
   border: 1px solid white;
   border-radius: 1em;
   color: white;
   padding: 0.5em 1em;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .shop_btn button:hover {
