@@ -69,7 +69,7 @@ const Widget = ({ type }) => {
             data = {
                 title: "VENTES",
                 isMoney: true,
-                link: "Voir toutes les ventes",
+                link: <NavLink to={`${PATH_ADMIN}/orders`}>Voir toutes les ventes</NavLink>,
                 icon: (
                     <MonetizationOnOutlinedIcon
                         className="icon"
