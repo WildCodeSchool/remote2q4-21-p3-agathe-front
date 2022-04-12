@@ -191,7 +191,7 @@ const Product = ({ title }) => {
                                     placeholder="Composition"
                                 ></textarea>
 
-                                <table>
+                                <table className="ingredients">
                                     <thead>
                                         <tr>
                                             <th>Nom</th>
