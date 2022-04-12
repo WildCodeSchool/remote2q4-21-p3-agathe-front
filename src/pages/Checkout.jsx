@@ -26,7 +26,7 @@ const Order = () => {
             });
     }, []);
 
-    return <div>Commande n° {order}</div>;
+    return <div className="newOrder">Commande n° {order}</div>;
 };
 
 const Checkout = () => {
@@ -48,8 +48,11 @@ const Checkout = () => {
             )}
             {user.data && (
                 <>
-                    <div>Utilisateur connecté</div>
+                    <div className="userConnected">Utilisateur connecté</div>
                     <Order />
+                    <Link to="/user/history">
+                        <div className="orderButton">Voir vos commandes</div>
+                    </Link>
                 </>
             )}
         </div>

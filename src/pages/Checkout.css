@@ -41,17 +41,45 @@
 }
 
 .registerBtn2 {
-        margin-top: 1rem;
-        width: 100%;
-        padding: 1rem;
-        color: var(--greenblue);
-        font-size: 15px;
-        font-weight: 600;
-        border: none;
-        border-radius: 100px 100px 100px 100px;
-        cursor: pointer;
-        transition: all, 240ms ease-in-out;
-        background: var(--darkgreen);
-        font-family: var(--font-text);
-        text-align: center;
-    }
+    margin-top: 1rem;
+    width: 100%;
+    padding: 1rem;
+    color: var(--greenblue);
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 100px 100px 100px 100px;
+    cursor: pointer;
+    transition: all, 240ms ease-in-out;
+    background: var(--darkgreen);
+    font-family: var(--font-text);
+    text-align: center;
+}
+
+.userConnected {
+    font-family: var(--font-title);
+    font-size: 1.5em;
+    margin-bottom: 0.5rem;
+}
+
+.newOrder {
+    font-family: var(--font-text);
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+}
+
+.orderButton {
+    margin-top: 1rem;
+    width: 60%;
+    padding: 1rem;
+    color: var(--greenblue);
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 100px 100px 100px 100px;
+    cursor: pointer;
+    transition: all, 240ms ease-in-out;
+    background: var(--darkgreen);
+    font-family: var(--font-text);
+    text-align: center;
+}
