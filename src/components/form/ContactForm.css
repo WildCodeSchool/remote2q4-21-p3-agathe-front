@@ -1,14 +1,13 @@
 .ContactForm {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    /* height: 60vh; */
-    /* margin-top: 50px; */
+    height: 60vh;
+    margin-top: 50px;
     align-items: center;
 }
 
 .Form {
-    padding-bottom: 1rem;
+    padding: 1rem 0;
 }
 
 .Form input {
@@ -55,10 +54,11 @@
 
 @media screen and (max-width: 480px) {
     .ContactForm {
-        margin-top: 3rem;
+        margin: 3rem 0;
     }
+
     .Form input,
     .Form textarea {
-        width: 350px;
+        max-width: 300px;
     }
 }
