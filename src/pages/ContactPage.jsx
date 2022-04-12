@@ -7,18 +7,17 @@ function ContactPage() {
         <div className="contactPage">
             <div className="contactLeft">
                 <h1 className="contact">Nous contacter</h1>
-                <a
+                <p>Par email :<a
                     className="email"
                     href="mailto: elfenncosmetiques@gmail.com"
                     target="_blank"
                     rel="noreferrer"
                 >
                     elfenncosmetiques@gmail.com
-                </a>
+                </a></p>
                 <ContactForm />
             </div>
-            <div className="contactRight">
-            </div>
+            <div className="contactRight"></div>
         </div >
     );
 }
