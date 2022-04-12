@@ -23,7 +23,7 @@ const AdminPanel = () => {
                     <div className="charts">
                         <Featured />
                         <Chart
-                            title="Résultat de l'année 2022 (Revenu)"
+                            title="Résultat de l'année en cours (Revenu)"
                             aspect={2 / 1}
                         />
                     </div>
