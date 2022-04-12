@@ -69,10 +69,12 @@
   width: 100%;
   padding: 5px;
   border: none;
+  font-family: var(--font-text);
 }
 
 .new textarea {
   border: none;
+  font-family: var(--font-text);
 }
 
 .new button {
@@ -88,6 +90,15 @@
   transition: all, 240ms ease-in-out;
   background: var(--darkgreen);
   font-family: var(--font-text);
+}
+
+table.ingredients thead {
+  font-family: var(--font-title);
+}
+
+table.ingredients td {
+  width: 500px;
+  
 }
 
 /* Chrome, Safari, Edge, Opera */
