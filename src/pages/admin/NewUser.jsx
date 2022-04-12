@@ -41,7 +41,7 @@ const New = ({ inputs, title }) => {
                                         />
                                     </div>
                                 ))}
-                                <button>Send</button>
+                                <button>Valider</button>
                             </form>
                         </div>
                     </div>
