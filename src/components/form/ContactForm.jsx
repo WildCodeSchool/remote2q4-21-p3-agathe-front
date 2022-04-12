@@ -13,9 +13,8 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="contactContainer">
-        <div className="ContactForm">
-          <form onSubmit={handleSubmit(handleRegistration, handleError)}>
+      <div className="ContactForm">Ou directement:
+         <form onSubmit={handleSubmit(handleRegistration, handleError)}>
           <div className="Form">
               <input type="text" name="lastname" placeholder="Nom" required
                 {...register('last_name', registerOptions.last_name)}
@@ -49,7 +48,6 @@ const ContactForm = () => {
           </form>
           <button class="sendingBtn">Envoyer</button>
         </div>
-    </div>
   );
 };
 
