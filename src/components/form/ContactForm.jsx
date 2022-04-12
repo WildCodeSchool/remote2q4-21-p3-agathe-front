@@ -13,7 +13,8 @@ const ContactForm = () => {
   };
 
   return (
-      <div className="ContactForm">Ou directement:
+      <div className="ContactForm">
+        <p>Ou</p>
          <form onSubmit={handleSubmit(handleRegistration, handleError)}>
           <div className="Form">
               <input type="text" name="lastname" placeholder="Nom" required

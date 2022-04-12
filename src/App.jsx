@@ -13,6 +13,7 @@ import CartPage from "./pages/CartPage";
 import CartProvider from "./contexts/CartContext";
 import Checkout from "./pages/Checkout";
 import ContactPage from "./pages/ContactPage";
+import HistoryOrdersPage from "./pages/HistoryOrders";
 import Home from "./pages/Home";
 import LoginForm from "./components/form/LoginForm"
 import Page from "./middleware/Page";
@@ -24,7 +25,7 @@ import ProtectedRoute from "./middleware/ProtectedRoute";
 import UserProvider from './contexts/UserProvider';
 import { userInputs } from "./formSource";
 import "./App.css";
-import HistoryOrdersPage from "./components/user/HistoryOrders";
+
 
 const PATH_ADMIN = process.env.REACT_APP_PATH_ADMIN;
 
