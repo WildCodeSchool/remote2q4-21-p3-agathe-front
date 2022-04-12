@@ -77,7 +77,7 @@ const Single = () => {
                         <div className="singleRight">
                             <Chart
                                 aspect={3 / 1}
-                                title="Revenu du client (Des 6 derniers mois)"
+                                title="Revenu du client (sur l'année)"
                                 data={stats}
                             />
                         </div>
