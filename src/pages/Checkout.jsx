@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useCart } from "../contexts/CartContext";
 import { useUser } from "../contexts/UserProvider";
+import "./Checkout.css"
 
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
@@ -32,16 +33,16 @@ const Checkout = () => {
     const user = useUser();
 
     return (
-        <>
-            <h3>Validation de votre commande</h3>
+        <div className="checkoutPage">
+            <h2>Validation de votre commande</h2>
             {!user.data && (
                 <div>
                     <Link to="/login">
-                        <div>Se connecter</div>
+                        <div className="loginBtn2">Se connecter</div>
                     </Link>
-                    <p>ou</p>
+                    <h3>ou</h3>
                     <Link to="/register">
-                        <div>Créer un compte</div>
+                        <div className="registerBtn2">Créer un compte</div>
                     </Link>
                 </div>
             )}
@@ -51,7 +52,7 @@ const Checkout = () => {
                     <Order />
                 </>
             )}
-        </>
+        </div>
     );
 };
 

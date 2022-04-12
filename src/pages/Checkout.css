@@ -1,0 +1,57 @@
+.checkoutPage {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.checkoutPage h2 {
+    font-family: var(--font-home);
+    margin-bottom: 6rem;
+    font-size: 1.55em;
+    text-align: center;
+}
+
+.checkoutPage h3 {
+    font-family: var(--font-home);
+    text-align: center;
+    margin: 2rem;
+}
+
+.checkoutPage a {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.loginBtn2 {
+    width: 10rem;
+    padding: 1rem;
+    margin-top: 2.5rem;
+    color: var(--greenblue);
+    font-size: 1em;
+    font-weight: 600;
+    border: none;
+    border-radius: 100px 100px 100px 100px;
+    cursor: pointer;
+    background: var(--darkgreen);
+    font-family: var(--font-text);
+    text-align: center;
+}
+
+.registerBtn2 {
+        margin-top: 1rem;
+        width: 100%;
+        padding: 1rem;
+        color: var(--greenblue);
+        font-size: 15px;
+        font-weight: 600;
+        border: none;
+        border-radius: 100px 100px 100px 100px;
+        cursor: pointer;
+        transition: all, 240ms ease-in-out;
+        background: var(--darkgreen);
+        font-family: var(--font-text);
+        text-align: center;
+    }
