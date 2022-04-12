@@ -55,7 +55,7 @@ const New = ({ inputs, title }) => {
                     {...register(input.name)} />  
                   </div>
                 ))}
-                <button>Send</button>
+                <button>Valider</button>
               </form>
             </div>
           </div>

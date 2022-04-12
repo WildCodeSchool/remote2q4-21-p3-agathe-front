@@ -135,10 +135,7 @@ const Product = ({ title }) => {
                                 }
                                 alt=""
                             />
-                        </div>
-                        <div className="newRight">
-                            <form onSubmit={handleSubmit(onSubmit)}>
-                                <label htmlFor="file">
+                            <label htmlFor="file">
                                     Image:{" "}
                                     <DriveFolderUploadOutlinedIcon className="newIcon" />
                                 </label>
@@ -153,6 +150,9 @@ const Product = ({ title }) => {
                                         // style={{ display: "none" }}
                                     />
                                 </div>
+                        </div>
+                        <div className="newRight">
+                            <form onSubmit={handleSubmit(onSubmit)}>
                                 <input
                                     type="text"
                                     {...register("sku")}
@@ -207,7 +207,7 @@ const Product = ({ title }) => {
                                         )}
                                     </tbody>
                                 </table>
-                                <button>Send</button>
+                                <button>Valider</button>
                             </form>
                         </div>
                     </div>

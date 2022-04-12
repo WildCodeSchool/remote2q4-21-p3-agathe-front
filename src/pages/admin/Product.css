@@ -1,6 +1,7 @@
 .new {
   display: flex;
   width: 100%;
+  background-color: var(--main-bg-color);
 }
 
 .newContainer {
@@ -13,16 +14,22 @@
   padding: 20px;
   margin: 20px;
   display: flex;
+  background-color: var(--greenblue);
 }
 
 .new h1 {
-  color: lightgray;
+  color: var(--darkgreen);
   font-size: 20px;
+  font-family: var(--font-home);
 }
 
 .newLeft {
   flex: 1;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .new img {
@@ -30,6 +37,7 @@
   height: 100px;
   border-radius: 50%;
   object-fit: cover;
+  margin-top: 3rem;
 }
 
 .newRight {
@@ -61,18 +69,25 @@
   width: 100%;
   padding: 5px;
   border: none;
-  border-bottom: 1px solid gray;
+}
+
+.new textarea {
+  border: none;
 }
 
 .new button {
-  width: 150px;
-  padding: 10px;
+  margin-top: 1.5rem;
+  width: 20%;
+  padding: 1rem;
+  color: var(--greenblue);
+  font-size: 15px;
+  font-weight: 600;
   border: none;
-  background-color: teal;
-  color: white;
-  font-weight: bold;
+  border-radius: 100px 100px 100px 100px;
   cursor: pointer;
-  margin-top: 10px;
+  transition: all, 240ms ease-in-out;
+  background: var(--darkgreen);
+  font-family: var(--font-text);
 }
 
 /* Chrome, Safari, Edge, Opera */

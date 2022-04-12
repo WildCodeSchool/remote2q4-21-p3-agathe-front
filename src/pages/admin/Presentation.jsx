@@ -1,5 +1,6 @@
 import Sidebar from "../../components/admin/Sidebar";
 import PresentationForm from "../../components/form/PresentationForm";
+import "./Presentation.css"
 import "./List.css";
 
 const List = () => {
