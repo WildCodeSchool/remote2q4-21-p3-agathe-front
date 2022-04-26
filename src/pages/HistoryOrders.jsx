@@ -6,6 +6,7 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
+import "./HistoryOrders.css";
 
 const BASE_URL = process.env.REACT_APP_URL_SERVER;
 
@@ -19,8 +20,8 @@ const HistoryOrders = () => {
     }, []);
 
   return (
-    <div>
-      <p>Historique des commandes :</p>
+    <div className="history_orders">
+      <h1>Historique des commandes </h1>
       <TableContainer className="table">
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>

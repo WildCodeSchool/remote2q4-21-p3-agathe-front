@@ -1,0 +1,43 @@
+.presentationForm {
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.presentationForm h1 {
+    padding: 2rem;
+    font-size: 2em;
+    width: 100%;
+    font-family: var(--font-text);
+}
+
+.presentationForm textarea {
+    width: 800px;
+    margin-bottom: 1.5rem;
+}
+
+.presentationForm input {
+    margin-top: 1.5rem;
+    width: 30%;
+    padding: 1rem;
+    color: var(--greenblue);
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 100px 100px 100px 100px;
+    cursor: pointer;
+    transition: all, 240ms ease-in-out;
+    background: var(--darkgreen);
+    font-family: var(--font-text);
+    align-self: end;
+    margin-right: -6rem;
+}
+
+.presentationForm p {
+    margin-top: 2rem;
+    color: green;
+    text-align: left;
+    font-size: 1.5em;
+    font-family: var(--font-text);
+}

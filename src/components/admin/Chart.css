@@ -4,12 +4,16 @@
     padding: 10px;
     background-color: var(--greenblue);
     color: var(--darkgreen);
+    font-family: var(--font-text);
 }
 
 .chartTitle {
     margin-bottom: 20px;
+    font-weight: 600;
+    font-family: var(--font-home);
 }
 
 .chartGrid {
     stroke: var(--main-bg-color);
+    font-family: var(--font-home);
 }

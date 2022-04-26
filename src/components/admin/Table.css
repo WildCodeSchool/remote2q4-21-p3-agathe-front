@@ -16,17 +16,27 @@
     border: 1px solid gray;
 }
 
+.tableCell {
+    font-weight: 600;
+    font-family: var(--font-title);
+}
+
 .status {
     padding: 5px;
     border-radius: 5px;
 }
 
-.Approved {
+.Shipped {
     color: green;
     background-color: rgba(0, 128, 0, 0.151);
 }
 
-.Pending {
+.Payed {
     color: goldenrod;
     background-color:rgba(189, 189, 3, 0.151);
+}
+
+.Pending {
+    color: crimson;
+    background-color: rgba(212, 45, 79, 0.151);
 }

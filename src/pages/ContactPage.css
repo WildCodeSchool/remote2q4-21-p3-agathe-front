@@ -1,5 +1,33 @@
+.contactPage {
+    border: 1px solid #000;
+    display: flex;
+    width: 100%;
+    background-image: url("../../public/assets/img/Coquillages.jpeg");
+    background-repeat: no-repeat;
+    background-size: 50% 100%;
+    background-position: right;
+    min-height: 80vh;
+}
+
+/* .contactContainer {
+    margin-bottom: -40px;
+} */
+
+.contactRight {
+    flex: 1;
+}
+
+.contactLeft {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
 h1.contact {
-    font-size: 30px;
+    margin-top: 40px;
+    font-size: 2em;
     font-family: var(--font-home);
     color: #2C3331;
 }
@@ -8,4 +36,18 @@ a.email {
     font-size: 20px;
     font-family: var(--font-text);
     color: #2C3331;
+}
+
+@media screen and (max-width: 480px) {
+    .contactPage {
+        background-image: none;
+    }
+
+    .contactRight {
+        Flex: 0;
+    }
+
+    .contactLeft a.email {
+       font-size: 1rem;
+    }
 }

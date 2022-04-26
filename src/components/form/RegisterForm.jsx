@@ -12,33 +12,39 @@ const RegisterForm = () => {
         formState: { errors },
         reset,
     } = useForm();
-    const { infos, setUser } = useUser();
+    const user = useUser();
     let navigate = useNavigate();
 
     React.useEffect(() => {
-        if (infos) reset(infos) 
-    }, [])
+        if (user.data) reset(user.data);
+    }, []);
 
     const handleRegistration = async (data) => {
-        try {
+        if (!user.data) {
             axios
-                .post(`${process.env.REACT_APP_URL_SERVER}/api/users`, data)
-                // , {
-                //     withCredentials: true,
-                //     mode: "cors",
-                // })
+                .post(`${process.env.REACT_APP_URL_SERVER}/api/users`, data, {
+                    withCredentials: true,
+                    mode: "cors",
+                })
                 .then(credentials => {
-                    setUser({ token: credentials });
+                    user.set(credentials.data);
                     navigate("/checkout");
-                });
-        } catch (error) {
-            console.log(error);
+                })
+                .catch(error => {});
+        } else {
+            axios
+                .put(`${process.env.REACT_APP_URL_SERVER}/api/users`, data, {
+                    withCredentials: true,
+                    mode: "cors",
+                })
+                .then(credentials => {
+                    user.set(credentials.data);
+                    navigate("/");
+                })
+                .catch(error => {});
         }
     };
-    const handleError = (errors) => {
-        console.log("handleError");
-        console.log(errors);
-    };
+    const handleError = (errors) => {}
 
     const registerOptions = {
         first_name: { required: "Votre prénom est requis" },
@@ -59,129 +65,151 @@ const RegisterForm = () => {
     };
 
     return (
-        <div className="registerContainer">
-            <h2>{infos ? "Modifier votre compte" : "Création de compte"}</h2>
-            <form
-                onSubmit={handleSubmit(handleRegistration, handleError)}
-                className="registerForm"
-            >
-                <div>
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Votre email"
-                        {...register("email", registerOptions.email)}
-                    />
-                    <small className="text-danger">
-                        {errors?.email && errors.email.message}
-                    </small>
-                </div>
-                <div>
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Mot de passe"
-                        {...register("password", registerOptions.password)}
-                    />
-                    <small className="text-danger">
-                        {errors?.password && errors.password.message}
-                    </small>
-                </div>
-                <div>
-                    <div>
-                        <input
-                            name="first_name"
-                            type="text"
-                            placeholder="Prénom"
-                            {...register(
-                                "first_name",
-                                registerOptions.first_name
-                            )}
-                        />
-                        <small className="text-danger">
-                            {errors?.first_name && errors.first_name.message}
-                        </small>
+
+        <div className="registerPage">
+            <h1>{user.data ? "Modifier votre compte" : "Création de compte"}</h1>
+            <div className="registerContainer">
+                <form
+                    onSubmit={handleSubmit(handleRegistration, handleError)}
+                    className="registerForm"
+                >
+                    <div className="registerInput">
+                        <div className="registerLeft"><h3>Informations Personnelles</h3>
+                            <div className="inputsRegister">
+                                <input
+                                    type="email"
+                                    name="email"
+                                    placeholder="Votre email"
+                                    {...register("email", registerOptions.email)}
+                                />
+                                <small className="text-danger">
+                                    {errors?.email && errors.email.message}
+                                </small>
+                            </div>
+                            {!user.data &&
+                                <div className="inputsRegister">
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        placeholder="Mot de passe"
+                                        {...register("password", registerOptions.password)}
+                                    />
+                                    <small className="text-danger">
+                                        {errors?.password && errors.password.message}
+                                    </small>
+                                </div>
+                            }
+                            <div className="inputsRegister">
+                                <input
+                                    name="first_name"
+                                    type="text"
+                                    placeholder="Prénom"
+                                    {...register(
+                                        "first_name",
+                                        registerOptions.first_name
+                                    )}
+                                />
+                                <small className="text-danger">
+                                    {errors?.first_name && errors.first_name.message}
+                                </small>
+                            </div>
+                            <div className="inputsRegister">
+                                <input
+                                    name="last_name"
+                                    type="text"
+                                    placeholder="Nom"
+                                    {...register(
+                                        "last_name",
+                                        registerOptions.last_name
+                                    )}
+                                />
+                                <small className="text-danger">
+                                    {errors?.last_name && errors.last_name.message}
+                                </small>
+                            </div>
+                            <div className="inputsRegister">
+                                <input
+                                    name="phone_number"
+                                    type="text"
+                                    placeholder="Numéro de téléphone"
+                                    {...register(
+                                        "phone_number",
+                                        registerOptions.phone_number
+                                    )}
+                                />
+                                <small className="text-danger">
+                                    {errors?.phone_number &&
+                                        errors.phone_number.message}
+                                </small>
+                            </div>
+                        </div>
+                        <div className="registerRight"><h3>Adresse</h3>
+                            <div className="inputsRegister">
+                                <input
+                                    name="address_1"
+                                    type="text"
+                                    placeholder="Adresse"
+                                    {...register(
+                                        "address_1",
+                                        registerOptions.address_1
+                                    )}
+                                />
+                                <small className="text-danger">
+                                    {errors?.address_1 && errors.address_1.message}
+                                </small>
+                                <input
+                                    name="address_2"
+                                    type="text"
+                                    placeholder="Adresse"
+                                    {...register("address_2")}
+                                />
+                                <input
+                                    name="address_3"
+                                    type="text"
+                                    placeholder="Adresse"
+                                    {...register("address_3")}
+                                />
+                            </div>
+                            <div className="inputsRegister">
+                                <input
+                                    name="post_code"
+                                    type="text"
+                                    placeholder="Code Postal"
+                                    {...register(
+                                        "post_code",
+                                        registerOptions.post_code
+                                    )}
+                                />
+                                <small className="text-danger">
+                                    {errors?.post_code && errors.post_code.message}
+                                </small>
+                            </div>
+                            <div className="inputsRegister">
+                                <input
+                                    name="city"
+                                    type="text"
+                                    placeholder="Ville"
+                                    {...register("city", registerOptions.city)}
+                                />
+                                <small className="text-danger">
+                                    {errors?.city && errors.city.message}
+                                </small>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <input
-                            name="last_name"
-                            type="text"
-                            placeholder="Nom"
-                            {...register("last_name", registerOptions.name)}
-                        />
-                        <small className="text-danger">
-                            {errors?.last_name && errors.last_name.message}
-                        </small>
-                    </div>
-                    <div>
-                        <input
-                            name="phone_number"
-                            type="text"
-                            placeholder="Numéro de téléphone"
-                            {...register("phone_number", registerOptions.phone)}
-                        />
-                        <small className="text-danger">
-                            {errors?.phone_number &&
-                                errors.phone_number.message}
-                        </small>
-                    </div>
-                    <div className="address">
-                        <input
-                            name="address_1"
-                            type="text"
-                            placeholder="Adresse"
-                            {...register("address_1", registerOptions.address_1)}
-                        />
-                        <small className="text-danger">
-                            {errors?.address_1 && errors.address_1.message}
-                        </small>
-                        <input
-                            name="address_2"
-                            type="text"
-                            placeholder="Adresse"
-                            {...register("address_2")}
-                        />
-                        <input
-                            name="address_3"
-                            type="text"
-                            placeholder="Adresse"
-                            {...register("address_3")}
-                        />
-                    </div>
-                    <div>
-                        <input
-                            name="post_code"
-                            type="text"
-                            placeholder="Code Postal"
-                            {...register(
-                                "post_code",
-                                registerOptions.post_code
-                            )}
-                        />
-                        <small className="text-danger">
-                            {errors?.post_code && errors.post_code.message}
-                        </small>
-                    </div>
-                    <div>
-                        <input
-                            name="city"
-                            type="text"
-                            placeholder="Ville"
-                            {...register("city", registerOptions.city)}
-                        />
-                        <small className="text-danger">
-                            {errors?.city && errors.city.message}
-                        </small>
-                    </div>
-                </div>
-                <button className="registerBtn">Créer votre compte</button>
-            </form>
-            <div className="loginBox">
-                <h4>Déjà client ?</h4>
-                <Link to="/login">
-                    <button className="loginBtn">Se connecter</button>
-                </Link>
+                    <button className="registerBtn">
+                        {user.data ? "Valider" : "Créer votre compte"}
+                    </button>
+                </form>
             </div>
+            {!user.data && (
+                <div className="loginBox">
+                    <h4>Déjà client ?</h4>
+                    <Link to="/login">
+                        <button className="loginBtn">Se connecter</button>
+                    </Link>
+                </div>
+            )}
         </div>
     );
 };

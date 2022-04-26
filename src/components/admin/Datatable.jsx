@@ -2,11 +2,9 @@ import React from "react";
 import axios from "axios";
 import { Link, useLocation } from "react-router-dom";
 import { DataGrid } from "@mui/x-data-grid";
-import {
-    ordersColumns,
-    productColumns,
-    userColumns,
-} from "../../dataTableSource";
+import { productColumns, userColumns } from "../../dataTableSource";
+import useModal from "../modal/useModal";
+import Modal from "../modal/modal";
 import { useUser } from "../../contexts/UserProvider";
 import "./Datatable.css";
 
@@ -15,16 +13,40 @@ const PATH_ADMIN = process.env.REACT_APP_PATH_ADMIN;
 
 const Datatable = () => {
     const user = useUser();
+    const [idToDelete, setIDToDelete] = React.useState(null)
     const [type, setType] = React.useState(null);
     const [rows, setRows] = React.useState(null);
     const [columns, setColumns] = React.useState([]);
+    const { isShowing: isModalShowed, toggle: toggleModal } = useModal();
     const { pathname } = useLocation();
+    
+    const ModalConfirmation = ({toggle}) => {
+        return (
+            <div className='ModalCart'>
+                <button onClick={deleteProduct}>Oui</button>
+                <button onClick={toggle} className='btn-link'>Non</button>
+            </div>
+        )
+    }
+
+    const deleteProduct = () => {
+        if (idToDelete){
+            let url = `${BASE_URL}/api/products/${idToDelete}`;
+            axios
+            .delete(url, user.getOptions())
+            .then((response) => getRows('products'))
+            setIDToDelete(null)
+        }
+        toggleModal()
+    }
+    
+    const onDeleteProduct = (id) => {
+        setIDToDelete(id)
+        toggleModal()
+    }
 
     const getRows = (type) => {
-        let url;
-        if (type === "deliveries")
-            url = `${BASE_URL}/api/orders/pending_deliveries`;
-        else url = `${BASE_URL}/api/${type}`;
+        let url = `${BASE_URL}/api/${type}`;
         axios
             .get(url, user.getOptions())
             .then((response) => setRows(response.data));
@@ -34,19 +56,10 @@ const Datatable = () => {
         if (!pathname) {
             return;
         }
-        console.log(`Location update [${pathname}]`);
-        if (pathname === `${PATH_ADMIN}/deliveries`) {
-            setType("deliveries");
-            getRows("deliveries");
-            setColumns(ordersColumns);
-        } else if (pathname === `${PATH_ADMIN}/users`) {
+        if (pathname === `${PATH_ADMIN}/users`) {
             setType("users");
             getRows("users");
             setColumns(userColumns);
-        } else if (pathname === `${PATH_ADMIN}/orders`) {
-            setType("orders");
-            getRows("orders");
-            setColumns(ordersColumns);
         } else if (pathname === `${PATH_ADMIN}/products`) {
             setType("products");
             getRows("products");
@@ -62,24 +75,15 @@ const Datatable = () => {
             renderCell: (params) => {
                 return (
                     <div className="cellAction">
-                        {type === "products" && (
-                            <Link
-                                to={`${pathname}/${params.row.id}`}
-                                style={{ textDecoration: "none" }}
-                            >
-                                <div className="viewButton">Voir</div>
-                            </Link>
-                        )}
-                        {type !== "products" && (
-                            <Link
-                                to={`${pathname}/${params.row.id}`}
-                                style={{ textDecoration: "none" }}
-                            >
-                                <div className="viewButton">Voir</div>
-                            </Link>
-                        )}
                         <Link
-                            to={`${pathname}`}
+                            to={`${pathname}/${params.row.id}`}
+                            style={{ textDecoration: "none" }}
+                            >
+                            <div className="viewButton">Voir</div>
+                        </Link>
+                        <Link
+                            to=""
+                            onClick={() => onDeleteProduct(params.row.id)}
                             style={{ textDecoration: "none" }}
                         >
                             <div className="deleteButton">Supprimer</div>
@@ -96,8 +100,6 @@ const Datatable = () => {
                 Liste des{" "}
                 {
                     {
-                        deliveries: "commandes à expédier",
-                        orders: "commandes",
                         products: "produits",
                         users: "utilisateurs",
                     }[type]
@@ -109,29 +111,7 @@ const Datatable = () => {
                     Ajouter
                 </Link>
             </div>
-            {/* I know, it's not correct to repeat this code,
-                but it's a fix to a DataGrid bug,
-                otherwise when you switch to a list with lesser rows,
-                DataGrid does not remove the extra rows */}
-            {type === "deliveries" ? (
-                <DataGrid
-                    rows={rows ?? []}
-                    columns={columns.concat(actionColumn)}
-                    pageSize={20}
-                    rowsPerPageOptions={[10]}
-                    checkboxSelection
-                />
-            ) : null}
             {type === "users" ? (
-                <DataGrid
-                    rows={rows ?? []}
-                    columns={columns.concat(actionColumn)}
-                    pageSize={20}
-                    rowsPerPageOptions={[10]}
-                    checkboxSelection
-                />
-            ) : null}
-            {type === "orders" ? (
                 <DataGrid
                     rows={rows ?? []}
                     columns={columns.concat(actionColumn)}
@@ -149,6 +129,9 @@ const Datatable = () => {
                     checkboxSelection
                 />
             ) : null}
+            <Modal isShowing={isModalShowed} hide={toggleModal} title="Etes vous certain de vouloir supprimer cet article ?">
+                <ModalConfirmation toggle={toggleModal}/>
+            </Modal>
         </div>
     );
 };

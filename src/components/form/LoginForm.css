@@ -1,14 +1,16 @@
 .loginContainer {
-    width: 40vw;
-    min-height: 550px;
+    min-width: 20vw;
+    min-height: 35rem;
     display: flex;
     flex-direction: column;
-    border-radius: 19px;
     background-color: var(--greenblue);
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     align-items: center;
     margin: 5rem 0;
     color: var(--darkgreen);
+    font-size: 0.8em;
+    padding-top: 2rem;
+    font-family: var(--font-home);
 }
 
 .loginForm {
@@ -17,34 +19,47 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 5rem;
+    margin-bottom: 6rem;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: red;
 }
 
 .loginBtn {
-    width: 50%;
+    width: 10rem;
     padding: 1rem;
-    margin-top: 1.5rem;
+    margin-top: 2.5rem;
     color: var(--greenblue);
-    font-size: 15px;
+    font-size: 1em;
     font-weight: 600;
     border: none;
     border-radius: 100px 100px 100px 100px;
     cursor: pointer;
-    transition: all, 240ms ease-in-out;
     background: var(--darkgreen);
+    font-family: var(--font-text);
 }
 
-.registerBtn {
-    width: 50%;
+.registerButton {
+    margin-top: 1rem;
     padding: 1rem;
     color: var(--greenblue);
-    font-size: 15px;
+    font-size: 1em;
     font-weight: 600;
     border: none;
     border-radius: 100px 100px 100px 100px;
     cursor: pointer;
-    transition: all, 240ms ease-in-out;
     background: var(--darkgreen);
+    font-family: var(--font-text);
+    width: 50%;
+}
+
+.registerLink {
+    width: 20rem;
 }
 
 .loginContainer h2 {
@@ -60,11 +75,34 @@
 
 .loginContainer input {
     margin: 0.5rem 0;
-    width: 18rem;
+    width: 15rem;
     height: 2rem;
+    border: none;
+    text-align: center;
+    font-size: 0.85em;
+    font-family: var(--font-text);
+    color: var(--darkgreen);
 }
 
 .registerBox {
-    width: 100%;
+    width: 20.5rem;
     text-align: center;
+}
+
+@media screen and (max-width: 1000px)  {
+    .loginContainer {
+        width: 35vw;
+}
+}
+
+@media screen and (max-width: 760px)  {
+    .loginContainer {
+        width: 50vw;
+}
+}
+
+@media screen and (max-width: 550px)  {
+    .loginContainer {
+        width: 70vw;
+}
 }

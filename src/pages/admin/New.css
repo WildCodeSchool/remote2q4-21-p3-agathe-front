@@ -1,0 +1,66 @@
+.new {
+    display: flex;
+    width: 100%;
+    background-color: var(--main-bg-color);
+}
+
+.newContainer {
+    flex: 6;
+}
+
+.newTop, .newBottom {
+    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    color: var(--darkgreen);
+    background-color: var(--greenblue);
+}
+
+.new h1 {
+    color: var(--darkgreen);
+    font-size: 20px;
+    font-family: var(--font-home);
+}
+
+.newRight {
+    flex: 2;
+}
+
+.new form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-around;
+}
+
+.newFormInput {
+    width: 40%;
+}
+
+.new label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.newIcon {
+    cursor: pointer;
+}
+
+.new input {
+    width: 100%;
+    padding: 5px;
+    border: none;
+}
+
+.new button {
+    width: 150px;
+    padding: 10px;
+    border: none;
+    background-color: var(--darkgreen);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
